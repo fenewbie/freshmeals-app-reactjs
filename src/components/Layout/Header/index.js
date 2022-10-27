@@ -8,7 +8,10 @@ const Header = () => {
   const { currentPage } = useSelector(state => state.navbar);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNavbarList());
+    if (navbarList.length === 0) {
+      console.log('Dispatch get navbar action');
+      dispatch(getNavbarList());
+    }
     console.log('Navbar List');
     console.log(navbarList);
   }, [navbarList.length]);
