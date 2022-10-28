@@ -1,0 +1,18 @@
+1. Account Firebase for Firestore 
+Email: fegroupbie22@gmail.com
+Password: Freshme@ls22
+
+2. Configuration Tailwind CSS 
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "off",
+            "strings": true
+        },
+        "tailwindCSS.emmetCompletions": true,
+        "files.associations": {
+            "*.css": "tailwindcss"
+        }
+    Use the files.associations setting to tell VS Code to always open .css files in Tailwind CSS mode
+3. API spooncular : 
+	API key : fde7b4e8750a4aa692729cc684e59697
+
