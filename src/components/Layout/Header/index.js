@@ -1,32 +1,56 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getNavbarList } from '../../../redux/features/navbarSlice';
-import NavLink from './NavLink';
+import NavbarLink from './NavLink';
 
 const Header = () => {
-  const { list: navbarList } = useSelector(state => state.navbar);
-  const { currentPage } = useSelector(state => state.navbar);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (navbarList.length === 0) {
-      console.log('Dispatch get navbar action');
-      dispatch(getNavbarList());
-    }
-    console.log('Navbar List');
-    console.log(navbarList);
-  }, [navbarList.length]);
+  const navbarList = [
+    {
+      id: 1,
+      title: 'home',
+      url: '/',
+      parent_id: null,
+    },
+    {
+      id: 2,
+      title: 'shop',
+      url: '/shop',
+      parent_id: 1,
+    },
+    {
+      id: 3,
+      title: 'about',
+      url: '/about',
+      parent_id: 1,
+    },
+    {
+      id: 4,
+      title: 'contact',
+      url: '/contact',
+      parent_id: 1,
+    },
+    {
+      id: 5,
+      title: 'sign in',
+      url: '/sign-in',
+      parent_id: 1,
+    },
+    {
+      id: 6,
+      title: 'register',
+      url: '/register',
+      parent_id: 1,
+    },
+  ];
 
   return (
     <header className='border border-red-500 w-screen p-1'>
       <div
-        className={`bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto`}>
+        className={`bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}>
         <div className='hidden md:inline-block lg:inline-block'>Brand Header</div>
         <nav>
           <ul className='flex space-x-2'>
             {navbarList.length > 0 &&
               navbarList.map(navItem => (
                 <li key={navItem.id}>
-                  <NavLink to={navItem.url} title={navItem.title} />
+                  <NavbarLink to={navItem.url} title={navItem.title} />
                 </li>
               ))}
           </ul>
