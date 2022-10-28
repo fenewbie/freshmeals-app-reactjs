@@ -1,6 +1,7 @@
 import apiAxios from './services/apiAxios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Pro from './Pro.js';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -43,6 +44,7 @@ function App() {
         }}>
         Add new user
       </button>
+      <Pro/>
     </div>
   );
 }
