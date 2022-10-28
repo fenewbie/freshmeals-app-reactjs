@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+import Banner from './Banner';
 import NavbarLink from './NavLink';
 
 const Header = () => {
@@ -39,11 +41,13 @@ const Header = () => {
       parent_id: 1,
     },
   ];
+  const location = useLocation();
 
   return (
-    <header className='border border-red-500 w-screen p-1'>
+    <header className='w-screen relative'>
+      {location.pathname === '/' && <Banner />}
       <div
-        className={`bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}>
+        className={`z-20 bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}>
         <div className='hidden md:inline-block lg:inline-block'>Brand Header</div>
         <nav>
           <ul className='flex space-x-2'>
