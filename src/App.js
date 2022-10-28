@@ -37,7 +37,7 @@ function App() {
       <button
         className='border border-black p-2'
         onClick={() => {
-          apiAxios.post('/user', { username: 'Johnathan Staney' }).then(resp => {
+          apiAxios.post('/user', { username: 'Lily Finage' }).then(resp => {
             setUsers([...users, resp]);
           });
         }}>
