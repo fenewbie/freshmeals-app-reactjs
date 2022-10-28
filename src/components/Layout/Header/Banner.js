@@ -7,6 +7,7 @@ import apiAxios from '../../../services/apiAxios';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { Carousel, Dropdown } from 'flowbite-react';
 
 const Banner = () => {
   const [sliderImgs, setSliderImgs] = useState([]);
@@ -19,9 +20,13 @@ const Banner = () => {
     getImgs();
   }, []);
 
+  useEffect(() => {
+    console.log(sliderImgs.length);
+  }, [sliderImgs.length]);
+
   return (
     <div className='w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0'>
-      <Swiper
+      {/* <Swiper
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
@@ -38,7 +43,19 @@ const Banner = () => {
               Img {imgItem.id}
             </SwiperSlide>
           ))}
-      </Swiper>
+      </Swiper> */}
+      {sliderImgs.length > 0 && (
+        <Carousel className='h-full w-full'>
+          {sliderImgs.map(imgItem => (
+            <img
+              key={imgItem.id}
+              src={imgItem['image-slide']}
+              className='h-full w-full'
+              alt={imgItem.subtitle}
+            />
+          ))}
+        </Carousel>
+      )}
     </div>
   );
 };
