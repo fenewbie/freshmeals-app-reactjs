@@ -1,3 +1,5 @@
+import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 import Banner from './Banner';
 import NavbarLink from './NavLink';
@@ -42,18 +44,27 @@ const Header = () => {
     },
   ];
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className='relative'>
-      {location.pathname === '/' && <Banner />}
+    <header
+      className={`relative flex justify-center ${
+        isHomePage ? 'bg-transparent' : 'bg-gradient-to-r from-slate-800 to-slate-700'
+      }`}>
+      {isHomePage && <Banner />}
       <div
-        className={`z-20 bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}>
-        <div className='hidden md:inline-block lg:inline-block'>Brand Header</div>
+        className={`z-10 ${
+          isHomePage ? 'absolute' : ''
+        } mx-auto py-6 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] ease-in-out duration-200`}>
+        <div className='hidden md:inline-block lg:inline-block'>
+          <span className='text-white font-bold text-2xl'>FRESHMEALS</span>
+        </div>
         <nav>
-          <ul className='flex space-x-2'>
+          <ul className='flex sm:space-x-2 md:space-x-4 lg:space-x-6'>
             {navbarList.length > 0 &&
               navbarList.map(navItem => (
                 <li key={navItem.id}>
+                  <FontAwesomeIcon icon={faSeedling} className='text-white' />
                   <NavbarLink to={navItem.url} title={navItem.title} />
                 </li>
               ))}
