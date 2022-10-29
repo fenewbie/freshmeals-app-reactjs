@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Banner from './Banner';
 import NavbarLink from './NavLink';
 import { navbarList } from '../../../constants/route';
+import brandLogo from '../../../assets/logo.png';
 
 const Header = () => {
   const location = useLocation();
@@ -18,9 +19,9 @@ const Header = () => {
       <div
         className={`z-10 ${
           isHomePage ? 'absolute' : ''
-        } mx-auto py-6 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] ease-in-out duration-200`}>
+        } mx-auto py-6 flex justify-center items-center md:justify-between md:w-[768px] lg:w-[1200px] ease-in-out duration-200`}>
         <div className='hidden md:inline-block lg:inline-block'>
-          <span className='text-white font-bold text-2xl'>FRESHMEALS</span>
+          <img src={brandLogo} alt='Brand' className='h-16' />
         </div>
         <nav>
           <ul className='flex sm:space-x-2 md:space-x-4 lg:space-x-6'>
