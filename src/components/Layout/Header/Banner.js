@@ -20,12 +20,8 @@ const Banner = () => {
     getImgs();
   }, []);
 
-  useEffect(() => {
-    console.log(sliderImgs.length);
-  }, [sliderImgs.length]);
-
   return (
-    <div className='w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0'>
+    <div className='w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0 flex justify-center'>
       {/* <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -45,12 +41,12 @@ const Banner = () => {
           ))}
       </Swiper> */}
       {sliderImgs.length > 0 && (
-        <Carousel className='h-full w-full'>
+        <Carousel slide={false} className='rounded-none'>
           {sliderImgs.map(imgItem => (
             <img
               key={imgItem.id}
               src={imgItem['image-slide']}
-              className='h-full w-full'
+              className='block w-full h-full sm:object-cover md:object-cover object-none m-0 rounded-none'
               alt={imgItem.subtitle}
             />
           ))}

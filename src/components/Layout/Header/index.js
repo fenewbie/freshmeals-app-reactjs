@@ -44,7 +44,7 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className='w-screen relative'>
+    <header className='relative'>
       {location.pathname === '/' && <Banner />}
       <div
         className={`z-20 bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}>
