@@ -1,10 +1,9 @@
-import { faSeedling } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 import Banner from './Banner';
 import NavbarLink from './NavLink';
 import { navbarList } from '../../../constants/route';
 import brandLogo from '../../../assets/logo.png';
+import { FaSeedling } from 'react-icons/fa';
 
 const Header = () => {
   const location = useLocation();
@@ -27,8 +26,8 @@ const Header = () => {
           <ul className='flex sm:space-x-2 md:space-x-4 lg:space-x-6'>
             {navbarList.length > 0 &&
               navbarList.map(navItem => (
-                <li key={navItem.id}>
-                  <FontAwesomeIcon icon={faSeedling} className='text-white' />
+                <li key={navItem.id} className='flex items-center space-x-1'>
+                  <FaSeedling className='text-white' />
                   <NavbarLink to={navItem.url} title={navItem.title} />
                 </li>
               ))}
