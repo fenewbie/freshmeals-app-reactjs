@@ -1,28 +1,41 @@
+import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useLocation } from 'react-router-dom';
+import Banner from './Banner';
 import NavbarLink from './NavLink';
-import {navbarList} from '../../../constants/route';
+import { navbarList } from '../../../constants/route';
 
 const Header = () => {
-	return (
-		<header className="border border-red-500 w-screen p-1">
-			<div
-				className={`bg-yellow-200 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] mx-auto ease-in-out duration-200`}
-			>
-				<div className="hidden md:inline-block lg:inline-block">
-					Brand Header
-				</div>
-				<nav>
-					<ul className="flex space-x-2">
-						{navbarList.length > 0 &&
-							navbarList.map((navItem) => (
-								<li key={navItem.id}>
-									<NavbarLink to={navItem.url} title={navItem.title} />
-								</li>
-							))}
-					</ul>
-				</nav>
-			</div>
-		</header>
-	);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  return (
+    <header
+      className={`relative flex justify-center ${
+        isHomePage ? 'bg-transparent' : 'bg-gradient-to-r from-slate-800 to-slate-700'
+      }`}>
+      {isHomePage && <Banner />}
+      <div
+        className={`z-10 ${
+          isHomePage ? 'absolute' : ''
+        } mx-auto py-6 flex justify-center md:justify-between md:w-[768px] lg:w-[1200px] ease-in-out duration-200`}>
+        <div className='hidden md:inline-block lg:inline-block'>
+          <span className='text-white font-bold text-2xl'>FRESHMEALS</span>
+        </div>
+        <nav>
+          <ul className='flex sm:space-x-2 md:space-x-4 lg:space-x-6'>
+            {navbarList.length > 0 &&
+              navbarList.map(navItem => (
+                <li key={navItem.id}>
+                  <FontAwesomeIcon icon={faSeedling} className='text-white' />
+                  <NavbarLink to={navItem.url} title={navItem.title} />
+                </li>
+              ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
