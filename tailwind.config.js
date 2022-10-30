@@ -6,10 +6,11 @@ module.exports = {
 	],
 	theme: {
 		 screens: {
-			sm: '481px',
-			md: '768px',
-			lg: '1025px',
-		    xlg: '1200px'
+			'xsm': {'min': '321px', 'max': '480px'},
+			'sm': '481px',
+			'md': '768px',
+			'lg': '1025px',
+		    'xlg': '1200px'
 		},
 		extend: {},
 	},
