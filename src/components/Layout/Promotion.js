@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { collection, getDocs } from "firebase/firestore"
 import db from "../../services/firebase"
 import { Link } from 'react-router-dom';
+import { BsFillBasket2Fill } from "react-icons/bs";
 
 export default function Promotion() {
 	const [banners, setBanners] = useState([]);
@@ -36,7 +37,12 @@ export default function Promotion() {
 
 													<h4 className='text-[1rem] xsm:text-[1.4rem]  sm:text-[2rem] md:text-[1.5rem] capitalize'>{subtitle}</h4>
 
-													<Link to='/shop' className='text-xs xsm:text-sm sm:text-lg md:text-[0.9rem] sm:mt-3 capitilize font-semibold block mt-1'>Buy Now</Link>
+													<Link to='/shop' className='text-xs xsm:text-sm sm:text-lg md:text-[0.9rem] sm:mt-3 capitilize font-semibold block mt-1'>
+														<div className='flex items-center'>
+															<span className='mr-[7px]'>Buy Now</span>
+															<BsFillBasket2Fill/>
+														</div>
+													</Link>
 												</div>
 												<div className='h-full'>
 													<img src={image} className='h-full w-full object-contain relative left-2.5'/>
