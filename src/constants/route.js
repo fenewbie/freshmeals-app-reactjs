@@ -26,37 +26,30 @@ export const navbarList = [
 	},
 	{
 		id: 5,
-		title: 'sign in',
-		url: '/sign-in',
+		title: 'user',
+		url: '',
 		parent_id: 1,
-	},
-	{
-		id: 6,
-		title: 'register',
-		url: '/register',
-		parent_id: 1,
-	},
-];
-
-export const userList = [
-	{
-		id: 1,
-		title: 'Sign in',
-		url: '/sign-in',
-	},
-	{
-		id: 2,
-		title: 'Register',
-		url: '/register',
-	},
-	{
-		id: 3,
-		title: 'My Account',
-		url: '/sign-in',
-	},
-	{
-		id: 4,
-		title: 'Wishlist',
-		url: '/wishlist',
+		children: [
+			{
+				id: 1,
+				title: 'Sign In',
+				url: '/sign-in',
+			},
+			{
+				id: 2,
+				title: 'Register',
+				url: '/register',
+			},
+			{
+				id: 3,
+				title: 'My Account',
+				url: '/sign-in',
+			},
+			{
+				id: 4,
+				title: 'Wishlist',
+				url: '/wishlist',
+			},
+		],
 	},
 ];

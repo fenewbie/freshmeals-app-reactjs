@@ -11,7 +11,11 @@ module.exports = {
 			lg: '1024px',
 			xl: '1280px',
 		},
-		extend: {},
+		extend: {
+			colors: {
+				greenBtn: '#80B500',
+			},
+		},
 	},
 	plugins: [require('flowbite/plugin')],
 };
