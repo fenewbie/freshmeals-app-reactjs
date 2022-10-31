@@ -38,26 +38,3 @@ export  const navbarList = [
 	},
 ];
 
-// Promotion 
-export const promitionList = [
-	{
-		id: 1,
-		url: 'https://cdn.glitch.global/a80c0b47-9516-4b2d-9d56-57223b656dbe/%E2%80%94Pngtree%E2%80%94orange%20png%20png%20free%20download_3619070.png?v=1666906883222',
-		title: 'Big sales',
-		subtitle: 'Mango & juic'
-
-	},
-	{
-		id: 2,
-		url: 'https://cdn.glitch.global/a80c0b47-9516-4b2d-9d56-57223b656dbe/%E2%80%94Pngtree%E2%80%94fragrant%20fruit%20nutrition%20pineapple%20high_5743513.png?v=1666906979332',
-		title: 'save 20%',
-		subtitle: 'every order'
-	},
-	{
-		id: 3,
-		url: 'https://cdn.glitch.global/a80c0b47-9516-4b2d-9d56-57223b656dbe/%E2%80%94Pngtree%E2%80%94pomelo%20fruit%20food_6342487.png?v=1666906987076',
-		title: 'Big sales',
-		subtitle: 'Mango & juic'
-
-	}
-]

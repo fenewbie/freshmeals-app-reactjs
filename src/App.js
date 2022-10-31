@@ -10,16 +10,16 @@ import Promotion from './components/Layout/Promotion';
 
 function App() {
   return (
-    <Promotion/>
-    // <Provider store={store}>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route index element={<Home />}></Route>
-    //       <Route path='/shop' element={<Shop />}></Route>
-    //       <Route path='/about' element={<About />}></Route>
-    //     </Routes>
-    //   </BrowserRouter>
-    // </Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/shop' element={<Shop />}></Route>
+          <Route path='/about' element={<About />}></Route>
+          <Route index element={<Promotion/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
