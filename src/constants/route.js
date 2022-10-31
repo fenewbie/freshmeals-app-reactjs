@@ -39,7 +39,7 @@ export  const navbarList = [
 ];
 
 // Promotion 
-export const promitionListImages = [
+export const promitionList = [
 	{
 		id: 1,
 		url: 'https://cdn.glitch.global/a80c0b47-9516-4b2d-9d56-57223b656dbe/%E2%80%94Pngtree%E2%80%94orange%20png%20png%20free%20download_3619070.png?v=1666906883222',

@@ -1,5 +1,5 @@
 import React from 'react'
-import {promitionListImages} from '../../constants/route'
+import {promitionList} from '../../constants/route'
 
 export default function Promotion() {
   	return (
@@ -7,7 +7,7 @@ export default function Promotion() {
 			{/* <div className='flex flex-wrap lg:mx-[-15px] justify-center'> */}
 			<div className='flex flex-wrap justify-center'>
 				{
-					promitionListImages.map(({url, title, subtitle, id}) => 
+					promitionList.map(({url, title, subtitle, id}) => 
 						(
 							<div key={id} className='w-full lg:w-1/3 md:w-1/2 px-[15px] my-[15px]'>
 								<div className='lg:pt-[60%] pt-[50%] relative overflow-hidden'>
