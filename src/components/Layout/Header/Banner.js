@@ -17,9 +17,9 @@ const Banner = () => {
 	}, []);
 
 	return (
-		<div className="w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0 flex justify-center">
+		<div className="w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0 flex justify-center rounded-none">
 			{sliderImgs.length > 0 && (
-				<Carousel slide={false} className="rounded-none">
+				<Carousel slide={false}>
 					{sliderImgs.map((imgItem) => (
 						<img
 							key={imgItem.id}
