@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseURL = 'https://freshmeals-database.glitch.me';
+const baseURL =
+	'https://api.spoonacular.com';
 
 const apiAxios = axios.create({
 	baseURL: baseURL
