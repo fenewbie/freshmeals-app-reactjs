@@ -7,21 +7,14 @@ const Banner = () => {
 	const [sliderImgs, setSliderImgs] = useState([]);
 
 	useEffect(() => {
+		const getImgs = async () => {
+			const slideHeaderRef = await getDocs(collection(db, 'slide-header'));
+			setSliderImgs(
+				slideHeaderRef.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+			);
+		};
 		getImgs();
 	}, []);
-
-	function getImgs() {
-		const slideHeaderRef = collection(db, 'slide-header');
-		getDocs(slideHeaderRef)
-			.then((res) => {
-				const slideHeader = res.docs.map((doc) => ({
-					data: doc.data(),
-					id: doc.id,
-				}));
-				setSliderImgs(slideHeader);
-			})
-			.catch((err) => console.log('Error is ', err.message));
-	}
 
 	return (
 		<div className="w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0 flex justify-center">
