@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from "firebase/firestore"
-import db from "../../../services/firebase"
+import {db} from "../../../services/firebase"
 import PromotionItem from './PromotionItem'
 
 export default function Promotion() {

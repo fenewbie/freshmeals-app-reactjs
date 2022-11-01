@@ -1,5 +1,5 @@
 // Navbar
-export  const navbarList = [
+export const navbarList = [
 	{
 		id: 1,
 		title: 'home',
@@ -26,15 +26,31 @@ export  const navbarList = [
 	},
 	{
 		id: 5,
-		title: 'sign in',
-		url: '/sign-in',
-		parent_id: 1,
-	},
-	{
-		id: 6,
-		title: 'register',
-		url: '/register',
+		title: 'blog',
+		url: '/blog',
 		parent_id: 1,
 	},
 ];
 
+export const userList = [
+	{
+		id: 1,
+		title: 'Sign in',
+		url: '/sign-in',
+	},
+	{
+		id: 2,
+		title: 'Register',
+		url: '/register',
+	},
+	{
+		id: 3,
+		title: 'My Account',
+		url: '/sign-in',
+	},
+	{
+		id: 4,
+		title: 'Wishlist',
+		url: '/wishlist',
+	},
+];

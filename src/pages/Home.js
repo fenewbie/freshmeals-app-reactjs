@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <MainLayout>
       <h1 className='text-4xl'>Home page</h1>
-      <Promotion/>
+      {/* <Promotion/> */}
     </MainLayout>
   );
 };

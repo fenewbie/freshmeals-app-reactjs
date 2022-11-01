@@ -5,14 +5,17 @@ module.exports = {
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 	],
 	theme: {
-		 screens: {
-			'xsm': {'min': '321px', 'max': '480px'},
-			'sm': '481px',
-			'md': '768px',
-			'lg': '1025px',
-		    'xlg': '1200px'
+		screens: {
+			sm: '480px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
 		},
-		extend: {},
+		extend: {
+			colors: {
+				greenBtn: '#80B500',
+			},
+		},
 	},
 	plugins: [require('flowbite/plugin')],
 };
