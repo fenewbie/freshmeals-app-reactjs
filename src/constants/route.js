@@ -26,30 +26,31 @@ export const navbarList = [
 	},
 	{
 		id: 5,
-		title: 'user',
-		url: '',
+		title: 'blog',
+		url: '/blog',
 		parent_id: 1,
-		children: [
-			{
-				id: 1,
-				title: 'Sign In',
-				url: '/sign-in',
-			},
-			{
-				id: 2,
-				title: 'Register',
-				url: '/register',
-			},
-			{
-				id: 3,
-				title: 'My Account',
-				url: '/sign-in',
-			},
-			{
-				id: 4,
-				title: 'Wishlist',
-				url: '/wishlist',
-			},
-		],
+	},
+];
+
+export const userList = [
+	{
+		id: 1,
+		title: 'Sign in',
+		url: '/sign-in',
+	},
+	{
+		id: 2,
+		title: 'Register',
+		url: '/register',
+	},
+	{
+		id: 3,
+		title: 'My Account',
+		url: '/sign-in',
+	},
+	{
+		id: 4,
+		title: 'Wishlist',
+		url: '/wishlist',
 	},
 ];

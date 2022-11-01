@@ -7,9 +7,7 @@ const NavbarLink = ({ to, className = '', title }) => {
   return (
     <NavLink
       to={to}
-      className={`${
-        isActive ? 'text-green-300' : 'text-white'
-      } ${className} text-base`}>
+      className={`${isActive ? 'text-slate-400' : 'text-black'} ${className} text-base capitalize`}>
       {title}
     </NavLink>
   );

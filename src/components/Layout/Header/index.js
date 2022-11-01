@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import NavbarLink from './NavLink';
-import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
-import { Navbar, Dropdown, Button, Modal } from 'flowbite-react';
+import { BiSearch, BiUser, BiCartAlt, BiMenu, BiHeart } from 'react-icons/bi';
+import {Dropdown, Button, Modal } from 'flowbite-react';
 import Banner from './Banner';
+import SocialLink from '../../UI/SocialLink';
 import { navbarList, userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
-import { useState } from 'react';
+
+import './nav.css';
 
 const Header = () => {
 	const [isDisplay, setIsDisplay] = useState(false);
@@ -40,7 +43,7 @@ const Header = () => {
 							</Link>
 						</div>
 					</nav>
-					<nav className="flex justify-between items-center mx-auto">
+					<nav className="flex justify-between items-center mx-auto gap-5">
 						<Link to="#">
 							<button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">
 								GET A QUOTE
@@ -55,9 +58,10 @@ const Header = () => {
 							arrowIcon={false}
 							label={<BiUser />}
 							color={'light'}
-							pill={true}
+							size={'40px'}
+							id="userBtn"
 						>
-							{navbarList[4].children.map((item) => (
+							{userList.map((item) => (
 								<Dropdown.Item key={item.id}>{item.title}</Dropdown.Item>
 							))}
 						</Dropdown>
@@ -70,39 +74,56 @@ const Header = () => {
 						<Button className="bg-white p-3 rounded-full" onClick={handleClick}>
 							<BiMenu />
 						</Button>
-						<Modal show={false}>
+						<Modal
+							show={false}
+							onClose={() => setIsDisplay(isDisplay)}
+							className="-ml-4 pr-10"
+						>
 							<Modal.Header>
 								<Link to="/">
 									<img src={cs.logo} alt="logo" className="h-12" />
 								</Link>
-								<form>
+								<form className="py-6">
 									<div className="relative">
-										<div>
-											<input type="text" />
+										<input type="text" placeholder="Search..." />
+										<div className="flex inset-y-0 absolute right-0 items-center pr-2">
 											<BiSearch />
 										</div>
 									</div>
 								</form>
+								<ul>
+									{navbarList.length > 0 &&
+										navbarList.map((navItem) => (
+											<li
+												key={navItem.id}
+												className="flex items-center space-x-1"
+											>
+												<NavbarLink
+													to={navItem.url}
+													title={navItem.title}
+													className=" text-zinc-900 uppercase"
+												/>
+											</li>
+										))}
+								</ul>
 							</Modal.Header>
+							<Modal.Body className="flex flex-col">
+								<button className="hover:text-greenBtn inline-flex items-center gap-3">
+									<BiUser className="outline-1" />
+									My Account
+								</button>
+								<button className="hover:text-greenBtn inline-flex items-center gap-3">
+									<BiHeart className="outline-1" />
+									Wishlist
+								</button>
+								<button className="hover:text-greenBtn inline-flex items-center gap-3">
+									<BiCartAlt className="outline-1" />
+									Shopping cart
+								</button>
+							</Modal.Body>
+							<hr />
+							<SocialLink />
 						</Modal>
-
-						{/* <div
-							className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-								!isDisplay ? 'block' : 'hidden'
-							}`}
-						>
-							<ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-								{navbarList.length > 0 &&
-									navbarList.map((navItem) => (
-										<li
-											key={navItem.id}
-											className="flex items-center space-x-1"
-										>
-											<NavbarLink to={navItem.url} title={navItem.title} />
-										</li>
-									))}
-							</ul>
-						</div> */}
 					</nav>
 				</div>
 			</div>
@@ -111,15 +132,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-	/* <ul className="flex flex-col sm:space-x-2 md:space-x-4 lg:space-x-6">
-	{isDisplay &&
-		navbarList.length > 0 &&
-		navbarList.map((navItem) => (
-			<li key={navItem.id} className="flex items-center space-x-1">
-				<NavbarLink to={navItem.url} title={navItem.title} />
-			</li>
-		))}
-</ul>; */
-}
