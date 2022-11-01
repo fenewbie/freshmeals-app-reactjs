@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 import { Dropdown, Button } from 'flowbite-react';
+import { motion } from 'framer-motion';
 
 import Banner from './Banner';
 import SocialLink from '../../UI/SocialLink';
@@ -13,12 +14,11 @@ import * as cs from '../../../constants/Constant';
 import './nav.css';
 
 const Header = () => {
-	const [isDisplay, setIsDisplay] = useState(false);
+	const [isDisplay, setIsDisplay] = useState(true);
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
-	const handleClick = (e) => {
-		e.preventDefault();
+	const handleClick = () => {
 		console.log('navbar mobil is opened!');
 		setIsDisplay(!isDisplay);
 	};
@@ -88,10 +88,13 @@ const Header = () => {
 							</div>
 						</div>
 
-						<div
+						<motion.div
+							initial={{x:0}}
+							animate={{ x: -390 }}
+							transition={{ duration:1 }}
 							className={`${
 								!isDisplay
-									? 'bg-white pl-8 pt-7 w-72 h-screen absolute -top-24 -left-28 z-30'
+									? 'bg-white pl-8 pt-7 w-72 h-screen fixed inset-y-0 z-30'
 									: 'hidden'
 							}`}
 						>
@@ -102,13 +105,7 @@ const Header = () => {
 										Freshmeals
 									</span>
 								</Link>
-								<button
-									className="flex px-12 mt-5"
-									onClick={() => {
-										console.log('close navbar');
-										setIsDisplay(isDisplay);
-									}}
-								>
+								<button className="flex px-12 mt-5" onClick={handleClick}>
 									<MdClose />
 								</button>
 							</div>
@@ -136,7 +133,7 @@ const Header = () => {
 								</button>
 							</div>
 							<SocialLink />
-						</div>
+						</motion.div>
 					</nav>
 				</div>
 			</div>
