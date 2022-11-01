@@ -3,7 +3,7 @@ import { Tooltip } from 'flowbite-react';
 
 export default function SocialLink() {
 	return (
-		<div className="inline-flex items-center gap-4 p-7">
+		<div className="flex gap-4 py-7">
 			<Tooltip
 				content={'Facebook'}
 				arrow={false}
