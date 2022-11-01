@@ -13,7 +13,7 @@ import * as cs from '../../../constants/Constant';
 import './nav.css';
 
 const Header = () => {
-	const [isDisplay, setIsDisplay] = useState(false);
+	const [isDisplay, setIsDisplay] = useState(true);
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 

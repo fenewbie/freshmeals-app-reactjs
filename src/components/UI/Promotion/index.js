@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from "firebase/firestore"
 import {db} from "../../../services/firebase"
-import PromotionItem from './PromotionItem'
+import Item from './Item'
 
 export default function Promotion() {
 	const [list, setList] = useState([]);
-	const colors = ['red', 'blue', 'purple'];
+	
 	useEffect(() => {
 		const getData = async () => {
 			const data = await getDocs(collection(db, "promotion"));
@@ -17,12 +17,12 @@ export default function Promotion() {
 
   	return (
 		<>
-			<div className='container mx-auto xsm:max-w-full'>
+			<div>
 				<div className='flex flex-wrap justify-center'>
 					{
-						list.map((item, index) => 
+						list.map((item) => 
 							(
-								<PromotionItem key={index} value={item} color={colors[index]}/>
+								<Item key={item.id} value={item}/>
 							)
 						)
 					}
