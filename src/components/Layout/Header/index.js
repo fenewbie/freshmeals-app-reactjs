@@ -1,13 +1,13 @@
+import {NavMobi} from './NavMobi'
 import { Navigation } from './Navigation';
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { BiSearch, BiUser, BiCartAlt, BiMenu, BiHeart } from 'react-icons/bi';
-import { MdClose } from 'react-icons/md';
-import { Dropdown, Button } from 'flowbite-react';
-import { motion } from 'framer-motion';
+import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
+
+import { Dropdown} from 'flowbite-react';
+
 
 import Banner from './Banner';
-import SocialLink from '../../UI/SocialLink';
 import { userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
 
@@ -19,7 +19,6 @@ const Header = () => {
 	const isHomePage = location.pathname === '/';
 
 	const handleClick = () => {
-		console.log('navbar mobil is opened!');
 		setIsDisplay(!isDisplay);
 	};
 
@@ -79,61 +78,16 @@ const Header = () => {
 										<BiCartAlt />
 									</button>
 								</Link>
-								<Button
+								<button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleClick}
 								>
 									<BiMenu />
-								</Button>
+								</button>
 							</div>
 						</div>
 
-						<motion.div
-							initial={{x:0}}
-							animate={{ x: -390 }}
-							transition={{ duration:1 }}
-							className={`${
-								!isDisplay
-									? 'bg-white pl-8 pt-7 w-72 h-screen fixed inset-y-0 z-30'
-									: 'hidden'
-							}`}
-						>
-							<div className="flex justify-between items-center">
-								<Link to="/" className="flex items-center">
-									<img src={cs.logo02} alt="logo" className="h-12 -ml-5" />
-									<span className="text-xl font-bold whitespace-nowrap uppercase -ml-5 mt-4 ">
-										Freshmeals
-									</span>
-								</Link>
-								<button className="flex px-12 mt-5" onClick={handleClick}>
-									<MdClose />
-								</button>
-							</div>
-							<form className="py-6">
-								<div className="relative">
-									<input type="text" placeholder="Search..." className="w-56" />
-									<div className="flex inset-y-0 absolute right-0 items-center pr-12">
-										<BiSearch />
-									</div>
-								</div>
-							</form>
-							<Navigation className="flex-col gap-3 pb-8 border-b w-11/12" />
-							<div className="flex flex-col gap-5 py-6 border-b w-11/12">
-								<button className="hover:text-greenBtn inline-flex items-center gap-3">
-									<BiUser className="outline-1" />
-									My Account
-								</button>
-								<button className="hover:text-greenBtn inline-flex items-center gap-3">
-									<BiHeart className="outline-1" />
-									Wishlist
-								</button>
-								<button className="hover:text-greenBtn inline-flex items-center gap-3">
-									<BiCartAlt className="outline-1" />
-									Shopping cart
-								</button>
-							</div>
-							<SocialLink />
-						</motion.div>
+						<NavMobi   isDisplay={isDisplay} handleClick={handleClick}  />
 					</nav>
 				</div>
 			</div>
