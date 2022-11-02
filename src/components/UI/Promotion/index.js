@@ -16,18 +16,18 @@ export default function Promotion() {
 	}, []);
 
   	return (
-		<>
-			<div>
-				<div className='flex flex-wrap justify-center'>
-					{
-						list.map((item) => 
-							(
-								<Item key={item.id} value={item}/>
-							)
-						)
-					}
-				</div>
-			</div>
-		</>
+		<div className='grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7'>
+			{
+				list.map((item) => 
+					(
+						<Item 
+							key={item.id} 
+							value={item} 
+							className={item.id == 3 ? 'md:col-[2_/_span_2]' : 'md:col-span-2'}
+						/>
+					)
+				)
+			}
+		</div>
   	)
 }
