@@ -14,7 +14,7 @@ import * as cs from '../../../constants/Constant';
 import './nav.css';
 
 const Header = () => {
-	const [isDisplay, setIsDisplay] = useState(true);
+	const [isDisplay, setIsDisplay] = useState(false);
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
@@ -46,7 +46,7 @@ const Header = () => {
 					</nav>
 					<nav className="flex justify-end items-center gap-8 relative">
 						<div className="hidden lg:block lg:order-1">
-							<Navigation className="flex-row gap-6 capitalize font-bold" />
+							<Navigation className="flex flex-row gap-6 text-white capitalize font-bold" />
 						</div>
 
 						<div className="flex flex-wrap gap-6 order-2">
