@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { collection, getDocs } from "firebase/firestore"
-import {db} from "../../../services/firebase"
-import Item from './Item'
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../../services/firebase";
+import Item from './Item';
 
 export default function Promotion() {
 	const [list, setList] = useState([]);
