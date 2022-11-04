@@ -1,10 +1,8 @@
 import FeatureItem from './FeatureItem';
-import db from '../../../services/firebase';
+import {db} from '../../../services/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
-const iconSize = '2em';
 
 const Features = () => {
   const [featureItems, setFeatureItems] = useState([]);
@@ -14,7 +12,6 @@ const Features = () => {
       setFeatureItems(resp.docs.map(doc => ({ ...doc.data(), id: doc.id })));
     };
     getData();
-    console.table(featureItems);
   }, []);
   return (
     <div className='relative px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 w-full before:z-0 before:contents-[""] before:w-full before:h-1/2 before:absolute before:left-0 before:bottom-0 before:bg-[#f7f5eb]'>

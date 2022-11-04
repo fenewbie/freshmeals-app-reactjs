@@ -1,7 +1,7 @@
 import { BiSearch, BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import * as cs from '../../../constants/Constant';
 import { Navigation } from './Navigation';
@@ -41,7 +41,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 							</div>
 						</div>
 					</form>
-					<Navigation className= "flex-col gap-3 pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
+					<Navigation className="flex-col gap-3 pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
 					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
 						<button className="hover:text-greenBtn inline-flex items-center gap-3">
 							<BiUser className="outline-1" />

@@ -1,5 +1,6 @@
 import FooterLink from './FooterLink';
-import { linkFooter } from '../../../constants/route';
+import  {linkFooter} from '../../../constants/route'
+
 
 const FooterService = () => {
   return (

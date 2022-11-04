@@ -1,34 +1,61 @@
 import { useEffect, useState } from 'react';
-import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../../services/firebase';
-import { Carousel } from 'flowbite-react';
+import {db} from '../../../services/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import BannerSlideItem from './BannerSlideItem';
+
+import { SwiperSlide, Swiper } from 'swiper/react';
+import { Pagination } from 'swiper';
+import SliderButton from '../../UI/Slider/SliderButton';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Banner = () => {
-	const [sliderImgs, setSliderImgs] = useState([]);
+  const [sliderImgs, setSliderImgs] = useState([]);
+  let [showNavBtn, setShowNavBtn] = useState(false);
 
-	useEffect(() => {
-		const getImgs = async () => {
-			const slideHeaderRef = await getDocs(collection(db, 'slide-header'));
-			setSliderImgs(
-				slideHeaderRef.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-			);
-		};
-		getImgs();
-	}, []);
+  useEffect(() => {
+    const getImgs = async () => {
+      const docRef = collection(db, 'slide-header');
+      const resp = await getDocs(docRef);
+      setSliderImgs(resp.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    };
+    getImgs();
+  }, []);
 
-	return (
-		<div className="w-full h-[600px] md:h-[700px] lg:h-screen top-0 right-0 flex justify-center rounded-none">
+  return (
+		<div
+			className="relative w-full h-[600px] md:h-[700px] lg:h-screen flex justify-center"
+			onMouseEnter={() => {
+				setShowNavBtn(true);
+			}}
+			onMouseLeave={() => {
+				setShowNavBtn(false);
+			}}
+		>
 			{sliderImgs.length > 0 && (
-				<Carousel slide={false}>
+				<Swiper loop={true} pagination={true} modules={[Pagination]}>
+					<SliderButton
+						isNext={false}
+						iconSize={36}
+						iconColors={['white', 'greenBtn']}
+						className={`p-3 bg-transparent rounded-full border-greenBtn border-2 hover:border-white hover:bg-greenBtn ${
+							showNavBtn ? 'visible' : 'invisible'
+						} ease-in-out duration-300`}
+					/>
+					<SliderButton
+						isNext={true}
+						iconSize={36}
+						iconColors={['white', 'greenBtn']}
+						className={`p-3 bg-transparent rounded-full border-greenBtn border-2 hover:border-white hover:bg-greenBtn ${
+							showNavBtn ? 'visible' : 'invisible'
+						} transition-all ease-in-out duration-300`}
+					/>
 					{sliderImgs.map((imgItem) => (
-						<img
-							key={imgItem.id}
-							src={imgItem['image-slide']}
-							className="block w-full h-full sm:object-cover md:object-cover object-none m-0 rounded-none"
-							alt={imgItem.subtitle}
-						/>
+						<SwiperSlide key={imgItem.id}>
+							<BannerSlideItem imgItem={imgItem} />
+						</SwiperSlide>
 					))}
-				</Carousel>
+				</Swiper>
 			)}
 		</div>
 	);

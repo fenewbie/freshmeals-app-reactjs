@@ -1,11 +1,10 @@
-import {NavMobi} from './NavMobi'
+import { NavMobi } from './NavMobi';
 import { Navigation } from './Navigation';
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
-import { Dropdown} from 'flowbite-react';
-
+import { Dropdown } from 'flowbite-react';
 
 import Banner from './Banner';
 import { userList } from '../../../constants/route';
@@ -24,11 +23,11 @@ const Header = () => {
 
 	return (
 		<header
-			className={`relative flex justify-center ${
+			className={` relative flex justify-center ${
 				isHomePage
 					? 'bg-transparent'
 					: 'bg-gradient-to-r from-slate-800 to-slate-700'
-			}`}
+			} `}
 		>
 			{isHomePage && <Banner />}
 			<div
@@ -36,7 +35,7 @@ const Header = () => {
 					isHomePage ? 'absolute' : ''
 				} mx-auto py-6 flex flex-wrap justify-center items-center md:justify-between md:w-[768px] lg:w-[1200px] ease-in-out duration-200`}
 			>
-				<div className="container flex flex-col md:flex-row lg:flex-row justify-between md:justify-around items-center mx-auto ">
+				<div className="container flex flex-col md:flex-row lg:flex-row justify-between md:justify-around items-center mx-auto">
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
@@ -82,12 +81,18 @@ const Header = () => {
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleClick}
 								>
+									<span
+										className={`${
+											isDisplay
+												? 'fixed inset-0 w-full h-full bg-black opacity-40'
+												: ''
+										}`}
+									></span>
 									<BiMenu />
 								</button>
+								<NavMobi isDisplay={isDisplay} handleClick={handleClick} />
 							</div>
 						</div>
-
-						<NavMobi   isDisplay={isDisplay} handleClick={handleClick}  />
 					</nav>
 				</div>
 			</div>
