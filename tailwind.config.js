@@ -15,6 +15,12 @@ module.exports = {
 			colors: {
 				greenBtn: '#80B500',
 			},
+			keyframes: {
+				fadeOut: {
+					'0%': { transform: 'translateY(50%)', opacity: '0' },
+					'100%': { transform: 'translateY(-50%)', opacity: '1' },
+				},
+			},
 		},
 	},
 	plugins: [require('flowbite/plugin')],

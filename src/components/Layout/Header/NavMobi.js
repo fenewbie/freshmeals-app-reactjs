@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as cs from '../../../constants/Constant';
 import { Navigation } from './Navigation';
 import SocialLink from '../../UI/SocialLink';
+import Button from '../../UI/Button';
 
 export function NavMobi({ isDisplay, handleClick }) {
 	return (
@@ -43,18 +44,18 @@ export function NavMobi({ isDisplay, handleClick }) {
 					</form>
 					<Navigation className="flex-col gap-3 pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
 					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
-						<button className="hover:text-greenBtn inline-flex items-center gap-3">
+						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
 							<BiUser className="outline-1" />
 							My Account
-						</button>
-						<button className="hover:text-greenBtn inline-flex items-center gap-3">
+						</Button>
+						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
 							<BiHeart className="outline-1" />
 							Wishlist
-						</button>
-						<button className="hover:text-greenBtn inline-flex items-center gap-3">
+						</Button>
+						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
 							<BiCartAlt className="outline-1" />
 							Shopping cart
-						</button>
+						</Button>
 					</div>
 					<SocialLink />
 				</motion.div>

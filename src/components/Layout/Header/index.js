@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
-import { Dropdown } from 'flowbite-react';
-
+import Button from '../../UI/Button';
 import Banner from './Banner';
 import { userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
-
-import './nav.css';
+import DropDown from '../../UI/DropDown';
 
 const Header = () => {
 	const [isDisplay, setIsDisplay] = useState(false);
@@ -49,35 +47,21 @@ const Header = () => {
 						</div>
 
 						<div className="flex flex-wrap gap-6 order-2">
-							<Link to="#">
-								<button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">
-									GET A QUOTE
-								</button>
-							</Link>
+							<Button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">
+								GET A QUOTE
+							</Button>
 							<div className="flex gap-3">
-								<Link to="#">
-									<button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
-										<BiSearch />
-									</button>
-								</Link>
-								<Dropdown
-									arrowIcon={false}
-									label={<BiUser />}
-									color={'light'}
-									size={'40px'}
-									id="userBtn"
-								>
-									{userList.map((item) => (
-										<Dropdown.Item key={item.id}>{item.title}</Dropdown.Item>
-									))}
-								</Dropdown>
+								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
+									<BiSearch />
+								</Button>
+								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
+									<BiUser />
+								</Button>
 
-								<Link to="#">
-									<button className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
-										<BiCartAlt />
-									</button>
-								</Link>
-								<button
+								<Button className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
+									<BiCartAlt />
+								</Button>
+								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleClick}
 								>
@@ -89,7 +73,7 @@ const Header = () => {
 										}`}
 									></span>
 									<BiMenu />
-								</button>
+								</Button>
 								<NavMobi isDisplay={isDisplay} handleClick={handleClick} />
 							</div>
 						</div>
