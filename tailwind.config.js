@@ -15,6 +15,19 @@ module.exports = {
 			colors: {
 				greenBtn: '#80B500',
 			},
+			// new
+			keyframes: {
+				fadeOut: {
+				  '0%': { transform: 'translateY(50%)', opacity: '0' },
+				  '100%': { transform: 'translateY(-50%)', opacity: '1' }
+				}
+			}
+		},
+	},
+	variants: {
+		extend: {
+			// new
+			display: ["group-hover"],
 		},
 	},
 	plugins: [require('flowbite/plugin')],

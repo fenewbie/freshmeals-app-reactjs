@@ -54,3 +54,4 @@ export const userList = [
 		url: '/wishlist',
 	},
 ];
+

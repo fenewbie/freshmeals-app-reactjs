@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-const baseURL = 'https://api.spoonacular.com/food/products';
+const baseURL = 'https://api.spoonacular.com/food/products/search/query=${nameProduct}';
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
-console.log('API', API_KEY);
 
 const apiAxios = axios.create({
 	baseURL: baseURL,

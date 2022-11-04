@@ -1,5 +1,5 @@
 import MainLayout from '../components/Layout/MainLayout';
-import OurProducts from '../components/UI/OurProducts';
+import OurProducts from '../pages/Shop/OurProducts';
 
 const Home = () => {
   return (
