@@ -15,7 +15,13 @@ module.exports = {
 			colors: {
 				greenBtn: '#80B500',
 			},
-		},
+			keyframes: {
+				pullRight: {
+				  '0%': { width: '0%' },
+				  '100%': { width: '100%' },
+				}
+		}
 	},
 	plugins: [require('flowbite/plugin')],
+}
 };
