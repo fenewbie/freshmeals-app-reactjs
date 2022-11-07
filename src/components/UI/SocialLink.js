@@ -11,7 +11,7 @@ export default function SocialLink() {
 				placement={'bottom'}
 				animation={'duration-300'}
 			>
-				<button className="p-3 rounded-full bg-slate-300 hover:bg-greenBtn">
+				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaFacebookF />
 				</button>
 			</Tooltip>
@@ -22,7 +22,7 @@ export default function SocialLink() {
 				placement={'bottom'}
 				animation={'duration-300'}
 			>
-				<button className="p-3 rounded-full bg-slate-300 hover:bg-greenBtn">
+				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaTwitter />
 				</button>
 			</Tooltip>
@@ -33,7 +33,7 @@ export default function SocialLink() {
 				placement={'bottom'}
 				animation={'duration-300'}
 			>
-				<button className="p-3 rounded-full bg-slate-300 hover:bg-greenBtn">
+				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaLinkedin />
 				</button>
 			</Tooltip>
@@ -44,7 +44,7 @@ export default function SocialLink() {
 				placement={'bottom'}
 				animation={'duration-300'}
 			>
-				<button className="p-3 rounded-full bg-slate-300 hover:bg-greenBtn">
+				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaYoutube />
 				</button>
 			</Tooltip>
