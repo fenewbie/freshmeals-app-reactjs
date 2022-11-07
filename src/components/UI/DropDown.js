@@ -1,7 +1,13 @@
-export default function DropDown({ id, title, onClick, className }) {
+const Dropdown = ({ showDropdown, setShowDropdown, items, className }) => {
 	return (
-		<ul id={id} className={`${className}`}>
-			<li onClick={onClick}>{title}</li>
-		</ul>
+		<div className={`${!showDropdown ? 'z-10 bg-white rounded' : 'hidden'} ${className}`}>
+			<ul className="py-1 ">
+				{items.map((item) => (
+					<li className="block py-2 px-4">{item.title}</li>
+				))}
+			</ul>
+		</div>
 	);
-}
+};
+
+export default Dropdown;

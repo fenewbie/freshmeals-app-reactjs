@@ -8,10 +8,11 @@ import Button from '../../UI/Button';
 import Banner from './Banner';
 import { userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
-import DropDown from '../../UI/DropDown';
+import Dropdown from '../../UI/Dropdown';
 
 const Header = () => {
 	const [isDisplay, setIsDisplay] = useState(false);
+	const [showDropdown, setShowDropdown] = useState(false);
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
@@ -54,9 +55,17 @@ const Header = () => {
 								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
 									<BiSearch />
 								</Button>
-								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
+								<Button
+									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
+									onClick={() => setShowDropdown(!showDropdown)}
+								>
 									<BiUser />
 								</Button>
+								<Dropdown
+									className="absolute top-10 right-12 w-36"
+									showDropdown={!showDropdown}
+									items={userList}
+								></Dropdown>
 
 								<Button className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
 									<BiCartAlt />

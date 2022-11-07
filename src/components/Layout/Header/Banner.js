@@ -5,9 +5,9 @@ import BannerSlideItem from './BannerSlideItem';
 
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Pagination } from 'swiper';
-import SliderButton from '../../UI/Slider/SliderButton';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import SliderButton from '../../UI/Slider/SliderButton';
 
 const Banner = () => {
   const [sliderImgs, setSliderImgs] = useState([]);

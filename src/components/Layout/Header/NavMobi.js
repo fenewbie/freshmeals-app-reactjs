@@ -26,7 +26,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 								Freshmeals
 							</span>
 						</Link>
-						<button className="flex px-12 mt-5 text-lg " onClick={handleClick}>
+						<button className="flex pl-12 mt-5 text-lg " onClick={handleClick}>
 							<MdClose />
 						</button>
 					</div>
@@ -42,7 +42,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 							</div>
 						</div>
 					</form>
-					<Navigation className="flex-col gap-3 pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
+					<Navigation className="flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
 					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
 						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
 							<BiUser className="outline-1" />

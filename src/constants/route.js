@@ -6,16 +6,17 @@ export const navbarList = [
 		url: '/',
 		parent_id: null,
 	},
+
 	{
 		id: 2,
-		title: 'shop',
-		url: '/shop',
+		title: 'about',
+		url: '/about',
 		parent_id: 1,
 	},
 	{
 		id: 3,
-		title: 'about',
-		url: '/about',
+		title: 'shop',
+		url: '/shop',
 		parent_id: 1,
 	},
 	{

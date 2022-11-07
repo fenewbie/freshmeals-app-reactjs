@@ -1,15 +1,4 @@
-import { motion } from 'framer-motion';
-
 const BannerSlideItem = ({ imgItem }) => {
-	const slideVariant = {
-		hide: { opacity: 0 },
-		show: {
-			opacity: 1,
-			transition: {
-				delayChildren: 0.5,
-			},
-		},
-	};
 	return (
 		<>
 			<img
@@ -25,38 +14,15 @@ const BannerSlideItem = ({ imgItem }) => {
 							: 'md:right-8 lg:right-8  xl:right-20 text-right'
 					}`}
 				>
-					<motion.h6
-						initial={{ y: -250 }}
-						animate={{
-							y: -10,
-						}}
-						transition={{
-							repeat: 1,
-							repeatType: 'loop',
-							duration: 2,
-						}}
-						className="font-bold text-lg"
-					>
-						{imgItem.subtitle}
-					</motion.h6>
-					<motion.h1
-						variants={slideVariant}
-						initial="hide"
-						animate="show"
-						className="font-bold text-4xl"
-					>
-						{imgItem.title}
-					</motion.h1>
-					<motion.div
-						variants={slideVariant}
-						initial="hide"
-						animate="show"
+					<h6 className="font-bold text-lg">{imgItem.subtitle}</h6>
+					<h1 className="font-bold text-4xl">{imgItem.title}</h1>
+					<div
 						className={`${
 							imgItem.id % 2 === 0 ? 'border-l-2 pl-8' : 'border-r-2 pr-8'
 						} border-opacity-30`}
 					>
 						<p>{imgItem.desc}</p>
-					</motion.div>
+					</div>
 				</div>
 			</div>
 		</>
