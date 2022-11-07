@@ -3,14 +3,13 @@ import { Link } from "react-router-dom"
 import Timer from "./Timer";
 
 const CountDown = () => {
-    console.log('mounted or re-render');
     return (
         <div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8">
             <div className="lg:w-[1200px] max-w-full mx-auto">
                 <div className="grid lg:grid-cols-12 grid-cols-1 gap-10">
 
                     <div className="lg:col-span-5">
-                        <img src='https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/banner/11.png' alt='countdown image'/>
+                        <img src='https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/banner/11.png' alt='countdown'/>
                     </div>
 
                     <div className="lg:col-span-7">
