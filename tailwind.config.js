@@ -16,12 +16,12 @@ module.exports = {
 				greenBtn: '#80B500',
 			},
 			keyframes: {
-				fadeOut: {
-					'0%': { transform: 'translateY(50%)', opacity: '0' },
-					'100%': { transform: 'translateY(-50%)', opacity: '1' },
-				},
-			},
-		},
+				pullRight: {
+				  '0%': { width: '0%' },
+				  '100%': { width: '100%' },
+				}
+		}
 	},
 	plugins: [require('flowbite/plugin')],
+}
 };
