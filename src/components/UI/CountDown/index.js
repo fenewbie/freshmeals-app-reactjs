@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import db from "../../../services/firebase";
+import {db} from "../../../services/firebase";
 import { Link } from "react-router-dom"
 import Timer from "./Timer";
 

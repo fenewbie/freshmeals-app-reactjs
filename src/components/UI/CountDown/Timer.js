@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Timer = ({day}) => {
 
@@ -32,20 +32,21 @@ const Timer = ({day}) => {
     
     formatCounter();
 
-    const initDay = useCallback(() => +(day*24*60*60).toFixed(0), []);
+   useEffect(() => {
+			const intCountDown = setInterval(() => {
+				setCounter((preCounter) => {
+					const newCounter =
+						preCounter === 0
+							? +(day * 24 * 60 * 60).toFixed(0)
+							: preCounter - 1;
+					return newCounter;
+				});
+			}, 1000);
 
-    useEffect(() => {
-        const intCountDown = setInterval(() => {
-            setCounter(preCounter => {
-                const newCounter = preCounter === 0 ? + initDay() : preCounter - 1;
-                return newCounter;
-            })
-        }, 1000);
-
-        return () => {
-            clearInterval(intCountDown);
-        }
-    }, []);
+			return () => {
+				clearInterval(intCountDown);
+			};
+		}, [day]);
 
     return (
         <div className="mt-12 flex flex-wrap max-sm:justify-around">
