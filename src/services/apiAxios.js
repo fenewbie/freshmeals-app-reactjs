@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://api.spoonacular.com/food/products/search/query=${nameProduct}';
+const baseURL = 'https://api.spoonacular.com/food/products';
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
