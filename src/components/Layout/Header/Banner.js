@@ -8,6 +8,7 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SliderButton from '../../UI/Slider/SliderButton';
+import { transform } from 'framer-motion';
 
 const Banner = () => {
   const [sliderImgs, setSliderImgs] = useState([]);
@@ -37,18 +38,22 @@ const Banner = () => {
 					<SliderButton
 						isNext={false}
 						iconSize={36}
-						iconColors={['white', 'greenBtn']}
-						className={`p-3 bg-transparent rounded-full border-greenBtn border-2 hover:border-white hover:bg-greenBtn ${
-							showNavBtn ? 'visible' : 'invisible'
-						} ease-in-out duration-300`}
+						iconColors={['white', '#80B500']}
+						className={`p-3 bg-transparent rounded border-gray-400 border-2 hover:border-white hover:bg-greenBtn ${
+							showNavBtn ? 
+								'visible translate-x-[0%] opacity-100' : 
+								'invisible translate-x-[30%] opacity-0' 
+						} transition-all ease-in-out duration-300 lg:block hidden`}
+						iconClassName={`transition-all ease-in-out duration-300`}
 					/>
 					<SliderButton
 						isNext={true}
 						iconSize={36}
-						iconColors={['white', 'greenBtn']}
-						className={`p-3 bg-transparent rounded-full border-greenBtn border-2 hover:border-white hover:bg-greenBtn ${
-							showNavBtn ? 'visible' : 'invisible'
-						} transition-all ease-in-out duration-300`}
+						iconColors={['white', '#80B500']}
+						className={`p-3 bg-transparent rounded border-gray-400 border-2 hover:border-white hover:bg-greenBtn ${
+							showNavBtn ? 'visible translate-x-[0%] opacity-100' : 'invisible -translate-x-[30%] opacity-0'
+						} transition-all ease-in-out duration-300 lg:block hidden`}
+						iconClassName={`transition-all ease-in-out duration-300`}
 					/>
 					{sliderImgs.map((imgItem) => (
 						<SwiperSlide key={imgItem.id}>
