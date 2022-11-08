@@ -8,7 +8,7 @@ import Button from '../../UI/Button';
 import Banner from './Banner';
 import { userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
-import Dropdown from '../../UI/DropDown';
+import Dropdown from '../../UI/Dropdown';
 
 const Header = () => {
 	const [isDisplay, setIsDisplay] = useState(false);
