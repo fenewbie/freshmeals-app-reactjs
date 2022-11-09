@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {db} from '../../../services/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Pagination, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -26,7 +26,6 @@ const Portfolio = () => {
           getImgs();
     }, []);
 
-    console.log(showPortfolioBtn);
 
     return (
         <div className="bg-[#F7F5EB] py-[120px] text-center">
@@ -43,8 +42,7 @@ const Portfolio = () => {
                 {
                     portfolioImgs.length > 0 &&
                     <Swiper
-                        slidesPerView={4}
-                        spaceBetween={30}
+                        slidesPerView={1}
                         centeredSlides={true}
                         loop={true}
                         grabCursor={true}
@@ -52,7 +50,20 @@ const Portfolio = () => {
                             clickable: true,
                         }}
                         modules={[Pagination]}
+                        breakpoints={{
+                            768: {
+                              slidesPerView: 2,
+                              spaceBetween: 30,
+                            },
+                            1024: {
+                              slidesPerView: 4,
+                              spaceBetween: 30,
+                            },
+                        }}
                         className="mySwiper"
+                        onClick={(e) => console.log(e.clickedIndex)}
+                        // onInit={(e) => e.slideTo(6)}
+                        // onInit={() => console.log('swiper is inited')}
                     >
 
                         <SliderButton
@@ -68,6 +79,7 @@ const Portfolio = () => {
                         />
 
                         <SliderButton
+
                             isNext={true}
                             iconSize={30}
                             iconColors={['white', '#80B500']}
@@ -82,10 +94,13 @@ const Portfolio = () => {
                         {
                             portfolioImgs.map(imgItem => (
                                 <SwiperSlide key={imgItem.id}>
-                                    <img src={imgItem.img} className='h-full w-full object-contain rounded-md'/>
+                                    <div className="overflow-hidden rounded-md">
+                                        <img alt='portfolio' src={imgItem.img} className='h-full w-full object-contain  hover:scale-110 transition-all duration-300 ease-linear'/>
+                                    </div>
                                 </SwiperSlide>
                             ))
                         }
+
 
                     </Swiper>
                 }
