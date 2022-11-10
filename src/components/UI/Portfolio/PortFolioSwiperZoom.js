@@ -8,7 +8,6 @@ import "swiper/css/effect-fade";
 
 
 import SliderButton from '../Slider/SliderButton';
-import Subtitle from "./Subtitle";
 import { useContext } from "react";
 import { PortfolioContext } from "./PortFolioContext";
 
@@ -31,9 +30,6 @@ const PortSwiperZoom = () => {
                         }}
                         onInit={(e) => {
                             e.slideTo(indexAct);
-                        }}
-                        onClick={(e) => {
-                            console.log(e.activeIndex);
                         }}
                         className="mySwiper"
                     >

@@ -1,7 +1,7 @@
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 import PortFolioProvider from "./PortFolioContext";
-import PortSwiper from "./PortFolioSwiper";
+import PortFolioSwiper from "./PortFolioSwiper";
 
 const Portfolio = () => {
     return (
@@ -9,7 +9,7 @@ const Portfolio = () => {
                 <Subtitle>Portfolio</Subtitle>
                 <Title>We Have Done</Title>
                 <PortFolioProvider>
-                    <PortSwiper/>
+                    <PortFolioSwiper/>
                 </PortFolioProvider>
             </div>
     )

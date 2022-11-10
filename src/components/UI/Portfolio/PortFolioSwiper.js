@@ -11,10 +11,11 @@ import { PortfolioContext } from "./PortFolioContext";
 import PortSwiperZoom from "./PortFolioSwiperZoom";
 import Backdrop from "./BackDrop";
 
-const PortSwiper = () => {
+const PortFolioSwiper = () => {
     const [togglePortfolioBtn, setTogglePortfolioBtn] = useState(false);
 
     const {portfolioImgs, indexAct, setIndexAct, setLoopSlide } = useContext(PortfolioContext);
+    
     return (
         <div>
             <div 
@@ -46,8 +47,11 @@ const PortSwiper = () => {
                     }}
                     className="mySwiper"
                     onClick={(e) => {
-                        setLoopSlide(e.loopedSlides);
                         setIndexAct(e.clickedIndex);
+                    }}
+
+                    onResize={(e) => {
+                        setLoopSlide(e.loopedSlides);
                     }}
                     
                 >
@@ -100,4 +104,4 @@ const PortSwiper = () => {
 }
 
 
-export default PortSwiper;
+export default PortFolioSwiper;
