@@ -12,7 +12,12 @@ import { useContext } from "react";
 import { PortfolioContext } from "./PortFolioContext";
 
 const PortSwiperZoom = () => {
-    const {portfolioImgs, indexAct, loopSlide} = useContext(PortfolioContext);
+    const {portfolioImgs, indexAct, loopSlide, setIndexAct} = useContext(PortfolioContext);
+    
+    const handleUnmount = (e) => {
+        const img = e.target.closest('img');
+        !img && setIndexAct();
+    }
 
     return (
         <div className="bg-transparent">
@@ -29,6 +34,7 @@ const PortSwiperZoom = () => {
                             type: 'fraction'
                         }}
                         onInit={(e) => {
+                            console.log(e.$el);
                             e.slideTo(indexAct);
                         }}
                         className="mySwiper"
@@ -53,8 +59,8 @@ const PortSwiperZoom = () => {
                         {
                             portfolioImgs.map(imgItem => (
                                 <SwiperSlide key={imgItem.id}>
-                                    <div className="overflow-hidden rounded-md h-[400px] transition-all duration-200 scale-">
-                                        <img alt='portfolio' src={imgItem.img} className='h-full w-full object-contain'/>
+                                    <div className="overflow-hidden rounded-md h-[400px]" onClick={handleUnmount}>
+                                        <img alt='portfolio' src={imgItem.img} className='h-full  object-contain mx-auto'/>
                                     </div>
                                 </SwiperSlide>
                             ))
