@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
 	content: [
 		'./src/**/*.{js,jsx,ts,tsx}',
@@ -20,7 +22,11 @@ module.exports = {
 				  '0%': { width: '0%' },
 				  '100%': { width: '100%' },
 				}
-		}
+			},
+			fontFamily: {
+				'noto': ['Noto Sans', 'sans-serif',...defaultTheme.fontFamily.sans]
+			}
+		
 	},
 	plugins: [require('flowbite/plugin')],
 }
