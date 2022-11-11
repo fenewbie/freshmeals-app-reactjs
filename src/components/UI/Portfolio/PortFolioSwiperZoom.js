@@ -34,7 +34,6 @@ const PortSwiperZoom = () => {
                             type: 'fraction'
                         }}
                         onInit={(e) => {
-                            console.log(e.$el);
                             e.slideTo(indexAct);
                         }}
                         className="mySwiper"
