@@ -4,16 +4,17 @@ import { collection, getDocs } from 'firebase/firestore';
 
 import { Swiper ,SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-import {Keyboard, Pagination, Navigation } from "swiper";
+import {Keyboard, Navigation } from "swiper";
 
 import BlogCard from "./BlogCard";
 import SliderButton from '../Slider/SliderButton';
+import SliderPagination from "./SliderPagination";
 
 const Blog = () => {
     const [blogImgs, setBlogImgs] = useState([]);
     const [toggleBtn, setToggleBtn] = useState(false);
+    const [indexAct, setIndexAct] = useState();
 
     useEffect(() => {
         const getImgs = async () => {
@@ -24,7 +25,6 @@ const Blog = () => {
         getImgs();
     }, []);
 
-    console.log(blogImgs);
     return (
         <div className="my-8"
             onMouseEnter={() => {
@@ -38,16 +38,24 @@ const Blog = () => {
             {
                 blogImgs.length > 0 && 
                 <Swiper 
-                    slidesPerView={3}
+                    slidesPerView={1}
                     spaceBetween={30}
                     loop={true}
-                    // pagination={{
-                    // clickable: true,
-                    // }}
                     keyboard={{
                         enabled: true,
                     }}
-                    modules={[ Keyboard,Pagination,Navigation]}
+                    modules={[Keyboard,Navigation]}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2
+                            
+                        },
+                        1024: {
+                            slidesPerView: 3
+                            
+                        },
+                    }}
+                    onSlideChange={(e) => setIndexAct(e.realIndex)}
                     className="mySwiper"
                 >
 
@@ -73,6 +81,8 @@ const Blog = () => {
                         } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
                         iconClassName={`transition-all ease-in-out duration-300`}
                     /> 
+
+                    <SliderPagination totalSlides={blogImgs.length} indexAct={indexAct}/>
 
                     {
                         blogImgs.map(blogItem => (

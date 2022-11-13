@@ -2,8 +2,8 @@ import {FaTags, FaUserEdit} from 'react-icons/fa';
 import {BiCalendar} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
-const BlogCard = ({title = 'Title', description = 'Write something here...', img, tags = []}) => (
-        <div className="shadow-xl rounded-lg overflow-hidden my-10 min-h-[650px]">
+const BlogCard = ({title, description,img, tags}) => (
+        <div className="shadow-xl rounded-lg overflow-hidden my-10 min-h-[650px] border">
             <Link className='pb-[70%] w-full overflow-hidden relative flex bg-slate-50'>
                 <div className='absolute top-0 left-0 h-full w-full'>
                     <img alt='Blog' src={img} className='mx-auto w-auto h-full transition-all duration-500 scale-100 hover:scale-110'/>
