@@ -1,23 +1,23 @@
 
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination,EffectFade, Navigation } from "swiper";
+import { Pagination,EffectFade, Navigation , Keyboard } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 
 import SliderButton from '../Slider/SliderButton';
-import { useContext } from "react";
-import { PortfolioContext } from "./PortFolioContext";
+import { memo } from "react";
 
-const PortSwiperZoom = () => {
-    const {portfolioImgs, indexAct, loopSlide, setIndexAct} = useContext(PortfolioContext);
+const PortSwiperZoom = ({loopSlide, indexAct, children, handleUnmount}) => {
     
-    const handleUnmount = (e) => {
+    const handleClickSlide = (e) => {
         const img = e.target.closest('img');
-        !img && setIndexAct();
+        !img && handleUnmount();
     }
+
+    console.log('mounted or unmount');
+
 
     return (
         <div className="bg-transparent">
@@ -29,7 +29,10 @@ const PortSwiperZoom = () => {
                         loop={true}
                         centeredSlides={true}
                         effect="fade"
-                        modules={[EffectFade, Navigation, Pagination]}
+                        keyboard={{
+                            enabled: true,
+                        }}
+                        modules={[EffectFade, Navigation, Pagination, Keyboard]}
                         pagination={{
                             type: 'fraction'
                         }}
@@ -55,15 +58,15 @@ const PortSwiperZoom = () => {
                             iconClassName={`transition-all ease-in-out duration-300`}
                         />
 
-                        {
-                            portfolioImgs.map(imgItem => (
-                                <SwiperSlide key={imgItem.id}>
-                                    <div className="overflow-hidden rounded-md h-[400px]" onClick={handleUnmount}>
-                                        <img alt='portfolio' src={imgItem.img} className='h-full  object-contain mx-auto'/>
+                        {children.map((child, index) => (
+                            <SwiperSlide key={index} onClick={handleClickSlide}>
+                                <div className="overflow-hidden rounded-md pt-[60%] md:pt-[40%] w-[80%] md:w-1/2 mx-auto relative">
+                                    <div className="absolute top-0 left-0 w-full h-full">
+                                        {child}
                                     </div>
-                                </SwiperSlide>
-                            ))
-                        }
+                                </div>
+                            </SwiperSlide>
+                        ))}
 
 
                     </Swiper>
@@ -75,4 +78,4 @@ const PortSwiperZoom = () => {
     )
 }
 
-export default PortSwiperZoom;
+export default memo(PortSwiperZoom);

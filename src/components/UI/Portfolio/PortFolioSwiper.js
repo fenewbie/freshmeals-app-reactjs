@@ -1,20 +1,24 @@
+import { useCallback, useState } from "react";
 
-import { useContext, useState } from "react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Swiper, SwiperSlide} from "swiper/react";
+import { Keyboard } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import SliderButton from '../Slider/SliderButton';
-import { PortfolioContext } from "./PortFolioContext";
 import PortSwiperZoom from "./PortFolioSwiperZoom";
 import Backdrop from "./BackDrop";
+import SliderPagination from "../Slider/SliderPagination";
 
-const PortFolioSwiper = () => {
+const PortFolioSwiper = ({children}) => {
+    const [indexAct, setIndexAct] = useState();
+    const [realIndex, setRealIndex] = useState();
     const [togglePortfolioBtn, setTogglePortfolioBtn] = useState(false);
-
-    const {portfolioImgs, indexAct, setIndexAct, setLoopSlide } = useContext(PortfolioContext);
+    const [loopSlide, setLoopSlide] = useState();
+    
+    const handleUnmount = useCallback(() => {
+        setIndexAct();
+    }, [])
     
     return (
         <div>
@@ -27,14 +31,13 @@ const PortFolioSwiper = () => {
                 }}
             >
                 <Swiper
-                    slidesPerView={1}
                     centeredSlides={true}
                     loop={true}
                     grabCursor={true}
-                    pagination={{
-                        clickable: true,
+                    keyboard={{
+                        enabled: true,
                     }}
-                    modules={[Pagination]}
+                    modules={[Keyboard]}
                     breakpoints={{
                         768: {
                         slidesPerView: 2,
@@ -47,11 +50,16 @@ const PortFolioSwiper = () => {
                     }}
                     className="mySwiper"
                     onClick={(e) => {
+                        console.log(e.realIndex);
                         setIndexAct(e.clickedIndex);
                     }}
 
                     onResize={(e) => {
                         setLoopSlide(e.loopedSlides);
+                    }}
+
+                    onSlideChange={(e) => {
+                        setRealIndex(e.realIndex);
                     }}
                     
                 >
@@ -60,11 +68,11 @@ const PortFolioSwiper = () => {
                         isNext={false}
                         iconSize={30}
                         iconColors={['white', '#80B500']}
-                        className={`p-2 bg-white rounded-full border-gray-200 border-[3px] hover:bg-greenBtn ${
+                        className={`p-2 bg-white rounded-full border-gray-200 border-2 hover:bg-greenBtn ${
                             togglePortfolioBtn ? 
                                 'visible translate-x-[0%] opacity-100' : 
                                 'invisible -translate-x-[30%] opacity-0' 
-                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden`}
+                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden focus:outline focus:outline-2 focus:outline-greenBtn`}
                         iconClassName={`transition-all ease-in-out duration-300`}
                     />
 
@@ -72,33 +80,35 @@ const PortFolioSwiper = () => {
                         isNext={true}
                         iconSize={30}
                         iconColors={['white', '#80B500']}
-                        className={`p-2 bg-white rounded-full border-gray-200 border-[3px] hover:bg-greenBtn ${
+                        className={`p-2 bg-white rounded-full border-gray-200 border-2 hover:bg-greenBtn ${
                             togglePortfolioBtn ? 
                                 'visible translate-x-[0%] opacity-100' : 
                                 'invisible translate-x-[30%] opacity-0'
-                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden`}
+                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
                         iconClassName={`transition-all ease-in-out duration-300`}
                     />
 
-                    {
-                        portfolioImgs.map(imgItem => (
-                            <SwiperSlide key={imgItem.id}>
-                                <div className="overflow-hidden rounded-md">
-                                    <img alt='portfolio' src={imgItem.img} className='h-full w-full object-contain  hover:scale-[1.3] transition-all duration-300 ease-linear'/>
+                    {children.map((child, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="overflow-hidden rounded-md my-10">
+                                <div className='h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear'>
+                                    {child}
                                 </div>
-                            </SwiperSlide>
-                        ))
-                    }
+                            </div>
+                        </SwiperSlide>
+                    ))}
 
-
+                    <SliderPagination totalSlides={children.length} indexAct={realIndex} />
                 </Swiper>
-            </div>
-            
-            {
-                indexAct && <Backdrop handleUnmount={() => setIndexAct(false)}><PortSwiperZoom/></Backdrop>
 
-            }
-            
+                {indexAct && 
+                    <Backdrop handleUnmount={handleUnmount}>
+                        <PortSwiperZoom loopSlide={loopSlide} indexAct={indexAct} handleUnmount={handleUnmount}>
+                            {children}
+                        </PortSwiperZoom>
+                    </Backdrop>
+                }
+            </div>
         </div>
     )
 }
