@@ -6,7 +6,7 @@ import { Swiper ,SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
+import {Keyboard, Pagination, Navigation } from "swiper";
 
 import BlogCard from "./BlogCard";
 import SliderButton from '../Slider/SliderButton';
@@ -41,11 +41,13 @@ const Blog = () => {
                     slidesPerView={3}
                     spaceBetween={30}
                     loop={true}
-                    pagination={{
-                    clickable: true,
+                    // pagination={{
+                    // clickable: true,
+                    // }}
+                    keyboard={{
+                        enabled: true,
                     }}
-                    modules={[Pagination,Navigation]}
-                
+                    modules={[ Keyboard,Pagination,Navigation]}
                     className="mySwiper"
                 >
 
@@ -57,7 +59,7 @@ const Blog = () => {
                             toggleBtn ? 
                                 'visible translate-x-[0%] opacity-100' : 
                                 'invisible -translate-x-[30%] opacity-0' 
-                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden`}
+                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden focus:outline focus:outline-2 focus:outline-greenBtn`}
                         iconClassName={`transition-all ease-in-out duration-300`}
                     /> 
                     <SliderButton
@@ -68,7 +70,7 @@ const Blog = () => {
                             toggleBtn ? 
                                 'visible translate-x-[0%] opacity-100' : 
                                 'invisible translate-x-[30%] opacity-0'
-                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden`}
+                        } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
                         iconClassName={`transition-all ease-in-out duration-300`}
                     /> 
 
