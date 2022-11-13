@@ -1,7 +1,6 @@
 import MainLayout from '../components/Layout/MainLayout';
 import Promotion from '../components/UI/Promotion';
 import CountDown from '../components/UI/CountDown'
-import Blog from '../components/UI/Blog';
 import Portfolio from '../components/UI/Portfolio';
 
 const Home = () => {
@@ -10,7 +9,6 @@ const Home = () => {
       <Promotion/>
       <CountDown/>
       <Portfolio/>
-      <Blog/>
     </MainLayout>
   );
 };
