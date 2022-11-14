@@ -1,28 +1,17 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
-import { Swiper, SwiperSlide} from "swiper/react";
+import { Swiper} from "swiper/react";
 import { Keyboard } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import SliderButton from '../Slider/SliderButton';
-import PortSwiperZoom from "./PortFolioSwiperZoom";
-import Backdrop from "./BackDrop";
-import SliderPagination from "../Slider/SliderPagination";
 
-const PortFolioSwiper = ({children}) => {
-    const [indexAct, setIndexAct] = useState();
-    const [realIndex, setRealIndex] = useState();
+const PortFolioSwiper = ({children, handleSlideChange, handleClick, handleResize}) => {
     const [togglePortfolioBtn, setTogglePortfolioBtn] = useState(false);
-    const [loopSlide, setLoopSlide] = useState();
-    
-    const handleUnmount = useCallback(() => {
-        setIndexAct();
-    }, [])
     
     return (
-        <div>
-            <div 
+        <div 
                 onMouseEnter={() => {
                     setTogglePortfolioBtn(true);
                 }}
@@ -49,18 +38,11 @@ const PortFolioSwiper = ({children}) => {
                         },
                     }}
                     className="mySwiper"
-                    onClick={(e) => {
-                        console.log(e.realIndex);
-                        setIndexAct(e.clickedIndex);
-                    }}
+                    onClick={handleClick}
 
-                    onResize={(e) => {
-                        setLoopSlide(e.loopedSlides);
-                    }}
+                    onResize={handleResize}
 
-                    onSlideChange={(e) => {
-                        setRealIndex(e.realIndex);
-                    }}
+                    onSlideChange={handleSlideChange}
                     
                 >
 
@@ -88,27 +70,11 @@ const PortFolioSwiper = ({children}) => {
                         iconClassName={`transition-all ease-in-out duration-300`}
                     />
 
-                    {children.map((child, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="overflow-hidden rounded-md my-10">
-                                <div className='h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear'>
-                                    {child}
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
+                    {children}
 
-                    <SliderPagination totalSlides={children.length} indexAct={realIndex} />
                 </Swiper>
 
-                {indexAct && 
-                    <Backdrop handleUnmount={handleUnmount}>
-                        <PortSwiperZoom loopSlide={loopSlide} indexAct={indexAct} handleUnmount={handleUnmount}>
-                            {children}
-                        </PortSwiperZoom>
-                    </Backdrop>
-                }
-            </div>
+                
         </div>
     )
 }

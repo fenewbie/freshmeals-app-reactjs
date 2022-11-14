@@ -9,16 +9,8 @@ import "swiper/css/effect-fade";
 import SliderButton from '../Slider/SliderButton';
 import { memo } from "react";
 
-const PortSwiperZoom = ({loopSlide, indexAct, children, handleUnmount}) => {
+const PortSwiperZoom = ({loopSlide, indexAct, children}) => {
     
-    const handleClickSlide = (e) => {
-        const img = e.target.closest('img');
-        !img && handleUnmount();
-    }
-
-    console.log('mounted or unmount');
-
-
     return (
         <div className="bg-transparent">
             <div 
@@ -34,11 +26,17 @@ const PortSwiperZoom = ({loopSlide, indexAct, children, handleUnmount}) => {
                         }}
                         modules={[EffectFade, Navigation, Pagination, Keyboard]}
                         pagination={{
-                            type: 'fraction'
+                            type: 'fraction',
+                            renderFraction: function (currentClass, totalClass) {
+                                return '<span class="' + currentClass + '"></span>' +
+                                        ' of ' +
+                                        '<span class="' + totalClass + '"></span>'
+                            }
                         }}
                         onInit={(e) => {
                             e.slideTo(indexAct);
                         }}
+
                         className="mySwiper"
                     >
 
@@ -58,15 +56,7 @@ const PortSwiperZoom = ({loopSlide, indexAct, children, handleUnmount}) => {
                             iconClassName={`transition-all ease-in-out duration-300`}
                         />
 
-                        {children.map((child, index) => (
-                            <SwiperSlide key={index} onClick={handleClickSlide}>
-                                <div className="overflow-hidden rounded-md pt-[60%] md:pt-[40%] w-[80%] md:w-1/2 mx-auto relative">
-                                    <div className="absolute top-0 left-0 w-full h-full">
-                                        {child}
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
+                        {children}
 
 
                     </Swiper>
