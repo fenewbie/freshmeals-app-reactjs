@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyAfyYtxwSDryXZMEIZ8nAzCRQPNDmPH1Lw',
@@ -11,7 +12,6 @@ const firebaseConfig = {
 	measurementId: 'G-XKMMT2WXNB',
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-export default db;
+export const db = getFirestore(app);
+export const storage = getStorage(app);

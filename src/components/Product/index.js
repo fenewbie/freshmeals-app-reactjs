@@ -1,24 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useFetchProductQuery } from '../../redux/api/apiSlice';
+
 import { FaRegEye } from 'react-icons/fa';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { AiTwotoneHeart } from 'react-icons/ai';
 import { FaShoppingCart } from 'react-icons/fa';
-
 import Rating from './Rating';
-import { useEffect, useState } from 'react';
-import getProducts from '../../redux/products/productSlice';
+import { skipToken } from '@reduxjs/toolkit/dist/query';
+import { useEffect } from 'react';
 
-const ProductCard = (props) => {
-	const [food, setFood] = useState([]);
-	getProducts(setFood);
+
+const ProductCard = () => {
+	const {id} = useParams()
+	const {data:product, isError, error} = useFetchProductQuery(id ? id : skipToken)
+	
+	useEffect(() => {
+		isError && <div>{error}</div>;
+	}, [isError]);
+
+	
+
 
 	return (
 		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
-			{food.map((item) => (
+			{product?.map((item) => (
 				<div>
 					<Link className={`block relative bg-slate-100 pt-[100%]`}>
 						<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn">
-							NEW
+							{item.label}
 						</span>
 						)
 						<img
@@ -46,7 +55,7 @@ const ProductCard = (props) => {
 								title=""
 								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
 							>
-									<AiTwotoneHeart className="mx-auto" />
+								<AiTwotoneHeart className="mx-auto" />
 								{/* {wishList ? (
 								) : (
 									<AiOutlineHeart className="mx-auto" />
@@ -57,9 +66,7 @@ const ProductCard = (props) => {
 
 					<div className="p-8">
 						<Rating />
-						<Link
-							className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300"
-						>
+						<Link className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300">
 							{item.title}
 						</Link>
 						<div className="flex justify-center mt-2">

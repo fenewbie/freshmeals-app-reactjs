@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import db from '../../../services/firebase';
+import {db} from '../../../services/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Carousel } from 'flowbite-react';
 import './header.css';
