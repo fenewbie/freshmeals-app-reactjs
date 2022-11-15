@@ -2,14 +2,14 @@ import MainLayout from '../components/Layout/MainLayout';
 import Promotion from '../components/UI/Promotion';
 import CountDown from '../components/UI/CountDown'
 import Blog from '../components/UI/Blog';
-import Tabs from '../components/UI/Tabs/Tabs';
+import Test from '../components/UI/TestTabs';
 
 const Home = () => {
   return (
     <MainLayout>
       <Promotion/>
       <div className='my-20'>
-        <Tabs/>
+        <Test/>
       </div>
       <CountDown/>
       <Blog/>
