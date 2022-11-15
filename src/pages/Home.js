@@ -1,10 +1,10 @@
 import MainLayout from '../components/Layout/MainLayout';
-import OurProducts from '../pages/Shop/OurProducts';
+import Promotion from '../components/UI/Promotion';
 
 const Home = () => {
   return (
     <MainLayout>
-      <OurProducts/>
+      <Promotion/>
     </MainLayout>
   );
 };

@@ -13,8 +13,8 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/shop' element={<Shop />}></Route>
+          <Route index element={<Home />}></Route>
+          <Route path='/product-list' element={<ProductList />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
         </Routes>

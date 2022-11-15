@@ -6,16 +6,17 @@ export const navbarList = [
 		url: '/',
 		parent_id: null,
 	},
+
 	{
 		id: 2,
-		title: 'shop',
-		url: '/shop',
+		title: 'about',
+		url: '/about',
 		parent_id: 1,
 	},
 	{
 		id: 3,
-		title: 'about',
-		url: '/about',
+		title: 'shop',
+		url: '/shop',
 		parent_id: 1,
 	},
 	{
@@ -28,6 +29,12 @@ export const navbarList = [
 		id: 5,
 		title: 'blog',
 		url: '/blog',
+		parent_id: 1,
+	},
+	{
+		id: 6,
+		title: 'gallery',
+		url: '/gallery',
 		parent_id: 1,
 	},
 ];
@@ -55,3 +62,13 @@ export const userList = [
 	},
 ];
 
+export const linkList = [
+	{ id: 1, title: 'About', url: '/about' },
+	{ id: 2, title: 'Blog', url: '/' },
+	{ id: 3, title: 'Locations Map', url: '/' },
+];
+
+export const linkFooter = [
+	{ id: 1, title: 'Order tracking', url: '' },
+	{ id: 2, title: 'Promotional Offers', url: '' },
+];

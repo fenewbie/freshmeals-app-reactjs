@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
 	content: [
 		'./src/**/*.{js,jsx,ts,tsx}',
@@ -15,20 +17,17 @@ module.exports = {
 			colors: {
 				greenBtn: '#80B500',
 			},
-			// new
 			keyframes: {
-				fadeOut: {
-				  '0%': { transform: 'translateY(50%)', opacity: '0' },
-				  '100%': { transform: 'translateY(-50%)', opacity: '1' }
+				pullRight: {
+				  '0%': { width: '0%' },
+				  '100%': { width: '100%' },
 				}
+			},
+			fontFamily: {
+				'noto': ['Noto Sans', 'sans-serif',...defaultTheme.fontFamily.sans]
 			}
-		},
-	},
-	variants: {
-		extend: {
-			// new
-			display: ["group-hover"],
-		},
+		
 	},
 	plugins: [require('flowbite/plugin')],
+}
 };
