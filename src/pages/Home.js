@@ -2,7 +2,7 @@ import MainLayout from '../components/Layout/MainLayout';
 import Promotion from '../components/UI/Promotion';
 import CountDown from '../components/UI/CountDown'
 import Blog from '../components/UI/Blog';
-import Test from '../components/UI/TestTabs';
+import Test from '../components/UI/Tabs/TestTabs';
 
 const Home = () => {
   return (
