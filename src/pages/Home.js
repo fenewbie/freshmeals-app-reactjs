@@ -3,6 +3,7 @@ import Promotion from '../components/UI/Promotion';
 import CountDown from '../components/UI/CountDown'
 import Blog from '../components/UI/Blog';
 import Test from '../components/UI/Tabs/TestTabs';
+import ProductDetail from '../components/UI/ProductDetails';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       </div>
       <CountDown/>
       <Blog/>
+      <ProductDetail/>
     </MainLayout>
   );
 };
