@@ -1,4 +1,5 @@
 const Rating = ({amount = 24}) => {
+
     return (
         <div className="flex justify-center">
             <div className="flex items-center">

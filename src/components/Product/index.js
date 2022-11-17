@@ -1,54 +1,57 @@
-import { Link } from "react-router-dom";
-import { FaRegEye } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiTwotoneHeart } from "react-icons/ai";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaRegEye } from 'react-icons/fa';
+import { AiTwotoneHeart } from 'react-icons/ai';
+import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import Rating from './Rating';
 
-import Rating from "./Rating";
-import Label from "./Label";
-import Button from "./Button";
-import Price from "./Price";
+const ProductCard = ({ image, label, title, price, discount }) => {
+	return (
+		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
+			<div>
+				<Link className={`block relative bg-slate-100 pt-[100%]`}>
+					<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn">
+						{label}
+					</span>
+					<img
+						src={image}
+						title="product"
+						className="absolute top-0 left-0 w-full h-full object-contain"
+						alt={title}
+					/>
+					<div className="absolute left-0 top-1/2 w-full text-center hidden group-hover:block animate-[fadeOut_300ms_ease-out_both]">
+						<button
+							title=""
+							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
+						>
+							<FaRegEye className="mx-auto" />
+						</button>
 
-import style from './product.module.css';
+						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1">
+							<FaShoppingCart className="mx-auto" />
+						</button>
 
-const Product = ({
-    to='/', 
-    imgSrc, 
-    label = '20%',
-    name='product name',
-    newPrice='32.00',
-    oldPrice='46.00',
-    wishList
-}) => {
+						<button
+							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
+						>
+							<AiTwotoneHeart className="mx-auto" />
+						</button>
+					</div>
+				</Link>
 
-    // console.log(wishList);
-    return (
-        <div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300">
-            
-            <Link to={to} className={`block relative pt-[100%] ${style.link}`}>
-                <image url={imgSrc} className='absolute top-0 left-0' alt='product image'/>
-                {label && <Label>{label}</Label>}
-                <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-full text-center  ${style.control}`}>
-                    <Button title='Quick View'><FaRegEye className="mx-auto"/></Button>
-                    <Button title='Add to Cart'><FaShoppingCart className="mx-auto"/></Button>
-                    <Button title='Wishlist'>
-                        {wishList ? <AiTwotoneHeart className="mx-auto"/> : <AiOutlineHeart className="mx-auto"/>}
-                    </Button>
-                </div>
-            </Link>
-
-            <div className="p-8">
-                <Rating/>
-                <Link to={to} className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300">{name}</Link>
-                <div className="flex justify-center mt-2">
-                    <Price>{newPrice}</Price>
-                    {oldPrice && <Price className='line-through ml-3 opacity-60'>{oldPrice}</Price>}
-                </div>
-            </div>
-
-        </div>
-    )
-};
-
-
-export default Product;
+				<div className="p-8">
+					<Rating />
+					<Link className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300">
+						{title}
+					</Link>
+					<div className="flex justify-center mt-2">
+						<h4 className="text-xl font-bold text-greenBtn">${discount}</h4>
+						<h4 className="text-xl font-bold text-greenBtn line-through ml-3 opacity-60">
+							${price}
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
+export default ProductCard

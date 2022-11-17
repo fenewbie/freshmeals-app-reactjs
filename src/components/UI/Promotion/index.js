@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../services/firebase';
+
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
 import Button from '../Button';
+import useFirestore from '../../../hooks/useFirestore';
 
 export default function Promotion() {
-	const [promoList, setPromoList] = useState([]);
-
-	useEffect(() => {
-		const getData = async () => {
-			const data = await getDocs(collection(db, 'promotion'));
-			setPromoList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-		};
-
-		getData();
-	}, []);
+	const { docs } = useFirestore('promotion');
 
 	return (
 		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7">
-			{promoList.map((item) => (
+			{docs.map((item) => (
 				<div 
 					key={item.id}
 					className={`lg:col-span-1 ${
