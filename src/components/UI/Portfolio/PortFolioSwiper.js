@@ -13,10 +13,10 @@ const PortFolioSwiper = ({children, handleSlideChange, handleClick, handleResize
     return (
         <div 
                 onMouseEnter={() => {
-                    setTogglePortfolioBtn(true);
+                    setTogglePortfolioBtn(!togglePortfolioBtn);
                 }}
                 onMouseLeave={() => {
-                    setTogglePortfolioBtn(false);
+                    setTogglePortfolioBtn(togglePortfolioBtn);
                 }}
             >
                 <Swiper

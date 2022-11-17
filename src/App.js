@@ -10,17 +10,19 @@ import {store} from './redux/store'
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />}></Route>
-          <Route path='/shop' element={<Shop />}></Route>
-          <Route path='/about' element={<About />}></Route>
-          <Route path='/contact' element={<Contact />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-  );
+		<Provider store={store}>
+			<BrowserRouter>
+				<Routes>
+					<Route index element={<Home />}></Route>
+					<Route path="/shop" element={<Shop />}></Route>
+					<Route path="/shop/:index" element={<Shop />}></Route>
+
+					<Route path="/about" element={<About />}></Route>
+					<Route path="/contact" element={<Contact />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</Provider>
+	);
 }
 
 export default App;

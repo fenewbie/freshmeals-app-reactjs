@@ -11,7 +11,7 @@ const useFirestore = (col) => {
 			querySnapshot.forEach((doc) => {
 				documents.push({ ...doc.data(), id: doc.id });
 			});
-			console.log('documents', documents);
+			// console.log('documents', documents);
 			setDocs(documents);
 		};
 		return () => getData();
