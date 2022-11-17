@@ -1,26 +1,99 @@
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { db } from '../../services/firebase';
 
-const API_KEY = `${process.env.REACT_APP_API_KEY_2}`;
-const getProducts = (setProVeg, setProBread,setProFruits) => {
-	try {
-		let endpoints = [
-			`https://api.spoonacular.com/food/products/search?apiKey=${API_KEY}&query=vegetables`,
-			`https://api.spoonacular.com/food/products/search?apiKey=${API_KEY}&query=bread`,
-			`https://api.spoonacular.com/food/products/search?apiKey=${API_KEY}&query=fruits`,
-		];
-
-		Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
-			(res) => {
-				console.log(res[0].data);
-				let proArray = []
-				const productList = proArray.push(res[0].data.products);
-				console.log("productLis",proArray)
-				setProVeg(productList);
-				setProBread()
-			}
-		);
-	} catch (err) {
-		console.log('Error getting products failed: ' + err.message);
+export const getProducts = createAsyncThunk(
+	'productDisplay/getProducts',
+	async () => {
+		try {
+			const querySnapshot = await getDocs(collection(db, 'products'));
+			let productList = [];
+			querySnapshot?.forEach((product) => {
+				productList.push({
+					id: product.id,
+					...product.data(),
+				});
+			});
+			return { data: productList };
+		} catch (err) {
+			console.log('Error getting prodcuts failed:', err.message);
+		}
 	}
+);
+
+export const getProductDetail = createAsyncThunk(
+	'productDisplay/getProductDetail',
+	async (id) => {
+		try {
+			const snapshot = await getDoc(doc(db, 'products', id));
+			return { data: snapshot.data() };
+		} catch (err) {
+			console.log('Error getting prodcut failed:', err.message);
+		}
+	}
+);
+
+const initialState = {
+	products: [],
+	isLoading: false,
+	filterProduct: [],
+	selectedProduct: {},
 };
-export default getProducts;
+
+const productSlice = createSlice({
+	name: 'productDisplay',
+	initialState: initialState,
+	reducers: {
+		// filterProductCategory: (state, action) => {
+		// 	switch (action.payload) {
+		// 		case 'ALL':
+		// 			state.filterProduct = state.products;
+		// 			break;
+		// 		case 'SALAD':
+		// 			state.filterProduct = state.products.filter(
+		// 				(item) => item.category === 'Salad'
+		// 			);
+		// 			break;
+		// 		case 'MEAT':
+		// 			state.filterProduct = state.products.filter(
+		// 				(item) => item.category === 'Meat'
+		// 			);
+		// 			break;
+		// 		case 'PASTA':
+		// 			state.filterProduct = state.products.filter(
+		// 				(item) => item.category === 'Pasta'
+		// 			);
+		// 			break;
+		// 		default:
+		// 			return state;
+		// 	}
+		// },
+	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(getProducts.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getProducts.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.products = action.payload;
+				state.filterProduct = action.payload;
+			})
+			.addCase(getProducts.rejected, (state) => {
+				state.isLoading = false;
+			})
+			.addCase(getProductDetail.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getProductDetail.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.selectedProduct = action.payload;
+			})
+			.addCase(getProductDetail.rejected, (state) => {
+				state.isLoading = false;
+			});
+	},
+});
+
+export const productActions = productSlice.actions;
+export default productSlice;
