@@ -11,7 +11,7 @@ module.exports = {
 			sm: '480px',
 			md: '768px',
 			lg: '1024px',
-			xl: '1280px'
+			xl: '1280px',
 		},
 		extend: {
 			colors: {
@@ -19,15 +19,14 @@ module.exports = {
 			},
 			keyframes: {
 				pullRight: {
-				  '0%': { width: '0%' },
-				  '100%': { width: '100%' },
-				}
+					'0%': { width: '0%' },
+					'100%': { width: '100%' },
+				},
 			},
 			fontFamily: {
-				'noto': ['Noto Sans', 'sans-serif',...defaultTheme.fontFamily.sans]
-			}
-		
+				raj: ['Rajdhani', 'sans-serif', ...defaultTheme.fontFamily.sans],
+			},
+		},
+		plugins: [require('flowbite/plugin')],
 	},
-	plugins: [require('flowbite/plugin')],
-}
 };
