@@ -27,7 +27,7 @@ const BlogCard = ({title, description,img, tags}) => (
                 <p className='text-justify truncate'>
                     {description}
                 </p>
-                    <Link to='/' className='inline-block text-greenBtn font-medium underline underline-offset-4 mt-1'>Read more</Link>
+                    <Link to='/' className='inline-block text-greenBtn font-medium underline underline-offset-4 mt-1 '>Read more</Link>
                 
                 <div className='flex items-center justify-between mt-7 border-t pt-6'>
                     <Link to='/' className='flex items-center hover:text-greenBtn transition-all duration-300'>

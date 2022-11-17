@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
 	content: [
@@ -24,7 +23,7 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				raj: ['Rajdhani', 'sans-serif', ...defaultTheme.fontFamily.sans],
+				raj: ['Rajdhani', 'sans-serif']
 			},
 		},
 		plugins: [require('flowbite/plugin')],

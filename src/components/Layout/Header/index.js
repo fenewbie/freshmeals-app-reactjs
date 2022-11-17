@@ -44,11 +44,11 @@ const Header = () => {
 					</nav>
 					<nav className="flex justify-end items-center gap-8 relative">
 						<div className="hidden lg:block lg:order-1">
-							<Navigation className="flex flex-row gap-6 text-white capitalize font-bold" />
+							<Navigation className="flex flex-row gap-6 text-white capitalize font-bold text-xl font-raj" />
 						</div>
 
 						<div className="flex flex-wrap gap-6 order-2">
-							<Button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">
+							<Button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 font-raj">
 								GET A QUOTE
 							</Button>
 							<div className="flex gap-3">
