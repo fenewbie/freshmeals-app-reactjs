@@ -7,17 +7,23 @@ import ProductCard from '../../Product';
 const Test = () => {
 	const { docs } = useFirestore('products');
 	console.log('docs', docs);
-	const filterProducts = docs.filter((item) => item.category === 'fruits');
-	console.log('filterProducts', filterProducts);
+	let filterProducts = docs.filter((item) => item.category === 'fruits');
+    const categories = [{label: 'fruits', content: filterProducts}];
+	// console.log('filterProducts', filterProducts);
 
 	return (
 		<Tabs>
-			{filterProducts.map((item) => (
-				<span key={item.id}>
+			{categories.map((item) => (
+				<span key={item.id} label={item.label}>
 					<SwiperProduct>
-						<SwiperSlide className="min-h-[200px]">
-							<ProductCard />
-						</SwiperSlide>
+                        {
+                            item.content.map(product => 
+                                <SwiperSlide className="min-h-[200px]">
+                                    <ProductCard image={product.image} label={product.label} title={product.title}/>
+						        </SwiperSlide>
+                            )
+                        }
+						
 					</SwiperProduct>
 				</span>
 			))}

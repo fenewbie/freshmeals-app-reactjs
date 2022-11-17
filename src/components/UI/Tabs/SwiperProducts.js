@@ -14,7 +14,10 @@ const SwiperProduct = ({children}) => {
 				onMouseEnter={() => setToogleBtn(!toggleBtn)}
 				onMouseLeave={() => setToogleBtn(toggleBtn)}
 			>
-				<Swiper>
+				<Swiper
+					slidesPerView={3}
+					className="mySwiper"
+				>
 					<SliderButton
 						isNext={false}
 						iconSize={30}
