@@ -6,10 +6,10 @@ import Rating from './Rating';
 
 const ProductCard = ({ image, label, title, price, discount }) => {
 	return (
-		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
+		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group my-5">
 			<div>
 				<Link className={`block relative bg-slate-100 pt-[100%]`}>
-					<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn">
+					<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-10">
 						{label}
 					</span>
 					<img
@@ -18,7 +18,7 @@ const ProductCard = ({ image, label, title, price, discount }) => {
 						className="absolute top-0 left-0 w-full h-full object-contain"
 						alt={title}
 					/>
-					<div className="absolute left-0 top-1/2 w-full text-center hidden group-hover:block animate-[fadeOut_300ms_ease-out_both]">
+					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:translate-y-0">
 						<button
 							title=""
 							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
