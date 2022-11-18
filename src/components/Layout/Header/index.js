@@ -9,15 +9,20 @@ import Banner from './Banner';
 import { userList } from '../../../constants/route';
 import * as cs from '../../../constants/Constant';
 import Dropdown from '../../UI/Dropdown';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiActions } from '../../../redux/ui/ui-slice';
 
 const Header = () => {
-	const [isDisplay, setIsDisplay] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
+
+	const showNavMobi = useSelector((state) => state.ui.isDisplay);
+	const dispatch = useDispatch();
+
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
 	const handleClick = () => {
-		setIsDisplay(!isDisplay);
+		dispatch(uiActions.toggleNavMobi());
 	};
 
 	return (
@@ -70,20 +75,21 @@ const Header = () => {
 								<Button className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
 									<BiCartAlt />
 								</Button>
+
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleClick}
 								>
 									<span
 										className={`${
-											isDisplay
+											showNavMobi
 												? 'fixed inset-0 w-full h-full bg-black opacity-40'
 												: ''
 										}`}
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={isDisplay} handleClick={handleClick} />
+								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
 							</div>
 						</div>
 					</nav>

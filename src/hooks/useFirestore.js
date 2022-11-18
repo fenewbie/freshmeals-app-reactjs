@@ -4,19 +4,20 @@ import { db } from '../api/firebase';
 
 const useFirestore = (col) => {
 	const [docs, setDocs] = useState([]);
+
 	useEffect(() => {
-		const getData = async () => {
+		const getMultiDocuments = async () => {
 			const querySnapshot = await getDocs(collection(db, col));
 			let documents = [];
 			querySnapshot.forEach((doc) => {
 				documents.push({ ...doc.data(), id: doc.id });
 			});
-			// console.log('documents', documents);
 			setDocs(documents);
 		};
-		return () => getData();
+		return () => getMultiDocuments();
 	}, [col]);
 
+	
 	return { docs };
 };
 

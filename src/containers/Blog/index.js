@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Keyboard, Navigation } from 'swiper';
 
-import BlogCard from './BlogCard';
+import BlogCard from '../../components/UI/Blog/BlogCard';
 import SliderButton from '../../components/UI/Slider/SliderButton';
 import SliderPagination from '../../components/UI/Slider/SliderPagination';
 import useFirestore from '../../hooks/useFirestore';

@@ -1,39 +1,28 @@
-import { useEffect, useState } from 'react';
-import { db } from '../../../api/firebase';
-import { collection, getDocs } from 'firebase/firestore';
-import BannerSlideItem from './BannerSlideItem';
-
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+
+import BannerSlideItem from './BannerSlideItem';
 import SliderButton from '../../UI/Slider/SliderButton';
-import { transform } from 'framer-motion';
+import useFirestore from '../../../hooks/useFirestore';
+import { useState } from 'react';
 
 const Banner = () => {
-	const [sliderImgs, setSliderImgs] = useState([]);
-	let [showNavBtn, setShowNavBtn] = useState(false);
-
-	useEffect(() => {
-		const getImgs = async () => {
-			const docRef = collection(db, 'slide-header');
-			const resp = await getDocs(docRef);
-			setSliderImgs(resp.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-		};
-		getImgs();
-	}, []);
+	const [showNavBtn, setShowNavBtn] = useState(false);
+	const {docs} = useFirestore('slide-header');
 
 	return (
 		<div
 			className="relative w-full h-[600px] md:h-[700px] lg:h-screen flex justify-center"
 			onMouseEnter={() => {
-				setShowNavBtn(true);
+				setShowNavBtn(showNavBtn);
 			}}
 			onMouseLeave={() => {
-				setShowNavBtn(false);
+				setShowNavBtn(!showNavBtn);
 			}}
 		>
-			{sliderImgs.length > 0 && (
+			{docs.length > 0 && (
 				<Swiper loop={true} pagination={true} modules={[Pagination]}>
 					<SliderButton
 						isNext={false}
@@ -57,7 +46,7 @@ const Banner = () => {
 						} transition-all ease-in-out duration-300 lg:block hidden`}
 						iconClassName={`transition-all ease-in-out duration-300`}
 					/>
-					{sliderImgs.map((imgItem) => (
+					{docs.map((imgItem) => (
 						<SwiperSlide key={imgItem.id}>
 							<BannerSlideItem imgItem={imgItem} />
 						</SwiperSlide>

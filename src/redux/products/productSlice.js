@@ -1,37 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import useFirestore from '../../hooks/useFirestore';
 
 export const getProducts = createAsyncThunk(
 	'productDisplay/getProducts',
 	async () => {
 		try {
-			const querySnapshot = await getDocs(collection(db, 'products'));
-			let productList = [];
-			querySnapshot?.forEach((product) => {
-				productList.push({
-					id: product.id,
-					...product.data(),
-				});
-			});
-			return { data: productList };
+			const {docs} = useFirestore('products')
+			return { docs };
 		} catch (err) {
 			console.log('Error getting prodcuts failed:', err.message);
 		}
 	}
 );
 
-export const getProductDetail = createAsyncThunk(
-	'productDisplay/getProductDetail',
-	async (id) => {
-		try {
-			const snapshot = await getDoc(doc(db, 'products', id));
-			return { data: snapshot.data() };
-		} catch (err) {
-			console.log('Error getting prodcut failed:', err.message);
-		}
-	}
-);
+// export const getProductDetail = createAsyncThunk(
+// 	'productDisplay/getProductDetail',
+// 	async (id) => {
+// 		try {
+// 			const snapshot = await getDoc(doc(db, 'products', id));
+// 			return { data: snapshot.data() };
+// 		} catch (err) {
+// 			console.log('Error getting prodcut failed:', err.message);
+// 		}
+// 	}
+// );
 
 const initialState = {
 	products: [],

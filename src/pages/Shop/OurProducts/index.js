@@ -6,15 +6,14 @@ import { Pagination, Navigation, Keyboard } from 'swiper';
 import "swiper/css";
 import "swiper/css/pagination";
 
-import ProductCard from '../../../components/Product';
+import ProductCard from '../../../components/ProductCard';
 import Tabs from '../../../components/UI/Tabs/Tabs';
 import SliderButton from '../../../components/UI/Slider/SliderButton';
 
 
 const OurProducts = () => {
+	const [toggleBtn, setToggleBtn] = useState(false);
 	const { docs } = useFirestore('products');
-	let [toggleBtn, setToggleBtn] = useState(false);
-	// console.log('docs of products', docs);
 
 	const categories = [
 		{label: 'food & drinks', products: docs.filter((item) => item.category.includes('food') || item.category.includes('drink'))},
@@ -28,10 +27,10 @@ const OurProducts = () => {
 			<div
 				className="my-20"
 				onMouseEnter={() => {
-					setToggleBtn(true);
+					setToggleBtn(!toggleBtn);
 				}}
 				onMouseLeave={() => {
-					setToggleBtn(false);
+					setToggleBtn(toggleBtn);
 				}}
 			>
 				{
