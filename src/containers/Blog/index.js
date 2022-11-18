@@ -6,9 +6,9 @@ import 'swiper/css/navigation';
 import { Keyboard, Navigation } from 'swiper';
 
 import BlogCard from './BlogCard';
-import SliderButton from '../Slider/SliderButton';
-import SliderPagination from '../Slider/SliderPagination';
-import useFirestore from '../../../hooks/useFirestore';
+import SliderButton from '../../components/UI/Slider/SliderButton';
+import SliderPagination from '../../components/UI/Slider/SliderPagination';
+import useFirestore from '../../hooks/useFirestore';
 
 const Blog = () => {
 	const [toggleBtn, setToggleBtn] = useState(false);

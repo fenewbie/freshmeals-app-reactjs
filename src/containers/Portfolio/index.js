@@ -5,10 +5,10 @@ import 'swiper/css';
 
 import Title from './Title';
 import PortFolioSwiper from './PortFolioSwiper';
-import SliderPagination from '../Slider/SliderPagination';
+import SliderPagination from '../../components/UI/Slider/SliderPagination';
 import Backdrop from './BackDrop';
 import PortSwiperZoom from './PortFolioSwiperZoom';
-import useFirestore from '../../../hooks/useFirestore';
+import useFirestore from '../../hooks/useFirestore';
 
 const Portfolio = () => {
 	const [indexAct, setIndexAct] = useState();
