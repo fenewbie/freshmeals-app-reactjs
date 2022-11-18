@@ -87,7 +87,7 @@ const OurProducts = () => {
 										/>
 										{
 											item.products.map(product => 
-												<SwiperSlide>
+												<SwiperSlide key={product.id}>
 													<ProductCard 
 														image={product.image}
 														label={product.label || 'free'}

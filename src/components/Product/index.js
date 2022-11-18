@@ -18,7 +18,7 @@ const ProductCard = ({ image, label, title, price, discount }) => {
 						className="absolute top-0 left-0 w-full h-full object-contain"
 						alt={title}
 					/>
-					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:translate-y-0">
+					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2">
 						<button
 							title=""
 							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
