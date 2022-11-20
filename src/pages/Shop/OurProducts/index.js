@@ -16,7 +16,8 @@ const OurProducts = () => {
 		{label:  'vegetables',products: docs.filter((item) => item.category.includes('vegetables'))},
 		{label: 'dried foods',products: docs.filter((item) => item.category.includes('dried food'))},
 		{label: 'bread & cake',products: docs.filter((item) => item.category.includes('bread') || item.category.includes('cake'))},
-		{label: 'fish & meat',products: docs.filter((item) => item.category.includes('fish') || item.category.includes('meat'))}
+		{label: 'fish & meat',products: docs.filter((item) => item.category.includes('fish') || item.category.includes('meat'))},
+		{label: 'fruits',products: docs.filter((item) => item.category.includes('fruits'))}
 	];
 
 	return (
