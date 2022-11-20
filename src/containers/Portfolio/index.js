@@ -4,17 +4,15 @@ import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import Title from './Title';
-import PortFolioSwiper from './PortFolioSwiper';
-import SliderPagination from '../../components/UI/Slider/SliderPagination';
 import Backdrop from './BackDrop';
 import PortSwiperZoom from './PortFolioSwiperZoom';
 import useFirestore from '../../hooks/useFirestore';
+import Slider from '../../components/UI/Slider/Slider';
 
 const Portfolio = () => {
 	const [indexAct, setIndexAct] = useState();
-	const [realIndex, setRealIndex] = useState(0);
 	const [loopSlide, setLoopSlide] = useState();
-
+	
 	const { docs } = useFirestore('portfolio');
 
 	const handleUnmount = useCallback((e) => {
@@ -25,21 +23,27 @@ const Portfolio = () => {
 	return (
 		<div className="bg-[#F7F5EB] py-[120px] text-center">
 			<Title title="We Have Done" subtitle="Portfolio" />
-
-			{docs.length > 0 && (
-				<PortFolioSwiper
-					handleSlideChange={(e) => {
-						setRealIndex(e.realIndex);
+			{
+				docs.length > 0 && 
+				<Slider
+					centeredSlides
+					breakpoints={{
+						768: {
+							slidesPerView: 2,
+						},
+						1024: {
+							slidesPerView: 4,
+						},
 					}}
-					handleClick={(e) => {
+					onClick={(e) => {
 						setIndexAct(e.clickedIndex);
 					}}
-					handleResize={(e) => {
-						setLoopSlide(e.loopedSlides);
+					onResize={(e) => {
+							setLoopSlide(e.loopedSlides);
 					}}
 				>
-					{docs &&
-						docs.map((imgItem) => (
+					{
+						docs.map((imgItem) => 
 							<SwiperSlide key={imgItem.id}>
 								<div className="overflow-hidden rounded-md my-10">
 									<div className="h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear">
@@ -51,11 +55,10 @@ const Portfolio = () => {
 									</div>
 								</div>
 							</SwiperSlide>
-						))}
-
-					{<SliderPagination totalSlides={docs.length} indexAct={realIndex} />}
-				</PortFolioSwiper>
-			)}
+						)
+					}
+				</Slider>
+			}
 
 			{indexAct && (
 				<Backdrop handleUnmount={() => setIndexAct()}>

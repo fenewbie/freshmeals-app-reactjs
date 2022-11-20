@@ -1,18 +1,14 @@
 import { useState } from 'react';
 import useFirestore from '../../../hooks/useFirestore';
 
-import {Swiper,SwiperSlide} from 'swiper/react';
-import { Pagination, Navigation, Keyboard } from 'swiper';
-import "swiper/css";
-import "swiper/css/pagination";
+import {SwiperSlide} from 'swiper/react';
+
 
 import ProductCard from '../../../components/ProductCard';
 import Tabs from '../../../components/UI/Tabs/Tabs';
-import SliderButton from '../../../components/UI/Slider/SliderButton';
-
+import Slider from '../../../components/UI/Slider/Slider';
 
 const OurProducts = () => {
-	const [toggleBtn, setToggleBtn] = useState(false);
 	const { docs } = useFirestore('products');
 
 	const categories = [
@@ -24,88 +20,37 @@ const OurProducts = () => {
 	];
 
 	return (
-			<div
-				className="my-20"
-				onMouseEnter={() => {
-					setToggleBtn(!toggleBtn);
-				}}
-				onMouseLeave={() => {
-					setToggleBtn(toggleBtn);
-				}}
-			>
-				{
-					categories.length > 0 && 
-						<Tabs>
-							{categories.map((item) => (
-								<div label={item.label} key={item.label}>
-									<Swiper 
-										slidesPerView={1}
-										spaceBetween={30}
-										loop={true}
-										pagination={true} 
-										keyboard={{
-											enabled: true,
-										}}
-										modules={[Pagination, Navigation, Keyboard]}
-										breakpoints={
-											{
-												768: {
-													slidesPerView: 3,
-													pagination: false
-												},
-												1024: {
-													slidesPerView: 4,
-													pagination: false
-												}
-											}
-										}
-										className="mySwiper"
-									>	
-
-										<SliderButton
-											isNext={false}
-											iconSize={30}
-											iconColors={['white', '#80B500']}
-											className={`p-2 bg-white rounded-full border-gray-200 border-2 hover:bg-greenBtn ${
-												toggleBtn
-													? 'visible translate-x-[0%] opacity-100'
-													: 'invisible -translate-x-[30%] opacity-0'
-											} shadow-2xl transition-all ease-in-out duration-300 lg:block hidden focus:outline focus:outline-2 focus:outline-greenBtn`}
-											iconClassName={`transition-all ease-in-out duration-300`}
+		categories.length > 0 && 
+			<Tabs>
+				{categories.map((item) => (
+					<div label={item.label} key={item.label}>
+						<Slider 
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+						>
+							{
+								item.products.map(product => 
+									<SwiperSlide key={product.id}>
+										<ProductCard 
+											image={product.image}
+											label={product.label || 'free'}
+											title={product.title}
+											price={product.price}
+											discount={product.discount || 0}
 										/>
-										<SliderButton
-											isNext={true}
-											iconSize={30}
-											iconColors={['white', '#80B500']}
-											className={`p-2 bg-white rounded-full border-gray-200 border-2 hover:bg-greenBtn ${
-												toggleBtn
-													? 'visible translate-x-[0%] opacity-100'
-													: 'invisible translate-x-[30%] opacity-0'
-											} shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
-											iconClassName={`transition-all ease-in-out duration-300`}
-										/>
-										{
-											item.products.map(product => 
-												<SwiperSlide key={product.id}>
-													<ProductCard 
-														image={product.image}
-														label={product.label || 'free'}
-														title={product.title}
-														price={product.price}
-														discount={product.discount || 0}
-													/>
-												</SwiperSlide>
-											)
-										}
-									</Swiper>
-								</div>
-							))}
-						</Tabs>
-				}
-			</div>
-
-		
-		
+									</SwiperSlide>
+								)
+							}
+						</Slider>
+					</div>
+				))}
+			</Tabs>
 	);
 };
 

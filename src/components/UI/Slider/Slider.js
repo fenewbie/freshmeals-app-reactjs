@@ -9,7 +9,14 @@ import SliderButton from './SliderButton';
 import SliderPagination from './SliderPagination';
 
 
-function Slider({children, slidesPerView = 1, centeredSlides = false}) {
+function Slider({
+    children, 
+    slidesPerView = 1, 
+    centeredSlides = false,
+    breakpoints,
+    onClick,
+    onResize
+    }) {
     const [showSliderBtn, setShowSliderBtn] = useState(false);
     const [indexAct, setIndexAct] = useState(0);
     return (
@@ -31,14 +38,9 @@ function Slider({children, slidesPerView = 1, centeredSlides = false}) {
                 }}
                 modules={[Keyboard]}
 				onSlideChange={(e) => setIndexAct(e.realIndex)}
-                breakpoints={{
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                }}
+                breakpoints={breakpoints}
+                onClick={onClick}
+                onResize={onResize}
                 className="mySwiper"
             >
                 <SliderButton
