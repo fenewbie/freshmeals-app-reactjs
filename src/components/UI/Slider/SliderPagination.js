@@ -14,7 +14,7 @@ const SliderPagination = ({totalSlides, indexAct}) => {
     }
 
     return (
-        <div className="flex justify-center cursor-pointer lg:hidden">
+        <div className="flex justify-center cursor-pointer lg:hidden mt-10">
             {
                 createDots(totalSlides)
             }

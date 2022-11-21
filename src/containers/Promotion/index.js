@@ -1,8 +1,8 @@
 
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
-import Button from '../Button';
-import useFirestore from '../../../hooks/useFirestore';
+import Button from '../../components/UI/Button';
+import useFirestore from '../../hooks/useFirestore';
 
 export default function Promotion() {
 	const { docs } = useFirestore('promotion');
