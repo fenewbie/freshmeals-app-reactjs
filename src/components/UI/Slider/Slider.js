@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { SwiperSlide, Swiper, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Keyboard } from 'swiper';
+import "swiper/css/grid";
+import 'swiper/css/effect-fade';
+
+
+import { Keyboard, Grid, EffectFade, Pagination } from 'swiper';
 
 import SliderButton from './SliderButton';
 import SliderPagination from './SliderPagination';
@@ -11,11 +15,7 @@ import SliderPagination from './SliderPagination';
 
 function Slider({
     children, 
-    slidesPerView = 1, 
-    centeredSlides = false,
-    breakpoints,
-    onClick,
-    onResize
+    ...swiperProps
     }) {
     const [showSliderBtn, setShowSliderBtn] = useState(false);
     const [indexAct, setIndexAct] = useState(0);
@@ -29,18 +29,14 @@ function Slider({
 			}}
 		>
             <Swiper
-                slidesPerView={slidesPerView}
                 spaceBetween={30}
-				centeredSlides={centeredSlides}
                 loop={true}
                 keyboard={{
                     enabled: true,
                 }}
-                modules={[Keyboard]}
+                modules={[Keyboard, Grid,EffectFade, Pagination]}
 				onSlideChange={(e) => setIndexAct(e.realIndex)}
-                breakpoints={breakpoints}
-                onClick={onClick}
-                onResize={onResize}
+                {...swiperProps}
                 className="mySwiper"
             >
                 <SliderButton
