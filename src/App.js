@@ -4,6 +4,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop/OurProducts';
+import NotFound from './pages/NotFound';
 import {store} from './redux/store'
 
 
@@ -19,6 +20,7 @@ function App() {
 
 					<Route path="/about" element={<About />}></Route>
 					<Route path="/contact" element={<Contact />}></Route>
+					<Route path="/404" element={<NotFound />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</Provider>
