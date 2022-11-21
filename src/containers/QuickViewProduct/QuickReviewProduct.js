@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {AiOutlinePlus,AiOutlineMinus} from 'react-icons/ai';
-import Button from "../Button";
+import Button from "../../components/UI/Button";
 
 
 const ProductCounter = () => {

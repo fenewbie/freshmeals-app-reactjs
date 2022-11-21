@@ -4,7 +4,14 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
 
-const ProductCard = ({ image, label, title, price, discount }) => {
+const ProductCard = ({
+	image,
+	label,
+	title,
+	price,
+	discount,
+	setIsModalShowing,
+}) => {
 	return (
 		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
 			<div>
@@ -20,8 +27,8 @@ const ProductCard = ({ image, label, title, price, discount }) => {
 					/>
 					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2">
 						<button
-							title=""
 							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
+							onClick={() => setIsModalShowing(true)}
 						>
 							<FaRegEye className="mx-auto" />
 						</button>
@@ -30,9 +37,7 @@ const ProductCard = ({ image, label, title, price, discount }) => {
 							<FaShoppingCart className="mx-auto" />
 						</button>
 
-						<button
-							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
-						>
+						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto">
 							<AiTwotoneHeart className="mx-auto" />
 						</button>
 					</div>
@@ -53,5 +58,5 @@ const ProductCard = ({ image, label, title, price, discount }) => {
 			</div>
 		</div>
 	);
-}
-export default ProductCard
+};
+export default ProductCard;
