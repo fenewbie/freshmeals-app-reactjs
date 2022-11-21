@@ -34,6 +34,8 @@ const OurProducts = () => {
 									slidesPerView: 4,
 								},
 							}}
+							grid={{rows:2, fill: 'row'}}
+							loop={false}
 						>
 							{
 								item.products.map(product => 
