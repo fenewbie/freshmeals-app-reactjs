@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
-import Button from '../../UI/Button';
+import Button from '../UI/Button';
 import Banner from './Banner';
-import { userList } from '../../../constants/route';
-import * as cs from '../../../constants/Constant';
-import Dropdown from '../../UI/Dropdown';
+import { userList } from '../../constants/route';
+import * as cs from '../../constants/Constant';
+import Dropdown from '../UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../../redux/ui/ui-slice';
+import { uiActions } from '../../redux/ui/ui-slice';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -26,13 +26,7 @@ const Header = () => {
 	};
 
 	return (
-		<header
-			className={` relative flex justify-center ${
-				isHomePage
-					? 'bg-transparent'
-					: 'bg-gradient-to-r from-slate-800 to-slate-700'
-			} `}
-		>
+		<header className="relative flex justify-center bg-transparent">
 			{isHomePage && <Banner />}
 			<div
 				className={`z-10 ${

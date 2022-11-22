@@ -4,13 +4,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import BannerSlideItem from './BannerSlideItem';
-import SliderButton from '../../UI/Slider/SliderButton';
-import useFirestore from '../../../hooks/useFirestore';
+import SliderButton from '../UI/Slider/SliderButton';
+import useFirestore from '../../hooks/useFirestore';
 import { useState } from 'react';
 
 const Banner = () => {
 	const [showNavBtn, setShowNavBtn] = useState(false);
-	const {docs} = useFirestore('slide-header');
+	const { docs } = useFirestore('slide-header');
 
 	return (
 		<div

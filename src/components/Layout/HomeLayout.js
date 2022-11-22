@@ -1,6 +1,6 @@
-import Footer from './Footer';
-import Header from './Header';
-import Features from './Features';
+import Footer from '../Footer';
+import Header from '../Header';
+import Features from '../Features';
 
 const HomeLayout = ({ children, className }) => {
 	return (

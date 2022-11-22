@@ -3,13 +3,13 @@ import Promotion from '../../containers/Promotion';
 import CountDown from '../../containers/CountDown';
 import Portfolio from '../../containers/Portfolio';
 import Blog from '../../containers/Blog';
-import OurProducts from '../Shop/OurProducts';
+import ProductList from '../../containers/ProductList';
 
 const Home = () => {
 	return (
 		<HomeLayout>
 			<Promotion />
-			<OurProducts />
+			<ProductList />
 			<CountDown />
 			<Portfolio />
 			<Blog />

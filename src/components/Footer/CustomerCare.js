@@ -1,4 +1,4 @@
-import { userList } from '../../../constants/route';
+import { userList } from '../../constants/route';
 import FooterLink from './FooterLink';
 
 const CustomerCare = () => {

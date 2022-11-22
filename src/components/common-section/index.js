@@ -1,9 +1,17 @@
+import Breadcrumbs from "../Breadcrumbs";
+
 const CommonSection = ({ title, children }) => {
 	return (
-		<section className="bg-hero-image bg-cover bg-center bg-no-repeat h-96 px-0 py-28 ">
+		<section className="relative bg-hero-image bg-cover bg-center bg-no-repeat h-96 px-0 pb-28  ">
 			<div>{children}</div>
-			<div>
-				<h2 className="text-white">{title}</h2>
+			<div className="container absolute top-[60%] left-[15%] flex flex-row mx-auto text-white mb-10 font-raj">
+				<div>
+					<p className="text-base uppercase text-[#80B500] mb-4 ml-3">
+						Welcome to our company
+					</p>
+					<p className="text-6xl">{title}</p>
+				</div>
+			
 			</div>
 		</section>
 	);

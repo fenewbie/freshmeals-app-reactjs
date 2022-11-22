@@ -1,8 +1,8 @@
-import * as cs from '../../../constants/Constant';
+import * as cs from '../../constants/Constant';
 import { GrLocation } from 'react-icons/gr';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
-import SocialLink from '../../UI/SocialLink';
+import SocialLink from '../UI/SocialLink';
 
 const WebInfo = () => {
 	return (

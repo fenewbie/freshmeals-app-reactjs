@@ -1,14 +1,13 @@
-import useFirestore from '../../../hooks/useFirestore';
-
 import { SwiperSlide } from 'swiper/react';
+import useFirestore from '../../hooks/useFirestore';
 
-import ProductCard from '../../../components/ProductCard';
-import Tabs from '../../../components/UI/Tabs/Tabs';
-import Slider from '../../../components/UI/Slider/Slider';
+import ProductCard from '../../components/ProductCard';
+import Tabs from '../../components/UI/Tabs/Tabs';
+import Slider from '../../components/UI/Slider/Slider';
 import { useState } from 'react';
-import QuickViewProduct from '../../../containers/QuickViewProduct';
+import QuickViewProduct from '../QuickViewProduct';
 
-const OurProducts = () => {
+const ProductList = () => {
 	const [isModalShowing, setIsModalShowing] = useState(false);
 	const { docs } = useFirestore('products');
 
@@ -77,7 +76,10 @@ const OurProducts = () => {
 							))}
 						</Slider>
 						{isModalShowing ? (
-							<QuickViewProduct setIsModalShowing={setIsModalShowing} data = {docs} />
+							<QuickViewProduct
+								setIsModalShowing={setIsModalShowing}
+								data={docs}
+							/>
 						) : null}
 					</div>
 				))}
@@ -86,4 +88,4 @@ const OurProducts = () => {
 	);
 };
 
-export default OurProducts;
+export default ProductList;

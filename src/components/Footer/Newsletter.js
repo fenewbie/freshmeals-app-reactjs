@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
-import * as cs from '../../../constants/Constant';
+import * as cs from '../../constants/Constant';
 
 const Newsletter = () => {
   let [email, setEmail] = useState();

@@ -1,5 +1,5 @@
 import FooterLink from './FooterLink';
-import { linkList } from '../../../constants/route';
+import { linkList } from '../../constants/route';
 
 const Company = () => {
   return (

@@ -1,5 +1,5 @@
 import FeatureItem from './FeatureItem';
-import useFirestore from '../../../hooks/useFirestore';
+import useFirestore from '../../hooks/useFirestore';
 
 const Features = () => {
 	const { docs } = useFirestore('features');

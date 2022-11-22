@@ -3,10 +3,10 @@ import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-import * as cs from '../../../constants/Constant';
+import * as cs from '../../constants/Constant';
 import { Navigation } from './Navigation';
-import SocialLink from '../../UI/SocialLink';
-import Button from '../../UI/Button';
+import SocialLink from '../UI/SocialLink';
+import Button from '../UI/Button';
 
 export function NavMobi({ isDisplay, handleClick }) {
 	return (

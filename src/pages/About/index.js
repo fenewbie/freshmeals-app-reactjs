@@ -1,13 +1,11 @@
-import CommonSection from '../../components/common-section';
-import MainLayout from '../../components/Layout/HomeLayout';
+import PageLayout from '../../components/Layout/PageLayout'
+
 
 const About = () => {
 	return (
-		<MainLayout>
-			<CommonSection />
-			<p>Welcome to our company</p>
-			<h1 className="text-4xl">About</h1>
-		</MainLayout>
+		<PageLayout title="About Us">
+			<h1 className="text-4xl">About content</h1>
+		</PageLayout>
 	);
 };
 
