@@ -1,10 +1,10 @@
-import MainLayout from '../../components/Layout/MainLayout';
+import PageLayout from '../../components/Layout/PageLayout';
 
 const Contact = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <h1 className='text-4xl'>Contact</h1>
-    </MainLayout>
+    </PageLayout>
   );
 };
 

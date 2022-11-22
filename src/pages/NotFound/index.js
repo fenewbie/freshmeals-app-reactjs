@@ -1,10 +1,10 @@
-import MainLayout from "../../components/Layout/MainLayout";
+import NotFoundLayout from "../../components/Layout/NotFoundLayout";
 import Button from "../../components/UI/Button";
 import  { TbArrowBigLeftLines } from 'react-icons/tb';
 
 function NotFound() {
     return (
-        <MainLayout>
+        <NotFoundLayout>
             <div className="text-center my-20">
                 <h1 className="lg:text-[18rem] md:text-8xl text-7xl font-extrabold text-greenBtn">404</h1>
                 <h2 className="lg:text-5xl md:text-2xl font-bold uppercase lg:my-10 my-6">OOPS! page not found!</h2>
@@ -16,7 +16,7 @@ function NotFound() {
                     </span>
                 </Button>
             </div>
-        </MainLayout>
+        </NotFoundLayout>
     );
 }
 
