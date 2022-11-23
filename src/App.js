@@ -6,7 +6,6 @@ import Home from './pages/Home/Home';
 import ProductsScreen from './pages/Shop/ProductsScreen';
 import NotFound from './pages/NotFound';
 import {store} from './redux/store'
-import Blog from './pages/Blog';
 
 
 
@@ -15,9 +14,10 @@ function App() {
 		<Provider store={store}>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Home />}></Route>
-					<Route path="/shop" element={<ProductsScreen />}></Route>
-					<Route path="/shop/:id" element={<ProductsScreen />}></Route>
+					<Route index element={<Home />}></Route>
+					<Route path="/shop" element={<Shop />}></Route>
+					<Route path="/shop/:id" element={<Shop />}></Route>
+
 					<Route path="/about" element={<About />}></Route>
 					<Route path="/contact" element={<Contact />}></Route>
 					<Route path="/blog" element={<Blog />}></Route>
