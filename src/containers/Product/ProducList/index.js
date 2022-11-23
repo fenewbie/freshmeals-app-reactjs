@@ -1,11 +1,12 @@
 import { SwiperSlide } from 'swiper/react';
-import useFirestore from '../../hooks/useFirestore';
-
-import ProductCard from '../../components/ProductCard';
-import Tabs from '../../components/UI/Tabs/Tabs';
-import Slider from '../../components/UI/Slider/Slider';
 import { useState } from 'react';
-import QuickViewProduct from '../QuickViewProduct';
+
+import useFirestore from '../../../hooks/useFirestore';
+
+import ProductItem from '../ProductItem';
+import Tabs from '../../../components/UI/Tabs/Tabs';
+import Slider from '../../../components/UI/Slider/Slider';
+import QuickViewProductModal from '../QuickViewProductModal';
 
 const ProductList = () => {
 	const [isModalShowing, setIsModalShowing] = useState(false);
@@ -64,21 +65,24 @@ const ProductList = () => {
 						>
 							{item.products.map((product) => (
 								<SwiperSlide key={product.id}>
-									<ProductCard
+									<ProductItem
+										rating={product.rating}
+										numReviews={product.numReviews}
 										image={product.image}
 										label={product.label || 'free'}
 										title={product.title}
 										price={product.price}
 										discount={product.discount || 0}
-										setIsModalShowing={setIsModalShowing}
+										handleClick={()=>setIsModalShowing(!isModalShowing)}
 									/>
 								</SwiperSlide>
 							))}
 						</Slider>
 						{isModalShowing ? (
-							<QuickViewProduct
-								setIsModalShowing={setIsModalShowing}
-								data={docs}
+							<QuickViewProductModal
+								handleClose={() => setIsModalShowing(isModalShowing)}
+								docs={categories}
+								isOpen={isModalShowing}
 							/>
 						) : null}
 					</div>

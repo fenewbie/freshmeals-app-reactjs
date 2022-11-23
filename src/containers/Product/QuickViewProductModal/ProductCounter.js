@@ -1,9 +1,10 @@
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../components/UI/Button';
-import { cartActions } from '../../redux/cart/cartSlice';
 
-const CartItem = (id) => {
+import Button from '../../../components/UI/Button'
+import { cartActions } from '../../../redux/cart/cartSlice';
+
+const ProductCounter = (id) => {
 	const cartQuantity = useSelector((state) => state.cart.cartTotalQuantity);
 	const dispatch = useDispatch();
 	const AddItemToCart = () => {
@@ -41,4 +42,4 @@ const CartItem = (id) => {
 	);
 };
 
-export default CartItem;
+export default ProductCounter;

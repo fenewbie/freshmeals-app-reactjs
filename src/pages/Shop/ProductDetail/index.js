@@ -1,4 +1,4 @@
-import MainLayout from '../../../components/Layout/MainLayout';
+import PageLayout from '../../../components/Layout/PageLayout'
 import { BsArrowLeftRight } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import * as cs from '../../../constants/Constant';
@@ -9,7 +9,7 @@ import Button from '../../../components/UI/Button';
 import WishList from './Wishlist';
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
-import Rating from '../../../components/ProductCard/Rating';
+import Rating from '../../../containers/Product/ProductItem/Rating';
 
 function ProductItem({
 	imgSrc = 'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
@@ -29,7 +29,7 @@ function ProductItem({
 	desc='This product is...'
 }) {
 	return (
-		<MainLayout>
+		<PageLayout>
 			<div className="grid grid-cols-12 gap-8 my-20">
 				<div className="col-span-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">
@@ -133,7 +133,7 @@ function ProductItem({
 					<span>Promotion</span>
 				</div>
 			</div>
-		</MainLayout>
+		</PageLayout>
 	);
 }
 

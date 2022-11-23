@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { IoClose } from 'react-icons/io5';
 import { CSSTransition } from 'react-transition-group';
-import ReactPortal from '../ReactPortal';
-import './modalStyles.css';
+import ReactPortal from './ReactPortal';
 
-function Modal({ children, isOpen, handleClose, classNames }) {
+function Modal({ children, isOpen = false, handleClose, classNames }) {
 	const nodeRef = useRef(null);
 	useEffect(() => {
 		const closeOnEscapeKey = (e) => (e.key === 'Escape' ? handleClose() : null);
@@ -24,7 +24,7 @@ function Modal({ children, isOpen, handleClose, classNames }) {
 			>
 				<div className={`${classNames}`} ref={nodeRef}>
 					<button onClick={handleClose} className={`${classNames}`}>
-						Close
+						<IoClose />
 					</button>
 					<div className="w-4/6 h-4/6 bg-[#282c34] text-white flex items-center justify-center text-3xl ">
 						{children}

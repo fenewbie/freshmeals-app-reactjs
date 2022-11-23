@@ -3,7 +3,7 @@ import Promotion from '../../containers/Promotion';
 import CountDown from '../../containers/CountDown';
 import Portfolio from '../../containers/Portfolio';
 import Blog from '../../containers/Blog';
-import ProductList from '../../containers/ProductList';
+import ProductList from '../../containers/Product/ProducList';
 
 const Home = () => {
 	return (
