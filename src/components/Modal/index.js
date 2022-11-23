@@ -23,10 +23,10 @@ function Modal({ children, isOpen = false, handleClose, classNames }) {
 				nodeRef={nodeRef}
 			>
 				<div className={`${classNames}`} ref={nodeRef}>
-					<button onClick={handleClose} className={`${classNames}`}>
+					<button onClick={() => handleClose(false)} className='absolute z-[100001] bg-white p-10'>
 						<IoClose />
 					</button>
-					<div className="w-4/6 h-4/6 bg-[#282c34] text-white flex items-center justify-center text-3xl ">
+					<div className="w-4/6 h-4/6 bg-[#282c34] text-white flex items-center justify-center text-3xl mx-auto">
 						{children}
 					</div>
 				</div>

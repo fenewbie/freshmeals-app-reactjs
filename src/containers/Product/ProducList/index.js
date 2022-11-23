@@ -7,9 +7,13 @@ import ProductItem from '../ProductItem';
 import Tabs from '../../../components/UI/Tabs/Tabs';
 import Slider from '../../../components/UI/Slider/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
+import AddToCard from '../AddToCard';
 
 const ProductList = () => {
-	const [isModalShowing, setIsModalShowing] = useState(false);
+	const [modals, setModals] = useState({
+		modalQuickView: false,
+		modalAddToCard: false
+	});
 	const { docs } = useFirestore('products');
 
 	const categories = [
@@ -17,29 +21,36 @@ const ProductList = () => {
 			label: 'food & drinks',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('food') || item.category.includes('drink')
+					item.category.includes('food') ||
+					item.category.includes('drink')
 			),
 		},
 		{
 			label: 'vegetables',
-			products: docs.filter((item) => item.category.includes('vegetables')),
+			products: docs.filter((item) =>
+				item.category.includes('vegetables')
+			),
 		},
 		{
 			label: 'dried foods',
-			products: docs.filter((item) => item.category.includes('dried food')),
+			products: docs.filter((item) =>
+				item.category.includes('dried food')
+			),
 		},
 		{
 			label: 'bread & cake',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('bread') || item.category.includes('cake')
+					item.category.includes('bread') ||
+					item.category.includes('cake')
 			),
 		},
 		{
 			label: 'fish & meat',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('fish') || item.category.includes('meat')
+					item.category.includes('fish') ||
+					item.category.includes('meat')
 			),
 		},
 		{
@@ -78,20 +89,51 @@ const ProductList = () => {
 										title={product.title}
 										price={product.price}
 										discount={product.discount || 0}
-										handleClick={() =>
-											setIsModalShowing(!isModalShowing)
+										handleOpenQuickView={() =>
+											setModals((preModals) => ({
+												...preModals,
+												modalQuickView: true,
+											}))
+										}
+										handleOpenAddToCard={() =>
+											setModals((preModals) => ({
+												...preModals,
+												modalAddToCard: true,
+											}))
 										}
 									/>
 								</SwiperSlide>
 							))}
 						</Slider>
-						{isModalShowing ? (
+						{modals.modalQuickView ? (
 							<QuickViewProductModal
 								handleClose={() =>
-									setIsModalShowing(isModalShowing)
+									setModals((preModals) => ({
+										...preModals,
+										modalQuickView: false,
+									}))
 								}
 								docs={categories}
-								isOpen={isModalShowing}
+								isOpen={modals.modalQuickView}
+								handleOpenModal2={() =>
+									setModals((preModals) => ({
+										...preModals,
+										modalAddToCard: true,
+									}))
+								}
+							/>
+						) : null}
+
+						{modals.modalAddToCard ? (
+							<AddToCard
+								handleClose={() =>
+									setModals((preModals) => ({
+										...preModals,
+										modalAddToCard: false,
+									}))
+								}
+								docs={categories}
+								isOpen={modals.modalAddToCard}
 							/>
 						) : null}
 					</div>
