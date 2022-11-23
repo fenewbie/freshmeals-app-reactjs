@@ -1,19 +1,19 @@
-import MainLayout from '../../components/Layout/MainLayout';
+import HomeLayout from '../../components/Layout/HomeLayout';
 import Promotion from '../../containers/Promotion';
 import CountDown from '../../containers/CountDown';
 import Portfolio from '../../containers/Portfolio';
 import Blog from '../../containers/Blog';
-import OurProducts from '../Shop/OurProducts';
+import ProductList from '../../containers/Product/ProducList';
 
 const Home = () => {
 	return (
-		<MainLayout>
+		<HomeLayout>
 			<Promotion />
-			<OurProducts />
+			<ProductList />
 			<CountDown />
 			<Portfolio />
 			<Blog />
-		</MainLayout>
+		</HomeLayout>
 	);
 };
 

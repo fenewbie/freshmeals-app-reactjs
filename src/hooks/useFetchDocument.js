@@ -1,0 +1,28 @@
+import { getDoc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { db } from '../api/firebase';
+
+export default function useFetchDocument(collectionName, documentID) {
+	const [doc, setDoc] = useState(null);
+	const getDocument = async () => {
+		const docRef = doc(db, collectionName, documentID);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			console.log(('Document data:', docSnap.data()));
+			const obj = {
+				id: documentID,
+				...docSnap.data(),
+			};
+			setDoc(obj);
+		} else {
+			console.log('Document not found');
+		}
+	};
+
+	useEffect(() => {
+		getDocument();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+	return { doc };
+}

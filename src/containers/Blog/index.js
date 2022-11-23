@@ -1,12 +1,6 @@
-import { useState } from 'react';
-
 import { SwiperSlide } from 'swiper/react';
-
 import BlogCard from '../../components/UI/Blog/BlogCard';
-import SliderButton from '../../components/UI/Slider/SliderButton';
-import SliderPagination from '../../components/UI/Slider/SliderPagination';
 import useFirestore from '../../hooks/useFirestore';
-
 import Slider from '../../components/UI/Slider/Slider';
 
 const Blog = () => {
