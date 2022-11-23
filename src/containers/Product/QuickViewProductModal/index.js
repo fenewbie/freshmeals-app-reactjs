@@ -8,12 +8,32 @@ import WishList from './Wishlist';
 import { BsArrowLeftRight } from 'react-icons/bs';
 import Modal from '../../../components/Modal';
 
-const QuickViewProductModal = ({ setIsModalShowing, docs, isOpen, handleClose }) => {
+const QuickViewProductModal = ({
+	setIsModalShowing,
+	docs,
+	isOpen,
+	handleClose,
+	handleOpenModal2,
+}) => {
 	const { productId } = useParams();
 
 	return (
-		<Modal>
-			<div className="bg-red-500 p-8 rounded grid grid-cols-1 md:grid-cols-2 md:gap-14 border-2">				
+		<Modal
+			isOpen={isOpen}
+			handleClose={handleClose}
+			classNames="fixed top-0 left-0 bottom-0 right-0 bg-[#0003] z-[10000]"
+		>
+			<div>
+				<span>Quick View Product</span>
+
+				<button
+					onClick={handleOpenModal2}
+					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ml-10"
+				>
+					Add To Card
+				</button>
+			</div>
+			{/* <div className="bg-red-500 p-8 rounded grid grid-cols-1 md:grid-cols-2 md:gap-14 border-2">				
 				{docs
 					.filter((title) => title.id === productId)
 					.map((el) => (
@@ -58,7 +78,7 @@ const QuickViewProductModal = ({ setIsModalShowing, docs, isOpen, handleClose })
 							</div>
 						</>
 					))}
-			</div>
+			</div> */}
 		</Modal>
 	);
 };
