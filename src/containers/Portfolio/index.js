@@ -62,7 +62,29 @@ const Portfolio = () => {
 
 			{indexAct && (
 				<Backdrop handleUnmount={() => setIndexAct()}>
-					<PortSwiperZoom loopSlide={loopSlide} indexAct={indexAct}>
+					<Slider 
+						slidesPerView={loopSlide} 
+						centeredSlides={true}
+						effect="fade"
+						pagination={{
+							type: 'fraction',
+							renderFraction: function (currentClass, totalClass) {
+								return (
+									'<span class="' +
+									currentClass +
+									'"></span>' +
+									' of ' +
+									'<span class="' +
+									totalClass +
+									'"></span>'
+								);
+							},
+						}}
+						onInit={(e) => {
+							e.slideTo(indexAct);
+						}}
+					
+					>
 						{docs.map((imgItem) => (
 							<SwiperSlide key={imgItem.id} onClick={handleUnmount}>
 								<div className="overflow-hidden rounded-md relative lg:pt-[30%] pt-[50%] w-full md:w-1/2 bg-transparent mx-auto">
@@ -76,7 +98,7 @@ const Portfolio = () => {
 								</div>
 							</SwiperSlide>
 						))}
-					</PortSwiperZoom>
+					</Slider>
 				</Backdrop>
 			)}
 		</div>
