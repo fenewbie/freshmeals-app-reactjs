@@ -4,8 +4,7 @@ import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import Title from '../../components/UI/Title';
-import Backdrop from './BackDrop';
-import PortSwiperZoom from './PortFolioSwiperZoom';
+import Backdrop from '../../components/UI/BackDrop';
 import useFirestore from '../../hooks/useFirestore';
 import Slider from '../../components/UI/Slider/Slider';
 
