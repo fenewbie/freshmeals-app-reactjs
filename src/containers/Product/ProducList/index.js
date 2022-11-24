@@ -52,7 +52,10 @@ const ProductList = () => {
 		categories.length > 0 && (
 			<Tabs>
 				{categories.map((item) => (
-					<div label={item.label} key={item.label}>
+					<div
+						label={item.label}
+						key={item.label}
+					>
 						<Slider
 							breakpoints={{
 								768: {
@@ -62,6 +65,8 @@ const ProductList = () => {
 									slidesPerView: 4,
 								},
 							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
 						>
 							{item.products.map((product) => (
 								<SwiperSlide key={product.id}>
@@ -73,14 +78,18 @@ const ProductList = () => {
 										title={product.title}
 										price={product.price}
 										discount={product.discount || 0}
-										handleClick={() => setIsModalShowing(!isModalShowing)}
+										handleClick={() =>
+											setIsModalShowing(!isModalShowing)
+										}
 									/>
 								</SwiperSlide>
 							))}
 						</Slider>
 						{isModalShowing ? (
 							<QuickViewProductModal
-								handleClose={() => setIsModalShowing(isModalShowing)}
+								handleClose={() =>
+									setIsModalShowing(isModalShowing)
+								}
 								docs={categories}
 								isOpen={isModalShowing}
 							/>
