@@ -33,6 +33,10 @@ const QuickViewProductModal = ({
 					Add To Card
 				</button>
 			</div>
+
+
+
+			
 			{/* <div className="bg-red-500 p-8 rounded grid grid-cols-1 md:grid-cols-2 md:gap-14 border-2">				
 				{docs
 					.filter((title) => title.id === productId)

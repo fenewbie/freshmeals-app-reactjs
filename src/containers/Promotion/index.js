@@ -8,7 +8,7 @@ export default function Promotion() {
 	const { docs } = useFirestore('promotion');
 
 	return (
-		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7">
+		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7 mt-[120px]">
 			{docs.map((item) => (
 				<div 
 					key={item.id}

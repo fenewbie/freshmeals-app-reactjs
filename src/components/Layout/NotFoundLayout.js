@@ -7,7 +7,6 @@ const NotFoundLayout = ({ children, className, title }) => {
 		<div className="w-full mx-auto flex flex-col space-y-1 p-0 m-0">
 			<CommonSection title={title}>
 				<Header />
-				{/* <h1 className='text-white'>404 Page</h1> */}
 			</CommonSection>
 			<main className={`w-full p-1`}>
 				<div

@@ -4,7 +4,7 @@ import CountDown from '../../containers/CountDown';
 import Portfolio from '../../containers/Portfolio';
 import Blog from '../../containers/Blog';
 import ProductList from '../../containers/Product/ProducList';
-import FeatureHomePage from '../../components/Features/FeatureHomePage';
+import FeatureHomePage from '../../containers/Features/FeatureHomePage';
 
 const Home = () => {
 	return (
@@ -12,7 +12,7 @@ const Home = () => {
 			<Promotion />
 			<ProductList />
 			<CountDown />
-			<FeatureHomePage/>
+			<FeatureHomePage />
 			<Portfolio />
 			<Blog />
 		</HomeLayout>

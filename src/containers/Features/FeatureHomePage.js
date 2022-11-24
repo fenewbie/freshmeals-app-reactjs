@@ -1,26 +1,26 @@
 import useFirestore from '../../hooks/useFirestore';
-import { shuffle } from '../../helper/utils';
-import Rating from '../../containers/Product/ProductItem/Rating';
+import { shuffle } from '../../helpers/helpers';
+import Rating from '../Product/ProductItem/Rating';
 import { Link } from 'react-router-dom';
-import { BtnIcon } from '../../containers/Product/ProductItem/BtnIcon';
-import Title from '../UI/Title';
-import Slider from '../UI/Slider/Slider';
-import { SwiperSlide } from 'swiper/react';
+import { BtnIcon } from '../Product/ProductItem/BtnIcon';
+import Title from '../../components/UI/Title';
+
 export default function FeatureHomePage() {
 	const { docs } = useFirestore('products');
 	const shuffleProducts = shuffle(docs);
-	const featureProducts = shuffleProducts.slice(0, 9);
+	const featureProducts = shuffleProducts.slice(0, 8);
 
 	return (
-		<div>
+		<div className='my-[120px]'>
 			<Title title="Featured Products" />
-			<div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-[30px] '>
-				{featureProducts.map((item, index) => (
-					<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
+			<div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-[30px] mt-[15px]  ">
+				{featureProducts.map((item) => (
+					<div
+						className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group"
+						key={item.id}
+					>
 						<div>
-							<Link
-								className={`block relative bg-slate-100 pt-[100%]`}
-							>
+							<Link className={`block relative bg-slate-100 pt-[100%]`}>
 								<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-10">
 									{item.label}
 								</span>

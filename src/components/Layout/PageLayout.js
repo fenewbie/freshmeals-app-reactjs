@@ -1,6 +1,6 @@
 import Footer from '../Footer';
 import Header from '../Header';
-import FeatureFooter from '../Features/FeatureFooter';
+import FeatureFooter from '../../containers/Features/FeatureFooter';
 import CommonSection from '../../containers/CommonSection';
 
 const PageLayout = ({ children, title, className }) => {

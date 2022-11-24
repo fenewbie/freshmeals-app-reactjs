@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const uiSlice = createSlice({
 	name: 'ui',
-	initialState: { isDisplay: false, notification: null },
+	initialState: { isDisplay: false, isShowingModal: false, notification: null },
 	reducers: {
 		toggleNavMobi(state) {
 			state.isDisplay = !state.isDisplay;
@@ -14,6 +14,9 @@ const uiSlice = createSlice({
 		// 		message: action.payload.message,
 		// 	};
 		// },
+		quickView(state) {
+			state.isShowingModal = !state.isShowingModal;
+		},
 	},
 });
 

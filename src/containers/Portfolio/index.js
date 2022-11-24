@@ -20,7 +20,7 @@ const Portfolio = () => {
 	}, []);
 
 	return (
-		<div className="bg-[#F7F5EB] py-[120px] text-center">
+		<div className="bg-[#F7F5EB] pt-[110px] pb-[90] text-center font-raj">
 			<Title title="We Have Done" subtitle="Portfolio" />
 			{
 				docs.length > 0 && 
@@ -44,7 +44,7 @@ const Portfolio = () => {
 					{
 						docs.map((imgItem) => 
 							<SwiperSlide key={imgItem.id}>
-								<div className="overflow-hidden rounded-md my-10">
+								<div className="overflow-hidden rounded-md">
 									<div className="h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear">
 										<img
 											alt="portfolio"

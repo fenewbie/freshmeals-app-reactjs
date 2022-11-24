@@ -1,36 +1,26 @@
-import PageLayout from '../../../components/Layout/PageLayout'
+import PageLayout from '../../../components/Layout/PageLayout';
 import { BsArrowLeftRight } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import * as cs from '../../../constants/Constant';
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SocialLink from '../../../components/UI/SocialLink';
 import Button from '../../../components/UI/Button';
 import WishList from '../../../containers/Product/QuickViewProductModal/Wishlist';
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../../../containers/Product/ProductItem/Rating';
+import useFirestore from '../../../hooks/useFirestore';
 
-function ProductItem({
-	imgSrc = 'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
-	alt = 'product',
-	images = [
-		'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
-		'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
-		'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
-		'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png',
-		'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/4.png'
-	],
-	wishlist,
-	title = 'Name of Products',
-	discount = 100,
-	price = 20,
-	categories = ['Item 1', 'Item 2', 'Item 3'],
-	desc='This product is...'
-}) {
+function ProductItem(id) {
+	const { docs } = useFirestore('products');
+	let { productId } = useParams();
+	const product = docs.find((product) => product.id === productId);
+	console.log('productID', productId);
+	// console.log(product);
 	return (
 		<PageLayout>
-			<div className="grid grid-cols-12 gap-8 my-20">
+			{/* <div className="grid grid-cols-12 gap-8 my-20">
 				<div className="col-span-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">
 						<div className="flex-col">
@@ -132,7 +122,9 @@ function ProductItem({
 					<h1>Top rated</h1>
 					<span>Promotion</span>
 				</div>
-			</div>
+			</div> */}
+
+			<p>This is product detail </p>
 		</PageLayout>
 	);
 }
