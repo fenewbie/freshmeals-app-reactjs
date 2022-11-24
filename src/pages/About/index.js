@@ -1,11 +1,12 @@
-import MainLayout from '../../components/Layout/MainLayout';
+import PageLayout from '../../components/Layout/PageLayout'
+
 
 const About = () => {
-  return (
-    <MainLayout>
-      <h1 className='text-4xl'>About</h1>
-    </MainLayout>
-  );
+	return (
+		<PageLayout title="About Us">
+			<h1 className="text-4xl">About content</h1>
+		</PageLayout>
+	);
 };
 
 export default About;

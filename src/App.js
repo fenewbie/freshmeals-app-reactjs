@@ -1,30 +1,42 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	RouterProvider,
+} from 'react-router-dom';
+
+import Home from './pages/Home/Home';
+import ProductScreen from './pages/Shop/ProductScreen';
+import ProductDetail from './pages/Shop/ProductDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Home from './pages/Home/Home';
-import Shop from './pages/Shop/OurProducts';
+import BlogPage from './pages/Blog/';
 import NotFound from './pages/NotFound';
-import {store} from './redux/store'
 
-
+import ShopLayout from './containers/RouterLayout/ShopLayout';
+import RootLayout from './containers/RouterLayout/RootLayout';
+import TestProductDetail from './pages/Shop/TestProductDetail';
 
 function App() {
-  return (
-		<Provider store={store}>
-			<BrowserRouter>
-				<Routes>
-					<Route index element={<Home />}></Route>
-					<Route path="/shop" element={<Shop />}></Route>
-					<Route path="/shop/:id" element={<Shop />}></Route>
-
-					<Route path="/about" element={<About />}></Route>
-					<Route path="/contact" element={<Contact />}></Route>
-					<Route path="/404" element={<NotFound />}></Route>
-				</Routes>
-			</BrowserRouter>
-		</Provider>
+	const router = createBrowserRouter(
+		createRoutesFromElements(
+			<Route path="/" element={<RootLayout />}>
+				<Route index element={<Home />}></Route>
+				<Route path="/shop" element={<ShopLayout />}>
+					<Route
+						index
+						element={<ProductScreen />}
+					></Route>
+					<Route path=":productId" element={<TestProductDetail />}></Route>
+				</Route>
+				<Route path="/about" element={<About />}></Route>
+				<Route path="/contact" element={<Contact />}></Route>
+				<Route path="/blog" element={<BlogPage />}></Route>
+				<Route path="*" element={<NotFound />}></Route>
+			</Route>
+		)
 	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;

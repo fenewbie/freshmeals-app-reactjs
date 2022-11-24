@@ -6,11 +6,11 @@ const CountDown = () => {
 	const { docs } = useFirestore('countdown');
 
 	return (
-		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8">
+		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8 mt-[120px] font-raj">
 			<div className="lg:w-[1200px] max-w-full mx-auto">
 				{docs &&
-					docs.map((item) => (
-						<div className="grid lg:grid-cols-12 grid-cols-1 gap-10">
+					docs.map((item, index) => (
+						<div className="grid lg:grid-cols-12 grid-cols-1 gap-10" key={index}>
 							<div className="lg:col-span-5">
 								<img src={item.image} alt="countdown" />
 							</div>

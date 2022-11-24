@@ -1,11 +1,11 @@
-import MainLayout from '../../components/Layout/MainLayout';
+import PageLayout from '../../components/Layout/PageLayout';
 
 const Contact = () => {
   return (
-    <MainLayout>
-      <h1 className='text-4xl'>Contact</h1>
-    </MainLayout>
-  );
+		<PageLayout title="Contact Us">
+			<h1 className="text-4xl">Contact</h1>
+		</PageLayout>
+	);
 };
 
 export default Contact;

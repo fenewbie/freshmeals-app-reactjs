@@ -36,7 +36,7 @@ export const navbarList = [
 		title: 'gallery',
 		url: '/gallery',
 		parent_id: 1,
-	},
+	}
 ];
 
 export const userList = [
