@@ -1,6 +1,6 @@
 import Footer from '../Footer';
 import Header from '../Header';
-import CommonSection from '../common-section';
+import CommonSection from '../../containers/CommonSection';
 
 const NotFoundLayout = ({ children, className, title }) => {
 	return (

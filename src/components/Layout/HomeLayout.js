@@ -1,6 +1,6 @@
 import Footer from '../Footer';
 import Header from '../Header';
-import Features from '../Features';
+import FeatureFooter from '../Features/FeatureFooter';
 
 const HomeLayout = ({ children, className }) => {
 	return (
@@ -13,7 +13,7 @@ const HomeLayout = ({ children, className }) => {
 					{children}
 				</div>
 			</main>
-			<Features />
+			<FeatureFooter />
 			<Footer />
 		</div>
 	);

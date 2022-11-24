@@ -6,7 +6,7 @@ import * as cs from '../../../constants/Constant';
 import { Link } from 'react-router-dom';
 import SocialLink from '../../../components/UI/SocialLink';
 import Button from '../../../components/UI/Button';
-import WishList from './Wishlist';
+import WishList from '../../../containers/Product/QuickViewProductModal/Wishlist';
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../../../containers/Product/ProductItem/Rating';

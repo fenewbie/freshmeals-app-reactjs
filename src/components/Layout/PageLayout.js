@@ -1,12 +1,12 @@
 import Footer from '../Footer';
 import Header from '../Header';
-import Features from '../Features';
-import CommonSection from '../common-section';
+import FeatureFooter from '../Features/FeatureFooter';
+import CommonSection from '../../containers/CommonSection';
 
-const PageLayout = ({ children,title, className }) => {
+const PageLayout = ({ children, title, className }) => {
 	return (
 		<div className="w-full mx-auto flex flex-col space-y-1 p-0 m-0">
-			<CommonSection title ={title}>
+			<CommonSection title={title}>
 				<Header />
 			</CommonSection>
 			<main className={`w-full p-1`}>
@@ -16,7 +16,7 @@ const PageLayout = ({ children,title, className }) => {
 					{children}
 				</div>
 			</main>
-			<Features />
+			<FeatureFooter />
 			<Footer />
 		</div>
 	);

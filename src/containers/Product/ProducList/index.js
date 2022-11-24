@@ -73,7 +73,7 @@ const ProductList = () => {
 										title={product.title}
 										price={product.price}
 										discount={product.discount || 0}
-										handleClick={()=>setIsModalShowing(!isModalShowing)}
+										handleClick={() => setIsModalShowing(!isModalShowing)}
 									/>
 								</SwiperSlide>
 							))}

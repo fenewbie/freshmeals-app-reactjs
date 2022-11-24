@@ -1,4 +1,4 @@
-import Breadcrumbs from "../Breadcrumbs";
+// import Breadcrumbs from "../Breadcrumbs";
 
 const CommonSection = ({ title, children }) => {
 	return (

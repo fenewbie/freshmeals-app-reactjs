@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 
 import {store} from './redux/store'
 
@@ -19,7 +19,7 @@ function App() {
 				<Routes>
 					<Route index element={<Home />}></Route>
 					<Route path="/shop" element={<ProductScreen />}></Route>
-					<Route path="/shop/:id" element={<ProductDetail />}></Route>
+					<Route path="/shop/:productId" element={<ProductDetail />}></Route>
 					<Route path="/about" element={<About />}></Route>
 					<Route path="/contact" element={<Contact />}></Route>
 					<Route path="/blog" element={<BlogPage />}></Route>

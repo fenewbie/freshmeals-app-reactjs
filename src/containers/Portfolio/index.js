@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import Title from './Title';
+import Title from '../../components/UI/Title';
 import Backdrop from './BackDrop';
 import PortSwiperZoom from './PortFolioSwiperZoom';
 import useFirestore from '../../hooks/useFirestore';
