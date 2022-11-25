@@ -10,17 +10,16 @@ import WishList from '../../../containers/Product/QuickViewProductModal/Wishlist
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../../../containers/Product/ProductItem/Rating';
-import useFirestore from '../../../hooks/useFirestore';
-import { useEffect } from 'react';
+import useFirestore from '../../../hooks/useFirestore'
 
-function ProductDetail({docs}) {
+function ProductDetail() {
 	let { productId } = useParams();
+	const {docs} = useFirestore('products')
 	const product = docs.find((product) => product.id === productId);
 	console.log('single Pproduct', product);
 	
 	return (
 		<PageLayout>
-			
 			{/* <div className="grid grid-cols-12 gap-8 my-20">
 				<div className="col-span-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">

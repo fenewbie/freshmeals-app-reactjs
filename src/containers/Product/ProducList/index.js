@@ -14,6 +14,13 @@ import Title from '../../../components/UI/Title';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
+	const isShowingQuickViewModal = useSelector(
+		(state) => state.ui.isShowingQuickViewModal
+	);
+
+	const isShowingSuccessModal = useSelector(
+		(state) => state.ui.isShowingSuccessModal
+	);
 
 	return (
 		<div className="mt-[120px]">
@@ -52,6 +59,7 @@ const ProductList = () => {
 							)
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -68,6 +76,7 @@ const ProductList = () => {
 							.filter((item) => item.category.includes('vegetables'))
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -84,6 +93,7 @@ const ProductList = () => {
 							.filter((item) => item.category.includes('dried food'))
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -104,6 +114,7 @@ const ProductList = () => {
 							)
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -124,6 +135,7 @@ const ProductList = () => {
 							)
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -140,6 +152,7 @@ const ProductList = () => {
 							.filter((item) => item.category.includes('fruits'))
 							.map((el) => (
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.numReviews}
@@ -151,6 +164,20 @@ const ProductList = () => {
 								/>
 							))}
 					</TabPanel>
+					{isShowingQuickViewModal ? (
+						<QuickViewProductModal
+							docs={docs}
+							isOpen={isShowingQuickViewModal}
+						/>
+					) : null}
+
+					{isShowingSuccessModal.status ? (
+						<SuccessModal
+							docs={docs}
+							// isOpen={isShowingSuccessModal.status}
+							type={isShowingSuccessModal.type}
+						/>
+					) : null}
 				</Tabs>
 			</div>
 		</div>
