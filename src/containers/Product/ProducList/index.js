@@ -22,36 +22,29 @@ const ProductList = () => {
 			label: 'food & drinks',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('food') ||
-					item.category.includes('drink')
+					item.category.includes('food') || item.category.includes('drink')
 			),
 		},
 		{
 			label: 'vegetables',
-			products: docs.filter((item) =>
-				item.category.includes('vegetables')
-			),
+			products: docs.filter((item) => item.category.includes('vegetables')),
 		},
 		{
 			label: 'dried foods',
-			products: docs.filter((item) =>
-				item.category.includes('dried food')
-			),
+			products: docs.filter((item) => item.category.includes('dried food')),
 		},
 		{
 			label: 'bread & cake',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('bread') ||
-					item.category.includes('cake')
+					item.category.includes('bread') || item.category.includes('cake')
 			),
 		},
 		{
 			label: 'fish & meat',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('fish') ||
-					item.category.includes('meat')
+					item.category.includes('fish') || item.category.includes('meat')
 			),
 		},
 		{
@@ -61,7 +54,7 @@ const ProductList = () => {
 	];
 
 	return (
-		<div className='mt-[120px]'>
+		<div className="mt-[120px]">
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
 				{categories.length > 0 && (
@@ -106,62 +99,12 @@ const ProductList = () => {
 										</SwiperSlide>
 									))}
 								</Slider>
-
-								{modals.modalQuickView ? (
-									<QuickViewProductModal
-										handleClose={() =>
-											setModals((preModals) => ({
-												...preModals,
-												modalQuickView: false,
-											}))
-										}
-										docs={categories}
-										isOpen={modals.modalQuickView}
-										handleOpenModal2={() =>
-											setModals((preModals) => ({
-												...preModals,
-												modalAddToCard: true,
-											}))
-										}
-									/>
-								</SwiperSlide>
-							))}
-						</Slider>
-						{modals.modalQuickView ? (
-							<QuickViewProductModal
-								handleClose={() =>
-									setModals((preModals) => ({
-										...preModals,
-										modalQuickView: false,
-									}))
-								}
-								docs={categories}
-								isOpen={modals.modalQuickView}
-								handleOpenModal2={() =>
-									setModals((preModals) => ({
-										...preModals,
-										modalAddToCard: true,
-									}))
-								}
-							/>
-						) : null}
-
-						{modals.modalAddToCard ? (
-							<AddToCard
-								handleClose={() =>
-									setModals((preModals) => ({
-										...preModals,
-										modalAddToCard: false,
-									}))
-								}
-								docs={categories}
-								isOpen={modals.modalAddToCard}
-							/>
-						) : null}
-					</div>
-				))}
-			</Tabs>
-		)
+							</div>
+						))}
+					</Tabs>
+				)}
+			</div>
+		</div>
 	);
 };
 

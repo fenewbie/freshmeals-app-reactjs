@@ -14,6 +14,7 @@ const ProductItem = ({
 	discount,
 	handleOpenQuickView,
 	handleOpenAddToCard,
+	id
 }) => {
 	return (
 		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
