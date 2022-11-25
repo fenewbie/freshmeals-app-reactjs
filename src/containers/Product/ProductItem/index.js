@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaRegEye } from 'react-icons/fa';
-import { AiTwotoneHeart } from 'react-icons/ai';
-import { FaShoppingCart } from 'react-icons/fa';
 import Rating from './Rating';
+import { BtnIcon } from './BtnIcon';
 
 const ProductItem = (props) => {
 	const {
