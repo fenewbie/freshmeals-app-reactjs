@@ -5,8 +5,6 @@ import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import useFirestore from '../../../hooks/useFirestore';
 import { useSelector } from 'react-redux';
 
-import { SwiperSlide } from 'swiper/react';
-
 import ProductItem from '../ProductItem';
 // import Tabs from '../../../components/UI/Tabs/Tabs';
 import Slider from '../../../components/UI/Slider/Slider';

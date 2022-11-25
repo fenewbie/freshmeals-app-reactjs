@@ -17,7 +17,7 @@ function ProductDetail({docs}) {
 	let { productId } = useParams();
 	const product = docs.find((product) => product.id === productId);
 	console.log('single Pproduct', product);
-	git
+	
 	return (
 		<PageLayout>
 			
