@@ -4,20 +4,24 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 import { FaShoppingCart } from 'react-icons/fa';
 import Rating from './Rating';
 
-const ProductItem = ({
-	rating,
-	numReviews,
-	image,
-	label,
-	title,
-	price,
-	discount,
-	handleOpenQuickView,
-	handleOpenAddToCard,
-	id
-}) => {
+const ProductItem = (props) => {
+	const {
+		rating,
+		numReviews,
+		image,
+		label,
+		title,
+		price,
+		discount,
+		handleOpenQuickView,
+		handleOpenAddToCard,
+		id,
+	} = props;
 	return (
-		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
+		<div
+			className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group"
+			key={id}
+		>
 			<div>
 				<Link className={`block relative bg-slate-100 pt-[100%]`}>
 					<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-10">
@@ -37,18 +41,15 @@ const ProductItem = ({
 							<FaRegEye className="mx-auto" />
 						</button>
 
-						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1">
-							<FaShoppingCart
-								className="mx-auto"
-								onClick={handleOpenAddToCard}
-							/>
+						<button
+							className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
+							onClick={handleOpenAddToCard}
+						>
+							<FaShoppingCart className="mx-auto" />
 						</button>
 
 						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto">
-							<AiTwotoneHeart
-								className="mx-auto"
-								// onClick={handleClick}
-							/>
+							<AiTwotoneHeart className="mx-auto" />
 						</button>
 					</div>
 				</Link>
@@ -62,9 +63,7 @@ const ProductItem = ({
 						{title}
 					</Link>
 					<div className="flex justify-center mt-2">
-						<h4 className="text-xl font-bold text-greenBtn">
-							${discount}
-						</h4>
+						<h4 className="text-xl font-bold text-greenBtn">${discount}</h4>
 						<h4 className="text-xl font-bold text-greenBtn line-through ml-3 opacity-60">
 							${price}
 						</h4>

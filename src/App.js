@@ -15,7 +15,6 @@ import NotFound from './pages/NotFound';
 
 import ShopLayout from './containers/RouterLayout/ShopLayout';
 import RootLayout from './containers/RouterLayout/RootLayout';
-import TestProductDetail from './pages/Shop/TestProductDetail';
 
 function App() {
 	const router = createBrowserRouter(
@@ -23,11 +22,8 @@ function App() {
 			<Route path="/" element={<RootLayout />}>
 				<Route index element={<Home />}></Route>
 				<Route path="/shop" element={<ShopLayout />}>
-					<Route
-						index
-						element={<ProductScreen />}
-					></Route>
-					<Route path=":productId" element={<TestProductDetail />}></Route>
+					<Route index element={<ProductScreen />}></Route>
+					<Route path=":productId" element={<ProductDetail />} ></Route>
 				</Route>
 				<Route path="/about" element={<About />}></Route>
 				<Route path="/contact" element={<Contact />}></Route>

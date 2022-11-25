@@ -11,60 +11,45 @@ import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../../../containers/Product/ProductItem/Rating';
 import useFirestore from '../../../hooks/useFirestore';
+import { useEffect } from 'react';
 
-function ProductItem(id) {
-	const { docs } = useFirestore('products');
+function ProductDetail({docs}) {
 	let { productId } = useParams();
 	const product = docs.find((product) => product.id === productId);
-	console.log('productID', productId);
-	// console.log(product);
+	console.log('single Pproduct', product);
+	git
 	return (
 		<PageLayout>
+			
 			{/* <div className="grid grid-cols-12 gap-8 my-20">
 				<div className="col-span-8">
 					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">
 						<div className="flex-col">
-							<div className='mb-5'>
+							<div className="mb-5">
 								<img
-									src={imgSrc}
+									src={product.image}
 									className="h-full object-contain"
-									alt={alt}
+									alt={product.title}
 								/>
 							</div>
-							{images && <ProductListImages images={images} />}
+							{product.images && <ProductListImages images={product.images} />}
 						</div>
 						<div>
 							<div className="">
 								<Rating amount={`24 reviews`} />
-								<h4 className="text-2xl font-bold">{title}</h4>
+								<h4 className="text-2xl font-bold">{product.title}</h4>
 								<div className="flex items-center">
 									<span className="inline-block text-[40px] font-semibold text-greenBtn">
-										${price.toFixed(2)}
+										${product.price}
 									</span>
 									<span className="inline-block text-[32px] font-bold text-greenBtn opacity-50 line-through ml-4">
-										${discount.toFixed(2)}
+										${product.discount}
 									</span>
 								</div>
 							</div>
 							<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
 								<span>Categories:</span>
-								<ul className="flex items-center ml-5">
-									{categories.map((item, index) => (
-										<li
-											key={item}
-											className="font-medium mr-2"
-										>
-											<Link
-												to="/"
-												className="hover:text-greenBtn"
-											>
-												{index < categories.length - 1
-													? item + ','
-													: item}
-											</Link>
-										</li>
-									))}
-								</ul>
+								{product.label}
 							</div>
 							<form className="flex">
 								<div className="flex  border-2 border-gray-300">
@@ -79,25 +64,18 @@ function ProductItem(id) {
 										<AiOutlinePlus className="mx-auto" />
 									</button>
 								</div>
-								<Button
-									btn="card"
-									className="mt-0 ml-5"
-								>
+								<Button btn="card" className="mt-0 ml-5">
 									Add to cart
 								</Button>
 							</form>
 							<div className="flex mt-5">
 								<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
-									<WishList wishlist={wishlist} />
-									<span className="ml-1 font-medium">
-										Add to Wishlist
-									</span>
+									<WishList />
+									<span className="ml-1 font-medium">Add to Wishlist</span>
 								</div>
 								<Link className="flex items-center  hover:text-greenBtn transition-all">
 									<BsArrowLeftRight />
-									<span className="ml-1 font-medium">
-										Compare
-									</span>
+									<span className="ml-1 font-medium">Compare</span>
 								</Link>
 							</div>
 							<div className="flex items-center border-t-[1px] mt-8">
@@ -116,17 +94,15 @@ function ProductItem(id) {
 							</div>
 						</div>
 					</div>
-					<ProductDescTabs productDesc={desc}/>
+					<ProductDescTabs />
 				</div>
 				<div className="col-span-4 bg-red-400">
 					<h1>Top rated</h1>
 					<span>Promotion</span>
 				</div>
 			</div> */}
-
-			<p>This is product detail </p>
 		</PageLayout>
 	);
 }
 
-export default ProductItem;
+export default ProductDetail;

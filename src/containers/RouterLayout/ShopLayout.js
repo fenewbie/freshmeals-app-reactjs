@@ -5,7 +5,6 @@ import ProductList from '../Product/ProducList';
 function ShopLayout() {
 	return (
 		<>
-			<ProductList/>
 			<Outlet />
 		</>
 	);
