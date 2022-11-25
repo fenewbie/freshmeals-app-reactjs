@@ -12,8 +12,8 @@ const ProductItem = ({
 	title,
 	price,
 	discount,
-	id,
 	handleOpenQuickView,
+	handleOpenAddToCard,
 }) => {
 	return (
 		<div className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group">
@@ -37,11 +37,17 @@ const ProductItem = ({
 						</button>
 
 						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1">
-							<FaShoppingCart className="mx-auto" />
+							<FaShoppingCart
+								className="mx-auto"
+								onClick={handleOpenAddToCard}
+							/>
 						</button>
 
 						<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto">
-							<AiTwotoneHeart className="mx-auto" />
+							<AiTwotoneHeart
+								className="mx-auto"
+								// onClick={handleClick}
+							/>
 						</button>
 					</div>
 				</Link>
@@ -55,7 +61,9 @@ const ProductItem = ({
 						{title}
 					</Link>
 					<div className="flex justify-center mt-2">
-						<h4 className="text-xl font-bold text-greenBtn">${discount}</h4>
+						<h4 className="text-xl font-bold text-greenBtn">
+							${discount}
+						</h4>
 						<h4 className="text-xl font-bold text-greenBtn line-through ml-3 opacity-60">
 							${price}
 						</h4>
