@@ -16,7 +16,6 @@ function SuccessModal({ type }) {
 	
 	return (
 		<Modal
-			isOpen={true}
 			handleClose={handleClose}
 		>
 			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] w-10/12 mx-auto">

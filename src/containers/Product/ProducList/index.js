@@ -171,14 +171,20 @@ const ProductList = () => {
 						/>
 					) : null}
 
-					{isShowingSuccessModal.status ? (
-						<SuccessModal
-							docs={docs}
-							// isOpen={isShowingSuccessModal.status}
-							type={isShowingSuccessModal.type}
-						/>
-					) : null}
-				</Tabs>
+								{isShowingQuickViewModal ? (
+									<QuickViewProductModal docs={docs} />
+								) : null}
+
+								{isShowingSuccessModal.status ? (
+									<SuccessModal
+										docs={docs}
+										type={isShowingSuccessModal.type}
+									/>
+								) : null}
+							</div>
+						))}
+					</Tabs>
+				)}
 			</div>
 		</div>
 	);

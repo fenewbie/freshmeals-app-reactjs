@@ -11,7 +11,7 @@ import { IoClose } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../../redux/ui/ui-slice';
 
-const QuickViewProductModal = ({ docs, isOpen }) => {
+const QuickViewProductModal = ({ docs }) => {
 	// const { productId } = useParams();
 	const productId = 2;
 	const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const QuickViewProductModal = ({ docs, isOpen }) => {
 	};
 	return (
 		<Modal
-			isOpen={isOpen}
 			handleClose={handleCloseModal}
 		>
 			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] lg:w-4/6 md:w-5/6 w-4/6 mx-auto">
