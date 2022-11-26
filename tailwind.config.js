@@ -21,6 +21,24 @@ module.exports = {
 					'0%': { width: '0%' },
 					'100%': { width: '100%' },
 				},
+				modalAppear: {
+					'0%': {
+						transform: 'translateY(-10%)',
+						opacity: 0,
+					},
+					'100%': {
+						transform: 'translateY(0%)',
+						opacity: 1,
+					},
+				},
+				overlayApper: {
+					'0%': {
+						opacity: 0,
+					},
+					'100%': {
+						opacity: 1,
+					},
+				},
 			},
 			fontFamily: {
 				raj: ['Rajdhani', 'sans-serif'],

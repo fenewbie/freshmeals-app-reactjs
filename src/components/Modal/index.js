@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import ReactPortal from './ReactPortal';
 
-function Modal({ children, isOpen = false, classNames, handleClose }) {
+function Modal({ children, classNames, handleClose }) {
 	const nodeRef = useRef(null);
 	useEffect(() => {
 		const closeOnEscapeKey = (e) =>
@@ -20,22 +19,16 @@ function Modal({ children, isOpen = false, classNames, handleClose }) {
 
 	return (
 		<ReactPortal wrapperId="react-portal-modal-container">
-			<CSSTransition
-				in={isOpen}
-				timeout={{ entry: 0, exit: 300 }}
-				unmountOnExit
-				classNames={`fixed inset-0 bg-slate-600 flex flex-col items-center justify-center transition ease-in-out duration-300 overflow-hidden z-999 opacity-0 pointer-events-none scale-[0.4]`}
-				nodeRef={nodeRef}
+			<div
+				className={`fixed top-0 left-0 bottom-0 right-0  z-[10000] flex ${classNames}`}
+				ref={nodeRef}
+				onClick={handleCloseModal}
 			>
-				<div
-					className={`fixed top-0 left-0 bottom-0 right-0  z-[10000] flex ${classNames}`}
-					ref={nodeRef}
-					onClick={handleCloseModal}
-				>
-					<div className="overlay absolute top-0 left-0 w-full h-full bg-[#0003] transition-all "></div>
-					<div className="m-auto">{children}</div>
+				<div className="overlay absolute top-0 left-0 w-full h-full bg-[#0003] animate-[overlayApper_200ms_ease-in-out_forwards] "></div>
+				<div className="m-auto animate-[modalAppear_300ms_ease-in-out_forwards]">
+					{children}
 				</div>
-			</CSSTransition>
+			</div>
 		</ReactPortal>
 	);
 }

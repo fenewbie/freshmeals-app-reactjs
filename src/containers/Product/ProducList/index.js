@@ -103,16 +103,12 @@ const ProductList = () => {
 								</Slider>
 
 								{isShowingQuickViewModal ? (
-									<QuickViewProductModal
-										docs={docs}
-										isOpen={isShowingQuickViewModal}
-									/>
+									<QuickViewProductModal docs={docs} />
 								) : null}
 
 								{isShowingSuccessModal.status ? (
 									<SuccessModal
 										docs={docs}
-										// isOpen={isShowingSuccessModal.status}
 										type={isShowingSuccessModal.type}
 									/>
 								) : null}
