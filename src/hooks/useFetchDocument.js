@@ -1,6 +1,6 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../api/firebase';
+import { db } from '../services/firebase';
 
 export default function useFetchDocument(collectionName, documentID) {
 	const [document, setDocument] = useState(null);

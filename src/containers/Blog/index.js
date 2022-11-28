@@ -1,14 +1,14 @@
 import { SwiperSlide } from 'swiper/react';
 import BlogCard from '../../components/UI/Blog/BlogCard';
 import useFirestore from '../../hooks/useFirestore';
-import Slider from '../../components/UI/Slider/Slider';
-import Title from '../../components/UI/Title';
+import Slider from '../../components/UI/Slider';
+import Title from '../../components/Title';
 
 const Blog = () => {
-	const { docs} = useFirestore('blog');
+	const { docs } = useFirestore('blog');
 
 	return (
-		<div className='pt-[115px] pb-[70px]'>
+		<div className="pt-[115px] pb-[70px]">
 			<Title title="Lastest Blog" />
 			<div>
 				{docs.length > 0 && (

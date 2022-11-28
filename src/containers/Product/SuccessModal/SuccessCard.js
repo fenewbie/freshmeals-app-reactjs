@@ -2,12 +2,15 @@ import * as cs from '../../../constants/Constant';
 import Button from '../../../components/UI/Button';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
-function SuccessCard({ type, title='Product Name', image }) {
+function SuccessCard({ type, title = 'Product Name', image }) {
 	return (
 		<div className="">
 			<div className="flex max-md:flex-wrap items-center max-md:justify-center">
 				<img
-					src={image || "https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/1.png"}
+					src={
+						image ||
+						'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/1.png'
+					}
 					alt="product"
 					className="h-32 object-contain mr-6 max-md:m-auto"
 				/>
@@ -53,11 +56,7 @@ function SuccessCard({ type, title='Product Name', image }) {
 						We give you <b>20% discount</b> for your first order.
 						Use(LoveFreshMeals) discount code at checkout
 					</p>
-					<img
-						src={cs.paymentMethod}
-						alt="payment"
-						className="h-12 mx-auto"
-					/>
+					<img src={cs.paymentMethod} alt="payment" className="h-12 mx-auto" />
 				</div>
 			)}
 		</div>

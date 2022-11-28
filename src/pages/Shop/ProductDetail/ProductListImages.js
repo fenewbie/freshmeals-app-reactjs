@@ -2,8 +2,6 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
 import { Keyboard } from 'swiper';
 
-
-import { useState } from 'react';
 import SliderButton from '../../../components/UI/Slider/SliderButton';
 
 function ProductListImages({ images }) {
@@ -35,10 +33,10 @@ function ProductListImages({ images }) {
 					</>
 				)}
 				{images &&
-					images.map((imgSrc, index) => (
+					images.map((image, index) => (
 						<SwiperSlide key={index}>
 							<img
-								src={imgSrc}
+								src={images}
 								className="h-[90px] object-contain mb-12"
 								alt="product-item"
 							/>

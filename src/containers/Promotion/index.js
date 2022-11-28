@@ -1,4 +1,3 @@
-
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
 import Button from '../../components/UI/Button';
@@ -10,7 +9,7 @@ export default function Promotion() {
 	return (
 		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7 mt-[120px]">
 			{docs.map((item) => (
-				<div 
+				<div
 					key={item.id}
 					className={`lg:col-span-1 ${
 						item.id == 3 ? 'md:col-[2_/_span_2]' : 'md:col-span-2'

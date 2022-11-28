@@ -2,16 +2,15 @@ import { useState, useCallback } from 'react';
 
 import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
-import Title from '../../components/UI/Title';
-import Backdrop from '../../components/UI/BackDrop';
+import Title from '../../components/Title';
+import Backdrop from '../../components/Modal/BackDrop';
 import useFirestore from '../../hooks/useFirestore';
-import Slider from '../../components/UI/Slider/Slider';
+import Slider from '../../components/UI/Slider';
 
 const Portfolio = () => {
 	const [indexAct, setIndexAct] = useState();
 	const [loopSlide, setLoopSlide] = useState();
-	
+
 	const { docs } = useFirestore('portfolio');
 
 	const handleUnmount = useCallback((e) => {
@@ -22,8 +21,7 @@ const Portfolio = () => {
 	return (
 		<div className="bg-[#F7F5EB] pt-[110px] pb-[90] text-center font-raj">
 			<Title title="We Have Done" subtitle="Portfolio" />
-			{
-				docs.length > 0 && 
+			{docs.length > 0 && (
 				<Slider
 					centeredSlides
 					breakpoints={{
@@ -38,31 +36,29 @@ const Portfolio = () => {
 						setIndexAct(e.clickedIndex);
 					}}
 					onResize={(e) => {
-							setLoopSlide(e.loopedSlides);
+						setLoopSlide(e.loopedSlides);
 					}}
 				>
-					{
-						docs.map((imgItem) => 
-							<SwiperSlide key={imgItem.id}>
-								<div className="overflow-hidden rounded-md">
-									<div className="h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear">
-										<img
-											alt="portfolio"
-											src={imgItem.img}
-											className="h-full w-full object-contain"
-										/>
-									</div>
+					{docs.map((imgItem) => (
+						<SwiperSlide key={imgItem.id}>
+							<div className="overflow-hidden rounded-md">
+								<div className="h-full w-full hover:scale-[1.3] transition-all duration-300 ease-linear">
+									<img
+										alt="portfolio"
+										src={imgItem.img}
+										className="h-full w-full object-contain"
+									/>
 								</div>
-							</SwiperSlide>
-						)
-					}
+							</div>
+						</SwiperSlide>
+					))}
 				</Slider>
-			}
+			)}
 
 			{indexAct && (
 				<Backdrop handleUnmount={() => setIndexAct()}>
-					<Slider 
-						slidesPerView={loopSlide} 
+					<Slider
+						slidesPerView={loopSlide}
 						centeredSlides={true}
 						effect="fade"
 						pagination={{
@@ -82,7 +78,6 @@ const Portfolio = () => {
 						onInit={(e) => {
 							e.slideTo(indexAct);
 						}}
-					
 					>
 						{docs.map((imgItem) => (
 							<SwiperSlide key={imgItem.id} onClick={handleUnmount}>

@@ -1,32 +1,35 @@
-import { Link,useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { navbarList } from '../../constants/route';
 
 function Breadcrumbs() {
-	const breadcrumbs = useBreadcrumbs(navbarList);
-	const location = useLocation()
+	const breadcrumbs = useBreadcrumbs();
+	const location = useLocation();
 
-	console.log("breadcrumbs", breadcrumbs);
+	console.log(breadcrumbs);
 	return (
-		<nav>
-			{breadcrumbs.map(({ match, title }) => (
+		<nav className='flex items-center'>
+			{breadcrumbs.map(({ match, breadcrumb }) => (
 				<Link
-					key={match.url}
-					to={match.url}
+					key={match.pathname}
+					to={match.pathname}
 					className={
 						match.pathname === location.pathname
 							? 'text-[#80B500]'
 							: 'text-[#8CB2B2]'
 					}
 				>
-					{title} /
+					{match.pathname === location.pathname ? (
+						breadcrumb
+					) : (
+						<div className='p-2 border-r-2 mr-2'>{breadcrumb}</div>
+					)}
 				</Link>
 			))}
 		</nav>
 	);
 }
 export default Breadcrumbs;
-
 
 // function Breadcrumb({ title }) {
 // 	const location = useLocation();
