@@ -3,47 +3,49 @@ import { IconContext } from 'react-icons';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { useSwiper } from 'swiper/react';
 
-
 export default function SliderButton({
-  className,
-  isNext,
-  iconClassName,
-  iconSize,
-  iconColors = ['white', 'black'],
+	className,
+	isNext,
+	iconClassName,
+	iconSize,
+	iconColors = ['white', 'black'],
 }) {
-  const swiper = useSwiper();
-  let [isHover, setIsHover] = useState(false);
-  return (
+	const swiper = useSwiper();
+	let [isHover, setIsHover] = useState(false);
+	return (
 		<button
-			className={`absolute z-20 top-1/2 -translate-y-1/2 ${className ? className : ''} ${
-			isNext ? 'right-4' : 'left-4'
-			}`}
+			className={`absolute z-20 top-1/2 -translate-y-1/2 ${
+				className ? className : ''
+			} ${isNext ? 'right-4' : 'left-4'}`}
 			onClick={() => (isNext ? swiper.slideNext() : swiper.slidePrev())}
 			onMouseEnter={() => {
-			setIsHover(true);
+				setIsHover(true);
 			}}
 			onMouseLeave={() => {
-			setIsHover(false);
-			}}>
+				setIsHover(false);
+			}}
+		>
 			{isNext ? (
-			<IconContext.Provider
-				value={{
-				className: iconClassName,
-				size: iconSize,
-				color: isHover ? iconColors[0] : iconColors[1],
-				}}>
-				<RiArrowRightLine />
-			</IconContext.Provider>
+				<IconContext.Provider
+					value={{
+						className: iconClassName,
+						size: iconSize,
+						color: isHover ? iconColors[0] : iconColors[1],
+					}}
+				>
+					<RiArrowRightLine />
+				</IconContext.Provider>
 			) : (
-			<IconContext.Provider
-				value={{
-				className: iconClassName,
-				size: iconSize,
-				color: isHover ? iconColors[0] : iconColors[1],
-				}}>
-				<RiArrowLeftLine />
-			</IconContext.Provider>
+				<IconContext.Provider
+					value={{
+						className: iconClassName,
+						size: iconSize,
+						color: isHover ? iconColors[0] : iconColors[1],
+					}}
+				>
+					<RiArrowLeftLine />
+				</IconContext.Provider>
 			)}
 		</button>
-  );
+	);
 }
