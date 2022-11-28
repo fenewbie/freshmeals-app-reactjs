@@ -17,7 +17,7 @@ function ProductDetail() {
 	const [product, setProduct] = useState([]);
 	let { productId } = useParams();
 	const { document } = useFetchDocument('products', productId);
-	
+
 	useEffect(() => {
 		setProduct(document);
 	}, [document]);

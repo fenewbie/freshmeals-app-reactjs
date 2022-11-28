@@ -3,7 +3,7 @@ import { shuffle } from '../../helpers/helpers';
 import Rating from '../Product/ProductItem/Rating';
 import { Link } from 'react-router-dom';
 import { BtnIcon } from '../Product/ProductItem/BtnIcon';
-import Title from '../../components/UI/Title';
+import Title from '../../components/Title';
 import ProductItem from '../Product/ProductItem';
 
 export default function FeatureHomePage() {

@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux';
 
 import ProductItem from '../ProductItem';
 // import Tabs from '../../../components/UI/Tabs/Tabs';
-import Slider from '../../../components/UI/Slider/Slider';
+import Slider from '../../../components/UI/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
-import Title from '../../../components/UI/Title';
+import Title from '../../../components/Title';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
