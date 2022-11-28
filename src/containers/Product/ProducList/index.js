@@ -52,9 +52,6 @@ const ProductList = () => {
 						</Tab>
 					</TabList>
 
-					{/* <Slider
-						
-					> */}
 					<TabPanel>
 						<Slider
 							breakpoints={{
