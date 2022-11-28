@@ -14,7 +14,7 @@ import SliderPagination from './SliderPagination';
 
 
 function Slider({
-    children, 
+    children,  
     ...swiperProps
     }) {
     const [showSliderBtn, setShowSliderBtn] = useState(false);

@@ -50,141 +50,155 @@ const ProductList = () => {
 							Fruits
 						</Tab>
 					</TabList>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter(
-								(item) =>
-									item.category.includes('food') ||
-									item.category.includes('drink')
-							)
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter((item) => item.category.includes('vegetables'))
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter((item) => item.category.includes('dried food'))
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter(
-								(item) =>
-									item.category.includes('bread') ||
-									item.category.includes('cake')
-							)
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter(
-								(item) =>
-									item.category.includes('fish') ||
-									item.category.includes('meat')
-							)
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
-					<TabPanel className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-						{docs
-							.filter((item) => item.category.includes('fruits'))
-							.map((el) => (
-								<ProductItem
-									key={el.id}
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.numReviews}
-									image={el.image}
-									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
-									discount={el.discount || 0}
-								/>
-							))}
-					</TabPanel>
+
+					<Slider
+						breakpoints={{
+							768: {
+								slidesPerView: 2,
+							},
+							1024: {
+								slidesPerView: 4,
+							},
+						}}
+						grid={{ rows: 2, fill: 'row' }}
+						loop={false}
+					>
+						<SwiperSlide>
+							<TabPanel className="grid lg:grid-cols-4 gap-4">
+								{docs
+									.filter(
+										(item) =>
+											item.category.includes('food') ||
+											item.category.includes('drink')
+									)
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+						<SwiperSlide>
+							<TabPanel>
+								{docs
+									.filter((item) => item.category.includes('vegetables'))
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+						<SwiperSlide>
+							<TabPanel>
+								{docs
+									.filter((item) => item.category.includes('dried food'))
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+						<SwiperSlide>
+							{' '}
+							<TabPanel>
+								{docs
+									.filter(
+										(item) =>
+											item.category.includes('bread') ||
+											item.category.includes('cake')
+									)
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+						<SwiperSlide>
+							<TabPanel>
+								{docs
+									.filter(
+										(item) =>
+											item.category.includes('fish') ||
+											item.category.includes('meat')
+									)
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+						<SwiperSlide>
+							<TabPanel>
+								{docs
+									.filter((item) => item.category.includes('fruits'))
+									.map((el) => (
+										<ProductItem
+											key={el.id}
+											id={el.id}
+											rating={el.rating}
+											numReviews={el.numReviews}
+											image={el.image}
+											label={el.label || 'free'}
+											title={el.title}
+											price={el.price}
+											discount={el.discount || 0}
+										/>
+									))}
+							</TabPanel>
+						</SwiperSlide>
+					</Slider>
 					{isShowingQuickViewModal ? (
-						<QuickViewProductModal
-							docs={docs}
-							isOpen={isShowingQuickViewModal}
-						/>
+						<QuickViewProductModal docs={docs} />
 					) : null}
 
-								{isShowingQuickViewModal ? (
-									<QuickViewProductModal docs={docs} />
-								) : null}
-
-								{isShowingSuccessModal.status ? (
-									<SuccessModal
-										docs={docs}
-										type={isShowingSuccessModal.type}
-									/>
-								) : null}
-							</div>
-						))}
-					</Tabs>
-				)}
+					{isShowingSuccessModal.status ? (
+						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+					) : null}
+				</Tabs>
 			</div>
 		</div>
 	);
