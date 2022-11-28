@@ -1,31 +1,25 @@
 import { Link, useLocation } from 'react-router-dom';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
-import { navbarList } from '../../constants/route';
 
 function Breadcrumbs() {
 	const breadcrumbs = useBreadcrumbs();
 	const location = useLocation();
 
-	console.log(breadcrumbs);
 	return (
-		<nav className='flex items-center'>
-			{breadcrumbs.map(({ match, breadcrumb }) => (
-				<Link
-					key={match.pathname}
-					to={match.pathname}
-					className={
-						match.pathname === location.pathname
-							? 'text-[#80B500]'
-							: 'text-[#8CB2B2]'
-					}
-				>
-					{match.pathname === location.pathname ? (
-						breadcrumb
-					) : (
-						<div className='p-2 border-r-2 mr-2'>{breadcrumb}</div>
-					)}
-				</Link>
-			))}
+		<nav className="flex items-center">
+			{breadcrumbs.map(({ match, breadcrumb }) => {
+				return match.pathname === location.pathname ? (
+					<div className=" text-[#80B500] ">{breadcrumb}</div>
+				) : (
+					<Link
+						key={match.pathname}
+						to={match.pathname}
+						className="text-[#8CB2B2] px-5 mr-5 border-r-2 border-[#8CB2B2]"
+					>
+						{breadcrumb}
+					</Link>
+				);
+			})}
 		</nav>
 	);
 }
