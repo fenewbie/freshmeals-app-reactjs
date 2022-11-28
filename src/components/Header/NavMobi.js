@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import * as cs from '../../constants/Constant';
-import { Navigation } from './Navigation';
+import  Navigation  from './Navigation';
 import SocialLink from '../UI/SocialLink';
 import Button from '../UI/Button';
 

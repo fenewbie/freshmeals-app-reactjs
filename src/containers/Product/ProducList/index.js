@@ -10,9 +10,9 @@ import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
-
 const ProductList = () => {
 	const { docs } = useFirestore('products');
+	
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -30,11 +30,9 @@ const ProductList = () => {
 						{label.map((label) => (
 							<Tab
 								className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 
-									 hover:text-greenBtn cursor-pointer 
-									 before:absolute
-									 before:content-['|'] before:h-6 before:w-1 
-									 before:bg-[#8cb2b2]"
+									 hover:text-greenBtn cursor-pointer "
 								selectedClassName="border-greenBtn border-b-2 text-greenBtn outline-0 hover:cursor-pointer"
+								key={label.id}
 							>
 								{label.label}
 							</Tab>

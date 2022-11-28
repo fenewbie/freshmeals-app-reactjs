@@ -1,22 +1,21 @@
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navbarList } from '../../constants/route';
 
-export function Navigation({ className }) {
+const Navigation = ({ className }) => {
 	return (
-		<ul className={`${className}`}>
-			{navbarList.length > 0 &&
-				navbarList.map((navItem) => (
-					<li key={navItem.id}>
+		<div className={`${className}`}>
+			{navbarList?.map((navItem) => (
 						<NavLink
 							to={navItem.url}
-							className={(navActive) =>
-								navActive.isActive ? 'border-b-2 border-green-600' : ''
+							className={({isActive}) => isActive ? 'border-b-2 border-green-600' : 'border-b-0'
 							}
 						>
 							{navItem.title}
 						</NavLink>
-					</li>
 				))}
-		</ul>
+		</div>
 	);
 }
+
+export default memo(Navigation)
