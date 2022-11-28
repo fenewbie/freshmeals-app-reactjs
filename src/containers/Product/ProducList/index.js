@@ -23,14 +23,6 @@ const ProductList = () => {
 		(state) => state.ui.isShowingSuccessModal
 	);
 
-	const isShowingQuickViewModal = useSelector(
-		(state) => state.ui.isShowingQuickViewModal
-	);
-
-	const isShowingSuccessModal = useSelector(
-		(state) => state.ui.isShowingSuccessModal
-	);
-
 	return (
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
@@ -113,9 +105,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('vegetables')
-								)
+								.filter((item) => item.category.includes('vegetables'))
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -147,9 +137,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('dried food')
-								)
+								.filter((item) => item.category.includes('dried food'))
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -253,9 +241,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('fruits')
-								)
+								.filter((item) => item.category.includes('fruits'))
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -278,10 +264,7 @@ const ProductList = () => {
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal
-							docs={docs}
-							type={isShowingSuccessModal.type}
-						/>
+						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
 					) : null}
 				</Tabs>
 			</div>
