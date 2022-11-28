@@ -1,20 +1,16 @@
-import { SwiperSlide } from 'swiper/react';
-import { useState } from 'react';
-
 import useFirestore from '../../../hooks/useFirestore';
+import { useSelector } from 'react-redux';
+
+import { SwiperSlide } from 'swiper/react';
 
 import ProductItem from '../ProductItem';
 import Tabs from '../../../components/UI/Tabs/Tabs';
 import Slider from '../../../components/UI/Slider/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
-import AddToCard from '../AddToCard';
+import SuccessModal from '../SuccessModal';
 import Title from '../../../components/UI/Title';
 
 const ProductList = () => {
-	const [modals, setModals] = useState({
-		modalQuickView: false,
-		modalAddToCard: false,
-	});
 	const { docs } = useFirestore('products');
 
 	const categories = [
@@ -22,29 +18,36 @@ const ProductList = () => {
 			label: 'food & drinks',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('food') || item.category.includes('drink')
+					item.category.includes('food') ||
+					item.category.includes('drink')
 			),
 		},
 		{
 			label: 'vegetables',
-			products: docs.filter((item) => item.category.includes('vegetables')),
+			products: docs.filter((item) =>
+				item.category.includes('vegetables')
+			),
 		},
 		{
 			label: 'dried foods',
-			products: docs.filter((item) => item.category.includes('dried food')),
+			products: docs.filter((item) =>
+				item.category.includes('dried food')
+			),
 		},
 		{
 			label: 'bread & cake',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('bread') || item.category.includes('cake')
+					item.category.includes('bread') ||
+					item.category.includes('cake')
 			),
 		},
 		{
 			label: 'fish & meat',
 			products: docs.filter(
 				(item) =>
-					item.category.includes('fish') || item.category.includes('meat')
+					item.category.includes('fish') ||
+					item.category.includes('meat')
 			),
 		},
 		{
@@ -53,6 +56,14 @@ const ProductList = () => {
 		},
 	];
 
+	const isShowingQuickViewModal = useSelector(
+		(state) => state.ui.isShowingQuickViewModal
+	);
+
+	const isShowingSuccessModal = useSelector(
+		(state) => state.ui.isShowingSuccessModal
+	);
+
 	return (
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
@@ -60,7 +71,10 @@ const ProductList = () => {
 				{categories.length > 0 && (
 					<Tabs>
 						{categories.map((item) => (
-							<div label={item.label} key={item.label}>
+							<div
+								label={item.label}
+								key={item.label}
+							>
 								<Slider
 									breakpoints={{
 										768: {
@@ -83,22 +97,21 @@ const ProductList = () => {
 												title={product.title}
 												price={product.price}
 												discount={product.discount || 0}
-												handleOpenQuickView={() =>
-													setModals((preModals) => ({
-														...preModals,
-														modalQuickView: true,
-													}))
-												}
-												handleOpenAddToCard={() =>
-													setModals((preModals) => ({
-														...preModals,
-														modalAddToCard: true,
-													}))
-												}
 											/>
 										</SwiperSlide>
 									))}
 								</Slider>
+
+								{isShowingQuickViewModal ? (
+									<QuickViewProductModal docs={docs} />
+								) : null}
+
+								{isShowingSuccessModal.status ? (
+									<SuccessModal
+										docs={docs}
+										type={isShowingSuccessModal.type}
+									/>
+								) : null}
 							</div>
 						))}
 					</Tabs>

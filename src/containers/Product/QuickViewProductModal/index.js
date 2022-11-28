@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import Rating from '../ProductItem/Rating';
-// import Button from '../Button';
 import ProductCounter from './ProductCounter';
 import SocialLink from '../../../components/UI/SocialLink';
 import WishList from './Wishlist';
@@ -8,40 +7,35 @@ import WishList from './Wishlist';
 import { BsArrowLeftRight } from 'react-icons/bs';
 import Modal from '../../../components/Modal';
 
-const QuickViewProductModal = ({
-	setIsModalShowing,
-	docs,
-	isOpen,
-	handleClose,
-	handleOpenModal2,
-}) => {
-	const { productId } = useParams();
+import { IoClose } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../../redux/ui/ui-slice';
 
+const QuickViewProductModal = ({ docs }) => {
+	// const { productId } = useParams();
+	const productId = 2;
+	const dispatch = useDispatch();
+	const handleCloseModal = () => {
+		dispatch(uiActions.quickView());
+	};
 	return (
 		<Modal
-			isOpen={isOpen}
-			handleClose={handleClose}
-			classNames="fixed top-0 left-0 bottom-0 right-0 bg-[#0003] z-[10000]"
+			handleClose={handleCloseModal}
 		>
-			<div>
-				<span>Quick View Product</span>
-
+			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] lg:w-4/6 md:w-5/6 w-4/6 mx-auto">
 				<button
-					onClick={handleOpenModal2}
-					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ml-10"
+					onClick={handleCloseModal}
+					className="absolute top-2 right-2 bg-white"
 				>
-					Add To Card
+					<IoClose className="text-3xl" />
 				</button>
-			</div>
-
-
-
-			
-			{/* <div className="bg-red-500 p-8 rounded grid grid-cols-1 md:grid-cols-2 md:gap-14 border-2">				
 				{docs
-					.filter((title) => title.id === productId)
+					.filter((title) => title.id == productId)
 					.map((el) => (
-						<>
+						<div
+							key={el.id}
+							className="grid grid-cols-1 md:grid-cols-2 md:gap-14"
+						>
 							<div>
 								<img
 									src={el.image}
@@ -51,7 +45,9 @@ const QuickViewProductModal = ({
 							</div>
 							<div>
 								<Rating amount={`${el.amountRating} reviews`} />
-								<h4 className="text-3xl font-bold">{el.title}</h4>
+								<h4 className="text-3xl font-bold">
+									{el.title}
+								</h4>
 								<div className="flex items-center">
 									<span className="inline-block text-[50px] font-bold text-greenBtn">
 										${el.discount}
@@ -62,17 +58,23 @@ const QuickViewProductModal = ({
 								</div>
 								<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
 									<span>Categories:</span>
-									<ul className="flex items-center ml-5">{el.label} </ul>
+									<ul className="flex items-center ml-5">
+										{el.label}{' '}
+									</ul>
 								</div>
 								<ProductCounter />
 								<div className="flex mt-5">
 									<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 										<WishList wishlist={el.title} />
-										<span className="ml-1 font-medium">Add to Wishlist</span>
+										<span className="ml-1 font-medium">
+											Add to Wishlist
+										</span>
 									</div>
 									<Link className="flex items-center  hover:text-greenBtn transition-all">
 										<BsArrowLeftRight />
-										<span className="ml-1 font-medium">Compare</span>
+										<span className="ml-1 font-medium">
+											Compare
+										</span>
 									</Link>
 								</div>
 								<div className="flex items-center border-t-[1px] mt-8">
@@ -80,9 +82,9 @@ const QuickViewProductModal = ({
 									<SocialLink />
 								</div>
 							</div>
-						</>
+						</div>
 					))}
-			</div> */}
+			</div>
 		</Modal>
 	);
 };

@@ -10,7 +10,7 @@ const Button = ({
 	btn
 }) => {
 	switch(btn) {
-		case 'card':
+		case 'cart':
 			return (
 				<>
 					{type === 'link' ? (

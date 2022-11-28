@@ -1,14 +1,21 @@
-import { FaRegEye } from 'react-icons/fa';
-import { AiTwotoneHeart } from 'react-icons/ai';
-import { FaShoppingCart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../../redux/ui/ui-slice';
 
-export function BtnIcon({ handleOpenAddToCard }) {
-	const dispatch = useDispatch()
+import { FaRegEye, FaShoppingCart } from 'react-icons/fa';
+import { AiTwotoneHeart } from 'react-icons/ai';
+
+export function BtnIcon() {
+	const dispatch = useDispatch();
 	const handleOpenQuickView = () => {
-		dispatch(uiActions.ui.quickView())
+		dispatch(uiActions.quickView());
 	}
+	const handleOpenWishListModal = () => {
+		dispatch(uiActions.successModal({ status: true, type: 'wishlist' }));
+	}
+
+	const handleOpenAddToCardModal = () => {
+		dispatch(uiActions.successModal({ status: true, type: 'cart' }));
+	};
 
 	return (
 		<>
@@ -21,12 +28,15 @@ export function BtnIcon({ handleOpenAddToCard }) {
 
 			<button
 				className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
-				onClick={handleOpenAddToCard}
+				onClick={handleOpenAddToCardModal}
 			>
 				<FaShoppingCart className="mx-auto" />
 			</button>
 
-			<button className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto">
+			<button
+				className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
+				onClick={handleOpenWishListModal}
+			>
 				<AiTwotoneHeart className="mx-auto" />
 			</button>
 		</>
