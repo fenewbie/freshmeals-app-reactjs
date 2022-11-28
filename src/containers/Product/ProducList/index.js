@@ -11,6 +11,7 @@ import Slider from '../../../components/UI/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
+import Swiper from 'swiper';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
@@ -51,27 +52,30 @@ const ProductList = () => {
 						</Tab>
 					</TabList>
 
-					<Slider
-						breakpoints={{
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 4,
-							},
-						}}
-						grid={{ rows: 2, fill: 'row' }}
-						loop={false}
-					>
-						<SwiperSlide>
-							<TabPanel className="grid lg:grid-cols-4 gap-4">
-								{docs
-									.filter(
-										(item) =>
-											item.category.includes('food') ||
-											item.category.includes('drink')
-									)
-									.map((el) => (
+					{/* <Slider
+						
+					> */}
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter(
+									(item) =>
+										item.category.includes('food') ||
+										item.category.includes('drink')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -83,14 +87,29 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-						<SwiperSlide>
-							<TabPanel>
-								{docs
-									.filter((item) => item.category.includes('vegetables'))
-									.map((el) => (
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter((item) =>
+									item.category.includes('vegetables')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -102,14 +121,29 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-						<SwiperSlide>
-							<TabPanel>
-								{docs
-									.filter((item) => item.category.includes('dried food'))
-									.map((el) => (
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter((item) =>
+									item.category.includes('dried food')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -121,19 +155,31 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-						<SwiperSlide>
-							{' '}
-							<TabPanel>
-								{docs
-									.filter(
-										(item) =>
-											item.category.includes('bread') ||
-											item.category.includes('cake')
-									)
-									.map((el) => (
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter(
+									(item) =>
+										item.category.includes('bread') ||
+										item.category.includes('cake')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -145,18 +191,31 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-						<SwiperSlide>
-							<TabPanel>
-								{docs
-									.filter(
-										(item) =>
-											item.category.includes('fish') ||
-											item.category.includes('meat')
-									)
-									.map((el) => (
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter(
+									(item) =>
+										item.category.includes('fish') ||
+										item.category.includes('meat')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -168,14 +227,29 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-						<SwiperSlide>
-							<TabPanel>
-								{docs
-									.filter((item) => item.category.includes('fruits'))
-									.map((el) => (
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{docs
+								.filter((item) =>
+									item.category.includes('fruits')
+								)
+								.map((el) => (
+									<SwiperSlide>
 										<ProductItem
 											key={el.id}
 											id={el.id}
@@ -187,16 +261,19 @@ const ProductList = () => {
 											price={el.price}
 											discount={el.discount || 0}
 										/>
-									))}
-							</TabPanel>
-						</SwiperSlide>
-					</Slider>
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
 					{isShowingQuickViewModal ? (
 						<QuickViewProductModal docs={docs} />
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+						<SuccessModal
+							docs={docs}
+							type={isShowingSuccessModal.type}
+						/>
 					) : null}
 				</Tabs>
 			</div>
