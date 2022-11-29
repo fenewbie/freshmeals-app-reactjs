@@ -32,12 +32,15 @@ const ProductItem = (props) => {
 						alt={title}
 					/>
 					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2">
-						<BtnIcon/>
+						<BtnIcon />
 					</div>
 				</Link>
 
 				<div className="p-8">
-					<Rating value={rating} text={`(${numReviews} reviews)`} />
+					<Rating
+						value={rating}
+						text={numReviews}
+					/>
 					<Link
 						className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300"
 						to={`shop/${id}`}
@@ -45,7 +48,9 @@ const ProductItem = (props) => {
 						{title}
 					</Link>
 					<div className="flex justify-center mt-2">
-						<h4 className="text-xl font-bold text-greenBtn">${discount}</h4>
+						<h4 className="text-xl font-bold text-greenBtn">
+							${discount}
+						</h4>
 						<h4 className="text-xl font-bold text-greenBtn line-through ml-3 opacity-60">
 							${price}
 						</h4>
