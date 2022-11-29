@@ -2,19 +2,16 @@ import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import { BtnIcon } from './BtnIcon';
 
-const ProductItem = (props) => {
-	const {
-		rating,
-		numReviews,
-		image,
-		label,
-		title,
-		price,
-		discount,
-		handleOpenQuickView,
-		handleOpenAddToCard,
-		id,
-	} = props;
+const ProductItem = ({
+	rating,
+	numReviews,
+	image,
+	label,
+	title,
+	price,
+	discount,
+	id,
+}) => {
 	return (
 		<div
 			className="border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group"
@@ -32,7 +29,7 @@ const ProductItem = (props) => {
 						alt={title}
 					/>
 					<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2">
-						<BtnIcon/>
+						<BtnIcon />
 					</div>
 				</Link>
 
@@ -40,7 +37,7 @@ const ProductItem = (props) => {
 					<Rating value={rating} text={`(${numReviews} reviews)`} />
 					<Link
 						className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300"
-						to={`shop/${id}`}
+						to={`../shop/${id}`}
 					>
 						{title}
 					</Link>

@@ -1,4 +1,3 @@
-import PageLayout from '../../../components/Layout/PageLayout';
 import { BsArrowLeftRight } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import * as cs from '../../../constants/Constant';
@@ -23,7 +22,7 @@ function ProductDetail() {
 	}, [document]);
 
 	return (
-		<PageLayout>
+		<div>
 			{product === null ? (
 				<p>Loading...</p>
 			) : (
@@ -110,7 +109,7 @@ function ProductDetail() {
 					</div>
 				</div>
 			)}
-		</PageLayout>
+		</div>
 	);
 }
 
