@@ -39,6 +39,16 @@ module.exports = {
 						opacity: 1,
 					},
 				},
+				bannerTextAppear: {
+					'0%': {
+						opacity: 0,
+						transform: 'translateY(70%)'
+					},
+					'100%': {
+						opacity: 1,
+						transform: 'translateY(0%)'
+					}
+				}
 			},
 			fontFamily: {
 				raj: ['Rajdhani', 'sans-serif'],

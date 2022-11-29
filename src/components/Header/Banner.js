@@ -7,23 +7,27 @@ import BannerSlideItem from './BannerSlideItem';
 import SliderButton from '../UI/Slider/SliderButton';
 import useFirestore from '../../hooks/useFirestore';
 import { useState } from 'react';
+import SliderPagination from '../UI/Slider/SliderPagination';
 
 const Banner = () => {
 	const [showNavBtn, setShowNavBtn] = useState(false);
+	const [realIndex, setRealIndex] = useState(0);
 	const { docs } = useFirestore('slide-header');
-
 	return (
 		<div
 			className="relative w-full h-[600px] md:h-[700px] lg:h-screen flex justify-center"
 			onMouseEnter={() => {
-				setShowNavBtn(showNavBtn);
+				setShowNavBtn(true);
 			}}
 			onMouseLeave={() => {
-				setShowNavBtn(!showNavBtn);
+				setShowNavBtn(false);
 			}}
 		>
 			{docs.length > 0 && (
-				<Swiper loop={true} pagination={true} modules={[Pagination]}>
+				<Swiper
+					loop={true}
+					onSlideChange={(e) => setRealIndex(e.realIndex)}
+				>
 					<SliderButton
 						isNext={false}
 						iconSize={36}
@@ -46,11 +50,15 @@ const Banner = () => {
 						} transition-all ease-in-out duration-300 lg:block hidden`}
 						iconClassName={`transition-all ease-in-out duration-300`}
 					/>
-					{docs.map((imgItem) => (
+					{docs.map((imgItem, index) => (
 						<SwiperSlide key={imgItem.id}>
-							<BannerSlideItem imgItem={imgItem} />
+							<BannerSlideItem
+								imgItem={imgItem}
+								isActive={realIndex === index}
+							/>
 						</SwiperSlide>
 					))}
+					<SliderPagination totalSlides={docs.length} indexAct={realIndex} isBanner/>
 				</Swiper>
 			)}
 		</div>
