@@ -9,7 +9,7 @@ export default function useFetchDocument(collectionName, documentID) {
 		const docSnap = await getDoc(docRef);
 
 		if (docSnap.exists()) {
-			console.log(('Document data:', docSnap.data()));
+			// console.log(('Document data:', docSnap.data()));
 			const obj = {
 				id: documentID,
 				...docSnap.data(),
@@ -24,5 +24,6 @@ export default function useFetchDocument(collectionName, documentID) {
 		getSingleDocument();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
 	return { document };
 }

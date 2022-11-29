@@ -9,7 +9,12 @@ function Breadcrumbs() {
 		<nav className="flex items-center">
 			{breadcrumbs.map(({ match, breadcrumb }) => {
 				return match.pathname === location.pathname ? (
-					<div key={match.pathname} className=" text-[#80B500] ">{breadcrumb}</div>
+					<div
+						className=" text-[#80B500] "
+						key={match.pathname}
+					>
+						{breadcrumb}
+					</div>
 				) : (
 					<Link
 						key={match.pathname}

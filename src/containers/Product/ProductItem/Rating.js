@@ -4,7 +4,7 @@ import { RiStarLine } from 'react-icons/ri';
 
 const Rating = ({ value, text, color = '#FFB800', size = 18 }) => {
 	return (
-		<div className='flex items-center justify-center'
+		<div className='flex items-center'
 		>
 			<span>
 				{value >= 1 ? (
@@ -51,7 +51,7 @@ const Rating = ({ value, text, color = '#FFB800', size = 18 }) => {
 					<RiStarLine size={size} color={color} />
 				)}
 			</span>
-			<span>{text && text}</span>
+			<span className='relative top-[1px] ml-2 text-greenBtn'>({text} reviews)</span>
 		</div>
 	);
 };
