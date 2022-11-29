@@ -27,13 +27,16 @@ const ProductList = () => {
 			<div className="mb-[15px]">
 				<Tabs>
 					<TabList className="flex justify-center flex-wrap pb-6 relative">
-						{label.map((label) => (
+						{label.map((label, index) => (
 							<Tab
-								className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 
+								className={`relative text-sm md:text-lg font-bold uppercase px-6 py-6 my-1 mx-2
 									 hover:text-greenBtn cursor-pointer 
-									 before:absolute
-									 before:content-['|'] before:h-6 before:w-1 
-									 before:bg-[#8cb2b2]"
+									 ${
+											index !== 0 &&
+											'before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:h-4 before:w-[2px] before:bg-[#e9e9e9]'
+										}
+									
+									`}
 								selectedClassName="border-greenBtn border-b-2 text-greenBtn outline-0 hover:cursor-pointer"
 							>
 								{label.label}
@@ -91,7 +94,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('vegetables'))
+								.filter((item) =>
+									item.category.includes('vegetables')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -123,7 +128,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('dried food'))
+								.filter((item) =>
+									item.category.includes('dried food')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -227,7 +234,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('fruits'))
+								.filter((item) =>
+									item.category.includes('fruits')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -250,7 +259,10 @@ const ProductList = () => {
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+						<SuccessModal
+							docs={docs}
+							type={isShowingSuccessModal.type}
+						/>
 					) : null}
 				</Tabs>
 			</div>
