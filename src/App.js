@@ -14,17 +14,20 @@ import BlogPage from './pages/Blog/';
 
 import RootLayout from './containers/RouterLayout/RootLayout';
 import NotFound from './pages/NotFound';
+import ShopLayout from './containers/RouterLayout/ShopLayout';
 
 function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
 				<Route index element={<Home />}></Route>
-				<Route index element={<ProductScreen />}></Route>
-				<Route path=":productId" element={<ProductDetail />}></Route>
-				<Route path="/about" element={<About />}></Route>
-				<Route path="/contact" element={<Contact />}></Route>
-				<Route path="/blog" element={<BlogPage />}></Route>
+				<Route path="shop" element={<ShopLayout/>}>
+					<Route index element={<ProductScreen />}></Route>
+					<Route path=":productId" element={<ProductDetail />}></Route>
+				</Route>
+				<Route path="about" element={<About />}></Route>
+				<Route path="contact" element={<Contact />}></Route>
+				<Route path="blog" element={<BlogPage />}></Route>
 			</Route>
 		)
 	);

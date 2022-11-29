@@ -4,15 +4,16 @@ import CommonSection from '../CommonSection';
 import Header from '../../components/Header';
 import FeatureFooter from '../Features/FeatureFooter';
 
-function RootLayout({ title }) {
+function RootLayout() {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
+	
 	return (
 		<>
 			{isHomePage ? (
 				<Header /> 
 			) : (
-				<CommonSection title={title}>
+				<CommonSection title={location.pathname.substring(1)}>
 					<Header />
 				</CommonSection>
 			)}

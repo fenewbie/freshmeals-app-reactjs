@@ -1,5 +1,3 @@
-import PageLayout from '../../components/Layout/PageLayout'
-
 
 const About = () => {
 	return (

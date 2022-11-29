@@ -10,6 +10,7 @@ import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
+
 const ProductList = () => {
 	const { docs } = useFirestore('products');
 	

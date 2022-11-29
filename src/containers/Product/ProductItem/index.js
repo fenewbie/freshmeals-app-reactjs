@@ -37,7 +37,7 @@ const ProductItem = ({
 					<Rating value={rating} text={`(${numReviews} reviews)`} />
 					<Link
 						className="text-[15px] text-center capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300"
-						to={`shop/${id}`}
+						to={`../shop/${id}`}
 					>
 						{title}
 					</Link>
