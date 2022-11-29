@@ -57,7 +57,7 @@ module.exports = {
 				'hero-image':
 					"linear-gradient(to right bottom, rgba(33,34,69,0.8), rgba(33,34,69,0.8)), url('https://images.unsplash.com/photo-1513223945279-4bf9e7049c9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2092&q=80')",
 			},
-			tabMenu: {
+			taMbenu: {
 				content: '',
 				height: '16px',
 				width: '2px',
