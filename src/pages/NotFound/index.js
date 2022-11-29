@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 function NotFound() {
 	const error = useRouteError();
 	const navigate = useNavigate();
-	console.error(error);
+
 	return (
 		<div className="w-full mx-auto flex flex-col space-y-1 p-0 m-0">
 			<CommonSection title="404 Page">
@@ -26,7 +26,7 @@ function NotFound() {
 						We are sorry! But the page you are looking for does not exist. It
 						might have been moved or deleted.
 					</p>
-					<p>{error.message}</p>
+					<p>{error.status} {error.statusText}</p>
 					<Button
 						btn="card"
 						className="mx-auto bg-greenBtn p-2 rounded mt-5"
