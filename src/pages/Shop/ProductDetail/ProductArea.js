@@ -9,10 +9,6 @@ import WishList from '../../../containers/Product/QuickViewProductModal/Wishlist
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../../../containers/Product/ProductItem/Rating';
-import {
-	ratingRandom,
-	reviewRandom,
-} from '../../../helpers/helpers';
 
 
 function ProductArea({product}) {
@@ -23,8 +19,8 @@ function ProductArea({product}) {
 				<div>
 					<div className="">
 						<Rating
-							value={ratingRandom()}
-							text={reviewRandom()}
+							value={product.rating}
+							text={product.reviews}
 						/>
 						<h4 className="text-2xl font-bold mt-4">
 							{product.title}

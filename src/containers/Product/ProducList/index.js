@@ -12,7 +12,6 @@ import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
 import Swiper from 'swiper';
-import { ratingRandom, reviewRandom } from '../../../helpers/helpers';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
@@ -77,13 +76,13 @@ const ProductList = () => {
 										<ProductItem
 											key={el.id}
 											id={el.id}
-											rating={ratingRandom()}
-											numReviews={reviewRandom()}
+											rating={el.rating}
+											numReviews={el.reviews}
 											image={el.image}
-											label={el.label || 'free'}
+											label={el.label}
 											title={el.title}
 											price={el.price}
-											discount={el.discount || 0}
+											discount={el.discount}
 										/>
 									</SwiperSlide>
 								))}
