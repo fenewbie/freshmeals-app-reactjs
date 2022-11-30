@@ -257,7 +257,7 @@ const ProductList = () => {
 						</Slider>
 					</TabPanel>
 					{isShowingQuickViewModal ? (
-						<QuickViewProductModal docs={docs} />
+						<QuickViewProductModal />
 					) : null}
 
 					{isShowingSuccessModal.status ? (
