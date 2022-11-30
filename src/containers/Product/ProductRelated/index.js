@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import Slider from '../../../components/UI/Slider';
 import ProductItem from '../ProductItem';
+import { ratingRandom, reviewRandom } from '../../../helpers/helpers';
 import useFirestore from '../../../hooks/useFirestore';
 import Title from '../../../components/Title';
 function ProductRelated({ types }) {
@@ -37,8 +38,8 @@ function ProductRelated({ types }) {
 							<SwiperSlide key={el.id}>
 								<ProductItem
 									id={el.id}
-									rating={el.rating}
-									numReviews={el.reviews}
+									rating={ratingRandom()}
+									numReviews={reviewRandom()}
 									image={el.image}
 									label={el.label || 'free'}
 									title={el.title}
