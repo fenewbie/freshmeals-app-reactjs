@@ -1,4 +1,6 @@
-import PageLayout from '../../../components/Layout/PageLayout';
+import { BsArrowLeftRight } from 'react-icons/bs';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import * as cs from '../../../constants/Constant';
 
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -18,7 +20,7 @@ function ProductDetail() {
 	}, [document]);
 
 	return (
-		<PageLayout>
+		<div>
 			{product === null ? (
 				<Loading />
 			) : (
@@ -36,7 +38,7 @@ function ProductDetail() {
 					<ProductRelated types={product.category} />
 				</div>
 			)}
-		</PageLayout>
+		</div>
 	);
 }
 

@@ -1,20 +1,19 @@
+import { useSelector } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
-import { useState } from 'react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 import useFirestore from '../../../hooks/useFirestore';
-import { useSelector } from 'react-redux';
 
 import ProductItem from '../ProductItem';
-// import Tabs from '../../../components/UI/Tabs/Tabs';
 import Slider from '../../../components/UI/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
-import Swiper from 'swiper';
+import { labelProduct as label } from '../../../constants/Constant';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
+	
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -28,28 +27,23 @@ const ProductList = () => {
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
 				<Tabs>
-					<TabList className="flex justify-center flex-wrap pb-6">
-						<Tab
-							className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-greenBtn
-									 hover:text-greenBtn"
-						>
-							Food & Drinks
-						</Tab>
-						<Tab className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-transparent hover:text-greenBtn">
-							Vegetables
-						</Tab>
-						<Tab className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-transparent hover:text-greenBtn">
-							Bread & Cake
-						</Tab>
-						<Tab className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-transparent hover:text-greenBtn">
-							Dried Food
-						</Tab>
-						<Tab className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-transparent hover:text-greenBtn">
-							Fish & Meat
-						</Tab>
-						<Tab className="text-sm md:text-lg font-bold uppercase px-6 py-4 my-1 mx-2 border-b-2 text-greenBtn border-transparent hover:text-greenBtn">
-							Fruits
-						</Tab>
+					<TabList className="flex justify-center flex-wrap pb-6 relative">
+						{label.map((label, index) => (
+							<Tab
+								className={`relative text-sm md:text-lg font-bold uppercase px-6 py-6 my-1 mx-2
+									 hover:text-greenBtn cursor-pointer 
+									 ${
+											index !== 0 &&
+											'before:absolute before:-left-2 before:top-1/2 before:-translate-y-1/2 before:h-4 before:w-[2px] before:bg-[#e9e9e9]'
+										}
+									
+									`}
+								selectedClassName="border-greenBtn border-b-2 text-greenBtn outline-0 hover:cursor-pointer"
+								key={label.id}
+							>
+								{label.label}
+							</Tab>
+						))}
 					</TabList>
 
 					<TabPanel>
@@ -102,7 +96,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('vegetables'))
+								.filter((item) =>
+									item.category.includes('vegetables')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -134,7 +130,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('dried food'))
+								.filter((item) =>
+									item.category.includes('dried food')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -238,7 +236,9 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) => item.category.includes('fruits'))
+								.filter((item) =>
+									item.category.includes('fruits')
+								)
 								.map((el) => (
 									<SwiperSlide>
 										<ProductItem
@@ -261,7 +261,10 @@ const ProductList = () => {
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+						<SuccessModal
+							docs={docs}
+							type={isShowingSuccessModal.type}
+						/>
 					) : null}
 				</Tabs>
 			</div>

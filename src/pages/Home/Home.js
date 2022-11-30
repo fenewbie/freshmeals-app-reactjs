@@ -1,4 +1,4 @@
-import HomeLayout from '../../components/Layout/HomeLayout';
+
 import Promotion from '../../containers/Promotion';
 import CountDown from '../../containers/CountDown';
 import Portfolio from '../../containers/Portfolio';
@@ -8,14 +8,14 @@ import FeatureHomePage from '../../containers/Features/FeatureHomePage';
 
 const Home = () => {
 	return (
-		<HomeLayout>
+		<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 			<Promotion />
 			<ProductList />
 			<CountDown />
 			<FeatureHomePage />
 			<Portfolio />
 			<Blog />
-		</HomeLayout>
+		</div>
 	);
 };
 

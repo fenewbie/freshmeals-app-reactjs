@@ -9,12 +9,7 @@ function Breadcrumbs() {
 		<nav className="flex items-center">
 			{breadcrumbs.map(({ match, breadcrumb }) => {
 				return match.pathname === location.pathname ? (
-					<div
-						className=" text-[#80B500] "
-						key={match.pathname}
-					>
-						{breadcrumb}
-					</div>
+					<div key={match.pathname} className=" text-[#80B500] ">{breadcrumb}</div>
 				) : (
 					<Link
 						key={match.pathname}
@@ -30,29 +25,3 @@ function Breadcrumbs() {
 }
 export default Breadcrumbs;
 
-// function Breadcrumb({ title }) {
-// 	const location = useLocation();
-// 	return (
-// 		<nav className="">
-// 			<Link to="/" className="text-[#8CB2B2]">
-// 				Home
-// 			</Link>
-// 			<span className="h-10 w-10 text-[#8CB2B2] mx-2">Hong</span>
-// 			{navbarList.map((item) => (
-// 				<>
-// 					<Link
-// 						to={item.url}
-//                         key={item.url}
-// 						className={
-// 							location.pathname.startsWith(`/${item.url}`)
-// 								? 'text-[#8CB2B2]'
-// 								: 'text-[#8CB2B2]'
-// 						}
-// 					>
-// 						{item.title}
-// 					</Link>
-// 				</>
-// 			))}
-// 		</nav>
-// 	);
-// }
