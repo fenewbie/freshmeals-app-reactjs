@@ -2,7 +2,7 @@ import Footer from '../../components/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import CommonSection from '../CommonSection';
 import Header from '../../components/Header';
-import FeatureFooter from '../Features/FeatureFooter';
+import FeatureFooter from '../HomeScreen/FeatureSection/FeatureFooter';
 
 function RootLayout() {
 	const location = useLocation();

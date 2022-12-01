@@ -4,10 +4,10 @@ import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 import useFirestore from '../../../hooks/useFirestore';
 
-import ProductItem from '../ProductItem';
+import ProductItem from '../ProductCard/ProductItem';
 import Slider from '../../../components/UI/Slider';
-import QuickViewProductModal from '../QuickViewProductModal';
-import SuccessModal from '../SuccessModal';
+import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
+import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
 

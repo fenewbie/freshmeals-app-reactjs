@@ -1,4 +1,4 @@
-import Blog from '../../containers/Blog';
+import Blog from '../../containers/HomeScreen/BlogSection/index';
 
 const BlogPage = () => {
 	return (
