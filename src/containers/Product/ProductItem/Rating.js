@@ -2,9 +2,9 @@ import { RiStarFill } from 'react-icons/ri';
 import { RiStarHalfFill } from 'react-icons/ri';
 import { RiStarLine } from 'react-icons/ri';
 
-const Rating = ({ value, text, color = '#FFB800', size = 18 }) => {
+const Rating = ({ value, text, color = '#FFB800', size = 18, center = false }) => {
 	return (
-		<div className='flex items-center'
+		<div className={`flex items-center ${center && 'justify-center'}`}
 		>
 			<span>
 				{value >= 1 ? (
