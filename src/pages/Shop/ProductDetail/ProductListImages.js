@@ -31,7 +31,7 @@ function ProductListImages({ images }) {
 				>
 					{images.map((image, index) => (
 						<SwiperSlide key={index}>
-							<div className="h-96 bg-[#ffffff] p-2 mx-auto rounded mb-10 cursor-pointer">
+							<div className="md:h-96 h-80 bg-[#ffffff] p-2 mx-auto rounded mb-10 cursor-pointer">
 								<img
 									src={image}
 									className="h-full object-contain mx-auto"
@@ -46,14 +46,14 @@ function ProductListImages({ images }) {
 							<SliderButton
 								iconSize={20}
 								iconColors={['white', '#80B500']}
-								className="p-1 bg-transparent rounded border-greenBtn border-2 visible opacity-100 transition-all ease-in-out duration-300 lg:block hidden top-full -translate-y-full translate-x-0   hover:bg-greenBtn left-0"
+								className="p-1 bg-transparent rounded border-greenBtn border-2 visible opacity-100 transition-all ease-in-out duration-300 top-full -translate-y-full translate-x-0   hover:bg-greenBtn left-0"
 								iconClassName={`transition-all ease-in-out duration-300`}
 							/>
 							<SliderButton
 								isNext
 								iconSize={20}
 								iconColors={['white', '#80B500']}
-								className="p-1 bg-transparent rounded border-greenBtn border-2 visible opacity-100 transition-all ease-in-out duration-300 lg:block hidden top-full -translate-y-full translate-x-0  left-[15%] right-[unset] hover:bg-greenBtn"
+								className="p-1 bg-transparent rounded border-greenBtn border-2 visible opacity-100 transition-all ease-in-out duration-300 top-full -translate-y-full translate-x-0  left-16 right-[unset] hover:bg-greenBtn"
 								iconClassName={`transition-all ease-in-out duration-300`}
 							/>
 						</div>
@@ -64,15 +64,23 @@ function ProductListImages({ images }) {
 			<div className="">
 				<Swiper
 					onSwiper={setThumbsSwiper}
-					slidesPerView={4}
+					slidesPerView={3}
 					spaceBetween={10}
 					modules={[Thumbs]}
+					breakpoints={{
+						768: {
+							slidesPerView: 4,
+						},
+						1024: {
+							slidesPerView: 4,
+						},
+					}}
 					className="swiper1"
 				>
 					{images.map((image, index) => (
 						<SwiperSlide key={index}>
 							<div
-								className={`h-20 bg-[#F9F9F9] py-2 border ${
+								className={`md:h-20 md:w-20 h-24 mx-auto bg-[#F9F9F9] py-2 border ${
 									index == realIndex && 'border-greenBtn'
 								} mt-5`}
 							>

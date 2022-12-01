@@ -51,7 +51,7 @@ const Rating = ({ value, text, color = '#FFB800', size = 18 }) => {
 					<RiStarLine size={size} color={color} />
 				)}
 			</span>
-			<span className='relative top-[1px] ml-2 text-greenBtn'>({text} reviews)</span>
+			<span className='relative top-[1px] ml-2 text-greenBtn text-sm'>({text} reviews)</span>
 		</div>
 	);
 };

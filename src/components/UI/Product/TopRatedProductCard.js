@@ -15,17 +15,17 @@ function TopProductRatedCard({
 			<img
 				src={imgSrc}
 				alt={title}
-				className="h-24 w-24 object-contain border border-gray-100"
+				className="h-20 w-20 object-contain border border-gray-100"
 			/>
 			<div className="ml-4 flex-1">
 				<Rating
 					value={rating}
 					text={review}
-					size="16"
+					size="12"
 				/>
 				<Link
 					to="../shop/:productId"
-					className="font-bold hover:text-greenBtn transition"
+					className="font-bold  hover:text-greenBtn transition"
 				>
 					{title}
 				</Link>

@@ -25,11 +25,11 @@ function ProductDetail() {
 				<Loading />
 			) : (
 				<div>
-					<div className="grid grid-cols-12 gap-8 my-20">
-						<div className="col-span-8">
+					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
+						<div className="lg:col-span-8">
 							<ProductArea product={product} />
 						</div>
-						<div className="col-span-4 ">
+						<div className="lg:col-span-4 ">
 							<ProductTopRated />
 							<div></div>
 						</div>

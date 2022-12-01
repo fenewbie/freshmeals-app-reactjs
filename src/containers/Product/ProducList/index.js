@@ -13,7 +13,7 @@ import { labelProduct as label } from '../../../constants/Constant';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
-	
+
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -66,9 +66,8 @@ const ProductList = () => {
 										item.category.includes('drink')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.reviews}

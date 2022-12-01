@@ -16,6 +16,7 @@ function ProductTopRated() {
 				.map((product, index) => {
 					return (
 						<TopProductRatedCard
+							key={product.id}
 							title={product.title}
 							imgSrc={product.image}
 							rating={product.rating}
