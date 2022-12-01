@@ -10,8 +10,7 @@ function ProductRelated({ types }) {
 
 	return (
 		<div className="py-24">
-			<h2 className="text-4xl font-bold mb-10">Related Product</h2>
-			<Title title='Related Product'/>
+			<Title title='Related Product' center={false}/>
 			<Slider
 				breakpoints={{
 					768: {
