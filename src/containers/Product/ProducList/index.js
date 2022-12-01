@@ -13,7 +13,7 @@ import { labelProduct as label } from '../../../constants/Constant';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
-	
+
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -66,17 +66,17 @@ const ProductList = () => {
 										item.category.includes('drink')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
-											numReviews={el.numReviews}
+											numReviews={el.reviews}
 											image={el.image}
-											label={el.label || 'free'}
+											label={el.label}
 											title={el.title}
 											price={el.price}
-											discount={el.discount || 0}
+											discount={el.discount}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -100,9 +100,8 @@ const ProductList = () => {
 									item.category.includes('vegetables')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.numReviews}
@@ -111,6 +110,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount || 0}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -134,9 +134,8 @@ const ProductList = () => {
 									item.category.includes('dried food')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.numReviews}
@@ -145,6 +144,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount || 0}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -170,9 +170,8 @@ const ProductList = () => {
 										item.category.includes('cake')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.numReviews}
@@ -181,6 +180,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount || 0}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -206,9 +206,8 @@ const ProductList = () => {
 										item.category.includes('meat')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.numReviews}
@@ -217,6 +216,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount || 0}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -240,9 +240,8 @@ const ProductList = () => {
 									item.category.includes('fruits')
 								)
 								.map((el) => (
-									<SwiperSlide>
+									<SwiperSlide key={el.id}>
 										<ProductItem
-											key={el.id}
 											id={el.id}
 											rating={el.rating}
 											numReviews={el.numReviews}
@@ -251,6 +250,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount || 0}
+											card
 										/>
 									</SwiperSlide>
 								))}

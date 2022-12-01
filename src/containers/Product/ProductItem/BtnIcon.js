@@ -3,12 +3,17 @@ import { uiActions } from '../../../redux/ui/ui-slice';
 
 import { FaRegEye, FaShoppingCart } from 'react-icons/fa';
 import { AiTwotoneHeart } from 'react-icons/ai';
+import { getProductById} from '../../../redux/products/productSlice';
+
 
 export function BtnIcon() {
+
 	const dispatch = useDispatch();
-	const handleOpenQuickView = () => {
-		dispatch(uiActions.quickView());
-	}
+	
+	const handleOpenQuickView = (id) => {
+		dispatch(uiActions.quickView())
+		
+	};
 	const handleOpenWishListModal = () => {
 		dispatch(uiActions.successModal({ status: true, type: 'wishlist' }));
 	}

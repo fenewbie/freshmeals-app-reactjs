@@ -19,9 +19,7 @@ const QuickViewProductModal = ({ docs }) => {
 		dispatch(uiActions.quickView());
 	};
 	return (
-		<Modal
-			handleClose={handleCloseModal}
-		>
+		<Modal handleClose={handleCloseModal}>
 			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] lg:w-4/6 md:w-5/6 w-4/6 mx-auto">
 				<button
 					onClick={handleCloseModal}
@@ -45,9 +43,7 @@ const QuickViewProductModal = ({ docs }) => {
 							</div>
 							<div>
 								<Rating amount={`${el.amountRating} reviews`} />
-								<h4 className="text-3xl font-bold">
-									{el.title}
-								</h4>
+								<h4 className="text-3xl font-bold">{el.title}</h4>
 								<div className="flex items-center">
 									<span className="inline-block text-[50px] font-bold text-greenBtn">
 										${el.discount}
@@ -58,23 +54,17 @@ const QuickViewProductModal = ({ docs }) => {
 								</div>
 								<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
 									<span>Categories:</span>
-									<ul className="flex items-center ml-5">
-										{el.label}{' '}
-									</ul>
+									<ul className="flex items-center ml-5">{el.label} </ul>
 								</div>
 								<ProductCounter />
 								<div className="flex mt-5">
 									<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 										<WishList wishlist={el.title} />
-										<span className="ml-1 font-medium">
-											Add to Wishlist
-										</span>
+										<span className="ml-1 font-medium">Add to Wishlist</span>
 									</div>
 									<Link className="flex items-center  hover:text-greenBtn transition-all">
 										<BsArrowLeftRight />
-										<span className="ml-1 font-medium">
-											Compare
-										</span>
+										<span className="ml-1 font-medium">Compare</span>
 									</Link>
 								</div>
 								<div className="flex items-center border-t-[1px] mt-8">
