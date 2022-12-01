@@ -1,6 +1,6 @@
 import useFirestore from '../../../hooks/useFirestore';
 import { FaThList } from 'react-icons/fa';
-import ProductItem from '../ProductItem';
+import ProductItem from '../ProductCard/ProductItem';
 
 function ProductTopRated() {
 	const { docs } = useFirestore('products');

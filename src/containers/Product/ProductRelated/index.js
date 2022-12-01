@@ -2,11 +2,11 @@ import { SwiperSlide } from 'swiper/react';
 import Slider from '../../../components/UI/Slider';
 import useFirestore from '../../../hooks/useFirestore';
 
-import ProductItem from '../ProductItem';
+import ProductItem from '../ProductCard/ProductItem';
 import Title from '../../../components/Title';
 import { useSelector } from 'react-redux';
-import QuickViewProductModal from '../QuickViewProductModal';
-import SuccessModal from '../SuccessModal';
+import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
+import SuccessModal from '../ProductCard/SuccessModal';
 function ProductRelated({ types }) {
 	const { docs } = useFirestore('products');
 
