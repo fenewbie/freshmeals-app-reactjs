@@ -4,15 +4,23 @@ import useFirestore from '../../../hooks/useFirestore';
 
 import ProductItem from '../ProductItem';
 import Title from '../../../components/Title';
+import { useSelector } from 'react-redux';
+import QuickViewProductModal from '../QuickViewProductModal';
+import SuccessModal from '../SuccessModal';
 function ProductRelated({ types }) {
 	const { docs } = useFirestore('products');
 
+	const isShowingQuickViewModal = useSelector(
+		(state) => state.ui.isShowingQuickViewModal
+	);
+
+	const isShowingSuccessModal = useSelector(
+		(state) => state.ui.isShowingSuccessModal
+	);
+
 	return (
 		<div className="py-24">
-			<Title
-				title="Related Product"
-				center={false}
-			/>
+			<Title title="Related Product" center={false} />
 			<Slider
 				breakpoints={{
 					768: {
@@ -27,8 +35,8 @@ function ProductRelated({ types }) {
 			>
 				{docs
 					.filter((product) => {
-						const filterCategories = product.category.filter(
-							(item) => types.includes(item)
+						const filterCategories = product.category.filter((item) =>
+							types.includes(item)
 						);
 						return filterCategories.length > 0;
 					})
@@ -50,6 +58,11 @@ function ProductRelated({ types }) {
 							</SwiperSlide>
 						);
 					})}
+				{isShowingQuickViewModal ? <QuickViewProductModal docs={docs} /> : null}
+
+				{isShowingSuccessModal.status ? (
+					<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+				) : null}
 			</Slider>
 		</div>
 	);
