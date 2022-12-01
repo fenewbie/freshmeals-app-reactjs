@@ -1,16 +1,18 @@
-import { type } from '@testing-library/user-event/dist/type';
-import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import Slider from '../../../components/UI/Slider';
-import ProductItem from '../ProductItem';
 import useFirestore from '../../../hooks/useFirestore';
+
+import ProductItem from '../ProductItem';
 import Title from '../../../components/Title';
 function ProductRelated({ types }) {
 	const { docs } = useFirestore('products');
 
 	return (
 		<div className="py-24">
-			<Title title='Related Product' center={false}/>
+			<Title
+				title="Related Product"
+				center={false}
+			/>
 			<Slider
 				breakpoints={{
 					768: {

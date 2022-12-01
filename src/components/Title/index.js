@@ -1,7 +1,6 @@
 import { memo } from 'react';
 
 const Title = ({ title, subtitle, center = true }) => {
-	console.log(title, center);
 	return (
 		<>
 			{subtitle && (

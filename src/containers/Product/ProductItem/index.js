@@ -12,15 +12,14 @@ const ProductItem = ({
 	discount,
 	id,
 	card = false,
-	className,
+	className = '',
 }) => {
 	return (
 		<div
-			className={
-				card
-					? 'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group'
-					: className
-			}
+			className={`${
+				card &&
+				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group'
+			} ${className}`}
 			key={id}
 		>
 			<div className={card ? '' : 'flex items-center'}>

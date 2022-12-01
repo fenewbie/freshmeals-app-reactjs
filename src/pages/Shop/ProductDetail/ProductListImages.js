@@ -1,9 +1,9 @@
 import { SwiperSlide, Swiper } from 'swiper/react';
+import { Thumbs, Keyboard, EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { Thumbs, Keyboard, EffectFade, Navigation } from 'swiper';
 
 import SliderButton from '../../../components/UI/Slider/SliderButton';
 import { useState, useRef } from 'react';
