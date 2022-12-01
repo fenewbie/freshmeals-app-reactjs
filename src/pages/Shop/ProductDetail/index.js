@@ -1,6 +1,3 @@
-
-import * as cs from '../../../constants/Constant';
-
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useFetchDocument from '../../../hooks/useFetchDocument';
@@ -14,27 +11,24 @@ import ProductTopRated from '../../../containers/Product/ProductTopRated';
 
 function ProductDetail() {
 	const [product, setProduct] = useState(null);
-	const [product, setProduct] = useState(null);
+
 	let { productId } = useParams();
 	const { document } = useFetchDocument('products', productId);
 
-	const { docs } = useFirestore('promotion');
 	const [promotion, setPromotion] = useState();
-	
-	useEffect(() => {
-		const random = Math.floor(Math.random() * docs.length);
-		setPromotion(docs[random]);
-	}, [docs]);
-	
 
 	const { docs } = useFirestore('promotion');
-	const [promotion, setPromotion] = useState();
-	
 	useEffect(() => {
 		const random = Math.floor(Math.random() * docs.length);
 		setPromotion(docs[random]);
 	}, [docs]);
-	
+
+
+	useEffect(() => {
+		const random = Math.floor(Math.random() * docs.length);
+		setPromotion(docs[random]);
+	}, [docs]);
+
 	useEffect(() => {
 		setProduct(document);
 	}, [document]);
@@ -43,22 +37,7 @@ function ProductDetail() {
 		<div>
 			{product === null ? (
 				<Loading />
-				<Loading />
 			) : (
-				<div>
-					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
-						<div className="lg:col-span-8">
-							<ProductArea product={product} />
-						</div>
-						<div className="lg:col-span-4 ">
-							<ProductTopRated />
-							<div className="mt-10">
-								{promotion && (
-									<PromotionCard
-										type={promotion.type}
-										title={promotion.title}
-										subtitle={promotion.subtitle}
-										image={promotion.image}
 				<div>
 					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
 						<div className="lg:col-span-8">
@@ -78,8 +57,6 @@ function ProductDetail() {
 							</div>
 						</div>
 					</div>
-
-					<ProductRelated types={product.category} />
 
 					<ProductRelated types={product.category} />
 				</div>

@@ -45,6 +45,7 @@ function ProductRelated({ types }) {
 						return (
 							<SwiperSlide key={el.id}>
 								<ProductItem
+									key={el.id}
 									id={el.id}
 									rating={el.rating}
 									numReviews={el.reviews}
