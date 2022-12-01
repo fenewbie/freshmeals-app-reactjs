@@ -81,7 +81,12 @@ function ProductArea({ product }) {
 					</div>
 				</div>
 			</div>
-			<ProductDescTabs productDesc={product.desc} review={product.review} />
+			<ProductDescTabs
+				desc={product.desc}
+				review={product.review}
+				rating={product.rating}
+				numReviews={product.numReviews}
+			/>
 		</>
 	);
 }
