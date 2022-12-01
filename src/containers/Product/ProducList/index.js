@@ -9,7 +9,7 @@ import Slider from '../../../components/UI/Slider';
 import QuickViewProductModal from '../QuickViewProductModal';
 import SuccessModal from '../SuccessModal';
 import Title from '../../../components/Title';
-import Swiper from 'swiper';
+import { labelProduct as label } from '../../../constants/Constant';
 
 const ProductList = () => {
 	const { docs } = useFirestore('products');
@@ -257,7 +257,7 @@ const ProductList = () => {
 						</Slider>
 					</TabPanel>
 					{isShowingQuickViewModal ? (
-						<QuickViewProductModal />
+						<QuickViewProductModal docs={docs} />
 					) : null}
 
 					{isShowingSuccessModal.status ? (

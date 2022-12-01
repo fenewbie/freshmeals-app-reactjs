@@ -87,17 +87,7 @@ function ProductArea({product}) {
 					<div className="flex items-center border-t-[1px] mt-8">
 						<span className="mr-6">Share:</span>
 						<SocialLink />
-					</div>
-					<div className="border-t-[1px] py-6">
-						<span className="mr-6 font-bold mb-4">
-							Guaranteed Safe Checkout:
-						</span>
-						<img
-							src={cs.paymentMethod}
-							alt="payment"
-							className="h-[50px] object-contain"
-						/>
-					</div>
+					</div>					
 				</div>
 			</div>
 			<ProductDescTabs
