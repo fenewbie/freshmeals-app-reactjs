@@ -1,4 +1,4 @@
-import Loader from '../../components/UI/Loader/Loader';
+import Loader from '../../components/UI/Loader';
 const Contact = () => {
 	return (
 		<div title="Contact Us">

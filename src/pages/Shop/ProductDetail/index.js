@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import useFetchDocument from '../../../hooks/useFetchDocument';
 import useFirestore from '../../../hooks/useFirestore';
 
-import Loading from '../../../components/UI/Loading';
+import Loader from '../../../components/UI/Loader';
 import ProductArea from './ProductArea';
 import ProductRelated from '../../../containers/Product/ProductRelated';
 import PromotionCard from '../../../containers/Promotion/PromotionCard';
@@ -23,7 +23,6 @@ function ProductDetail() {
 		setPromotion(docs[random]);
 	}, [docs]);
 
-
 	useEffect(() => {
 		const random = Math.floor(Math.random() * docs.length);
 		setPromotion(docs[random]);
@@ -36,7 +35,7 @@ function ProductDetail() {
 	return (
 		<div>
 			{product === null ? (
-				<Loading />
+				<Loader />
 			) : (
 				<div>
 					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
