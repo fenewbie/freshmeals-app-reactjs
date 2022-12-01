@@ -26,6 +26,7 @@ export default function FeatureHomePage() {
 						title={el.title}
 						price={el.price}
 						discount={el.discount || 0}
+						card
 					/>
 				))}
 			</div>

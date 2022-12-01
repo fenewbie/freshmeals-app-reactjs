@@ -1,5 +1,5 @@
 import { NavMobi } from './NavMobi';
-import { Navigation } from './Navigation';
+import  Navigation  from './Navigation';
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';

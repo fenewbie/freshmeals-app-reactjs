@@ -18,10 +18,10 @@ import {
 function ProductArea({product}) {
 	return (
 		<>
-			<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">
+			<div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
 				<ProductListImages images={product.images} />
-				<div>
-					<div className="">
+				<div className="max-md:mt-10">
+					<div>
 						<Rating
 							value={ratingRandom()}
 							text={reviewRandom()}
@@ -54,10 +54,10 @@ function ProductArea({product}) {
 						</div>
 					</div>
 					<form
-						className="flex"
+						className="flex "
 						onSubmit={(e) => e.preventDefault()}
 					>
-						<div className="flex">
+						<div className="flex ">
 							<button className="inline-block w-12 rounded-md border-2  border-gray-300 outline-greenBtn">
 								<AiOutlineMinus className="mx-auto" />
 							</button>

@@ -1,6 +1,6 @@
-import TopProductRatedCard from '../../../components/UI/Product/TopRatedProductCard';
 import useFirestore from '../../../hooks/useFirestore';
 import { FaThList } from 'react-icons/fa';
+import ProductItem from '../ProductItem';
 
 function ProductTopRated() {
 	const { docs } = useFirestore('products');
@@ -15,11 +15,12 @@ function ProductTopRated() {
 				.splice(0, 4)
 				.map((product, index) => {
 					return (
-						<TopProductRatedCard
-							title={product.title}
-							imgSrc={product.image}
+						<ProductItem
+							key={product.id}
+							numReviews={product.review || '100'}
 							rating={product.rating}
-							review={product.review || '100'}
+							image={product.image}
+							title={product.title}
 							price={product.price * 1 || 100}
 							discount={product.discount}
 							className={index !== 0 && 'mt-5'}

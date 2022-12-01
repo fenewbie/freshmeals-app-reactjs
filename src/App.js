@@ -11,24 +11,23 @@ import ProductDetail from './pages/Shop/ProductDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import BlogPage from './pages/Blog/';
-import NotFound from './pages/NotFound';
 
-import ShopLayout from './containers/RouterLayout/ShopLayout';
 import RootLayout from './containers/RouterLayout/RootLayout';
+import NotFound from './pages/NotFound';
+import ShopLayout from './containers/RouterLayout/ShopLayout';
 
 function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
-			<Route path="/" element={<RootLayout />}>
+			<Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
 				<Route index element={<Home />}></Route>
-				<Route path="/shop" element={<ShopLayout />}>
+				<Route path="shop" element={<ShopLayout/>}>
 					<Route index element={<ProductScreen />}></Route>
-					<Route path=":productId" element={<ProductDetail />} ></Route>
+					<Route path=":productId" element={<ProductDetail />}></Route>
 				</Route>
-				<Route path="/about" element={<About />}></Route>
-				<Route path="/contact" element={<Contact />}></Route>
-				<Route path="/blog" element={<BlogPage />}></Route>
-				<Route path="*" element={<NotFound />}></Route>
+				<Route path="about" element={<About />}></Route>
+				<Route path="contact" element={<Contact />}></Route>
+				<Route path="blog" element={<BlogPage />}></Route>
 			</Route>
 		)
 	);

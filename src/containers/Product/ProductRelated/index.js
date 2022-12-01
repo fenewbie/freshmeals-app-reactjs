@@ -1,18 +1,20 @@
-import { type } from '@testing-library/user-event/dist/type';
-import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import Slider from '../../../components/UI/Slider';
 import ProductItem from '../ProductItem';
 import { ratingRandom, reviewRandom } from '../../../helpers/helpers';
 import useFirestore from '../../../hooks/useFirestore';
+
+import ProductItem from '../ProductItem';
 import Title from '../../../components/Title';
 function ProductRelated({ types }) {
 	const { docs } = useFirestore('products');
 
 	return (
 		<div className="py-24">
-			<h2 className="text-4xl font-bold mb-10">Related Product</h2>
-			<Title title='Related Product'/>
+			<Title
+				title="Related Product"
+				center={false}
+			/>
 			<Slider
 				breakpoints={{
 					768: {
@@ -45,6 +47,7 @@ function ProductRelated({ types }) {
 									title={el.title}
 									price={el.price}
 									discount={el.discount || 0}
+									card
 								/>
 							</SwiperSlide>
 						);
