@@ -76,6 +76,7 @@ const ProductList = () => {
 											title={el.title}
 											price={el.price}
 											discount={el.discount}
+											card
 										/>
 									</SwiperSlide>
 								))}

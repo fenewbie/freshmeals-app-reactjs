@@ -43,6 +43,7 @@ function ProductRelated({ types }) {
 									title={el.title}
 									price={el.price}
 									discount={el.discount || 0}
+									card
 								/>
 							</SwiperSlide>
 						);
