@@ -26,7 +26,9 @@ function NotFound() {
 						We are sorry! But the page you are looking for does not exist. It
 						might have been moved or deleted.
 					</p>
-					<p>{error.status} {error.statusText}</p>
+					<p className='text-xl text-red-700 font-bold'>
+						<i>{error.statusText || error.message}</i>
+					</p>
 					<Button
 						btn="card"
 						className="mx-auto bg-greenBtn p-2 rounded mt-5"

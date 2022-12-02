@@ -10,9 +10,27 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
+import { useLoaderData } from 'react-router-dom';
+import { getProducts } from '../../../services/api';
+import { useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../services/firebase';
+
 
 const ProductList = () => {
-	const { docs } = useFirestore('products');
+	console.log(' products list running');
+	// const { docs } = useFirestore('products');
+	// useEffect(() => {
+	// 	const getProducts = async () => {
+	// 		const productsSnap = await getDocs(collection(db, 'products'));
+	// 		productsSnap.forEach((doc) => {
+	// 			const products = doc.data();
+	// 			console.log(products.title);
+	// 			return products;
+	// 		});
+	// 	};
+	// 	getProducts();
+	// }, []);
 
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
@@ -26,7 +44,7 @@ const ProductList = () => {
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
-				<Tabs>
+				{/* <Tabs>
 					<TabList className="flex justify-center flex-wrap pb-6 relative">
 						{label.map((label, index) => (
 							<Tab
@@ -266,7 +284,8 @@ const ProductList = () => {
 							type={isShowingSuccessModal.type}
 						/>
 					) : null}
-				</Tabs>
+				</Tabs> */}
+				<div>test</div>
 			</div>
 		</div>
 	);

@@ -1,10 +1,20 @@
-
-import ProductList from "../../../containers/Product/ProductList"
+import { useLoaderData } from 'react-router-dom';
+import ProductList from '../../../containers/Product/ProductList';
+import { getProducts } from '../../../services/api';
 
 export default function ShopGrid() {
-  return (
-   <div title='Shop '>
-    <ProductList/>
-   </div>
-  )
+	console.log('shop grid running');
+
+	const productsList = useLoaderData();
+	console.warn('ProductList', productsList);
+
+	return (
+		<div>
+			<ProductList />
+		</div>
+	);
+}
+
+export const loader = () => {
+	return getProducts();
 }
