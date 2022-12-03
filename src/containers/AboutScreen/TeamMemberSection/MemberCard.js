@@ -10,8 +10,7 @@ function MemberCard({ name, image, position }) {
 				alt="member"
 			/>
 			<div className="p-8 text-center">
-				<span className="flex items-center justify-center">
-					<MdWork className='text-greenBtn mr-2'/>
+				<span className="block font-bold text-greenBtn text-sm">
 					{position}
 				</span>
 				<Link
@@ -20,22 +19,22 @@ function MemberCard({ name, image, position }) {
 				>
 					{name}
 				</Link>
-				<span className="flex justify-around px-14 mt-4">
+				<span className="flex justify-center mt-4">
 					<Link
 						to="/about"
-						className="hover:text-greenBtn transition-all cursor-pointer"
+						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
 					>
 						<BsFacebook />
 					</Link>
 					<Link
 						to="/about"
-						className="hover:text-greenBtn transition-all cursor-pointer"
+						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
 					>
 						<BsTwitter />
 					</Link>
 					<Link
 						to="/about"
-						className="hover:text-greenBtn transition-all cursor-pointer"
+						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
 					>
 						<BsLinkedin />
 					</Link>

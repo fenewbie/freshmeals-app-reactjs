@@ -14,13 +14,21 @@ module.exports = {
 		},
 		extend: {
 			boxShadow: {
-				'card': '0 0px 5px 1px rgba(0, 0, 0, 0.1)',
+				card: '0 0px 5px 1px rgba(0, 0, 0, 0.1)',
 			},
 			colors: {
 				greenBtn: '#80B500',
 				sectionBg: '#F7F5EB',
 			},
 			keyframes: {
+				accordionAppear: {
+					'0%': {
+						maxHeight: '0px',
+					},
+					'100%': {
+						maxHeight: '1000px',
+					},
+				},
 				pullRight: {
 					'0%': { width: '0%' },
 					'100%': { width: '100%' },
@@ -93,6 +101,7 @@ module.exports = {
 				animate: 'animate 0.8s linear infinite',
 				jump: ' jump 0.8s ease-in-out infinite',
 			},
+
 			fontFamily: {
 				raj: ['Rajdhani', 'sans-serif'],
 			},
