@@ -24,11 +24,6 @@ function ProductDetail() {
 	}, [docs]);
 
 	useEffect(() => {
-		const random = Math.floor(Math.random() * docs.length);
-		setPromotion(docs[random]);
-	}, [docs]);
-
-	useEffect(() => {
 		setProduct(document);
 	}, [document]);
 
