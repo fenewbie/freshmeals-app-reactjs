@@ -1,4 +1,4 @@
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Rating from '../Rating';
 import ProductCounter from './ProductCounter';
 import SocialLink from '../../../../components/UI/SocialLink';
@@ -11,8 +11,7 @@ import { IoClose } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../../../redux/ui/ui-slice';
 
-const QuickViewProductModal = ({ docs }) => {
-
+const QuickViewProductModal = ({ products }) => {
 	const productId = 2;
 	const dispatch = useDispatch();
 	const handleCloseModal = () => {
@@ -27,8 +26,8 @@ const QuickViewProductModal = ({ docs }) => {
 				>
 					<IoClose className="text-3xl" />
 				</button>
-				{docs
-					.filter((title) => title.id == productId)
+				{products
+					?.filter((title) => title.id == productId)
 					.map((el) => (
 						<div
 							key={el.id}
