@@ -14,3 +14,4 @@ export const labelProduct = [
 	{ id: 5, label: 'fish & meat' },
 	{ id: 6, label: 'fruits' },
 ];
+
