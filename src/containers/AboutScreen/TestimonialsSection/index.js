@@ -5,7 +5,7 @@ import ClientCard from './ClientCard';
 import useFirestore from '../../../hooks/useFirestore';
 
 function TestimonialsSection() {
-	const { docs } = useFirestore('clients');
+	const { docs } = useFirestore('members/1/client-feedback');
 	return (
 		<div className="py-[120px] px-4 bg-sectionBg">
 			<Title title="Clients Feedbacks" />

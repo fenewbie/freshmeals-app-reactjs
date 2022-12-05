@@ -3,7 +3,7 @@ import Title from '../../../components/Title';
 import useFirestore from '../../../hooks/useFirestore';
 
 function ServiceSection() {
-	const {docs} = useFirestore('features-service');
+	const { docs } = useFirestore('features/1/feature-serivce');
 	return (
 		<div className="bg-sectionBg py-[120px] px-4">
 			<Title title="Why Choose Us" />
@@ -28,3 +28,4 @@ function ServiceSection() {
 }
 
 export default ServiceSection;
+
