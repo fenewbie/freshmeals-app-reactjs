@@ -8,14 +8,28 @@ import ProductArea from './ProductArea';
 import ProductRelated from '../ProductRelated';
 import PromotionCard from '../../HomeScreen/PromotionSection/PromotionCard';
 import ProductTopRated from '../ProductTopRated';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	getProductById,
+	getProducts,
+} from '../../../redux/products/productSlice';
 
 function ProductDetail() {
-	const [product, setProduct] = useState(null);
+	
+	const [promotion, setPromotion] = useState();
 
 	let { productId } = useParams();
-	const { document } = useFetchDocument('products', productId);
+	const products = useSelector((state) => state.products.products);
+	const productById = useSelector((state) => state.products.selectedProduct);
 
-	const [promotion, setPromotion] = useState();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (products.length === 0) {
+			dispatch(getProducts());
+		}
+		dispatch(getProductById(productId));
+	}, []);
 
 	const { docs } = useFirestore('promotion');
 	useEffect(() => {
@@ -28,19 +42,15 @@ function ProductDetail() {
 		setPromotion(docs[random]);
 	}, [docs]);
 
-	useEffect(() => {
-		setProduct(document);
-	}, [document]);
-
 	return (
 		<div>
-			{product === null ? (
+			{productById === null ? (
 				<Loader />
 			) : (
 				<div>
 					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
 						<div className="lg:col-span-8">
-							<ProductArea product={product} />
+							<ProductArea product={productById} />
 						</div>
 						<div className="lg:col-span-4 ">
 							<ProductTopRated />
@@ -57,7 +67,7 @@ function ProductDetail() {
 						</div>
 					</div>
 
-					<ProductRelated types={product.category} />
+					<ProductRelated types={productById.category} />
 				</div>
 			)}
 		</div>

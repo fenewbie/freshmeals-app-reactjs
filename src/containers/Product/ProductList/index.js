@@ -8,18 +8,16 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getProducts } from '../../../redux/products/productSlice';
 
 const ProductList = () => {
-	const [category, setCategory] = useState('');
-
 	const docs = useSelector((state) => state.products.products);
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getProducts());
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const isShowingQuickViewModal = useSelector(
