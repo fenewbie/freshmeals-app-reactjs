@@ -1,13 +1,12 @@
 import Title from '../../../components/Title';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import useFirestore from '../../../hooks/useFirestore';
 
-
 function QuestionSection() {
-	const {docs} = useFirestore('Q&A');
+	const { docs } = useFirestore('blog/1/q&a');
 	const [activeIndex, setActiveIndex] = useState();
-	
+
 	const handleSetActive = (id) => {
 		setActiveIndex((preIndexAct) => {
 			const newIndexAct = preIndexAct === id ? undefined : id;
@@ -31,7 +30,7 @@ function QuestionSection() {
 								className="flex justify-between items-center cursor-pointer"
 								onClick={() => handleSetActive(item.id)}
 							>
-								<h3 className="font-bold">{item.question}</h3>
+								<h3 className="font-bold">{item.title}</h3>
 								<span className="p-2 border-2 rounded border-gray-300 bg-sectionBg hover:border-greenBtn hover:text-greenBtn transition-all">
 									{item.id === activeIndex ? (
 										<AiOutlineMinus className="text-greenBtn" />
@@ -42,8 +41,8 @@ function QuestionSection() {
 							</div>
 
 							{item.id === activeIndex && (
-								<div className="overflow-hidden animate-[accordionAppear_1s_ease-in-out_forwards]">
-									<p className="py-6 ">{item.answer}</p>
+								<div className="overflow-hidden animate-[accordionAppear_1s_ease-in-out_forwards] my-2">
+									<p className="py-2">{item.desc}</p>
 								</div>
 							)}
 						</div>

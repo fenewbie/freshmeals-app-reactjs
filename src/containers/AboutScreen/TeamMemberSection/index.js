@@ -1,6 +1,6 @@
 import Title from '../../../components/Title';
-import MemberCard from './MemberCard';
 import useFirestore from '../../../hooks/useFirestore';
+import MemberCard from './MemberCard';
 
 function TeamMemberSection() {
 	const { docs } = useFirestore('members');

@@ -32,6 +32,7 @@ const Button = ({
 				</Link>
 			) : (
 				<button
+					type={type}
 					onClick={onClick}
 					className={`transition-all ${classType} ${className}`}
 				>
