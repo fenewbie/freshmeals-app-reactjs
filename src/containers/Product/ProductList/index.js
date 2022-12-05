@@ -8,7 +8,7 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getProducts } from '../../../redux/products/productSlice';
 
 

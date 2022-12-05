@@ -17,7 +17,7 @@ function ProductArea({ product }) {
 				<ProductListImages images={product.images} />
 				<div className="max-md:mt-10">
 					<div>
-						<Rating value={product.rating} text={product.review} />
+						<Rating value={product.rating} text={product.numReviews} />
 						<h4 className="text-2xl font-bold mt-4">{product.title}</h4>
 						<div className="flex items-center">
 							<span className="inline-block text-[40px] font-semibold text-greenBtn">
@@ -31,8 +31,8 @@ function ProductArea({ product }) {
 					<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
 						<span>Categories:</span>
 						<div className="ml-3">
-							{product.category.map((item, index) => (
-								<span className="capitalize font-semibold" key={item}>
+							{product.category?.map((item, index) => (
+								<span className="capitalize font-semibold" key={index}>
 									{index === product.category.length - 1 ? item : `${item},`}
 								</span>
 							))}

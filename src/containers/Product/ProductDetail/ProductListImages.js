@@ -1,3 +1,4 @@
+import { useState} from 'react';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Thumbs, Keyboard, EffectFade } from 'swiper';
 import 'swiper/css';
@@ -6,7 +7,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 import SliderButton from '../../../components/UI/Slider/SliderButton';
-import { useState, useRef } from 'react';
 
 function ProductListImages({ images }) {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -29,7 +29,7 @@ function ProductListImages({ images }) {
 					onInit={(e) => setRealIndex(e.realIndex)}
 					className="swiper2"
 				>
-					{images.map((image, index) => (
+					{images?.map((image, index) => (
 						<SwiperSlide key={index}>
 							<div className="md:h-96 h-80 bg-[#ffffff] p-2 mx-auto rounded mb-10 cursor-pointer">
 								<img
@@ -41,7 +41,7 @@ function ProductListImages({ images }) {
 						</SwiperSlide>
 					))}
 
-					{images.length > 1 && (
+					{images?.length > 1 && (
 						<div>
 							<SliderButton
 								iconSize={20}
@@ -61,7 +61,7 @@ function ProductListImages({ images }) {
 				</Swiper>
 			</div>
 
-			<div className="">
+			<div >
 				<Swiper
 					onSwiper={setThumbsSwiper}
 					slidesPerView={3}
@@ -77,7 +77,7 @@ function ProductListImages({ images }) {
 					}}
 					className="swiper1"
 				>
-					{images.map((image, index) => (
+					{images?.map((image, index) => (
 						<SwiperSlide key={index}>
 							<div
 								className={`md:h-20 md:w-20 h-24 mx-auto bg-[#F9F9F9] py-2 border ${
