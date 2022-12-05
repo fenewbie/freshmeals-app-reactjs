@@ -23,7 +23,7 @@ function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
-				<Route index element={<Home />} />
+				<Route index element={<Home />} loader={productsLoader} />
 				<Route path="shop" element={<ShopLayout />}>
 					<Route index element={<ShopGrid />} loader={productsLoader} />
 					<Route path=":productId" element={<ProductDetailPage />} />

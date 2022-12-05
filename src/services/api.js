@@ -9,3 +9,7 @@ export const getProducts = async () => {
 	});
 	return document;
 };
+
+export const getProductById = async() => {
+	
+}
