@@ -62,7 +62,7 @@ function Slider({
                     } shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
                     iconClassName={`transition-all ease-in-out duration-300`}
                 />
-				<SliderPagination totalSlides={children.length}  indexAct={indexAct}/>
+				<SliderPagination totalSlides={children?.length}  indexAct={indexAct}/>
                 {children}
             </Swiper>
         </div>

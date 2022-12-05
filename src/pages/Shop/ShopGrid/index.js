@@ -3,14 +3,12 @@ import ProductList from '../../../containers/Product/ProductList';
 import { getProducts } from '../../../services/api';
 
 export default function ShopGrid() {
-	console.log('shop grid running');
 
 	const productsList = useLoaderData();
-	console.warn('ProductList', productsList);
 
 	return (
 		<div>
-			<ProductList />
+			<ProductList products= {productsList}/>
 		</div>
 	);
 }
