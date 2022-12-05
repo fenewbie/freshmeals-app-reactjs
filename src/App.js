@@ -15,6 +15,7 @@ import RootLayout from './containers/RouterLayout/RootLayout';
 import NotFound from './pages/NotFound';
 import ShopLayout from './containers/RouterLayout/ShopLayout';
 import ShopGrid from './pages/Shop/ShopGrid';
+import Gallery from './pages/Gallery';
 
 function App() {
 	const router = createBrowserRouter(
@@ -28,6 +29,7 @@ function App() {
 				<Route path="about" element={<About />}></Route>
 				<Route path="contact" element={<Contact />}></Route>
 				<Route path="blog" element={<BlogPage />}></Route>
+				<Route path="gallery" element={<Gallery />}></Route>
 			</Route>
 		)
 	);

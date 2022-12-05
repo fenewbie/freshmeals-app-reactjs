@@ -1,8 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
-
-import useFirestore from '../../../hooks/useFirestore';
 
 import ProductItem from '../ProductCard/ProductItem';
 import Slider from '../../../components/UI/Slider';
@@ -10,9 +8,17 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
+import { useEffect } from 'react';
+import { getProducts } from '../../../redux/products/productSlice';
 
 const ProductList = () => {
-	const { docs } = useFirestore('products');
+	const docs = useSelector((state) => state.products.products);
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getProducts());
+	}, []);
 
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
@@ -96,9 +102,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('vegetables')
-								)
+								.filter((item) => item.category.includes('vegetables'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -130,9 +134,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('dried food')
-								)
+								.filter((item) => item.category.includes('dried food'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -236,9 +238,7 @@ const ProductList = () => {
 							loop={false}
 						>
 							{docs
-								.filter((item) =>
-									item.category.includes('fruits')
-								)
+								.filter((item) => item.category.includes('fruits'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -261,10 +261,7 @@ const ProductList = () => {
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal
-							docs={docs}
-							type={isShowingSuccessModal.type}
-						/>
+						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
 					) : null}
 				</Tabs>
 			</div>

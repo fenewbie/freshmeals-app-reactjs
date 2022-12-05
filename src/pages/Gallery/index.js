@@ -1,4 +1,3 @@
-
 const Gallery = () => {
 	return (
 		<div>

@@ -1,10 +1,9 @@
-
-import ProductList from "../../../containers/Product/ProductList"
+import ProductList from '../../../containers/Product/ProductList';
 
 export default function ShopGrid() {
-  return (
-   <div title='Shop '>
-    <ProductList/>
-   </div>
-  )
+	return (
+		<div>
+			<ProductList />
+		</div>
+	);
 }
