@@ -11,7 +11,6 @@ import { labelProduct as label } from '../../../constants/Constant';
 
 
 const ProductList = ({products}) => {
-	console.log(products);
 
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal

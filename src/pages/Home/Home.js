@@ -4,10 +4,10 @@ import PortfolioSection from '../../containers/HomeScreen/PortfolioSection';
 import BlogSection from '../../containers/HomeScreen/BlogSection';
 import FeatureHomePage from '../../containers/HomeScreen/FeatureSection/FeatureHomePage';
 import ProductList from '../../containers/Product/ProductList';
-import { useLoaderData } from 'react-router-dom';
+import {useRouteLoaderData } from 'react-router-dom';
 
 const Home = () => {
-		const productsList = useLoaderData();
+		const productsList = useRouteLoaderData('root');
 	return (
 		<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 			<PromotionSection />

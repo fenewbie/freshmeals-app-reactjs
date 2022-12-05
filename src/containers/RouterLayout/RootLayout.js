@@ -1,17 +1,18 @@
 import Footer from '../../components/Footer';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation} from 'react-router-dom';
 import CommonSection from '../CommonSection';
 import Header from '../../components/Header';
 import FeatureFooter from '../HomeScreen/FeatureSection/FeatureFooter';
+import { getProducts } from '../../services/api';
 
 function RootLayout() {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
-	
+
 	return (
 		<>
 			{isHomePage ? (
-				<Header /> 
+				<Header />
 			) : (
 				<CommonSection title={location.pathname.substring(1)}>
 					<Header />
@@ -20,10 +21,14 @@ function RootLayout() {
 			<main className="w-full mx-auto p-1">
 				<Outlet />
 			</main>
-			<FeatureFooter/>
+			<FeatureFooter />
 			<Footer />
 		</>
 	);
 }
 
 export default RootLayout;
+
+export const loader = () => {
+	return getProducts();
+};

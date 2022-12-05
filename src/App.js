@@ -6,27 +6,38 @@ import {
 } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
-import ProductDetailPage from './pages/Shop/ProductDetailPage';
+import ProductDetailPage, {
+	loader as productLoader,
+} from './pages/Shop/ProductDetailPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import BlogPage from './pages/Blog/';
 
-import RootLayout from './containers/RouterLayout/RootLayout';
+import RootLayout, {
+	loader as productsLoader,
+} from './containers/RouterLayout/RootLayout';
 import NotFound from './pages/NotFound';
-import ShopLayout  from './containers/RouterLayout/ShopLayout';
-import ShopGrid, { loader as productsLoader } from './pages/Shop/ShopGrid';
-
-
-
+import ShopLayout from './containers/RouterLayout/ShopLayout';
+import ShopGrid from './pages/Shop/ShopGrid';
 
 function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
-			<Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
-				<Route index element={<Home />} loader={productsLoader} />
+			<Route
+				id="root"
+				path="/"
+				element={<RootLayout />}
+				errorElement={<NotFound />}
+				loader={productsLoader}
+			>
+				<Route index element={<Home />} />
 				<Route path="shop" element={<ShopLayout />}>
-					<Route index element={<ShopGrid />} loader={productsLoader} />
-					<Route path=":productId" element={<ProductDetailPage />} />
+					<Route index element={<ShopGrid />} />
+					<Route
+						path=":productId"
+						element={<ProductDetailPage />}
+						loader={productLoader}
+					/>
 				</Route>
 				<Route path="about" element={<About />} />
 				<Route path="contact" element={<Contact />} />

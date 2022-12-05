@@ -1,6 +1,5 @@
-import { useParams } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
-import useFetchDocument from '../../../hooks/useFetchDocument';
 import useFirestore from '../../../hooks/useFirestore';
 
 import Loader from '../../../components/UI/Loader';
@@ -9,11 +8,7 @@ import ProductRelated from '../ProductRelated';
 import PromotionCard from '../../HomeScreen/PromotionSection/PromotionCard';
 import ProductTopRated from '../ProductTopRated';
 
-function ProductDetail() {
-	const [product, setProduct] = useState(null);
-
-	let { productId } = useParams();
-	const { document } = useFetchDocument('products', productId);
+function ProductDetail({ product }) {
 
 	const [promotion, setPromotion] = useState();
 
@@ -27,10 +22,6 @@ function ProductDetail() {
 		const random = Math.floor(Math.random() * docs.length);
 		setPromotion(docs[random]);
 	}, [docs]);
-
-	useEffect(() => {
-		setProduct(document);
-	}, [document]);
 
 	return (
 		<div>

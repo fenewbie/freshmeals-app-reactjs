@@ -1,10 +1,9 @@
-import { useLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from 'react-router-dom';
 import ProductList from '../../../containers/Product/ProductList';
-import { getProducts } from '../../../services/api';
 
 export default function ShopGrid() {
 
-	const productsList = useLoaderData();
+	const productsList = useRouteLoaderData('root');
 
 	return (
 		<div>
@@ -13,6 +12,3 @@ export default function ShopGrid() {
 	);
 }
 
-export const loader = () => {
-	return getProducts();
-}
