@@ -20,6 +20,7 @@ import NotFound from './pages/NotFound';
 import ShopLayout from './containers/RouterLayout/ShopLayout';
 import ShopGrid from './pages/Shop/ShopGrid';
 import Gallery from './pages/Gallery';
+import Cart from './pages/Cart';
 
 function App() {
 	const router = createBrowserRouter(
