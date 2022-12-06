@@ -1,6 +1,6 @@
 import { NavMobi } from './NavMobi';
-import  Navigation  from './Navigation';
-import { useState } from 'react';
+import Navigation from './Navigation';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
@@ -15,7 +15,19 @@ import { uiActions } from '../../redux/ui/ui-slice';
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
+	const headerRef = useRef(null);
+
 	const showNavMobi = useSelector((state) => state.ui.isDisplay);
+	const cartQuantity = useSelector((state) => state.cart.items);
+
+	const getTotalQuantity = () => {
+		let total = 0;
+		cartQuantity.forEach((item) => {
+			total += item.quantity;
+		});
+		return total;
+	};
+
 	const dispatch = useDispatch();
 
 	const location = useLocation();
@@ -24,9 +36,26 @@ const Header = () => {
 	const handleClick = () => {
 		dispatch(uiActions.toggleNavMobi());
 	};
+	// useEffect(() => {
+	// 	window.addEventListener('scroll', () => {
+	// 		if (
+	// 			document.body.scrollTop > 80 ||
+	// 			document.documentElement.scrollTop > 80
+	// 		) {
+	// 			headerRef.current.classList.add('header-shrink');
+	// 		} else {
+	// 			headerRef.current.classList.remove('header-shrink');
+	// 		}
+	// 	});
+
+	// 	return () => window.removeEventListener('scroll', null);
+	// }, []);
 
 	return (
-		<header className="relative flex justify-center bg-transparent">
+		<header
+			className="relative flex justify-center bg-transparent"
+			ref={headerRef}
+		>
 			{isHomePage && <Banner />}
 			<div
 				className={`z-10 ${
@@ -66,8 +95,14 @@ const Header = () => {
 									items={userList}
 								></Dropdown>
 
-								<Link to='cart' className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
+								<Link
+									to="cart"
+									className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4 relative"
+								>
 									<BiCartAlt />
+									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
+										{getTotalQuantity() || 0}
+									</span>
 								</Link>
 
 								<Button

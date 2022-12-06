@@ -36,7 +36,7 @@ const initialState = {
 	products: [],
 	isLoading: false,
 	filterProduct: [],
-	selectedProduct: {id : 1},
+	selectedProduct: {'id' : 1},
 };
 
 const productSlice = createSlice({

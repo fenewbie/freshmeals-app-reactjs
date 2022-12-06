@@ -1,13 +1,23 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  a, button{
-    @apply font-raj;
-  }
-    body {
-        font-family: 'Open Sans', sans-serif;
-    }
-  }
+	a,
+	button {
+		@apply font-raj;
+	}
+	body {
+		font-family: 'Open Sans', sans-serif;
+	}
+}
+@layer components {
+	.header-shrink {
+		position: sticky;
+		top: 0;
+		left: 0;
+		background: rgba(33,34,69,0.8);
+		z-index: 99999;
+		box-shadow: 5px 5px 15px -5px #fde4e4;
+	}
+}

@@ -1,63 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const initialState = {
-    items : [],
-	cartTotalQuantity: 0,
-	cartTotalAmount: 0,
-	changed: false
+	items: [],
+	totalQuantity: 0,
+	totalAmount: 0,
+	changed: false,
 };
 
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addToCart(state, action) {
-			state.totalQuantity = action.payload.totalQuantity;
-			state.items = action.payload.items;
-		},
-		addItemToCart(state, action) {
-			const newItem = action.payload;
-			const existingItem = state.items.find((item) => item.id === newItem.id);
-			state.totalQuantity++;
-			state.changed = true;
-			if (!existingItem) {
-				state.items.push({
-					id: newItem.id,
-					price: newItem.price,
-					quantity: 1,
-					totalPrice: newItem.price,
-					name: newItem.title,
-				});
+		addToCart: (state, action) => {
+			const itemInCart = state.items.find(
+				(item) => item.id === action.payload.id
+			);
+			if (itemInCart) {
+				itemInCart.quantity++;
 			} else {
-				existingItem.quantity++;
-				existingItem.totalPrice = existingItem.totalPrice + newItem.price;
+				state.items.push({ ...action.payload, quantity: 1 });
 			}
 		},
-		removeItemFromCart(state, action) {
-			const id = action.payload;
-			const existingItem = state.items.find((item) => item.id === id);
-			state.totalQuantity--;
-			state.changed = true;
-			if (existingItem.quantity === 1) {
-				state.items = state.items.filter((item) => item.id !== id);
+		incrementQuantity: (state, action) => {
+			const item = state.items.find((item) => item.id === action.payload);
+			item.quantity++;
+		},
+		decrementQuantity: (state, action) => {
+			const item = state.items.find((item) => item.id === action.payload);
+			if (item.quantity === 1) {
+				item.quantity = 1;
 			} else {
-				existingItem.quantity--;
-				existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
+				item.quantity--;
 			}
 		},
-
-        deleteItemFromCart(state,action) {
-            const id = action.payload
-            const existingItem = state.items.find(item => item.id === id)
-            state.changed = true;
-            if(existingItem) {
-                state.items=state.item.filter(item => item.id !== id)
-                state.totalQuantity = state.totalQuantity - existingItem.quantity
-            }
-
-            state.totalPrice = state.items.reduce((total,item)=> total + (item.price) * (item.quantity), 0)
-        }
+		removeItem: (state, action) => {
+			const removeItem = state.cart.filter(
+				(item) => item.id !== action.payload
+			);
+			state.cart = removeItem;
+		},
 	},
 });
 

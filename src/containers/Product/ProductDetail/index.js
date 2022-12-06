@@ -49,7 +49,7 @@ function ProductDetail() {
 				<div>
 					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
 						<div className="lg:col-span-8">
-							<ProductArea product={productById} />
+							<ProductArea product={productById} id={productId} />
 						</div>
 						<div className="lg:col-span-4 ">
 							<ProductTopRated />

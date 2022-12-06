@@ -9,8 +9,42 @@ import WishList from '../ProductCard/QuickViewProductModal/Wishlist';
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
 import Rating from '../ProductCard/Rating';
+import { Quantity } from '../../../components/Cart/Quantity';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartActions } from '../../../redux/cart/cartSlice';
+import { useState } from 'react';
 
-function ProductArea({ product }) {
+function ProductArea({ product, id }) {
+
+	let [quantity, setQuantity] = useState(1);
+
+	const cartTotalQuantity = useSelector(
+		(state) => state.cart.cartTotalQuantity
+	);
+
+	const dispatch = useDispatch();
+	const { title, price, image } = product;
+	const addItem = () => {
+		dispatch(
+			cartActions.addToCart({
+				id,
+				title,
+				price,
+				image,
+			})
+		);
+		console.log(quantity)
+	}
+	const increaseCart = () => {
+		setQuantity(++quantity)
+	};
+	const decreaseCart = () => {
+		if (quantity > 1) {
+			setQuantity(--quantity);
+		} else {
+			setQuantity(0);
+		}
+	};
 	return (
 		<>
 			<div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
@@ -38,23 +72,16 @@ function ProductArea({ product }) {
 							))}
 						</div>
 					</div>
-					<form className="flex " onSubmit={(e) => e.preventDefault()}>
-						<div className="flex ">
-							<button className="inline-block w-12 rounded-md border-2  border-gray-300 outline-greenBtn">
-								<AiOutlineMinus className="mx-auto" />
-							</button>
-							<input
-								type="number"
-								className="text-lg font-bold text-center w-24 border-2 rounded-md  mx-2 border-gray-300 focus:outline-greenBtn"
-							/>
-							<button className="inline-block w-12 border-2 rounded-md border-gray-300 outline-greenBtn">
-								<AiOutlinePlus className="mx-auto" />
-							</button>
-						</div>
-						<Button btn="cart" className="mt-0 ml-5">
+					<div className="flex ">
+						<Quantity
+							decreaseCart={decreaseCart}
+							increaseCart={increaseCart}
+							quantity={quantity}
+						/>
+						<Button btn="cart" className="mt-0 ml-5" onClick={addItem}>
 							Add to cart
 						</Button>
-					</form>
+					</div>
 					<div className="flex mt-5">
 						<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 							<WishList />
