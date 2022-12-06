@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import useFetchDocument from '../../../hooks/useFetchDocument';
 import useFirestore from '../../../hooks/useFirestore';
 
 import Loader from '../../../components/UI/Loader';

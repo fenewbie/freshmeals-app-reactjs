@@ -66,9 +66,9 @@ const Header = () => {
 									items={userList}
 								></Dropdown>
 
-								<Button className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
+								<Link to='cart' className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4">
 									<BiCartAlt />
-								</Button>
+								</Link>
 
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
