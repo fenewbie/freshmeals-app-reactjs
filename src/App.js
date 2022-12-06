@@ -25,41 +25,17 @@ import Cart from './pages/Cart';
 function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
-			<Route
-				path="/"
-				element={<RootLayout />}
-				errorElement={<NotFound />}
-			>
-				<Route
-					index
-					element={<Home />}
-				></Route>
-				<Route
-					path="shop"
-					element={<ShopLayout />}
-				>
-					<Route
-						index
-						element={<ShopGrid />}
-					></Route>
-					<Route
-						path=":productId"
-						element={<ProductDetailPage />}
-					></Route>
+			<Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
+				<Route index element={<Home />} />
+				<Route path="shop" element={<ShopLayout />}>
+					<Route index element={<ShopGrid />} />
+					<Route path=":productId" element={<ProductDetailPage />} />
 				</Route>
-				<Route
-					path="about"
-					element={<About />}
-				></Route>
-				<Route
-					path="contact"
-					element={<Contact />}
-				></Route>
-				<Route
-					path="blog"
-					element={<BlogPage />}
-				></Route>
-				
+				<Route path="cart" element={<Cart />} />
+				<Route path="about" element={<About />} />
+				<Route path="contact" element={<Contact />} />
+				<Route path="blog" element={<BlogPage />} />
+				<Route path="gallery" element={<Gallery />} />
 			</Route>
 		)
 	);
