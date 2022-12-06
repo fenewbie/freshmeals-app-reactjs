@@ -16,6 +16,7 @@ import NotFound from './pages/NotFound';
 import ShopLayout from './containers/RouterLayout/ShopLayout';
 import ShopGrid from './pages/Shop/ShopGrid';
 import Gallery from './pages/Gallery';
+import Cart from './pages/Cart';
 
 function App() {
 	const router = createBrowserRouter(
@@ -42,10 +43,26 @@ function App() {
 						element={<ProductDetailPage />}
 					></Route>
 				</Route>
-				<Route path="about" element={<About />}></Route>
-				<Route path="contact" element={<Contact />}></Route>
-				<Route path="blog" element={<BlogPage />}></Route>
-				<Route path="gallery" element={<Gallery />}></Route>
+				<Route
+					path="about"
+					element={<About />}
+				></Route>
+				<Route
+					path="contact"
+					element={<Contact />}
+				></Route>
+				<Route
+					path="blog"
+					element={<BlogPage />}
+				></Route>
+				<Route
+					path="gallery"
+					element={<Gallery />}
+				></Route>
+				<Route
+					path="cart"
+					element={<Cart />}
+				></Route>
 			</Route>
 		)
 	);
