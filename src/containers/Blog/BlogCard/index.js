@@ -1,9 +1,12 @@
-import {FaTags, FaUserEdit} from 'react-icons/fa';
-import {BiCalendar} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
+import Tags from '../Tags';
+
+import { BiCalendar } from 'react-icons/bi';
+import { FaUserEdit } from 'react-icons/fa';
+
 const BlogCard = ({ id, title, description, img, tags }) => (
-	<div className="shadow-xl rounded-lg overflow-hidden my-10 min-h-[650px] border">
+	<div className="shadow-xl rounded-lg overflow-hidden my-10  border">
 		<Link
 			to={`/blog/${id}`}
 			className="pb-[70%] w-full overflow-hidden relative flex bg-slate-50"
@@ -17,20 +20,7 @@ const BlogCard = ({ id, title, description, img, tags }) => (
 			</div>
 		</Link>
 		<div className="bg-white p-8 ">
-			<div className="flex mb-3">
-				<div className="flex items-center">
-					<FaTags className="text-greenBtn" />
-					{tags.map((tag, index) => (
-						<Link
-							to="/"
-							key={index}
-							className="text-sm font-medium py-1 px-4 rounded-full border border-greenBtn inline-block text-center bg-transparent ml-2 transition-all duration-300 hover:text-white hover:bg-greenBtn shadow-md"
-						>
-							{tag}
-						</Link>
-					))}
-				</div>
-			</div>
+			<Tags tags={tags} />
 			<Link
 				to={`/blog/${id}`}
 				className="text-xl lg:text-2xl font-bold capitalize inline-block mb-2 hover:text-greenBtn transition-all duration-300"
