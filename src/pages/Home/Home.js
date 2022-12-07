@@ -3,15 +3,13 @@ import CountDownSection from '../../containers/HomeScreen/CountDownSection';
 import PortfolioSection from '../../containers/HomeScreen/PortfolioSection';
 import BlogSection from '../../containers/HomeScreen/BlogSection';
 import FeatureHomePage from '../../containers/HomeScreen/FeatureSection/FeatureHomePage';
-import ProductList from '../../containers/Product/ProductList';
-import {useRouteLoaderData } from 'react-router-dom';
+import ProductSection from '../../containers/HomeScreen/ProductSection';
 
 const Home = () => {
-		const products = useRouteLoaderData('root');
 	return (
 		<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 			<PromotionSection />
-			<ProductList products={products.products} />
+			<ProductSection />
 			<CountDownSection />
 			<FeatureHomePage />
 			<PortfolioSection />
