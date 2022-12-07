@@ -35,7 +35,7 @@ export const getBlogById = async (id) => {
 	const blogRef = doc(db, 'blog', id);
 	const blogSnap = await getDoc(blogRef);
 	const obj = blogSnap.data();
-	console.log('blog by id from api', obj);
+	// console.log('blog by id from api', obj);
 	return obj ?? null;
 };
 

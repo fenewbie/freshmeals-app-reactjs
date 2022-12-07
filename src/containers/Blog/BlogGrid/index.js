@@ -1,18 +1,17 @@
-import BlogCard from "../BlogCard";
+import BlogCard from '../BlogCard';
 
-function BlogGrid({blogs}) {
-    return (
-		<div>
+function BlogGrid({ blogs }) {
+	return (
+		<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 			{blogs.map((blog) => (
-				<div className="mb-16" key={blog.id}>
-					<BlogCard
-						id={blog.id}
-						title={blog.title}
-						description={blog.description}
-						tags={blog.tags}
-						img={blog.image}
-					/>
-				</div>
+				<BlogCard
+					key={blog.id}
+					id={blog.id}
+					title={blog.title}
+					description={blog.description}
+					tags={blog.tags}
+					img={blog.image}
+				/>
 			))}
 		</div>
 	);
