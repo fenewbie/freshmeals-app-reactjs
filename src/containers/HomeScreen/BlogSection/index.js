@@ -1,40 +1,14 @@
-import { SwiperSlide } from 'swiper/react';
-import BlogCard from '../../../components/BlogCard';
-import useFirestore from '../../../hooks/useFirestore';
-import Slider from '../../../components/UI/Slider';
+import { useRouteLoaderData } from 'react-router-dom';
+import BlogList from '../../Blog/BlogList';
 import Title from '../../../components/Title';
 
 const BlogSection = () => {
-	const { docs } = useFirestore('blog');
-
+	const { blogs } = useRouteLoaderData('root');
 	return (
-		<div className="pt-[115px] pb-[70px]">
-			<Title title="Lastest Blog" />
-			<div>
-				{docs.length > 0 && (
-					<Slider
-						breakpoints={{
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-						}}
-					>
-						{docs &&
-							docs.map((blogItem) => (
-								<SwiperSlide key={blogItem.id}>
-									<BlogCard
-										title={blogItem.title}
-										description={blogItem.description}
-										tags={blogItem.tags}
-										img={blogItem.image}
-									/>
-								</SwiperSlide>
-							))}
-					</Slider>
-				)}
+		<div>
+			<div className="pt-[115px] pb-[70px]">
+				<Title title="Lastest Blog" />
+				<BlogList blogs={blogs} />
 			</div>
 		</div>
 	);
