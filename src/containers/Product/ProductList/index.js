@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
@@ -8,6 +8,8 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
+import { useEffect } from 'react';
+import { getProducts } from '../../../redux/products/productSlice';
 
 const ProductList = ({ products }) => {
 	const isShowingQuickViewModal = useSelector(

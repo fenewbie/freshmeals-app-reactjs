@@ -5,6 +5,11 @@ import ProductArea from './ProductArea';
 import ProductRelated from '../ProductRelated';
 import PromotionCard from '../../HomeScreen/PromotionSection/PromotionCard';
 import ProductTopRated from '../ProductTopRated';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	getProductById,
+	getProducts,
+} from '../../../redux/products/productSlice';
 
 function ProductDetail({ product }) {
 	const [promotion, setPromotion] = useState();

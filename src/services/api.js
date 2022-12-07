@@ -42,3 +42,4 @@ export const getData = async () => {
 	const products = await getProducts();
 	return { blogs, products };
 };
+

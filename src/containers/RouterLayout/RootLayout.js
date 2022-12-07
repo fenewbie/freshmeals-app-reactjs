@@ -1,5 +1,5 @@
 import Footer from '../../components/Footer';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet,useLocation } from 'react-router-dom';
 import CommonSection from '../CommonSection';
 import Header from '../../components/Header';
 import FeatureFooter from '../HomeScreen/FeatureSection/FeatureFooter';
@@ -8,7 +8,6 @@ import { getData } from '../../services/api';
 function RootLayout() {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
-	
 	return (
 		<>
 			{isHomePage ? (
