@@ -1,5 +1,4 @@
-import { useLoaderData, useLocation, useParams } from 'react-router-dom';
-import BlogDetail from '../../../containers/Blog/BlogDetail';
+import BlogDetail from '../../../containers/BlogDetailScreen';
 import { getBlogById } from '../../../services/api';
 
 function BlogDetailPage() {
@@ -14,13 +13,12 @@ export default BlogDetailPage;
 
 export const loader = ({ params }) => {
 	const blog = getBlogById(params.blogId);
-	if (blog === null) {
+	if (!blog) {
 		throw new Response('', {
 			status: 404,
 			statusText: 'Not Found',
 		});
-        
-	} 
+	}
 
-    return blog;
+	return blog;
 };

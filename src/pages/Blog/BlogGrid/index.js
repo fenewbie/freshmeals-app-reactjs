@@ -1,16 +1,16 @@
 import { useRouteLoaderData } from 'react-router-dom';
-import { BlogGrid } from '../../../containers/Blog';
+import { BlogList } from '../../../components/Blog';
 
-const BlogPage = () => {
+const BlogGrid = () => {
 	const { blogs } = useRouteLoaderData('root');
 	return (
 		<div
 			title="Blog"
 			className="px-4 sm:px-8 py-24  mx-auto"
 		>
-			<BlogGrid blogs={blogs} />
+			<BlogList blogs={blogs} />
 		</div>
 	);
 };
 
-export default BlogPage;
+export default BlogGrid;

@@ -1,28 +1,13 @@
-
 import { useEffect, useState } from 'react';
 import useFirestore from '../../../hooks/useFirestore';
 
-import Loader from '../../../components/UI/Loader';
 import ProductArea from './ProductArea';
 import ProductRelated from '../ProductRelated';
 import PromotionCard from '../../HomeScreen/PromotionSection/PromotionCard';
 import ProductTopRated from '../ProductTopRated';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-	getProductById,
-	getProducts,
-} from '../../../redux/products/productSlice';
 
 function ProductDetail({ product }) {
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (product.length === 0) {
-			dispatch(getProducts());
-		}
-		dispatch(getProductById(productId));
-	}, []);
+	const [promotion, setPromotion] = useState();
 
 	const { docs } = useFirestore('promotion');
 	useEffect(() => {
@@ -37,32 +22,28 @@ function ProductDetail({ product }) {
 
 	return (
 		<div>
-			{productById === null ? (
-				<Loader />
-			) : (
-				<div>
-					<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
-						<div className="lg:col-span-8">
-							<ProductArea product={productById} />
-						</div>
-						<div className="lg:col-span-4 ">
-							<ProductTopRated />
-							<div className="mt-10">
-								{promotion && (
-									<PromotionCard
-										type={promotion.type}
-										title={promotion.title}
-										subtitle={promotion.subtitle}
-										image={promotion.image}
-									/>
-								)}
-							</div>
+			<div>
+				<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
+					<div className="lg:col-span-8">
+						<ProductArea product={product} />
+					</div>
+					<div className="lg:col-span-4 ">
+						<ProductTopRated />
+						<div className="mt-10">
+							{promotion && (
+								<PromotionCard
+									type={promotion.type}
+									title={promotion.title}
+									subtitle={promotion.subtitle}
+									image={promotion.image}
+								/>
+							)}
 						</div>
 					</div>
-
-					<ProductRelated types={productById.category} />
 				</div>
-			)}
+
+				<ProductRelated types={product.category} />
+			</div>
 		</div>
 	);
 }

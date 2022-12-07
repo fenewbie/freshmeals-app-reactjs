@@ -41,7 +41,7 @@ const BlogCard = ({ id, title, description, img, tags }) => (
 					className="flex items-center hover:text-greenBtn transition-all duration-300"
 				>
 					<FaUserEdit className="text-greenBtn mr-2" />
-					by{' '}
+					by
 					<span className="ml-1 font-medium capitalize">admin</span>
 				</Link>
 				<span className="flex items-center">

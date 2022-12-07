@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
-import { Tabs, TabList, Tab, TabPanel } from 'react-tabs'
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 import ProductItem from '../ProductCard/ProductItem';
 import Slider from '../../../components/UI/Slider';
@@ -8,12 +8,8 @@ import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
 import Title from '../../../components/Title';
 import { labelProduct as label } from '../../../constants/Constant';
-import { useEffect } from 'react';
-import { getProducts } from '../../../redux/products/productSlice';
 
-
-const ProductList = ({products}) => {
-
+const ProductList = ({ products }) => {
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -26,7 +22,7 @@ const ProductList = ({products}) => {
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
-				 <Tabs>
+				<Tabs>
 					<TabList className="flex justify-center flex-wrap pb-6 relative">
 						{label.map((label, index) => (
 							<Tab
@@ -96,9 +92,7 @@ const ProductList = ({products}) => {
 							loop={false}
 						>
 							{products
-								?.filter((item) =>
-									item.category.includes('vegetables')
-								)
+								?.filter((item) => item.category.includes('vegetables'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -130,9 +124,7 @@ const ProductList = ({products}) => {
 							loop={false}
 						>
 							{products
-								?.filter((item) =>
-									item.category.includes('dried food')
-								)
+								?.filter((item) => item.category.includes('dried food'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -236,9 +228,7 @@ const ProductList = ({products}) => {
 							loop={false}
 						>
 							{products
-								?.filter((item) =>
-									item.category.includes('fruits')
-								)
+								?.filter((item) => item.category.includes('fruits'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -266,7 +256,7 @@ const ProductList = ({products}) => {
 							type={isShowingSuccessModal.type}
 						/>
 					) : null}
-				</Tabs> 
+				</Tabs>
 			</div>
 		</div>
 	);

@@ -7,11 +7,11 @@ import ProductList from '../../containers/Product/ProductList';
 import {useRouteLoaderData } from 'react-router-dom';
 
 const Home = () => {
-		const productsList = useRouteLoaderData('root');
+		const products = useRouteLoaderData('root');
 	return (
 		<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 			<PromotionSection />
-			<ProductList products= {productsList}/>
+			<ProductList products={products.products} />
 			<CountDownSection />
 			<FeatureHomePage />
 			<PortfolioSection />

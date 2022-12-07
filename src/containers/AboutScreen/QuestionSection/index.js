@@ -51,6 +51,7 @@ function QuestionSection() {
 				<img
 					src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/Q%26A%2Fimage.webp?alt=media&token=4ebad5c3-5648-49d9-8532-013d4541ad3b"
 					className="w-full object-contain"
+					alt="img-about"
 				/>
 			</div>
 		</div>

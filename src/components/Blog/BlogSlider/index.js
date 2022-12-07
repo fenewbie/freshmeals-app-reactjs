@@ -2,7 +2,7 @@ import { SwiperSlide } from 'swiper/react';
 import BlogCard from '../BlogCard';
 import Slider from '../../../components/UI/Slider';
 
-const BlogList = ({ blogs }) => {
+const BlogSlider = ({ blogs }) => {
 	return (
 		<>
 			{
@@ -33,4 +33,4 @@ const BlogList = ({ blogs }) => {
 	);
 };
 
-export default BlogList;
+export default BlogSlider;

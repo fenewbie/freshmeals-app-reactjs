@@ -1,14 +1,15 @@
 import { useRouteLoaderData } from 'react-router-dom';
 import ProductList from '../../../containers/Product/ProductList';
 
-export default function ShopGrid() {
+export default function ProductGrid() {
 
-	const productsList = useRouteLoaderData('root');
+	const {products} = useRouteLoaderData('root');
 
 	return (
 		<div>
-			<ProductList products= {productsList}/>
+			<ProductList products= {products}/>
 		</div>
 	);
 }
 
+ 
