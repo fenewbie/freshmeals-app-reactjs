@@ -11,33 +11,52 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addToCart: (state, action) => {
-			const itemInCart = state.items.find(
-				(item) => item.id === action.payload.id
-			);
-			if (itemInCart) {
-				itemInCart.quantity++;
+		replaceCart(state, action) {
+			state.totalQuantity = action.payload.totalQuantity;
+			state.totalAmount = action.payload.totalAmount;
+			state.items = action.payload.items;
+		},
+		addToCart(state, action) {
+			const newItem = action.payload;
+			const existingItem = state.items.find((item) => item.id === newItem.id);
+			state.totalQuantity += newItem.quantity;
+			state.changed = true;
+
+			if (!existingItem) {
+				state.items.push({
+					...newItem,
+					quantity: 1,
+					totalPrice: newItem.quantity * newItem.price,
+				});
 			} else {
-				state.items.push({ ...action.payload, quantity: 1 });
+				existingItem.quantity += newItem.quantity;
+				existingItem.totalPrice = existingItem.totalPrice * newItem.price;
 			}
 		},
+
 		incrementQuantity: (state, action) => {
-			const item = state.items.find((item) => item.id === action.payload);
-			item.quantity++;
+			const newItem = action.payload;
+			const existingItem = state.items.find((item) => item.id === newItem.id);
+			existingItem.quantity++;
+			state.totalQuantity++;
+			state.changed = true;
+			existingItem.totalPrice = existingItem.totalPrice * newItem.price;
 		},
 		decrementQuantity: (state, action) => {
-			const item = state.items.find((item) => item.id === action.payload);
-			if (item.quantity === 1) {
-				item.quantity = 1;
+			const id = action.payload;
+			const existingItem = state.items.find((item) => item.id === id);
+			state.totalQuantity--;
+			state.changed = true;
+
+			if (existingItem.quantity === 1) {
+				state.items = state.items.filter((item) => item.id !== id);
 			} else {
-				item.quantity--;
+				existingItem.quantity--;
+				existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
 			}
 		},
-		removeItem: (state, action) => {
-			const removeItem = state.cart.filter(
-				(item) => item.id !== action.payload
-			);
-			state.cart = removeItem;
+		removeItem: (state) => {
+			return [];
 		},
 	},
 });

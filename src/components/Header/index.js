@@ -18,15 +18,7 @@ const Header = () => {
 	const headerRef = useRef(null);
 
 	const showNavMobi = useSelector((state) => state.ui.isDisplay);
-	const cartQuantity = useSelector((state) => state.cart.items);
-
-	const getTotalQuantity = () => {
-		let total = 0;
-		cartQuantity.forEach((item) => {
-			total += item.quantity;
-		});
-		return total;
-	};
+	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
 	const dispatch = useDispatch();
 
@@ -101,7 +93,7 @@ const Header = () => {
 								>
 									<BiCartAlt />
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
-										{getTotalQuantity() || 0}
+										{totalQuantity}
 									</span>
 								</Link>
 

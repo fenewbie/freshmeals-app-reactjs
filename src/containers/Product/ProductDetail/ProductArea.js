@@ -14,16 +14,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../../redux/cart/cartSlice';
 import { useState } from 'react';
 
-function ProductArea({ product, id }) {
-
+function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);
 
-	const cartTotalQuantity = useSelector(
-		(state) => state.cart.cartTotalQuantity
-	);
-
 	const dispatch = useDispatch();
-	const { title, price, image } = product;
+	const { title, price, image, id } = product;
 	const addItem = () => {
 		dispatch(
 			cartActions.addToCart({
@@ -31,12 +26,13 @@ function ProductArea({ product, id }) {
 				title,
 				price,
 				image,
+				quantity
 			})
 		);
-		console.log(quantity)
-	}
+		console.log('quantity add to  cart ', quantity);
+	};
 	const increaseCart = () => {
-		setQuantity(++quantity)
+		setQuantity(++quantity);
 	};
 	const decreaseCart = () => {
 		if (quantity > 1) {
