@@ -11,15 +11,7 @@ import { labelProduct as label } from '../../../constants/Constant';
 import { useEffect } from 'react';
 import { getProducts } from '../../../redux/products/productSlice';
 
-const ProductList = () => {
-	const docs = useSelector((state) => state.products.products);
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(getProducts());
-	}, []);
-
+const ProductList = ({ products }) => {
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
 	);
@@ -65,8 +57,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter(
+							{products
+								?.filter(
 									(item) =>
 										item.category.includes('food') ||
 										item.category.includes('drink')
@@ -101,8 +93,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter((item) => item.category.includes('vegetables'))
+							{products
+								?.filter((item) => item.category.includes('vegetables'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -133,8 +125,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter((item) => item.category.includes('dried food'))
+							{products
+								?.filter((item) => item.category.includes('dried food'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -165,8 +157,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter(
+							{products
+								?.filter(
 									(item) =>
 										item.category.includes('bread') ||
 										item.category.includes('cake')
@@ -201,8 +193,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter(
+							{products
+								?.filter(
 									(item) =>
 										item.category.includes('fish') ||
 										item.category.includes('meat')
@@ -237,8 +229,8 @@ const ProductList = () => {
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
-							{docs
-								.filter((item) => item.category.includes('fruits'))
+							{products
+								?.filter((item) => item.category.includes('fruits'))
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
@@ -257,11 +249,14 @@ const ProductList = () => {
 						</Slider>
 					</TabPanel>
 					{isShowingQuickViewModal ? (
-						<QuickViewProductModal docs={docs} />
+						<QuickViewProductModal products={products} />
 					) : null}
 
 					{isShowingSuccessModal.status ? (
-						<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+						<SuccessModal
+							products={products}
+							type={isShowingSuccessModal.type}
+						/>
 					) : null}
 				</Tabs>
 			</div>

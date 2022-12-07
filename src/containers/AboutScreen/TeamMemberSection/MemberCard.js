@@ -1,5 +1,4 @@
 import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs';
-import { MdWork } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 function MemberCard({ name, image, position }) {
