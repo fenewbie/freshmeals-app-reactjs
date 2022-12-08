@@ -7,16 +7,16 @@ import {
 
 import RootLayout, {
 	loader as rootLoader,
-} from './containers/RouterLayout/RootLayout';
-import Home from './pages/Home/Home';
-import ShopLayout from './containers/RouterLayout/ShopLayout';
+} from './layouts/RootLayout';
+import Home from './pages/Home/index';
+import ShopLayout from './layouts/ShopLayout';
 import ProductGrid from './pages/Shop/ProductGrid';
 import ProductDetailPage, {
 	loader as productLoader,
 } from './pages/Shop/ProductDetailPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import BlogLayout from './containers/RouterLayout/BlogLayout';
+import BlogLayout from './layouts/BlogLayout';
 import BlogGrid from './pages/Blog/BlogGrid';
 import BlogDetailPage, {
 	loader as blogLoader,

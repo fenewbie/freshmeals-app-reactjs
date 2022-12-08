@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
-import ProductDetail from '../../../containers/Product/ProductDetail';
-import { getProductById} from '../../../services/api';
+import ProductDetail from '@features/ProductScreen/ProductDetail';
+import { getProductById} from '@services/api';
 
 export default function ProductDetailPage() {
 	const productById = useLoaderData()
