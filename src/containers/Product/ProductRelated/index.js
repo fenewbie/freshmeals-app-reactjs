@@ -7,6 +7,7 @@ import Title from '../../../components/Title';
 import { useSelector } from 'react-redux';
 import QuickViewProductModal from '../ProductCard/QuickViewProductModal';
 import SuccessModal from '../ProductCard/SuccessModal';
+
 function ProductRelated({ types }) {
 	const { docs } = useFirestore('products');
 

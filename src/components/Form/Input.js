@@ -5,6 +5,7 @@ function Input({
 	cols,
 	hasError,
 	icon,
+	className,
 	...inputProps
 }) {
 	const element =
@@ -25,14 +26,16 @@ function Input({
 	return (
 		<div>
 			<div
-				className={`relative flex py-4 w-full outline-none rounded border-2 ${
+				className={`${
+					type !== ('checkbox' || 'radio') &&
+					'relative flex py-4 w-full outline-none rounded border-2 bg-white focus-within:border-greenBtn'
+				} ${
 					hasError ? 'border-red-400' : 'border-gray-200'
-				} bg-white focus-within:border-greenBtn`}
+				}  ${className}`}
 			>
 				{element}
 				{icon && <span className="mr-4 text-greenBtn">{icon}</span>}
 			</div>
-			
 		</div>
 	);
 }
