@@ -28,7 +28,6 @@ function ProductArea({ product }) {
 				quantity,
 			})
 		);
-		console.log('quantity add to  cart ', quantity);
 	};
 	const incrementItem = () => {
 		setQuantity(++quantity);

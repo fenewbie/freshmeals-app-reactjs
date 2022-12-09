@@ -8,7 +8,6 @@ export default function CartItem({ item }) {
 
 	const incrementItem = () => {
 		dispatch(cartActions.incrementQuantity(id));
-		console.log('check quantity', quantity);
 	};
 
 	const decreaseItem = () => {
@@ -17,7 +16,6 @@ export default function CartItem({ item }) {
 
 	const deleteItem = () => {
 		dispatch(cartActions.removeItem(id));
-		console.log('delete item');
 	};
 	return (
 		<table className="w-full text-center">

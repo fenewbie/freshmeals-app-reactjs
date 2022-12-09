@@ -5,9 +5,11 @@ import Button from '@components/UI/Button';
 import CartItem from './CartItem';
 
 function CartScreen() {
+
 	const cartItems = useSelector((state) => state.cart.items);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 
+	const subtotal = totalAmount + 15.00 + 10.00
 
 	return (
 		<div>
@@ -23,8 +25,8 @@ function CartScreen() {
 				</div>
 			) : (
 				<>
-					{cartItems.map((item) => (
-						<CartItem item={item} key={item.id} />
+					{cartItems.map((item, index) => (
+						<CartItem item={item} key={index} />
 					))}
 					<div className="flex justify-end py-5">
 						<Button btn="card" className="min-w-[150px]">
@@ -53,7 +55,7 @@ function CartScreen() {
 										<h3 className="font-bold">Order Total</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">{totalAmount}</h3>
+										<h3 className="font-bold">{subtotal}</h3>
 									</td>
 								</tr>
 							</tbody>

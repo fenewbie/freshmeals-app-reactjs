@@ -1,6 +1,6 @@
 import { SwiperSlide } from 'swiper/react';
 import Slider from '@components/UI/Slider';
-import useFirestore from '@hooks/useFirestore';
+import { useRouteLoaderData } from 'react-router-dom';
 
 import ProductItem from '../ProductItem';
 import Title from '@components/Title';
@@ -11,7 +11,7 @@ import SuccessModal from '../ProductItem/SuccessModal';
 
 
 function ProductRelated({ types }) {
-	const { docs } = useFirestore('products');
+		const { products } = useRouteLoaderData('root');
 
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.ui.isShowingQuickViewModal
@@ -36,7 +36,7 @@ function ProductRelated({ types }) {
 				grid={{ rows: 1, fill: 'row' }}
 				loop={true}
 			>
-				{docs
+				{products
 					.filter((product) => {
 						const filterCategories = product.category.filter((item) =>
 							types.includes(item)
@@ -61,10 +61,12 @@ function ProductRelated({ types }) {
 							</SwiperSlide>
 						);
 					})}
-				{isShowingQuickViewModal ? <QuickViewProductModal docs={docs} /> : null}
+				{isShowingQuickViewModal ? (
+					<QuickViewProductModal products={products} />
+				) : null}
 
 				{isShowingSuccessModal.status ? (
-					<SuccessModal docs={docs} type={isShowingSuccessModal.type} />
+					<SuccessModal products={products} type={isShowingSuccessModal.type} />
 				) : null}
 			</Slider>
 		</div>
