@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { uiActions } from 'store/ui/ui-slice';
+import { uiActions } from '@store/ui/ui-slice';
 
 import { IoClose } from 'react-icons/io5';
 
