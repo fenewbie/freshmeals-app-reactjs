@@ -6,22 +6,23 @@ import IntroSection from './IntroSection';
 import Button from '@components/UI/Button';
 import PromotionCard from '../HomeScreen/PromotionSection/PromotionCard';
 import SocialLink from '@components/UI/SocialLink';
+import RelatedList from '@features/RelatedList/index';
 import { CommentForm, SearchForm } from '@components/Form';
-import {
-	CommonSection,
-	Post,
-	BlogCategory,
-	Tags,
-} from '@components/Blog';
+import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
 
 import {
 	FaRegArrowAltCircleLeft,
 	FaRegArrowAltCircleRight,
 } from 'react-icons/fa';
 import { TbGridDots } from 'react-icons/tb';
+import { useEffect } from 'react';
 
 function BlogDetail() {
 	const blog = useLoaderData();
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, left: 0});
+	}, [blog]);
 
 	return (
 		<>
@@ -32,7 +33,9 @@ function BlogDetail() {
 
 						<div className="flex justify-between mt-16">
 							<div>
-								<h3 className="font-bold text-lg mb-6">Related Tags</h3>
+								<h3 className="font-bold text-lg mb-6">
+									Related Tags
+								</h3>
 								<Tags
 									title="Related Tag"
 									relatedTag
@@ -77,6 +80,10 @@ function BlogDetail() {
 								</span>
 							</Button>
 						</div>
+						<RelatedList
+							type="blog"
+							related={blog.tags}
+						/>
 						<CommentSection />
 						<CommentForm />
 					</div>
