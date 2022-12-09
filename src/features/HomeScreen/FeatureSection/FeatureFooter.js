@@ -1,4 +1,4 @@
-import useFirestore from '../../../hooks/useFirestore';
+import useFirestore from '@hooks/useFirestore';
 
 const FeatureFooter = () => {
 	const { docs } = useFirestore('features');

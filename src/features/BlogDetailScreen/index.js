@@ -1,42 +1,53 @@
 import { useLoaderData } from 'react-router-dom';
 
-import Button from '../../components/UI/Button';
-
-import PromotionCard from '../HomeScreen/PromotionSection/PromotionCard';
 import CommentSection from './CommentSection';
-import FormSection from './FormSection';
-import RelatedBlogsSection from './RelatedBlogsSection';
 import IntroSection from './IntroSection';
+
+import Button from '@components/UI/Button';
+import PromotionCard from '../HomeScreen/PromotionSection/PromotionCard';
+import SocialLink from '@components/UI/SocialLink';
+import { CommentForm, SearchForm } from '@components/Form';
+import {
+	CommonSection,
+	Post,
+	BlogCategory,
+	Tags,
+} from '@components/Blog';
 
 import {
 	FaRegArrowAltCircleLeft,
 	FaRegArrowAltCircleRight,
 } from 'react-icons/fa';
-
 import { TbGridDots } from 'react-icons/tb';
-import SocialLink from '../../components/UI/SocialLink';
-import SearchSection from './SearchSection';
-import CommonSection from './CommonSection';
-import RelatedTagsSection from './RelatedTagsSection';
-import PostSection from './PostSection';
-import CategorySection from './CategorySection';
-import PopularTagsSection from './PopularTagsSection';
 
 function BlogDetail() {
 	const blog = useLoaderData();
+
 	return (
 		<>
 			<div className="grid lg:grid-cols-12 grid-cols-1 gap-8">
 				<div className="lg:col-span-8">
 					<div className="border-2 rounded py-10 px-12 ">
-						<PostSection blog={blog} />
+						<Post blog={blog} />
 
 						<div className="flex justify-between mt-16">
-							<RelatedTagsSection
-								tags={['business', 'healthy', 'Fresh food', 'Vegetables']}
-							/>
+							<div>
+								<h3 className="font-bold text-lg mb-6">Related Tags</h3>
+								<Tags
+									title="Related Tag"
+									relatedTag
+									tags={[
+										'business',
+										'healthy',
+										'Fresh food',
+										'Vegetables',
+									]}
+								/>
+							</div>
 							<div className="text-right">
-								<h3 className="font-bold text-lg">Social Share</h3>
+								<h3 className="font-bold text-lg">
+									Social Share
+								</h3>
 								<SocialLink />
 							</div>
 						</div>
@@ -66,9 +77,8 @@ function BlogDetail() {
 								</span>
 							</Button>
 						</div>
-						<RelatedBlogsSection />
 						<CommentSection />
-						<FormSection />
+						<CommentForm />
 					</div>
 				</div>
 
@@ -76,13 +86,16 @@ function BlogDetail() {
 					<div className="-mt-8">
 						<IntroSection />
 					</div>
-					<SearchSection />
+					<SearchForm />
 
 					<CommonSection title="Popular Feeds">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit
+						</p>
 					</CommonSection>
 
-					<CategorySection
+					<BlogCategory
 						categories={[
 							{ title: 'Vegetables', number: 10 },
 							{ title: 'Fruits', number: 20 },
@@ -99,27 +112,32 @@ function BlogDetail() {
 
 					<CommonSection title="Twitter Feeds">
 						<div className="flex items-center">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit
 						</div>
 					</CommonSection>
 
 					<CommonSection title="Instagram Feeds">
 						<div className="flex items-center">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit
 						</div>
 					</CommonSection>
 
-					<PopularTagsSection
-						tags={[
-							'#freshfood',
-							'#healthyfood',
-							'#homemade',
-							'#supportlocal',
-							'#eatlocal',
-							'#dinner',
-							'#cooking',
-						]}
-					/>
+					<CommonSection title="Popular Tags">
+						<Tags
+							relatedTag
+							tags={[
+								'#freshfood',
+								'#healthyfood',
+								'#homemade',
+								'#supportlocal',
+								'#eatlocal',
+								'#dinner',
+								'#cooking',
+							]}
+						/>
+					</CommonSection>
 
 					<PromotionCard />
 				</div>

@@ -1,9 +1,10 @@
-import Button from '../../components/UI/Button';
+import Button from '@components/UI/Button';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { useNavigate, useRouteError } from 'react-router-dom';
-import Footer from '../../components/Footer';
-import CommonSection from '../../containers/CommonSection';
-import Header from '../../components/Header';
+import Footer from 'layouts/Footer';
+import CommonSection from '@components/CommonSection';
+import Header from 'layouts/Header';
+
 
 function NotFound() {
 	const error = useRouteError();

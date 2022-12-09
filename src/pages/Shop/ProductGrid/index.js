@@ -1,5 +1,5 @@
 import { useRouteLoaderData } from 'react-router-dom';
-import ProductList from '../../../containers/Product/ProductList';
+import ProductList from '@features/ProductScreen/ProductList';
 
 export default function ProductGrid() {
 

@@ -1,7 +1,7 @@
-import useFirestore from '../../../hooks/useFirestore';
-import { shuffle } from '../../../helpers/helpers';
-import Title from '../../../components/Title';
-import ProductItem from '../../Product/ProductCard/ProductItem';
+import useFirestore from '@hooks/useFirestore';
+import { shuffle } from '@utils/helpers';
+import Title from '@components/Title';
+import ProductItem from '@features/ProductScreen/ProductItem';
 
 export default function FeatureHomePage() {
 	const { docs } = useFirestore('products');

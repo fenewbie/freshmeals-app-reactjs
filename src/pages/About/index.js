@@ -1,10 +1,10 @@
-import IntroSection from "../../containers/AboutScreen/IntroSection";
-import QuestionSection from "../../containers/AboutScreen/QuestionSection";
-import ServiceSection from "../../containers/AboutScreen/ServiceSection";
-import SubcribeSection from "../../containers/AboutScreen/SubscribeSection";
-import TeamMemberSection from "../../containers/AboutScreen/TeamMemberSection";
-import TestimonialsSection from "../../containers/AboutScreen/TestimonialsSection";
-import BlogSection from "../../containers/HomeScreen/BlogSection";
+import IntroSection from "@features/AboutScreen/IntroSection";
+import QuestionSection from "@features/AboutScreen/QuestionSection";
+import ServiceSection from "@features/AboutScreen/ServiceSection";
+import SubcribeSection from "@features/AboutScreen/SubscribeSection";
+import TeamMemberSection from "@features/AboutScreen/TeamMemberSection";
+import TestimonialsSection from "@features/AboutScreen/TestimonialsSection";
+import BlogSection from "@features/HomeScreen/BlogSection";
 
 const About = () => {
 	return (

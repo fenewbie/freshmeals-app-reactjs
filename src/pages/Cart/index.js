@@ -1,4 +1,4 @@
-import CartScreen from "../../containers/CartScreen";
+import CartScreen from "@features/CartScreen";
 
 function Cart() {
     return (

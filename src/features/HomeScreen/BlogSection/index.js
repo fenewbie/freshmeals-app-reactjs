@@ -1,5 +1,5 @@
 import { useRouteLoaderData } from 'react-router-dom';
-import BlogSlider from '../../../components/Blog/BlogSlider';
+import BlogList from '../../../components/Blog/BlogList';
 
 import Title from '../../../components/Title';
 
@@ -9,7 +9,7 @@ const BlogSection = () => {
 		<div>
 			<div className="pt-[115px] pb-[70px]">
 				<Title title="Lastest Blog" />
-				<BlogSlider blogs={blogs} />
+				<BlogList blogs={blogs} />
 			</div>
 		</div>
 	);

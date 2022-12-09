@@ -2,10 +2,10 @@ import { useState, useCallback } from 'react';
 
 import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import Title from '../../../components/Title';
-import Backdrop from '../../../components/Modal/BackDrop';
-import useFirestore from '../../../hooks/useFirestore';
-import Slider from '../../../components/UI/Slider';
+import Title from '@components/Title';
+import Backdrop from '@components/UI/Modal/BackDrop';
+import useFirestore from '@hooks/useFirestore';
+import Slider from '@components/UI/Slider';
 
 const PortfolioSection = () => {
 	const [indexAct, setIndexAct] = useState();

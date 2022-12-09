@@ -1,5 +1,5 @@
-import BlogDetail from '../../../containers/BlogDetailScreen';
-import { getBlogById } from '../../../services/api';
+import BlogDetail from '@features/BlogDetailScreen';
+import { getBlogById } from '@services/api';
 
 function BlogDetailPage() {
 	return (

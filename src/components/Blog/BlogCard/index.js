@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import Tags from '../Tags';
-
+import Card from '../../UI/Card';
 import { BiCalendar } from 'react-icons/bi';
 import { FaUserEdit } from 'react-icons/fa';
 
 const BlogCard = ({ id, title, description, img, tags }) => (
-	<div className="shadow-xl rounded-lg overflow-hidden my-10  border">
+	<Card className="shadow-xl rounded-lg overflow-hidden my-10  border">
 		<Link
 			to={`/blog/${id}`}
 			className="pb-[70%] w-full overflow-hidden relative flex bg-slate-50"
@@ -50,7 +50,7 @@ const BlogCard = ({ id, title, description, img, tags }) => (
 				</span>
 			</div>
 		</div>
-	</div>
+	</Card>
 );
 
 export default BlogCard;

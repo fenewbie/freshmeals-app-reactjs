@@ -1,7 +1,8 @@
-import { BsSearch, BsFillSignpost2Fill, BsFilterLeft } from 'react-icons/bs';
-import SocialLink from '../../../components/UI/SocialLink';
+import SocialLink from '@components/UI/SocialLink';
+import {CommonSection} from '@components/Blog';
 
-import CommonSection from '../CommonSection';
+import { BsFillSignpost2Fill } from 'react-icons/bs';
+
 
 function IntroSection() {
 	return (
