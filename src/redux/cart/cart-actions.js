@@ -40,7 +40,7 @@ export const sendCartData = (cart) => {
 		});
 
 		const sendRequest = async () => {
-			const response = await axios.put(
+			const response = await axios.post(
 				'https://freshmeals-reactjs-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json',
 				{
 					items: cart.items,
@@ -48,6 +48,7 @@ export const sendCartData = (cart) => {
 					totalAmount: cart.totalAmount,
 				}
 			);
+			console.log('response from cart action',response);
 
 			if (!response.ok) {
 				throw new Error('Sending cart data failed.');

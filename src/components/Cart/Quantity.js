@@ -1,16 +1,11 @@
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-export function Quantity({
-	className,
-	decreaseCart,
-	increaseCart,
-	quantity
-}) {
+export function Quantity({ className, decreaseItem, incrementItem, quantity }) {
 	return (
 		<div className={`flex h-full ${className}`}>
 			<button
 				className="inline-block w-12 rounded-md border-2  border-gray-300 outline-greenBtn bg-white"
-				onClick={decreaseCart}
+				onClick={decreaseItem}
 			>
 				<AiOutlineMinus className="mx-auto" />
 			</button>
@@ -19,7 +14,7 @@ export function Quantity({
 			</p>
 			<button
 				className="inline-block w-12 border-2 rounded-md border-gray-300 outline-greenBtn bg-white"
-				onClick={increaseCart}
+				onClick={incrementItem}
 			>
 				<AiOutlinePlus className="mx-auto" />
 			</button>

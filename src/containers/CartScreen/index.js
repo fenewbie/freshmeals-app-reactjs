@@ -1,24 +1,18 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Quantity } from '../../components/Cart/Quantity';
 import Button from '../../components/UI/Button';
-import { cartActions } from '../../redux/cart/cartSlice';
+
+import CartItem from './CartItem';
 
 function CartScreen() {
-	const cartItems = useSelector((state) => state.cart.items);
-	const totalAmount = useSelector((state) => state.cart.totalAmount);
 
-	const dispatch = useDispatch();
-	const increaseCart = (id) => {
-		dispatch(cartActions.increaseQuantity(id));
-	};
-	const decreaseCart = (id) => {
-		dispatch(cartActions.decrementQuantity(id));
-	};
-	const deleteItem = (id) => {
-		dispatch(cartActions.removeItem(id));
-	};
+	const cartItems = useSelector((state) => state.cart.items);
+	console.log(cartItems);
+	const totalAmount = useSelector((state) => state.cart.totalAmount);
+	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+	console.log(totalAmount)
+	console.log(totalQuantity);
+
 	return (
 		<div>
 			{cartItems.length === 0 ? (
@@ -33,52 +27,9 @@ function CartScreen() {
 				</div>
 			) : (
 				<>
-					<table className="w-full text-center">
-						<tbody>
-							{cartItems.map((product) => {
-								const { id, title, image, price, quantity, totalPrice } =
-									product;
-								return (
-									<tr
-										className={`border-t border-b ${
-											parseInt(id) % 2 === 0 ? 'max-md:bg-sectionBg' : ''
-										}`}
-										key={id}
-									>
-										<td className="max-md:block max-md:border-b py-5 md:w-20">
-											<button onClick={deleteItem}>x</button>
-										</td>
-										<td className="max-md:block max-md:border-b py-5">
-											<img
-												src={image}
-												alt="product"
-												className="h-28 w-28 object-contain mx-auto"
-											/>
-										</td>
-										<td className="max-md:block max-md:border-b py-5">
-											<h3 className="font-bold text-[18px]">{title}</h3>
-										</td>
-										<td className="max-md:block max-md:border-b py-5">
-											<span>${price}</span>
-										</td>
-										<td className="max-md:block max-md:border-b py-5">
-											<div className="h-14">
-												<Quantity
-													className="justify-center"
-													decreaseCart={decreaseCart}
-													increaseCart={increaseCart}
-													quantity={quantity}
-												/>
-											</div>
-										</td>
-										<td className="max-md:block max-md:border-b py-5">
-											<h3 className="font-bold text-[18px]">{totalPrice}</h3>
-										</td>
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
+					{cartItems.map((item) => (
+						<CartItem item={item} key={item.id} />
+					))}
 					<div className="flex justify-end py-5">
 						<Button btn="card" className="min-w-[150px]">
 							Update Cart
@@ -91,9 +42,7 @@ function CartScreen() {
 							<tbody>
 								<tr className="border-t border-b bg-[#F7F8FA] h-14">
 									<td className="px-6">Cart Subtotal</td>
-									<td className=" px-6 text-right">
-										${totalAmount.toFixed(2)}
-									</td>
+									<td className=" px-6 text-right">${totalAmount}</td>
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
 									<td className="px-6">Shipping and Handing</td>
@@ -108,7 +57,7 @@ function CartScreen() {
 										<h3 className="font-bold">Order Total</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">{totalAmount + 15.0 + 10.0}</h3>
+										<h3 className="font-bold">{totalAmount}</h3>
 									</td>
 								</tr>
 							</tbody>

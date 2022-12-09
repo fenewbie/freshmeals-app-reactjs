@@ -16,7 +16,7 @@ import NotFound from './pages/NotFound';
 import ShopLayout from './containers/RouterLayout/ShopLayout';
 import ShopGrid from './pages/Shop/ShopGrid';
 import Gallery from './pages/Gallery';
-import Checkout from './pages/Checkout';
+import Cart from './pages/Cart';
 
 function App() {
 	const router = createBrowserRouter(
@@ -27,7 +27,7 @@ function App() {
 					<Route index element={<ShopGrid />} />
 					<Route path=":productId" element={<ProductDetailPage />} />
 				</Route>
-				<Route path="cart" element={<Checkout />} />
+				<Route path="cart" element={<Cart />} />
 				<Route path="about" element={<About />} />
 				<Route path="contact" element={<Contact />} />
 				<Route path="blog" element={<BlogPage />} />

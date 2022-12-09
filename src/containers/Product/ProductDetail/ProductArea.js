@@ -26,15 +26,15 @@ function ProductArea({ product }) {
 				title,
 				price,
 				image,
-				quantity
+				quantity,
 			})
 		);
 		console.log('quantity add to  cart ', quantity);
 	};
-	const increaseCart = () => {
+	const incrementItem = () => {
 		setQuantity(++quantity);
 	};
-	const decreaseCart = () => {
+	const decreaseItem = () => {
 		if (quantity > 1) {
 			setQuantity(--quantity);
 		} else {
@@ -70,8 +70,8 @@ function ProductArea({ product }) {
 					</div>
 					<div className="flex ">
 						<Quantity
-							decreaseCart={decreaseCart}
-							increaseCart={increaseCart}
+							decreaseItem={decreaseItem}
+							incrementItem={incrementItem}
 							quantity={quantity}
 						/>
 						<Button btn="cart" className="mt-0 ml-5" onClick={addItem}>
