@@ -1,27 +1,27 @@
 import { useLoaderData } from 'react-router-dom';
-
-import CommentSection from './CommentSection';
-import IntroSection from './IntroSection';
-
-import Button from '@components/UI/Button';
-import PromotionCard from '../HomeScreen/PromotionSection/PromotionCard';
-import SocialLink from '@components/UI/SocialLink';
-import RelatedList from '@features/RelatedList/index';
-import { CommentForm, SearchForm } from '@components/Form';
-import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
+import { useEffect } from 'react';
 
 import {
 	FaRegArrowAltCircleLeft,
 	FaRegArrowAltCircleRight,
 } from 'react-icons/fa';
 import { TbGridDots } from 'react-icons/tb';
-import { useEffect } from 'react';
+
+import CommentSection from './CommentSection';
+import IntroSection from './IntroSection';
+
+import Button from '@components/UI/Button';
+import SocialLink from '@components/UI/SocialLink';
+import RelatedList from '@features/RelatedList/index';
+import { CommentForm, SearchForm } from '@components/Form';
+import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
+import {default as PromotionRandom} from '@features/Promotion/Random';
 
 function BlogDetail() {
 	const blog = useLoaderData();
-
+	
 	useEffect(() => {
-		window.scrollTo({ top: 0, left: 0});
+		window.scrollTo({ top: 0, left: 0 });
 	}, [blog]);
 
 	return (
@@ -146,7 +146,7 @@ function BlogDetail() {
 						/>
 					</CommonSection>
 
-					<PromotionCard />
+					<PromotionRandom />
 				</div>
 			</div>
 		</>

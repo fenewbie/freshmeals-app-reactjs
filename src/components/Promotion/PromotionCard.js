@@ -1,6 +1,6 @@
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
-import Button from '../../../components/UI/Button';
+import Button from '@components/UI/Button';
 
 function PromotionCard({ id, type, title, subtitle, image }) {
 	return (

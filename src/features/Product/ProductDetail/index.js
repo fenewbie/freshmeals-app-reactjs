@@ -1,25 +1,9 @@
-import { useEffect, useState } from 'react';
-import useFirestore from '@hooks/useFirestore';
-
-import PromotionCard from '@features/HomeScreen/PromotionSection/PromotionCard';
+import {default as Promotion} from '@features/Promotion/Random';
 import ProductTopRated from '../ProductTopRated';
 import ProductArea from './ProductArea';
 import ProductRelated from '../ProductRelated';
 
 function ProductDetail({ product }) {
-	const [promotion, setPromotion] = useState();
-
-	const { docs } = useFirestore('promotion');
-	useEffect(() => {
-		const random = Math.floor(Math.random() * docs.length);
-		setPromotion(docs[random]);
-	}, [docs]);
-
-	useEffect(() => {
-		const random = Math.floor(Math.random() * docs.length);
-		setPromotion(docs[random]);
-	}, [docs]);
-
 	return (
 		<div>
 			<div>
@@ -30,14 +14,7 @@ function ProductDetail({ product }) {
 					<div className="lg:col-span-4 ">
 						<ProductTopRated />
 						<div className="mt-10">
-							{promotion && (
-								<PromotionCard
-									type={promotion.type}
-									title={promotion.title}
-									subtitle={promotion.subtitle}
-									image={promotion.image}
-								/>
-							)}
+							<Promotion/>
 						</div>
 					</div>
 				</div>
