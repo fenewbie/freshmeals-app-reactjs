@@ -1,14 +1,14 @@
-import Title from '../../../components/Title';
-import useFirestore from '../../../hooks/useFirestore';
-import MemberCard from './MemberCard';
+import { useLoaderData } from '../../../../node_modules/react-router-dom/dist/index';
+import Title from '@components/Title';
+import MemberCard from '@components/About/MemberCard';
 
 function TeamMemberSection() {
-	const { docs } = useFirestore('members');
+	const { teams } = useLoaderData();
 	return (
 		<div className="py-[120px] px-4">
 			<Title title="Team Member" />
 			<div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
-				{docs.map((member) => (
+				{teams.map((member) => (
 					<div key={member.id}>
 						<MemberCard
 							name={member.name}

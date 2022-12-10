@@ -1,6 +1,6 @@
 import SubscribeForm from '../../../components/Form/SubscribeForm';
 
-function SubcribeSection() {
+function SubscribeSection() {
 	return (
 		<div
 			className={`grid lg:grid-cols-12 max-lg:px-5 bg-hero-image bg-center bg-no-repeat  text-white text-center`}
@@ -22,4 +22,4 @@ function SubcribeSection() {
 	);
 }
 
-export default SubcribeSection;
+export default SubscribeSection;

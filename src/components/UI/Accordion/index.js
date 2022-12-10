@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Title from '../../Title';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
-function Pagination({ docs }) {
+function Accordion({ docs }) {
 	const [activeIndex, setActiveIndex] = useState();
 
 	const handleSetActive = (id) => {
@@ -13,8 +13,6 @@ function Pagination({ docs }) {
 	};
 
 	return (
-		<div className="py-[120px] px-4">
-			<Title title="Some questions" />
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
 				<div>
 					{docs.map((item, index) => (
@@ -52,7 +50,7 @@ function Pagination({ docs }) {
 					alt="img-about"
 				/>
 			</div>
-		</div>
+		
 	);
 }
-export default Pagination;
+export default Accordion;
