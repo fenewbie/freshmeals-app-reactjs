@@ -8,7 +8,7 @@ import {
 	TestimonialsSection,
 } from '@features/AboutScreen';
 import { getDocuments } from '@services/api';
-import { useLoaderData } from '../../../node_modules/react-router-dom/dist/index';
+import { useLoaderData } from 'react-router-dom';
 
 const About = () => {
 	const {blogs} = useLoaderData();
