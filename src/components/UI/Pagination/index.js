@@ -1,58 +1,50 @@
-import { useState } from 'react';
-import Title from '../../Title';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+function Pagination({
+	totalPages,
+	currentPage,
+	handlePageChange
+}) {
 
-function Pagination({ docs }) {
-	const [activeIndex, setActiveIndex] = useState();
+	const pageNumberBtns = [];
+	for (let index = 1; index < totalPages + 1; index++) {
+		pageNumberBtns.push(index);
+	}
 
-	const handleSetActive = (id) => {
-		setActiveIndex((preIndexAct) => {
-			const newIndexAct = preIndexAct === id ? undefined : id;
-			return newIndexAct;
-		});
-	};
-
+	
+	
 	return (
-		<div className="py-[120px] px-4">
-			<Title title="Some questions" />
-			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
-				<div>
-					{docs.map((item, index) => (
-						<div
-							key={item.id}
-							className={`border-2 border-gray-200  px-8 py-4  ${
-								index === 0 ? 'border-t-2' : 'border-t-0'
-							}`}
-						>
-							<div
-								className="flex justify-between items-center cursor-pointer"
-								onClick={() => handleSetActive(item.id)}
-							>
-								<h3 className="font-bold">{item.title}</h3>
-								<span className="p-2 border-2 rounded border-gray-300 bg-sectionBg hover:border-greenBtn hover:text-greenBtn transition-all">
-									{item.id === activeIndex ? (
-										<AiOutlineMinus className="text-greenBtn" />
-									) : (
-										<AiOutlinePlus />
-									)}
-								</span>
-							</div>
-
-							{item.id === activeIndex && (
-								<div className="overflow-hidden animate-[accordionAppear_1s_ease-in-out_forwards] my-2">
-									<p className="py-2">{item.desc}</p>
-								</div>
-							)}
-						</div>
-					))}
-				</div>
-				<img
-					src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/Q%26A%2Fimage.webp?alt=media&token=4ebad5c3-5648-49d9-8532-013d4541ad3b"
-					className="w-full object-contain"
-					alt="img-about"
-				/>
-			</div>
+		<div className="flex justify-center items-center">
+			<button
+				disabled={currentPage === 1}
+				className={`py-2 px-4 mx-5 border rounded  ${
+					currentPage !== 1 ? 'cursor-pointer' : 'opacity-60'
+				}`}
+				onClick={() => handlePageChange(currentPage - 1)}
+			>
+				Previous
+			</button>
+			{pageNumberBtns.map((numberBtn) => (
+				<button
+					className={`h-10 w-10 rounded border mx-2 ${
+						currentPage === numberBtn
+							? 'border-greenBtn bg-greenBtn text-white'
+							: ''
+					}`}
+					onClick={() => handlePageChange(numberBtn)}
+				>
+					{numberBtn}
+				</button>
+			))}
+			<button
+				disabled={currentPage === totalPages}
+				onClick={() => handlePageChange(currentPage + 1)}
+				className={`py-2 px-4 mx-5 border rounded  ${
+					currentPage < totalPages ? 'cursor-pointer' : 'opacity-60'
+				}`}
+			>
+				Next
+			</button>
 		</div>
 	);
 }
+
 export default Pagination;
