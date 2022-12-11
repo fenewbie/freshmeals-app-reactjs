@@ -64,7 +64,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -83,7 +87,9 @@ const Header = () => {
 								</Button>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() => setShowDropdown(!showDropdown)}
+									onClick={() =>
+										setShowDropdown(!showDropdown)
+									}
 								>
 									<BiUser />
 								</Button>
