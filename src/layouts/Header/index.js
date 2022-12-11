@@ -19,7 +19,7 @@ const Header = () => {
 
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-	console.log("total quantity: ", totalQuantity);
+	console.log('total quantity: ', totalQuantity);
 
 	const dispatch = useDispatch();
 
@@ -59,7 +59,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -78,7 +82,9 @@ const Header = () => {
 								</Button>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() => setShowDropdown(!showDropdown)}
+									onClick={() =>
+										setShowDropdown(!showDropdown)
+									}
 								>
 									<BiUser />
 								</Button>
@@ -111,7 +117,10 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
+								<NavMobi
+									isDisplay={showNavMobi}
+									handleClick={handleClick}
+								/>
 							</div>
 						</div>
 					</nav>
