@@ -18,6 +18,7 @@ const ProductItem = ({
 	handleOpenQuickView,
 	handleOpenAddToCardModal,
 	handleOpenWishListModal,
+	product
 }) => {
 	return (
 		<Card
@@ -53,6 +54,7 @@ const ProductItem = ({
 							<button
 								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
 								onClick={handleOpenQuickView}
+								product={product}
 							>
 								<FaRegEye className="mx-auto" />
 							</button>
@@ -60,6 +62,7 @@ const ProductItem = ({
 							<button
 								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
 								onClick={handleOpenAddToCardModal}
+								product={product}
 							>
 								<FaShoppingCart className="mx-auto" />
 							</button>
@@ -67,6 +70,7 @@ const ProductItem = ({
 							<button
 								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
 								onClick={handleOpenWishListModal}
+								product={product}
 							>
 								<AiTwotoneHeart className="mx-auto" />
 							</button>

@@ -1,6 +1,6 @@
-import { uiActions } from './ui-slice';
 import { cartActions } from './cart-slice';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const fetchCartData = () => {
 	return async (dispatch) => {
@@ -8,11 +8,9 @@ export const fetchCartData = () => {
 			const response = await axios.get(
 				'https://freshmeals-reactjs-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json'
 			);
-
 			if (!response.ok) {
 				throw new Error('Could not fetch cart data!');
 			}
-
 			const data = await response.data();
 
 			return data;
@@ -24,38 +22,33 @@ export const fetchCartData = () => {
 				cartActions.replaceCart({
 					items: cartData.items || [],
 					totalQuantity: cartData.totalQuantity,
+					totalAmount: cartData.totalAmount,
 				})
 			);
 		} catch (error) {
-			dispatch(
-				uiActions.showNotification({
-					status: 'error',
-					title: 'Error!',
-					message: 'Fetching cart data failed!',
-				})
-			);
+			toast.error('Fetching cart data failed!', {
+				position: toast.POSITION.TOP_CENTER,
+			});
 		}
 	};
 };
 
 export const sendCartData = (cart) => {
-	return async (dispatch) => {
-		dispatch(
-			uiActions.showNotification({
-				status: 'pending',
-				title: 'Sending...',
-				message: 'Sending cart data!',
-			})
-		);
+	return async () => {
+		toast.info('Sending cart data!', {
+			position: toast.POSITION.TOP_CENTER,
+		});
 
 		const sendRequest = async () => {
-			const response = await axios.put(
+			const response = await axios.post(
 				'https://freshmeals-reactjs-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json',
 				{
 					items: cart.items,
 					totalQuantity: cart.totalQuantity,
+					totalAmount: cart.totalAmount,
 				}
 			);
+			console.log('response from cart action', response);
 
 			if (!response.ok) {
 				throw new Error('Sending cart data failed.');
@@ -64,22 +57,13 @@ export const sendCartData = (cart) => {
 
 		try {
 			await sendRequest();
-
-			dispatch(
-				uiActions.showNotification({
-					status: 'success',
-					title: 'Success!',
-					message: 'Sent cart data successfully!',
-				})
-			);
+			toast.success('Sent cart data successfully!', {
+				position: toast.POSITION.TOP_CENTER,
+			});
 		} catch (error) {
-			dispatch(
-				uiActions.showNotification({
-					status: 'error',
-					title: 'Error!',
-					message: 'Sending cart data failed!',
-				})
-			);
+			toast.error('Fetching cart data failed!', {
+				position: toast.POSITION.TOP_CENTER,
+			});
 		}
 	};
 };
