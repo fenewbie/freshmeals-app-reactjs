@@ -1,15 +1,15 @@
 import { useLoaderData } from 'react-router-dom';
 import ProductDetail from '@features/ProductScreen/ProductDetail';
-import { getProductById} from '@services/api';
+import { getDocumentById } from '@services/api';
 
 export default function ProductDetailPage() {
-	const productById = useLoaderData()
+	const productById = useLoaderData();
 
-	return <ProductDetail product = {productById} />;
+	return <ProductDetail product={productById} />;
 }
 
 export function loader({ params }) {
-	const productbyId = getProductById(params.productId)
+	const productbyId = getDocumentById(params.productId, 'products');
 	if (!productbyId) {
 		throw new Response('', {
 			status: 404,

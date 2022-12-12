@@ -1,21 +1,23 @@
 import { FaTags } from 'react-icons/fa';
-import Button from '../../../components/UI/Button';
+import Button from '@components/UI/Button';
 
-function Tags({ tags }) {
+function Tags({ tags, relatedTag }) {
 	return (
-		<div className="flex mb-3">
+		<div className="mb-3">
 			<div className="flex items-center">
-				<FaTags className="text-greenBtn" />
-				{tags.map((tag, index) => (
-					<Button
-						btn="tag"
-						key={index}
-						type='link'
-						link='/blog'
-					>
-						{tag}
-					</Button>
-				))}
+				{!relatedTag && <FaTags className="text-greenBtn" />}
+				<div className="flex flex-wrap">
+					{tags.map((tag, index) => (
+						<Button
+							btn={relatedTag ? 'tag2' : 'tag'}
+							key={index}
+							type="link"
+							link="/blog"
+						>
+							{tag}
+						</Button>
+					))}
+				</div>
 			</div>
 		</div>
 	);

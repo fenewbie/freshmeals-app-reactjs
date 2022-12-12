@@ -5,7 +5,7 @@ import { TiWarning } from 'react-icons/ti';
 
 
 import Button from '../UI/Button';
-import { validateEmail as validate } from './ValidateForm';
+import { validateEmail as validate } from './Validate';
 
 function SubscribeForm({ isFooter }) {
 	const formik = useFormik({

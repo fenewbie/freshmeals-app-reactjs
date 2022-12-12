@@ -1,5 +1,5 @@
-import BlogDetail from '@features/BlogScreen';
-import { getBlogById } from '@services/api';
+import BlogDetail from '@features/BlogDetailScreen';
+import { getDocumentById, getDocuments } from '@services/api';
 
 function BlogDetailPage() {
 	return (
@@ -12,7 +12,8 @@ function BlogDetailPage() {
 export default BlogDetailPage;
 
 export const loader = ({ params }) => {
-	const blog = getBlogById(params.blogId);
+	const blog = getDocumentById(params.blogId, 'blog');
+	
 	if (!blog) {
 		throw new Response('', {
 			status: 404,

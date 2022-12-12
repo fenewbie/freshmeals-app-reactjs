@@ -1,14 +1,13 @@
-import Title from '../../../components/Title';
-import Pagination from '../../../components/UI/Pagination';
-import useFirestore from '../../../hooks/useFirestore';
+import Title from '@components/Title';
+import Accordion from '@components/UI/Accordion';
+import { useLoaderData } from '../../../../node_modules/react-router-dom/dist/index';
 
 function QuestionSection() {
-	const { docs } = useFirestore('blog/1/q&a');
-
+	const {questions} = useLoaderData();
 	return (
 		<div className="py-[120px] px-4">
 			<Title title="Some questions" />
-			<Pagination docs={docs} />
+			<Accordion docs={questions} />
 		</div>
 	);
 }

@@ -1,8 +1,10 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
+		"target": "ES6",
 		"baseUrl": "./src",
+		"module": "CommonJS",
 		"jsx": "react",
+		"allowSyntheticDefaultImports": true,
 		"paths": {
 			"@components/*": ["./components/*"],
 			"@features/*": ["./features/*"],
