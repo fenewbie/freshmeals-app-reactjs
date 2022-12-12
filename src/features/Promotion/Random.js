@@ -1,15 +1,15 @@
 import PromotionCard from "@components/Promotion/PromotionCard";
-import useFirestore from "@hooks/useFirestore";
 import { useEffect, useState } from "react";
+import { useRouteLoaderData } from "react-router-dom";
 
 function Random() {
-    const {docs} = useFirestore('promotion');
+	const {promotions} = useRouteLoaderData('root');
     const [promotion, setPromotion] = useState();
     
     useEffect(() => {
-		const indexRandom = Math.floor(Math.random() * docs.length);
-		setPromotion(docs[indexRandom]);
-	}, [docs]);
+		const indexRandom = Math.floor(Math.random() * promotions.length);
+		setPromotion(promotions[indexRandom]);
+	}, []);
     
     return (
 		promotion  && (

@@ -1,12 +1,12 @@
-import useFirestore from '@hooks/useFirestore';
 import PromotionCard from '@components/Promotion/PromotionCard';
+import { useRouteLoaderData } from 'react-router-dom';
 
 export default function Promotion() {
-	const { docs } = useFirestore('promotion');
+	const { promotions } = useRouteLoaderData('root');
 
 	return (
 		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7 mt-[120px]">
-			{docs.map((item) => (
+			{promotions.map((item) => (
 				<div
 					key={item.id}
 					className={`lg:col-span-1 ${

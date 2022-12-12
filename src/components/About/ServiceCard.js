@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function ServiceCard({ title, desc, iconImg }) {
 	return (
-		<div className="bg-white shadow-card px-8 py-10 rounded-md">
+		<div className="bg-white shadow-card px-8 py-10 rounded-md min-h-[305px]">
 			<div className="flex items-center">
 				<img
 					src={iconImg}

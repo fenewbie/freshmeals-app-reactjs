@@ -1,4 +1,7 @@
+import BlogSlider from '@components/Blog/BlogSlider';
+import Slider from '@components/UI/Slider';
 import { useRouteLoaderData } from 'react-router-dom';
+import { SwiperSlide } from 'swiper/react';
 import BlogList from '../../../components/Blog/BlogList';
 
 import Title from '../../../components/Title';
@@ -9,7 +12,7 @@ const BlogSection = () => {
 		<div>
 			<div className="pt-[115px] pb-[70px]">
 				<Title title="Lastest Blog" />
-				<BlogList blogs={blogs} />
+				<BlogSlider blogs={blogs}/>
 			</div>
 		</div>
 	);

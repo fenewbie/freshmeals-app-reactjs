@@ -1,20 +1,24 @@
+import { useEffect, useState } from 'react';
+import { useRouteLoaderData } from 'react-router-dom';
+import { SwiperSlide } from 'swiper/react';
+
 import { BlogCard } from '@components/Blog/index';
 import Title from '@components/Title';
 import Slider from '@components/UI/Slider';
 import ProductItem from '@features/ProductScreen/ProductItem/index';
-import useQueryDocument from '@hooks/useQueryDocument';
-import { SwiperSlide } from 'swiper/react';
 
-function RelatedList({ type, related }) {
-	const { docs } = useQueryDocument(
-		type,
-		{
-			key: 'tags',
-			value: related,
-		},
-		'array-contains-any'
-	);
-
+function RelatedList({ col, related, type }) {
+	const dataRoot = useRouteLoaderData('root');
+	const [docs, setDocs] = useState([]);
+	useEffect(() => {
+		const resultArr1 = dataRoot[col].filter((item) => {
+			const resultArr2 = item[type].filter((type) =>
+				related.includes(type)
+			);
+			return resultArr2.length > 0;
+		});
+		setDocs(resultArr1);
+	}, []);
 	return (
 		<div className="py-24">
 			<Title

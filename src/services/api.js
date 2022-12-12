@@ -23,5 +23,6 @@ export const getDocumentById = async (id, col) => {
 export const getData = async () => {
 	const blogs = await getDocuments('blog');
 	const products = await getDocuments('products');
-	return { blogs, products };
+	const promotions = await getDocuments('promotion');
+	return { blogs, products, promotions };
 };

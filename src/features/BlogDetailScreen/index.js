@@ -81,8 +81,9 @@ function BlogDetail() {
 							</Button>
 						</div>
 						<RelatedList
-							type="blog"
+							col="blogs"
 							related={blog.tags}
+							type='tags'
 						/>
 						<CommentSection />
 						<CommentForm />
