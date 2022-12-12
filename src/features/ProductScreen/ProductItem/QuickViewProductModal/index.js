@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import ProductCounter from './ProductCounter';
 import SocialLink from '@components/UI/SocialLink';
 import WishList from './Wishlist';
 
@@ -9,7 +8,7 @@ import Modal from '@components/UI/Modal';
 
 import { IoClose } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { uiActions } from '@store/ui/ui-slice';
+import { modalActions } from '@store/modal/modalSlice';
 import Rating from '@components/Product/Rating';
 import { Quantity } from '@components/Cart/Quantity';
 import Button from '@components/UI/Button/index';
@@ -39,7 +38,7 @@ const QuickViewProductModal = ({ product }) => {
 		);
 	};
 	const handleCloseModal = () => {
-		dispatch(uiActions.quickView());
+		dispatch(modalActions.quickView());
 	};
 	return (
 		<Modal handleClose={handleCloseModal}>

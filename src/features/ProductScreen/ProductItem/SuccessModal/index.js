@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { uiActions } from '@store/ui/ui-slice';
+import { modalActions } from '@store/modal/modalSlice';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { IoClose } from 'react-icons/io5';
 import Modal from '@components/UI/Modal';
@@ -7,10 +7,9 @@ import Button from '@components/UI/Button';
 import * as cs from '@utils/constants';
 
 function SuccessModal({ type, image, title }) {
-	
 	const dispatch = useDispatch();
 	const handleClose = () => {
-		return dispatch(uiActions.successModal({ status: false, type: null }));
+		return dispatch(modalActions.successModal({ status: false, type: null }));
 	};
 
 	return (

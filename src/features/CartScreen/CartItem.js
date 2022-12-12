@@ -52,7 +52,7 @@ export default function CartItem({ item }) {
 						</div>
 					</td>
 					<td className="max-md:block max-md:border-b py-5">
-						<h3 className="font-bold text-[18px]">{totalPrice}</h3>
+						<h3 className="font-bold text-[18px]">{totalPrice.toFixed(2)}</h3>
 					</td>
 				</tr>
 			</tbody>

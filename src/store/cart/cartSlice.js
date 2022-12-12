@@ -30,12 +30,12 @@ const cartSlice = createSlice({
 			} else {
 				existingItem.quantity += newItem.quantity;
 				existingItem.totalPrice =
-					Number(existingItem.totalPrice) + Number(newItem.price);
+					Number(existingItem.quantity) + Number(newItem.price);
 			}
 			state.totalAmount = state.items.reduce(
 				(total, item) => total + item.totalPrice,
 				0
-			);
+			).toFixed(2);
 		},
 
 		incrementQuantity: (state, action) => {
@@ -45,11 +45,11 @@ const cartSlice = createSlice({
 			state.totalQuantity++;
 			state.changed = true;
 			existingItem.totalPrice =
-				Number(existingItem.totalPrice) + Number(existingItem.price);
+				(Number(existingItem.totalPrice) + Number(existingItem.price));
 			state.totalAmount = state.items.reduce(
 				(total, item) => total + item.totalPrice,
 				0
-			);
+			).toFixed(2);
 		},
 		decrementQuantity: (state, action) => {
 			const id = action.payload;
@@ -62,19 +62,19 @@ const cartSlice = createSlice({
 			} else {
 				existingItem.quantity--;
 				existingItem.totalPrice =
-					Number(existingItem.totalPrice) - Number(existingItem.price);
+					(Number(existingItem.totalPrice) - Number(existingItem.price));
 				state.totalAmount = state.items.reduce(
 					(total, item) => total + item.totalPrice,
 					0
-				);
+				).toFixed(2);
 			}
 		},
-		removeItem: (state) => {
-			state.items = [];
+		removeItem: (state, action) => {
+			 state.items = state.items.filter((item) => item.id !== action.payload);
 		},
 	},
 });
 
 export const cartActions = cartSlice.actions;
 
-export default cartSlice;
+export default cartSlice.reducer;

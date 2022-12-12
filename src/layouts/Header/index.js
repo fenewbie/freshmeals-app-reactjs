@@ -10,15 +10,16 @@ import { userList } from '@utils/constants';
 import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/ui/ui-slice';
+import { modalActions } from '@store/modal/modalSlice';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
 	const headerRef = useRef(null);
 
-	const showNavMobi = useSelector((state) => state.ui.isDisplay);
+	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+	console.log("total quantity: ", totalQuantity);
 
 	const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ const Header = () => {
 	const isHomePage = location.pathname === '/';
 
 	const handleClick = () => {
-		dispatch(uiActions.toggleNavMobi());
+		dispatch(modalActions.toggleNavMobi());
 	};
 	// useEffect(() => {
 	// 	window.addEventListener('scroll', () => {

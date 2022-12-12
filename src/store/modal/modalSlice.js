@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const uiSlice = createSlice({
-	name: 'ui',
+const modalSlice = createSlice({
+	name: 'modal',
 	initialState: {
 		isDisplay: false,
 		isShowingQuickViewModal: false,
@@ -24,6 +24,6 @@ const uiSlice = createSlice({
 	},
 });
 
-export const uiActions = uiSlice.actions;
+export const modalActions = modalSlice.actions;
 
-export default uiSlice.reducer;
+export default modalSlice.reducer;

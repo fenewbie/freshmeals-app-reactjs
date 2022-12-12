@@ -9,7 +9,6 @@ function CartScreen() {
 	const cartItems = useSelector((state) => state.cart.items);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 
-	const subtotal = totalAmount + 15.00 + 10.00
 
 	return (
 		<div>
@@ -55,7 +54,7 @@ function CartScreen() {
 										<h3 className="font-bold">Order Total</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">{subtotal}</h3>
+										<h3 className="font-bold">{totalAmount}</h3>
 									</td>
 								</tr>
 							</tbody>

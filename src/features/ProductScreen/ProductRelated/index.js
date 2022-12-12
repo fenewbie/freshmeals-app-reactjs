@@ -14,11 +14,11 @@ function ProductRelated({ types }) {
 		const { products } = useRouteLoaderData('root');
 
 	const isShowingQuickViewModal = useSelector(
-		(state) => state.ui.isShowingQuickViewModal
+		(state) => state.modal.isShowingQuickViewModal
 	);
 
 	const isShowingSuccessModal = useSelector(
-		(state) => state.ui.isShowingSuccessModal
+		(state) => state.modal.isShowingSuccessModal
 	);
 
 	return (

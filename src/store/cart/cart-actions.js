@@ -1,4 +1,4 @@
-import { cartActions } from './cart-slice';
+import { cartActions } from './cartSlice';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -40,7 +40,7 @@ export const sendCartData = (cart) => {
 		});
 
 		const sendRequest = async () => {
-			const response = await axios.post(
+			const response = await axios.put(
 				'https://freshmeals-reactjs-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json',
 				{
 					items: cart.items,
