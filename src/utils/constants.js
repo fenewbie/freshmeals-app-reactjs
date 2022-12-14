@@ -9,8 +9,8 @@ export const paymentMethod = paymentImg;
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },
 	{ id: 2, label: 'vegetables' },
-	{ id: 3, label: 'bread & cake' },
-	{ id: 4, label: 'dried food' },
+	{ id: 3, label: 'dried food' },
+	{ id: 4, label: 'bread & cake' },
 	{ id: 5, label: 'fish & meat' },
 	{ id: 6, label: 'fruits' },
 ];

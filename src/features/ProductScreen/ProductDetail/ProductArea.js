@@ -17,13 +17,13 @@ function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);
 
 	const dispatch = useDispatch();
-	const { title, price, image, id } = product;
+	const { title, discount, image, id } = product;
 	const addItem = () => {
 		dispatch(
 			cartActions.addToCart({
 				id,
 				title,
-				price,
+				discount,
 				image,
 				quantity,
 			})
