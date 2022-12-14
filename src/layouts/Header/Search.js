@@ -21,10 +21,7 @@ function SearchProducts() {
 				<div
 					className={`absolute top-[130%] right-0 p-4 bg-white lg:min-w-[350px]`}
 				>
-					<SearchForm
-						type="products"
-						searchFor="title"
-					/>
+					<SearchForm type="products" searchFor="title" />
 				</div>
 			)}
 		</div>
