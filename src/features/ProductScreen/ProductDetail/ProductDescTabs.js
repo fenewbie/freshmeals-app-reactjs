@@ -3,7 +3,9 @@ import Rating from '@components/Product/Rating'
 
 function ProductTabs({ desc, review, rating, numReviews }) {
 	return (
-		<Tabs>
+		<Tabs
+			onSelect={(firstTab, lastTab) => console.log(`${firstTab}, ${lastTab}`)}
+		>
 			<TabList className="flex flex-wrap py-5 px-0 font-bold cursor-pointer">
 				<Tab
 					className="mr-[50px] outline-none"

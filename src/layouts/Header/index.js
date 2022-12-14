@@ -11,6 +11,7 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import { CartCheckout } from './CartCheckout';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -18,16 +19,20 @@ const Header = () => {
 	const headerRef = useRef(null);
 
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
+	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-	console.log("total quantity: ", totalQuantity);
+	const cartItems = useSelector((state) => state.cart.items);
 
 	const dispatch = useDispatch();
 
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
-	const handleClick = () => {
+	const handleNavMobi = () => {
 		dispatch(modalActions.toggleNavMobi());
+	};
+	const handleCart = () => {
+		dispatch(modalActions.toggleCart());
 	};
 	// useEffect(() => {
 	// 	window.addEventListener('scroll', () => {
@@ -88,19 +93,19 @@ const Header = () => {
 									items={userList}
 								></Dropdown>
 
-								<Link
-									to="cart"
+								<Button
+									onClick={handleCart}
 									className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4 relative"
 								>
 									<BiCartAlt />
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-								</Link>
+								</Button>
 
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
-									onClick={handleClick}
+									onClick={handleNavMobi}
 								>
 									<span
 										className={`${
@@ -111,7 +116,12 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
+								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
+								<CartCheckout
+									isShowingCart={showCart}
+									handleClick={handleCart}
+									item={cartItems}
+								/>
 							</div>
 						</div>
 					</nav>
