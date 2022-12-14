@@ -46,7 +46,9 @@ const ProductItem = ({
 					<img
 						src={image}
 						title="product"
-						className={'absolute top-0 left-0 w-full h-full object-contain'}
+						className={
+							'absolute top-0 left-0 w-full h-full object-contain'
+						}
 						alt={title}
 					/>
 					{card && (
@@ -89,7 +91,7 @@ const ProductItem = ({
 						className={`text-[15px] ${
 							card && 'text-center'
 						} capitalize font-bold mt-1 block hover:text-greenBtn transition-all duration-300`}
-						to={`../../shop/${id}`}
+						to={`/shop/${id}`}
 						reloadDocument
 					>
 						{title}

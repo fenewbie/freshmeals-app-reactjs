@@ -17,6 +17,8 @@ import modalReducer from './modal/modalSlice';
 const PersistConfig = {
 	key: 'root',
 	storage,
+	version: 1,
+	whitelist: ['cartReducer']
 };
 const reducers = combineReducers({
 	modal: modalReducer,
@@ -30,7 +32,7 @@ export const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
 			serializableCheck: {
-				ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 			},
 		}),
 });

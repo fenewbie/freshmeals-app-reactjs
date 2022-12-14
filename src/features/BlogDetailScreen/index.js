@@ -15,11 +15,11 @@ import SocialLink from '@components/UI/SocialLink';
 import RelatedList from '@features/RelatedList/index';
 import { CommentForm, SearchForm } from '@components/Form';
 import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
-import {default as PromotionRandom} from '@features/Promotion/Random';
+import { default as PromotionRandom } from '@features/Promotion/Random';
 
 function BlogDetail() {
 	const blog = useLoaderData();
-	
+
 	useEffect(() => {
 		window.scrollTo({ top: 0, left: 0 });
 	}, [blog]);
@@ -83,7 +83,7 @@ function BlogDetail() {
 						<RelatedList
 							col="blogs"
 							related={blog.tags}
-							type='tags'
+							type="tags"
 						/>
 						<CommentSection />
 						<CommentForm />
@@ -94,7 +94,9 @@ function BlogDetail() {
 					<div className="-mt-8">
 						<IntroSection />
 					</div>
-					<SearchForm />
+					<CommonSection title="Search Object">
+						<SearchForm />
+					</CommonSection>
 
 					<CommonSection title="Popular Feeds">
 						<p>

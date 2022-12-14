@@ -11,6 +11,7 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import SearchProducts from 'layouts/Header/Search';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -77,9 +78,9 @@ const Header = () => {
 								GET A QUOTE
 							</Button>
 							<div className="flex gap-3">
-								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
-									<BiSearch />
-								</Button>
+								<div className='lg:visible invisible'>
+									<SearchProducts />
+								</div>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
 									onClick={() =>
