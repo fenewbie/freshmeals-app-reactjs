@@ -11,8 +11,9 @@ function BlogDetailPage() {
 
 export default BlogDetailPage;
 
-export const loader = ({ params }) => {
-	const blog = getDocumentById(params.blogId, 'blog');
+export const loader = async ({ params }) => {
+	const id = params.blogId*1;
+	const blog = await getDocumentById(params.blogId, 'blog');
 	
 	if (!blog) {
 		throw new Response('', {
@@ -21,5 +22,5 @@ export const loader = ({ params }) => {
 		});
 	}
 
-	return blog;
+	return {blog, id};
 };
