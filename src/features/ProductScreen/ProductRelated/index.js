@@ -9,9 +9,8 @@ import { useSelector } from 'react-redux';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
 
-
 function ProductRelated({ types }) {
-		const { products } = useRouteLoaderData('root');
+	const { products } = useRouteLoaderData('root');
 
 	const isShowingQuickViewModal = useSelector(
 		(state) => state.modal.isShowingQuickViewModal
@@ -48,15 +47,10 @@ function ProductRelated({ types }) {
 						return (
 							<SwiperSlide key={el.id}>
 								<ProductItem
-									id={el.id}
-									rating={el.rating}
-									numReviews={el.reviews}
-									image={el.image}
+									{...el}
 									label={el.label || 'free'}
-									title={el.title}
-									price={el.price}
 									discount={el.discount || 0}
-									card
+									card={true}
 								/>
 							</SwiperSlide>
 						);

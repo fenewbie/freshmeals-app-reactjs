@@ -1,8 +1,12 @@
+import BtnItemModal from '@components/Product/BtnItemModal';
+import Price from '@components/Product/Price';
 import { Link } from 'react-router-dom';
 import Rating from '@components/Product/Rating';
 import Card from '@components/UI/Card';
-import { FaRegEye, FaShoppingCart } from 'react-icons/fa';
-import { AiTwotoneHeart } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import QuickViewProductModal from './QuickViewProductModal';
+import SuccessModal from './SuccessModal';
+import { modalActions } from '@store/modal/modalSlice';
 
 const ProductItem = ({
 	rating,
@@ -14,12 +18,25 @@ const ProductItem = ({
 	discount,
 	id,
 	card = false,
-	className = '',
-	handleOpenQuickView,
-	handleOpenAddToCardModal,
-	handleOpenWishListModal,
-	product
+	className,
+	product,
 }) => {
+	const isShowingQuickViewModal = useSelector(
+		(state) => state.modal.isShowingQuickViewModal
+	);
+	const isShowingSuccessModal = useSelector(
+		(state) => state.modal.isShowingSuccessModal
+	);
+	const dispatch = useDispatch();
+	const handleOpenQuickView = () => {
+		dispatch(modalActions.quickView());
+	};
+	const handleOpenAddToCardModal = (e) => {
+		dispatch(modalActions.successModal({ status: true, type: 'wishlist' }));
+	};
+	const handleOpenWishListModal = () => {
+		dispatch(modalActions.successModal({ status: true, type: 'cart' }));
+	};
 	return (
 		<Card
 			className={`${
@@ -50,31 +67,11 @@ const ProductItem = ({
 						alt={title}
 					/>
 					{card && (
-						<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2">
-							<button
-								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
-								onClick={handleOpenQuickView}
-								product={product}
-							>
-								<FaRegEye className="mx-auto" />
-							</button>
-
-							<button
-								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
-								onClick={handleOpenAddToCardModal}
-								product={product}
-							>
-								<FaShoppingCart className="mx-auto" />
-							</button>
-
-							<button
-								className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
-								onClick={handleOpenWishListModal}
-								product={product}
-							>
-								<AiTwotoneHeart className="mx-auto" />
-							</button>
-						</div>
+						<BtnItemModal
+							handleOpenQuickView={handleOpenQuickView}
+							handleOpenAddToCardModal={handleOpenAddToCardModal}
+							handleOpenWishListModal={handleOpenWishListModal}
+						/>
 					)}
 				</Link>
 
@@ -94,24 +91,16 @@ const ProductItem = ({
 					>
 						{title}
 					</Link>
-					<div className={`flex ${card && 'justify-center mt-2'} `}>
-						<h4
-							className={`${
-								card ? 'text-xl' : 'text-base'
-							} font-bold text-greenBtn`}
-						>
-							${discount}
-						</h4>
-						<h4
-							className={`${
-								card ? 'text-xl' : 'text-[15px]'
-							} font-bold text-greenBtn line-through ml-3 opacity-60`}
-						>
-							${price}
-						</h4>
-					</div>
+					<Price card={card} discount={discount} price={price} />
 				</div>
 			</div>
+			{isShowingQuickViewModal ? (
+				<QuickViewProductModal product={product} />
+			) : null}
+
+			{isShowingSuccessModal.status ? (
+				<SuccessModal product={product} type={isShowingSuccessModal.type} />
+			) : null}
 		</Card>
 	);
 };
