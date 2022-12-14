@@ -24,6 +24,7 @@ import BlogDetailPage, {
 import Gallery from './pages/Gallery';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
+import SearchPage, { loader as searchLoader } from 'pages/Search';
 
 function App() {
 	const router = createBrowserRouter(
@@ -84,6 +85,12 @@ function App() {
 				<Route
 					path="gallery"
 					element={<Gallery />}
+				/>
+				<Route
+					id='search'
+					path="search"
+					element={<SearchPage />}
+					loader={searchLoader}
 				/>
 			</Route>
 		)

@@ -5,9 +5,13 @@ import Button from '@components/UI/Button';
 import CommonSection from '@components/Blog/CommonSection';
 
 function SearchSection() {
+	const handleSubmit = e => {
+		e.preventDefault();
+		
+	}
 	return (
-		<CommonSection title="Search Object">
-			<form className="md:flex">
+		
+			<form className="md:flex" onSubmit={handleSubmit}>
 				<div className="flex-1">
 					<Input
 						type="text"
@@ -22,7 +26,7 @@ function SearchSection() {
 					<BsSearch className="mx-auto" />
 				</Button>
 			</form>
-		</CommonSection>
+		
 	);
 }
 

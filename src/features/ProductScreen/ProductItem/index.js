@@ -63,7 +63,9 @@ const ProductItem = ({
 					<img
 						src={image}
 						title="product"
-						className={'absolute top-0 left-0 w-full h-full object-contain'}
+						className={
+							'absolute top-0 left-0 w-full h-full object-contain'
+						}
 						alt={title}
 					/>
 					{card && (

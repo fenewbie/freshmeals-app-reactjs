@@ -4,17 +4,22 @@ function usePagination({ listData, limit = 1 }) {
 	const [dataRender, setDataRender] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState();
-
+	// const [limit, setLimit] = useState(limitDefault);
 	useEffect(() => {
 		setTotalPages(listData.length / limit);
 		setDataRender(() => [...listData].splice(0, limit));
-	}, []);
+		setCurrentPage(1);
+		// setLimit()
+	}, [listData]);
 
 	useEffect(() => {
 		const lastIndex = limit * currentPage;
 		const firstIndex = lastIndex - limit;
-		setDataRender([...listData].splice(firstIndex, lastIndex));
-	}, [currentPage]);
+		setDataRender(() => {
+			const newArr = [...listData].slice(firstIndex, lastIndex);
+			return newArr
+		});
+	}, [currentPage, listData, limit]);
 
 	const handlePageChange = (page) => {
         setCurrentPage(page);

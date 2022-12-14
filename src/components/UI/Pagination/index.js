@@ -14,7 +14,7 @@ function Pagination({ totalPages, currentPage, handlePageChange }) {
 			>
 				Previous
 			</button>
-			{pageNumberBtns.map((numberBtn) => (
+			{pageNumberBtns.map((numberBtn, index) => (
 				<button
 					className={`h-10 w-10 rounded border mx-2 ${
 						currentPage === numberBtn
@@ -22,6 +22,7 @@ function Pagination({ totalPages, currentPage, handlePageChange }) {
 							: ''
 					}`}
 					onClick={() => handlePageChange(numberBtn)}
+					key={index}
 				>
 					{numberBtn}
 				</button>
