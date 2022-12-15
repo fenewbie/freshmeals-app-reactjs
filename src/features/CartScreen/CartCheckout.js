@@ -1,12 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
-import CartItem from '@features/CartScreen/CartItem';
+import { cartActions } from '@store/cart/cartSlice';
 
 export function CartCheckout({ isShowingCart, handleClose, item }) {
+	const { id } = item;
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
+	const dispatch = useDispatch();
+	const deleteItem = () => {
+		dispatch(cartActions.removeItem(id));
+	};
 	return (
 		<AnimatePresence>
 			{isShowingCart && (
@@ -36,11 +40,29 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 					) : (
 						<div className="my-5 flex-1 overflow-hidden px-2">
 							{item.map((item) => (
-								<CartItem
-									item={item}
-									key={item.id}
-									className="py-4 border-b"
-								/>
+								<div className="relative py-4 border-b">
+									<button
+										onClick={deleteItem}
+										className="absolute bg-green-300 p-1 rounded-full top-2"
+									>
+										x
+									</button>
+									<div className="flex flex-row items-center gap-3">
+										<div className="w-32">
+											<img
+												src={item.image}
+												alt={item.title}
+												className="w-24 h-24 object-contain"
+											/>
+										</div>
+										<div className="text-sm">
+											<p>{item.title}</p>
+											<p>
+												{item.quantity} x ${item.discount}
+											</p>
+										</div>
+									</div>
+								</div>
 							))}
 							<div className="font-bold py-5 border-y flex justify-between">
 								<span className=" ">Subtotal:</span>
@@ -48,13 +70,13 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 							</div>
 							<div className="flex py-6">
 								<Link
-									className="w-1/2 mr-5 flex items-center justify-center"
+									className="w-1/2 mr-5 flex items-center justify-center px-4 h-[58px] rounded-md bg-greenBtn hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3"
 									to="/cart"
 								>
 									View Cart
 								</Link>
 								<Link
-									className="w-1/2 flex items-center justify-center"
+									className="w-1/2 flex items-center justify-center px-4 h-[58px] rounded-md bg-black hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3"
 									to="/checkout"
 								>
 									Checkout
