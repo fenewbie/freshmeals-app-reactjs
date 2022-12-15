@@ -10,7 +10,7 @@ function BlogList({ blogs }) {
 					title={blog.title}
 					description={blog.description}
 					tags={blog.tags}
-					img={blog.image}
+					image={blog.image}
 				/>
 			))}
 		</div>

@@ -1,38 +1,18 @@
-import ProductGrid from '@components/Product/ProductGrid';
-import { getCollectionByTitle } from '@services/api';
-import { useEffect, useState } from 'react';
-import { useRouteLoaderData, useSearchParams } from 'react-router-dom';
+import * as cs from '../../utils/constants';
 
 function SearchPage() {
-	const { title } = useRouteLoaderData('search');
-	const { products } = useRouteLoaderData('root');
-	const [productsFilter, setProductsFilter] = useState([]);
-
-	useEffect(() => {
-		const filters = products.filter((product) => {
-			const regular = new RegExp(title, 'i');
-			return product.title.search(regular) > -1;
-		});
-		setProductsFilter(filters);
-	}, [products, title]);
-
 	return (
-		<div className="container mx-auto">
-			{productsFilter.length > 0 ? (
-				<ProductGrid products={productsFilter} />
-			) : (
-				<p>No result</p>
-			)}
+		<div className='container mx-auto py-28'>
+			<span className="text-5xl font-bold flex items-center">
+				No result
+				<img
+					src={cs.noResult}
+					alt="no-result"
+					className="h-16 object-contain ml-2"
+				/>
+			</span>
 		</div>
 	);
 }
 
 export default SearchPage;
-
-export const loader = async ({ request }) => {
-	const url = new URL(request.url);
-	const title = url.searchParams.get('product-title');
-	// const result = await getCollectionByTitle('products', 'title', title);
-	// console.log(result);
-	return { title };
-};
