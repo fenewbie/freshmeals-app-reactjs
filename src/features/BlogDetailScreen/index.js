@@ -116,7 +116,7 @@ function BlogDetail() {
 						<IntroSection />
 					</div>
 					<CommonSection title="Search Object">
-						<SearchForm />
+						<SearchForm searchFor='title' type='blogs'/>
 					</CommonSection>
 
 					<CommonSection title="Popular Feeds">

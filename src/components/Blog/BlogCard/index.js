@@ -5,7 +5,7 @@ import Card from '../../UI/Card';
 import { BiCalendar } from 'react-icons/bi';
 import { FaUserEdit } from 'react-icons/fa';
 
-const BlogCard = ({ id, title, description, img, tags }) => (
+const BlogCard = ({ id, title, description, image, tags = [] }) => (
 	<Card className="shadow-xl rounded-lg overflow-hidden my-10  border min-h-[650px]">
 		<Link
 			to={`/blog/${id}`}
@@ -14,7 +14,7 @@ const BlogCard = ({ id, title, description, img, tags }) => (
 			<div className="absolute top-0 left-0 h-full w-full">
 				<img
 					alt="Blog"
-					src={img}
+					src={image}
 					className="mx-auto w-auto h-full transition-all duration-500 scale-100 hover:scale-110"
 				/>
 			</div>
