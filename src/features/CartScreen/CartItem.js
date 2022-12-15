@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { Quantity } from '@components/Cart/Quantity';
 import { cartActions } from '@store/cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 export default function CartItem({ item }) {
-	const { id, title, image, quantity, price, totalPrice } = item;
+	const { id, title, image, quantity, discount, totalPrice } = item;
 	const dispatch = useDispatch();
 
 	const incrementItem = () => {
@@ -36,10 +37,12 @@ export default function CartItem({ item }) {
 						/>
 					</td>
 					<td className="max-md:block max-md:border-b py-5">
-						<h3 className="font-bold text-[18px]">{title}</h3>
+						<Link to={`/shop/${id}`}>
+							<h3 className="font-bold text-[18px]">{title}</h3>
+						</Link>
 					</td>
 					<td className="max-md:block max-md:border-b py-5">
-						{quantity} x <span>$ {price}</span>
+						{quantity} x <span>$ {discount}</span>
 					</td>
 					<td className="max-md:block max-md:border-b py-5">
 						<div className="h-14">
@@ -52,7 +55,7 @@ export default function CartItem({ item }) {
 						</div>
 					</td>
 					<td className="max-md:block max-md:border-b py-5">
-						<h3 className="font-bold text-[18px]">{totalPrice.toFixed(2)}</h3>
+						<h3 className="font-bold text-[18px]">{totalPrice}</h3>
 					</td>
 				</tr>
 			</tbody>

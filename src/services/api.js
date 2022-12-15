@@ -15,6 +15,7 @@ export const getDocumentById = async (id, col) => {
 	const docRef = doc(db, col, id);
 	const docSnap = await getDoc(docRef);
 	const obj = docSnap.data();
+	obj.id = id
 	return obj ?? null;
 };
 

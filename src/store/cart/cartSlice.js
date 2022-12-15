@@ -25,17 +25,17 @@ const cartSlice = createSlice({
 			if (!existingItem) {
 				state.items.push({
 					...newItem,
-					totalPrice: newItem.quantity * newItem.price,
+					totalPrice: newItem.quantity * newItem.discount,
 				});
 			} else {
 				existingItem.quantity += newItem.quantity;
 				existingItem.totalPrice =
-					Number(existingItem.quantity) + Number(newItem.price);
+					Number(existingItem.quantity) + Number(newItem.discount);
 			}
 			state.totalAmount = state.items.reduce(
 				(total, item) => total + item.totalPrice,
 				0
-			).toFixed(2);
+			);
 		},
 
 		incrementQuantity: (state, action) => {
@@ -45,11 +45,11 @@ const cartSlice = createSlice({
 			state.totalQuantity++;
 			state.changed = true;
 			existingItem.totalPrice =
-				(Number(existingItem.totalPrice) + Number(existingItem.price));
+				Number(existingItem.totalPrice) + Number(existingItem.discount);
 			state.totalAmount = state.items.reduce(
 				(total, item) => total + item.totalPrice,
 				0
-			).toFixed(2);
+			);
 		},
 		decrementQuantity: (state, action) => {
 			const id = action.payload;
@@ -62,15 +62,26 @@ const cartSlice = createSlice({
 			} else {
 				existingItem.quantity--;
 				existingItem.totalPrice =
-					(Number(existingItem.totalPrice) - Number(existingItem.price));
+					Number(existingItem.totalPrice) - Number(existingItem.discount);
 				state.totalAmount = state.items.reduce(
 					(total, item) => total + item.totalPrice,
 					0
-				).toFixed(2);
+				);
 			}
 		},
 		removeItem: (state, action) => {
-			 state.items = state.items.filter((item) => item.id !== action.payload);
+			const id = action.payload;
+			const existingItem = state.items.find((item) => item.id === id);
+
+			if (existingItem) {
+				state.items = state.items.filter((item) => item.id !== id);
+				state.totalQuantity = state.totalQuantity - existingItem.quantity;
+			}
+
+			state.totalAmount = state.items.reduce(
+				(total, item) => total + Number(item.discount) * Number(item.quantity),
+				0
+			);
 		},
 	},
 });

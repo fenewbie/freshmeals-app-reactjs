@@ -1,6 +1,5 @@
 import { cartActions } from './cartSlice';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 export const fetchCartData = () => {
 	return async (dispatch) => {
@@ -26,18 +25,14 @@ export const fetchCartData = () => {
 				})
 			);
 		} catch (error) {
-			toast.error('Fetching cart data failed!', {
-				position: toast.POSITION.TOP_CENTER,
-			});
+			console.log('Fetching cart data failed!', error);
 		}
 	};
 };
 
 export const sendCartData = (cart) => {
 	return async () => {
-		toast.info('Sending cart data!', {
-			position: toast.POSITION.TOP_CENTER,
-		});
+		console.log('Sending cart data!');
 
 		const sendRequest = async () => {
 			const response = await axios.put(
@@ -48,7 +43,6 @@ export const sendCartData = (cart) => {
 					totalAmount: cart.totalAmount,
 				}
 			);
-			console.log('response from cart action', response);
 
 			if (!response.ok) {
 				throw new Error('Sending cart data failed.');
@@ -57,13 +51,9 @@ export const sendCartData = (cart) => {
 
 		try {
 			await sendRequest();
-			toast.success('Sent cart data successfully!', {
-				position: toast.POSITION.TOP_CENTER,
-			});
+			console.log('Sent cart data successfully!');
 		} catch (error) {
-			toast.error('Fetching cart data failed!', {
-				position: toast.POSITION.TOP_CENTER,
-			});
+			console.log('Fetching cart data failed!', error);
 		}
 	};
 };
