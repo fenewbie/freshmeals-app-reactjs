@@ -2,7 +2,7 @@ import { NavMobi } from './NavMobi';
 import Navigation from '@components/UI/Navbar';
 import { useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
+import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import Button from '@components/UI/Button';
 import Banner from './Banner';
@@ -11,7 +11,7 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
-import { CartCheckout } from './CartCheckout';
+import { CartCheckout } from '@features/CartScreen/CartCheckout';
 import SearchProducts from 'layouts/Header/Search';
 
 const Header = () => {
@@ -35,20 +35,6 @@ const Header = () => {
 	const handleCart = () => {
 		dispatch(modalActions.toggleCart());
 	};
-	// useEffect(() => {
-	// 	window.addEventListener('scroll', () => {
-	// 		if (
-	// 			document.body.scrollTop > 80 ||
-	// 			document.documentElement.scrollTop > 80
-	// 		) {
-	// 			headerRef.current.classList.add('header-shrink');
-	// 		} else {
-	// 			headerRef.current.classList.remove('header-shrink');
-	// 		}
-	// 	});
-
-	// 	return () => window.removeEventListener('scroll', null);
-	// }, []);
 
 	return (
 		<header
@@ -65,11 +51,7 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img
-									src={cs.logo01}
-									alt="logo"
-									className="h-12"
-								/>
+								<img src={cs.logo01} alt="logo" className="h-12" />
 							</Link>
 						</div>
 					</nav>
@@ -83,14 +65,12 @@ const Header = () => {
 								GET A QUOTE
 							</Button>
 							<div className="flex gap-3">
-								<div className='lg:visible invisible'>
+								<div className="lg:visible invisible">
 									<SearchProducts />
 								</div>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() =>
-										setShowDropdown(!showDropdown)
-									}
+									onClick={() => setShowDropdown(!showDropdown)}
 								>
 									<BiUser />
 								</Button>
@@ -108,6 +88,13 @@ const Header = () => {
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
+									<span
+										className={`${
+											showCart
+												? 'fixed inset-0 w-full h-full bg-black opacity-40'
+												: ''
+										}`}
+									></span>
 								</Button>
 
 								<Button
@@ -126,7 +113,7 @@ const Header = () => {
 								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
 								<CartCheckout
 									isShowingCart={showCart}
-									handleClick={handleCart}
+									handleClose={handleCart}
 									item={cartItems}
 								/>
 							</div>

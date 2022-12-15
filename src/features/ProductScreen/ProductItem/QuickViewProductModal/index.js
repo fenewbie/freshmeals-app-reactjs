@@ -62,7 +62,7 @@ const QuickViewProductModal = ({
 					<IoClose className="text-3xl" />
 				</button>
 
-				{product === undefined ? (
+				{product === null ? (
 					<Loader />
 				) : (
 					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">

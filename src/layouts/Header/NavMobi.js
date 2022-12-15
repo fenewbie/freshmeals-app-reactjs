@@ -1,13 +1,12 @@
-import { BiSearch, BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
+import { BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import * as cs from '@utils/constants';
-import Navigation from '../../components/UI/Navbar';
+import Navigation from '@components/UI/Navbar';
 import SocialLink from '@components/UI/SocialLink';
 import Button from '@components/UI/Button';
-import Search from 'layouts/Header/Search';
 import SearchProducts from 'layouts/Header/Search';
 
 export function NavMobi({ isDisplay, handleClick }) {
@@ -42,18 +41,6 @@ export function NavMobi({ isDisplay, handleClick }) {
 							<MdClose />
 						</button>
 					</div>
-					{/* <form className="py-6">
-						<div className="relative">
-							<input
-								type="text"
-								placeholder="Search..."
-								className="w-56 border border-slate-200 text-sm py-3"
-							/>
-							<div className="flex inset-y-0 absolute right-0 items-center pr-12">
-								<BiSearch />
-							</div>
-						</div>
-					</form> */}
 					<SearchProducts />
 					<Navigation className="flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
 					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">

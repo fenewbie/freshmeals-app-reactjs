@@ -1,32 +1,33 @@
+import { lazy, Suspense } from 'react';
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-
-import RootLayout, {
-	loader as rootLoader,
-} from './layouts/RootLayout';
-import Home from './pages/Home/index';
+import Loader from '@components/UI/Loader';
+import RootLayout, { loader as rootLoader } from './layouts/RootLayout';
 import ShopLayout from './layouts/ShopLayout';
-import ProductGrid from './pages/Shop/ProductGrid';
-import ProductDetailPage, {
-	loader as productLoader,
-} from './pages/Shop/ProductDetailPage';
-import About, {loader as aboutLoader} from './pages/About';
-import Contact from './pages/Contact';
 import BlogLayout from './layouts/BlogLayout';
-import BlogDetailPage, {
-	loader as blogLoader,
-} from './pages/Blog/BlogDetailPage';
+import Home from './pages/Home/index';
+import { loader as productLoader } from './pages/Shop/ProductDetailPage';
+import About, { loader as aboutLoader } from './pages/About';
+import Contact from './pages/Contact';
+import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
 import Gallery from './pages/Gallery';
-import Cart from './pages/Cart';
-import NotFound from './pages/NotFound';
-import SearchPage, { loader as searchLoader } from 'pages/Search';
+import SearchPage from 'pages/Search';
 import SearchProductsPage from 'pages/Search/SearchProductsPage';
 import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
-import BlogGridPage from './pages/Blog/BlogGridPage';
+
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Cart = lazy(() => import('./pages/Cart'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
+const ProductGrid = lazy(() => import('./pages/Shop/ProductGrid'));
+const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
+const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
+
+
 
 function App() {
 	const router = createBrowserRouter(
@@ -38,74 +39,42 @@ function App() {
 				errorElement={<NotFound />}
 				loader={rootLoader}
 			>
-				<Route
-					index
-					element={<Home />}
-				/>
-				<Route
-					path="shop"
-					element={<ShopLayout />}
-				>
-					<Route
-						index
-						element={<ProductGrid />}
-					/>
+				<Route index element={<Home />} />
+				<Route path="shop" element={<ShopLayout />}>
+					<Route index element={<ProductGrid />} />
 					<Route
 						path=":productId"
 						element={<ProductDetailPage />}
 						loader={productLoader}
 					/>
 				</Route>
-				<Route
-					path="cart"
-					element={<Cart />}
-				/>
-				<Route
-					path="about"
-					element={<About />}
-					loader={aboutLoader}
-				/>
-				<Route
-					path="contact"
-					element={<Contact />}
-				/>
+				<Route path="cart" element={<Cart />} />
+				<Route path="checkout" element={<Checkout />} />
+				<Route path="about" element={<About />} loader={aboutLoader} />
+				<Route path="contact" element={<Contact />} />
 
-				<Route
-					path="blog"
-					element={<BlogLayout />}
-				>
-					<Route
-						index
-						element={<BlogGridPage />}
-					/>
+				<Route path="blog" element={<BlogLayout />}>
+					<Route index element={<BlogGridPage />} />
 					<Route
 						path=":blogId"
 						element={<BlogDetailPage />}
 						loader={blogLoader}
 					/>
 				</Route>
-				<Route
-					path="gallery"
-					element={<Gallery />}
-				/>
+				<Route path="gallery" element={<Gallery />} />
 				<Route path="search">
-					<Route
-						index
-						element={<SearchPage />}
-					/>
-					<Route
-						path='products'
-						element={<SearchProductsPage />}
-					/>
-					<Route
-						path='blogs'
-						element={<SearchBlogsPage/>}
-					/>
+					<Route index element={<SearchPage />} />
+					<Route path="products" element={<SearchProductsPage />} />
+					<Route path="blogs" element={<SearchBlogsPage />} />
 				</Route>
 			</Route>
 		)
 	);
-	return <RouterProvider router={router} />;
+	return (
+		<Suspense fallback={<Loader />}>
+			<RouterProvider router={router} />
+		</Suspense>
+	);
 }
 
 export default App;

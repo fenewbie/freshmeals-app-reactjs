@@ -8,6 +8,7 @@ import * as cs from '@utils/constants';
 import Loader from '@components/UI/Loader';
 
 function SuccessModal({ type, product }) {
+	console.log("product success", product)
 	const dispatch = useDispatch();
 	const handleClose = () => {
 		return dispatch(modalActions.successModal({ status: false, type: null }));
