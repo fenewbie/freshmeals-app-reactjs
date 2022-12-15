@@ -17,7 +17,6 @@ import ProductDetailPage, {
 import About, {loader as aboutLoader} from './pages/About';
 import Contact from './pages/Contact';
 import BlogLayout from './layouts/BlogLayout';
-import BlogGrid from './pages/Blog/BlogGrid';
 import BlogDetailPage, {
 	loader as blogLoader,
 } from './pages/Blog/BlogDetailPage';
@@ -27,6 +26,7 @@ import NotFound from './pages/NotFound';
 import SearchPage, { loader as searchLoader } from 'pages/Search';
 import SearchProductsPage from 'pages/Search/SearchProductsPage';
 import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
+import BlogGridPage from './pages/Blog/BlogGridPage';
 
 function App() {
 	const router = createBrowserRouter(
@@ -76,7 +76,7 @@ function App() {
 				>
 					<Route
 						index
-						element={<BlogGrid />}
+						element={<BlogGridPage />}
 					/>
 					<Route
 						path=":blogId"

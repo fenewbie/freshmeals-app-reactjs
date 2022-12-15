@@ -6,7 +6,7 @@ function usePagination({ listData, limit = 1 }) {
 	const [totalPages, setTotalPages] = useState();
 	// const [limit, setLimit] = useState(limitDefault);
 	useEffect(() => {
-		setTotalPages(listData.length / limit);
+		setTotalPages(Math.ceil(listData.length / limit));
 		setDataRender(() => [...listData].splice(0, limit));
 		setCurrentPage(1);
 		// setLimit()

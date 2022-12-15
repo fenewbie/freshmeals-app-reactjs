@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useRouteLoaderData } from 'react-router-dom';
 
-import { BlogCard } from '@components/Blog';
 import Title from '@components/Title';
-import Grid from '@components/UI/Grid';
+import { BlogGrid } from '@components/Blog';
 
 function SearchBlogsPage() {
 	const { blogs } = useRouteLoaderData('root');
@@ -24,22 +23,15 @@ function SearchBlogsPage() {
 
 	return (
 		<div className="container mx-auto py-28">
-			{resultSearch.length > 0 && (
+			{resultSearch.length > 0 ? (
 				<>
-					<Title title="Search result:" />
-					<Grid>
-						{resultSearch.map((item) => (
-							<BlogCard
-								key={item.id}
-								id={item.id}
-								title={item.title}
-								description={item.description}
-								tags={item.tags}
-								image={item.image}
-							/>
-						))}
-					</Grid>
+					<Title title={`Search result: ${resultSearch.length} posts`} />
+					<BlogGrid blogs={resultSearch} />
 				</>
+			) : (
+				<span className="font-bold text-center block">
+					No search result
+				</span>
 			)}
 		</div>
 	);
