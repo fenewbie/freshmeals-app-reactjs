@@ -6,7 +6,7 @@ const modalSlice = createSlice({
 		isDisplay: false,
 		isShowingQuickViewModal: false,
 		isShowingSuccessModal: { status: false, type: null },
-		notification: null,
+		notification: null
 	},
 	reducers: {
 		toggleNavMobi(state) {

@@ -11,6 +11,8 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import SideCart from './SideCart';
+import { cartActions } from '@store/cart/cartSlice';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -19,7 +21,7 @@ const Header = () => {
 
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-	console.log("total quantity: ", totalQuantity);
+	console.log('total quantity: ', totalQuantity);
 
 	const dispatch = useDispatch();
 
@@ -59,7 +61,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -78,7 +84,9 @@ const Header = () => {
 								</Button>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() => setShowDropdown(!showDropdown)}
+									onClick={() =>
+										setShowDropdown(!showDropdown)
+									}
 								>
 									<BiUser />
 								</Button>
@@ -97,7 +105,6 @@ const Header = () => {
 										{totalQuantity}
 									</span>
 								</Link>
-
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleClick}
@@ -111,7 +118,16 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
+								<NavMobi
+									isDisplay={showNavMobi}
+									handleClick={handleClick}
+								/>
+								<SideCart
+									isDisplay={true}
+									handleClose={() =>
+										console.log('closed sidecart')
+									}
+								/>
 							</div>
 						</div>
 					</nav>
