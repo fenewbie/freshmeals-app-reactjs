@@ -11,8 +11,6 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
-import { CartCheckout } from '@features/CartScreen/CartCheckout';
-import SearchProducts from 'layouts/Header/Search';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -22,7 +20,7 @@ const Header = () => {
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-	const cartItems = useSelector((state) => state.cart.items);
+	console.log("total quantity: ", totalQuantity);
 
 	const dispatch = useDispatch();
 
@@ -51,7 +49,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -70,7 +72,9 @@ const Header = () => {
 								</div>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() => setShowDropdown(!showDropdown)}
+									onClick={() =>
+										setShowDropdown(!showDropdown)
+									}
 								>
 									<BiUser />
 								</Button>
@@ -88,14 +92,7 @@ const Header = () => {
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-									<span
-										className={`${
-											showCart
-												? 'fixed inset-0 w-full h-full bg-black opacity-40'
-												: ''
-										}`}
-									></span>
-								</Button>
+								</Link>
 
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
@@ -110,12 +107,7 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
-								<CartCheckout
-									isShowingCart={showCart}
-									handleClose={handleCart}
-									item={cartItems}
-								/>
+								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
 							</div>
 						</div>
 					</nav>
