@@ -1,6 +1,10 @@
-import { collection, doc, getDocs, getDoc } from 'firebase/firestore';
+import {
+	collection,
+	doc,
+	getDocs,
+	getDoc
+} from 'firebase/firestore';
 import { db } from './firebase';
-
 
 export const getDocuments = async (col) => {
 	const docsSnap = await getDocs(collection(db, col));
@@ -18,8 +22,6 @@ export const getDocumentById = async (id, col) => {
 	obj.id = id
 	return obj ?? null;
 };
-
-
 
 export const getData = async () => {
 	const blogs = await getDocuments('blog');

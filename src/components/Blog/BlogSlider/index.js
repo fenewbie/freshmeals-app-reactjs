@@ -18,12 +18,11 @@ function BlogSlider({blogs}) {
 			{blogs.map((blog) => (
 				<SwiperSlide key={blog.id}>
 					<BlogCard
-						key={blog.id}
 						id={blog.id}
 						title={blog.title}
 						description={blog.description}
 						tags={blog.tags}
-						img={blog.image}
+						image={blog.image}
 					/>
 				</SwiperSlide>
 			))}

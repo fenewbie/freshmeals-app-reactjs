@@ -12,19 +12,14 @@ function RelatedList({ col, related, type }) {
 	const [docs, setDocs] = useState([]);
 	useEffect(() => {
 		const resultArr1 = dataRoot[col].filter((item) => {
-			const resultArr2 = item[type].filter((type) =>
-				related.includes(type)
-			);
+			const resultArr2 = item[type].filter((type) => related.includes(type));
 			return resultArr2.length > 0;
 		});
 		setDocs(resultArr1);
 	}, []);
 	return (
 		<div className="py-24">
-			<Title
-				title="Related Product"
-				center={false}
-			/>
+			<Title title="Related Product" center={false} />
 			{docs.length > 0 && (
 				<Slider
 					breakpoints={{
@@ -42,25 +37,13 @@ function RelatedList({ col, related, type }) {
 						<SwiperSlide key={el.id}>
 							{
 								(type = 'blog' ? (
-									<BlogCard
-										key={el.id}
-										id={el.id}
-										title={el.title}
-										description={el.description}
-										tags={el.tags}
-										img={el.image}
-									/>
+									<BlogCard {...el} />
 								) : (
 									<ProductItem
-										id={el.id}
-										rating={el.rating}
-										numReviews={el.reviews}
-										image={el.image}
+										{...el}
 										label={el.label || 'free'}
-										title={el.title}
-										price={el.price}
 										discount={el.discount || 0}
-										card
+										card={true}
 									/>
 								))
 							}

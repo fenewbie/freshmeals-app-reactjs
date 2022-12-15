@@ -1,24 +1,13 @@
-import { useSelector } from 'react-redux';
+
 import { SwiperSlide } from 'swiper/react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
-
 import Slider from '@components/UI/Slider';
-
-import SuccessModal from '../ProductItem/SuccessModal';
 import Title from '@components/Title';
 import { labelProduct as label } from '@utils/constants';
-import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import ProductItem from '../ProductItem';
 
 const ProductList = ({ products }) => {
-	const isShowingQuickViewModal = useSelector(
-		(state) => state.modal.isShowingQuickViewModal
-	);
-
-	const isShowingSuccessModal = useSelector(
-		(state) => state.modal.isShowingSuccessModal
-	);
 
 	return (
 		<div className="mt-[120px]">
@@ -65,17 +54,7 @@ const ProductList = ({ products }) => {
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
-										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.reviews}
-											image={el.image}
-											label={el.label}
-											title={el.title}
-											price={el.price}
-											discount={el.discount}
-											card
-										/>
+										<ProductItem {...el} product={el} card={true} />
 									</SwiperSlide>
 								))}
 						</Slider>
@@ -98,15 +77,10 @@ const ProductList = ({ products }) => {
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.numReviews}
-											image={el.image}
+											{...el}
+											product={el}
+											card={true}
 											label={el.label || 'free'}
-											title={el.title}
-											price={el.price}
-											discount={el.discount || 0}
-											card
 										/>
 									</SwiperSlide>
 								))}
@@ -130,15 +104,10 @@ const ProductList = ({ products }) => {
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.numReviews}
-											image={el.image}
+											{...el}
+											product={el}
+											card={true}
 											label={el.label || 'free'}
-											title={el.title}
-											price={el.price}
-											discount={el.discount || 0}
-											card
 										/>
 									</SwiperSlide>
 								))}
@@ -166,15 +135,10 @@ const ProductList = ({ products }) => {
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.numReviews}
-											image={el.image}
+											{...el}
+											product={el}
+											card={true}
 											label={el.label || 'free'}
-											title={el.title}
-											price={el.price}
-											discount={el.discount || 0}
-											card
 										/>
 									</SwiperSlide>
 								))}
@@ -202,15 +166,10 @@ const ProductList = ({ products }) => {
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.numReviews}
-											image={el.image}
+											{...el}
+											product={el}
+											card={true}
 											label={el.label || 'free'}
-											title={el.title}
-											price={el.price}
-											discount={el.discount || 0}
-											card
 										/>
 									</SwiperSlide>
 								))}
@@ -234,30 +193,15 @@ const ProductList = ({ products }) => {
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
-											id={el.id}
-											rating={el.rating}
-											numReviews={el.numReviews}
-											image={el.image}
+											{...el}
+											product={el}
+											card={true}
 											label={el.label || 'free'}
-											title={el.title}
-											price={el.price}
-											discount={el.discount || 0}
-											card
 										/>
 									</SwiperSlide>
 								))}
 						</Slider>
 					</TabPanel>
-					{isShowingQuickViewModal ? (
-						<QuickViewProductModal products={products} />
-					) : null}
-
-					{isShowingSuccessModal.status ? (
-						<SuccessModal
-							products={products}
-							type={isShowingSuccessModal.type}
-						/>
-					) : null}
 				</Tabs>
 			</div>
 		</div>

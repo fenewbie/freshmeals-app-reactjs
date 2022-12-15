@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import {
@@ -15,13 +15,14 @@ import SocialLink from '@components/UI/SocialLink';
 import RelatedList from '@features/RelatedList/index';
 import { CommentForm, SearchForm } from '@components/Form';
 import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
-import {default as PromotionRandom} from '@features/Promotion/Random';
+import { default as PromotionRandom } from '@features/Promotion/Random';
 
 function BlogDetail() {
-	const blog = useLoaderData();
-	
+	const { blog, id } = useLoaderData();
+	const {blogs} = useRouteLoaderData('root');
+
 	useEffect(() => {
-		window.scrollTo({ top: 0, left: 0 });
+		window.scrollTo({ top: 130, left: 0 });
 	}, [blog]);
 
 	return (
@@ -56,34 +57,54 @@ function BlogDetail() {
 						</div>
 
 						<div className="flex justify-between items-center py-12 my-14 border-t border-b">
-							<Button
+							<button
 								type="link"
 								link="/blog"
-								className={`text-xl text-greenBtn opacity-70 hover:opacity-100`}
+								className={`text-xl text-greenBtn  ${
+									id === 1
+										? 'opacity-50 pointer-events-none'
+										: 'opacity-80 hover:opacity-100'
+								}`}
 							>
 								<span className="flex items-center">
 									<FaRegArrowAltCircleLeft />
-									<span className="ml-2">Pre Post</span>
+									<Link
+										className="ml-2"
+										to={`/blog/${id - 1}`}
+									>
+										Pre Post
+									</Link>
 								</span>
-							</Button>
+							</button>
 
 							<TbGridDots className="text-greenBtn text-3xl" />
 
-							<Button
+							<button
 								type="link"
 								link="/blog"
-								className={`text-xl text-greenBtn opacity-70 hover:opacity-100`}
+								className={`text-xl text-greenBtn  ${
+									id === blogs.length
+										? 'opacity-50 pointer-events-none'
+										: 'opacity-80 hover:opacity-100'
+								}`}
+								disabled={id === blogs.length}
 							>
 								<span className="flex items-center">
-									<span className="mr-2">Next Post</span>
+									<Link
+										className="ml-2"
+										to={`/blog/${id + 1}`}
+										disabled={true}
+									>
+										Next Post
+									</Link>
 									<FaRegArrowAltCircleRight />
 								</span>
-							</Button>
+							</button>
 						</div>
 						<RelatedList
 							col="blogs"
 							related={blog.tags}
-							type='tags'
+							type="tags"
 						/>
 						<CommentSection />
 						<CommentForm />
@@ -94,7 +115,9 @@ function BlogDetail() {
 					<div className="-mt-8">
 						<IntroSection />
 					</div>
-					<SearchForm />
+					<CommonSection title="Search Object">
+						<SearchForm searchFor='title' type='blogs'/>
+					</CommonSection>
 
 					<CommonSection title="Popular Feeds">
 						<p>

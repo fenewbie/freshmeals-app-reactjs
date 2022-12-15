@@ -13,9 +13,21 @@ import Rating from '@components/Product/Rating';
 import { Quantity } from '@components/Cart/Quantity';
 import Button from '@components/UI/Button/index';
 import { cartActions } from '@store/cart/cartSlice';
+import Loader from '@components/UI/Loader';
 
-const QuickViewProductModal = ({ product }) => {
-	const { id, title, image, price, quantity } = product;
+const QuickViewProductModal = ({
+	id,
+	title,
+	image,
+	price,
+	quantity,
+	amountRating,
+	discount,
+	label,
+	product,
+}) => {
+	console.log('quick view running');
+	console.log('product', product);
 
 	const dispatch = useDispatch();
 	const incrementItem = () => {
@@ -49,32 +61,32 @@ const QuickViewProductModal = ({ product }) => {
 				>
 					<IoClose className="text-3xl" />
 				</button>
-				{product?.map((el) => (
-					<div
-						key={el.id}
-						className="grid grid-cols-1 md:grid-cols-2 md:gap-14"
-					>
+
+				{product === null ? (
+					<Loader />
+				) : (
+					<div className="grid grid-cols-1 md:grid-cols-2 md:gap-14">
 						<div>
 							<img
-								src={el.image}
+								src={image}
 								className="w-full h-full object-contains"
-								alt={el.title}
+								alt={title}
 							/>
 						</div>
 						<div>
-							<Rating amount={`${el.amountRating} reviews`} />
-							<h4 className="text-3xl font-bold">{el.title}</h4>
+							<Rating amount={`${amountRating} reviews`} />
+							<h4 className="text-3xl font-bold">{title}</h4>
 							<div className="flex items-center">
 								<span className="inline-block text-[50px] font-bold text-greenBtn">
-									${el.discount}
+									${discount}
 								</span>
 								<span className="inline-block text-[42px] font-bold text-greenBtn opacity-50 line-through ml-4">
-									${el.price}
+									${price}
 								</span>
 							</div>
 							<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
 								<span>Categories:</span>
-								<ul className="flex items-center ml-5">{el.label} </ul>
+								<ul className="flex items-center ml-5">{label} </ul>
 							</div>
 							<div>
 								<Quantity
@@ -86,7 +98,7 @@ const QuickViewProductModal = ({ product }) => {
 							</div>
 							<div className="flex mt-5">
 								<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
-									<WishList wishlist={el.title} />
+									<WishList wishlist={title} />
 									<span className="ml-1 font-medium">Add to Wishlist</span>
 								</div>
 								<Link className="flex items-center  hover:text-greenBtn transition-all">
@@ -100,7 +112,7 @@ const QuickViewProductModal = ({ product }) => {
 							</div>
 						</div>
 					</div>
-				))}
+				)}
 			</div>
 		</Modal>
 	);

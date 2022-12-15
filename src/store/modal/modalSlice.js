@@ -4,6 +4,7 @@ const modalSlice = createSlice({
 	name: 'modal',
 	initialState: {
 		isDisplay: false,
+		isShowingCart: false,
 		isShowingQuickViewModal: false,
 		isShowingSuccessModal: { status: false, type: null },
 		notification: null,
@@ -11,6 +12,9 @@ const modalSlice = createSlice({
 	reducers: {
 		toggleNavMobi(state) {
 			state.isDisplay = !state.isDisplay;
+		},
+		toggleCart(state) {
+			state.isShowingCart = !state.isShowingCart;
 		},
 		quickView(state) {
 			state.isShowingQuickViewModal = !state.isShowingQuickViewModal;
