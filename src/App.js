@@ -9,7 +9,6 @@ import Loader from '@components/UI/Loader';
 import RootLayout, { loader as rootLoader } from './layouts/RootLayout';
 import ShopLayout from './layouts/ShopLayout';
 import BlogLayout from './layouts/BlogLayout';
-import Home from './pages/Home/index';
 import { loader as productLoader } from './pages/Shop/ProductDetailPage';
 import About, { loader as aboutLoader } from './pages/About';
 import Contact from './pages/Contact';
@@ -19,6 +18,7 @@ import SearchPage from 'pages/Search';
 import SearchProductsPage from 'pages/Search/SearchProductsPage';
 import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
 
+const Home = lazy(() => import('./pages/Home'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Checkout = lazy(() => import('./pages/Checkout'));

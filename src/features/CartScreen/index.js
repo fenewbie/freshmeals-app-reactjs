@@ -39,7 +39,9 @@ function CartScreen() {
 							<tbody>
 								<tr className="border-t border-b bg-[#F7F8FA] h-14">
 									<td className="px-6">Cart Subtotal</td>
-									<td className=" px-6 text-right">${totalAmount}</td>
+									<td className=" px-6 text-right">
+										${totalAmount.toFixed(2)}
+									</td>
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
 									<td className="px-6">Shipping and Handing</td>
@@ -54,7 +56,7 @@ function CartScreen() {
 										<h3 className="font-bold">Order Total</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">{totalAmount}</h3>
+										<h3 className="font-bold">{totalAmount.toFixed(2)}</h3>
 									</td>
 								</tr>
 							</tbody>

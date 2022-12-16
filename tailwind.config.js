@@ -51,6 +51,7 @@ module.exports = {
 						opacity: 1,
 					},
 				},
+
 				bannerTextAppear: {
 					'0%': {
 						opacity: 0,
@@ -100,7 +101,7 @@ module.exports = {
 			animation: {
 				animate: 'animate 0.8s linear infinite',
 				jump: ' jump 0.8s ease-in-out infinite',
-				overlay: 'overlayApper 0.2s linear forwards',
+				overlay: 'overlayApper 0.2s linear forwards'
 			},
 
 			fontFamily: {

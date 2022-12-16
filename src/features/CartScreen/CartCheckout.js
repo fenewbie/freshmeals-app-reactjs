@@ -5,12 +5,9 @@ import { Link } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
 
 export function CartCheckout({ isShowingCart, handleClose, item }) {
-	const { id } = item;
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
-	const deleteItem = () => {
-		dispatch(cartActions.removeItem(id));
-	};
+
 	return (
 		<AnimatePresence>
 			{isShowingCart && (
@@ -19,7 +16,7 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 					animate={{ x: 0 }}
 					transition={{ type: 'tween', stiffness: 50 }}
 					exit={{ x: '200%' }}
-					className="bg-white w-96 h-screen fixed inset-y-0 right-0 z-30 px-8 py-6 flex flex-col"
+					className="bg-white md:w-96 w-80 fixed inset-y-0 right-0 z-30 px-8 py-6 pb-24 flex flex-col"
 				>
 					<header className="flex items-center justify-between border-b border-b-sectionBg pb-5">
 						<p className="font-bold text-lg">Cart</p>
@@ -38,35 +35,45 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 							</Link>
 						</div>
 					) : (
-						<div className="my-5 flex-1 overflow-hidden px-2">
-							{item.map((item) => (
-								<div className="relative py-4 border-b">
-									<button
-										onClick={deleteItem}
-										className="absolute bg-green-300 p-1 rounded-full top-2"
+						<div className="my-5 flex-1 h-full flex flex-col">
+							<div className="flex-1 overflow-y-auto py-3">
+								{item.map((item, index) => (
+									<div
+										className={`relative py-4 mx-3 ${
+											index !== 0 && 'border-t'
+										}`}
 									>
-										x
-									</button>
-									<div className="flex flex-row items-center gap-3">
-										<div className="w-32">
-											<img
-												src={item.image}
-												alt={item.title}
-												className="w-24 h-24 object-contain"
-											/>
-										</div>
-										<div className="text-sm">
-											<p>{item.title}</p>
-											<p>
-												{item.quantity} x ${item.discount}
-											</p>
+										<button
+											onClick={() => {
+												dispatch(cartActions.removeItem(item.id));
+											}}
+											className="absolute bg-green-300 h-6 w-6 rounded-full top-2 -left-2 hover:brightness-95"
+										>
+											x
+										</button>
+										<div className="flex flex-row items-center gap-3">
+											<div className="md:w-32 w-20 h-24">
+												<img
+													src={item.image}
+													alt={item.title}
+													className="w-full h-full object-contain"
+												/>
+											</div>
+											<div className="text-sm flex-1">
+												<h3 className="font-bold">{item.title}</h3>
+												<p>
+													{item.quantity} x ${item.discount.toFixed(2)}
+												</p>
+											</div>
 										</div>
 									</div>
-								</div>
-							))}
-							<div className="font-bold py-5 border-y flex justify-between">
+								))}
+							</div>
+							<div className="font-bold py-5 mt-3 border-y flex justify-between">
 								<span className=" ">Subtotal:</span>
-								<span className="text-greenBtn text-lg">${totalAmount}</span>
+								<span className="text-greenBtn text-lg">
+									${totalAmount.toFixed(2)}
+								</span>
 							</div>
 							<div className="flex py-6">
 								<Link
