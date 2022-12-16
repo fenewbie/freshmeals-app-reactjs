@@ -17,6 +17,10 @@ import Gallery from './pages/Gallery';
 import SearchPage from 'pages/Search';
 import SearchProductsPage from 'pages/Search/SearchProductsPage';
 import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
+import Login from 'pages/Auth/Login';
+import Register from 'pages/Auth/Register';
+import PrivateRoute from '@components/PrivateRoute';
+import UserProfile from 'pages/UserProfile';
 
 const Home = lazy(() => import('./pages/Home'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -26,8 +30,6 @@ const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
 const ProductGrid = lazy(() => import('./pages/Shop/ProductGrid'));
 const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
-
-
 
 function App() {
 	const router = createBrowserRouter(
@@ -40,6 +42,11 @@ function App() {
 				loader={rootLoader}
 			>
 				<Route index element={<Home />} />
+				<Route path="login" element={<Login />} />
+				<Route path="register" element={<Register />} />
+				<Route element={<PrivateRoute />}>
+					<Route path="user-profile" element={<UserProfile />} />
+				</Route>
 				<Route path="shop" element={<ShopLayout />}>
 					<Route index element={<ProductGrid />} />
 					<Route

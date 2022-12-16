@@ -81,7 +81,7 @@ const Header = () => {
 									<BiUser />
 								</Button>
 								<Dropdown
-									className="absolute top-10 right-12 w-36"
+									className="absolute top-10 right-12 w-36 "
 									showDropdown={!showDropdown}
 									items={userList}
 								></Dropdown>

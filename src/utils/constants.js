@@ -1,7 +1,7 @@
 import logoHeader01 from '../assets/logo.png';
 import logoHeader02 from '../assets/logo01.png';
 import paymentImg from '../assets/payment.png';
-import noresult  from '../assets/search/noresults.png';
+import noresult from '../assets/search/noresults.png';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
@@ -16,7 +16,6 @@ export const labelProduct = [
 	{ id: 5, label: 'fish & meat' },
 	{ id: 6, label: 'fruits' },
 ];
-
 
 // Navbar
 export const navbarList = [
@@ -63,22 +62,22 @@ export const userList = [
 	{
 		id: 1,
 		title: 'Sign in',
-		url: '/sign-in',
+		to: '/login',
 	},
 	{
 		id: 2,
 		title: 'Register',
-		url: '/register',
+
+		to: '/register',
 	},
 	{
 		id: 3,
 		title: 'My Account',
-		url: '/sign-in',
+		to: '/user-profile',
 	},
 	{
 		id: 4,
 		title: 'Wishlist',
-		url: '/wishlist',
 	},
 ];
 

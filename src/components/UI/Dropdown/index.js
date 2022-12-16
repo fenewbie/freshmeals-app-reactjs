@@ -1,4 +1,6 @@
-const Dropdown = ({ showDropdown, setShowDropdown, items, className }) => {
+import { Link } from "react-router-dom";
+
+const Dropdown = ({ showDropdown, items, className }) => {
 	return (
 		<div
 			className={`${
@@ -7,8 +9,8 @@ const Dropdown = ({ showDropdown, setShowDropdown, items, className }) => {
 		>
 			<ul className="py-1 ">
 				{items.map((item) => (
-					<li key={item.id} className="block py-2 px-4">
-						{item.title}
+					<li key={item.id} className="block py-2 px-4 text-base">
+						<Link to={item.to}>{item.title}</Link>
 					</li>
 				))}
 			</ul>
