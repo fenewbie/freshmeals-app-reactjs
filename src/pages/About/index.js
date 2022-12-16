@@ -1,4 +1,4 @@
-import { BlogList as BlogSection } from '@components/Blog';
+import { BlogGrid as BlogSection } from '@components/Blog';
 import {
 	IntroSection,
 	QuestionSection,

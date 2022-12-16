@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
-import { getData } from '../services/api';
+import { getData, getProductByTitle } from '../services/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';

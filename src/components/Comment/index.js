@@ -1,8 +1,9 @@
 import Button from '@components/UI/Button';
+import Card from '@components/UI/Card';
 import { IoArrowUndoOutline } from 'react-icons/io5';
 function CommentCard({ avatar, name, date, comment, separate }) {
 	return (
-		<div className={`flex items-center py-8 ${separate && 'border-b border-[rgba(0, 0, 0, 0.05)]'}`}>
+		<Card className={`flex items-center py-8 ${separate && 'border-b border-[rgba(0, 0, 0, 0.05)]'}`}>
 			<img
 				src={avatar}
 				alt="user"
@@ -31,7 +32,7 @@ function CommentCard({ avatar, name, date, comment, separate }) {
 				</div>
 				<p className="mt-4 text-sm">{comment}</p>
 			</div>
-		</div>
+		</Card>
 	);
 }
 

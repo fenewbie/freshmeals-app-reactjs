@@ -13,10 +13,12 @@ import storage from 'redux-persist/lib/storage';
 
 import cartReducer from './cart/cartSlice';
 import modalReducer from './modal/modalSlice';
+import productReducer from './products/productSlice';
 
 const reducers = combineReducers({
 	modal: modalReducer,
 	cart: cartReducer,
+	product: productReducer,
 });
 const PersistConfig = {
 	key: 'root',

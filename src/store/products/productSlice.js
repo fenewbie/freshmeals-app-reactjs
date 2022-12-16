@@ -25,6 +25,7 @@ export const getProductById = createAsyncThunk(
 			const productRef = doc(db, 'products', id);
 			const productSnap = await getDoc(productRef);
 			const obj = productSnap.data();
+			obj.id = productSnap.id
 			return obj;
 		} catch (err) {
 			console.log('Error getting product failed:', err.message);
@@ -36,7 +37,7 @@ const initialState = {
 	products: [],
 	isLoading: false,
 	filterProduct: [],
-	selectedProduct: {id : 1},
+	selectedProduct: {},
 };
 
 const productSlice = createSlice({
@@ -107,4 +108,4 @@ const productSlice = createSlice({
 });
 
 export const productActions = productSlice.actions;
-export default productSlice;
+export default productSlice.reducer;

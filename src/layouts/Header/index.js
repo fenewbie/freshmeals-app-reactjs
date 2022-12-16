@@ -2,7 +2,7 @@ import { NavMobi } from './NavMobi';
 import Navigation from '@components/UI/Navbar';
 import { useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { BiSearch, BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
+import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import Button from '@components/UI/Button';
 import Banner from './Banner';
@@ -11,6 +11,8 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import { CartCheckout } from '@features/CartScreen/CartCheckout';
+import SearchProducts from 'layouts/Header/Search';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -18,31 +20,21 @@ const Header = () => {
 	const headerRef = useRef(null);
 
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
+	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-	console.log("total quantity: ", totalQuantity);
+	const cartItems = useSelector((state) => state.cart.items);
 
 	const dispatch = useDispatch();
 
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
-	const handleClick = () => {
+	const handleNavMobi = () => {
 		dispatch(modalActions.toggleNavMobi());
 	};
-	// useEffect(() => {
-	// 	window.addEventListener('scroll', () => {
-	// 		if (
-	// 			document.body.scrollTop > 80 ||
-	// 			document.documentElement.scrollTop > 80
-	// 		) {
-	// 			headerRef.current.classList.add('header-shrink');
-	// 		} else {
-	// 			headerRef.current.classList.remove('header-shrink');
-	// 		}
-	// 	});
-
-	// 	return () => window.removeEventListener('scroll', null);
-	// }, []);
+	const handleCart = () => {
+		dispatch(modalActions.toggleCart());
+	};
 
 	return (
 		<header
@@ -73,9 +65,9 @@ const Header = () => {
 								GET A QUOTE
 							</Button>
 							<div className="flex gap-3">
-								<Button className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4">
-									<BiSearch />
-								</Button>
+								<div className="lg:visible invisible">
+									<SearchProducts />
+								</div>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
 									onClick={() => setShowDropdown(!showDropdown)}
@@ -88,19 +80,26 @@ const Header = () => {
 									items={userList}
 								></Dropdown>
 
-								<Link
-									to="cart"
+								<Button
+									onClick={handleCart}
 									className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4 relative"
 								>
 									<BiCartAlt />
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-								</Link>
+									<span
+										className={`${
+											showCart
+												? 'fixed inset-0 w-full h-full bg-black opacity-40'
+												: ''
+										}`}
+									></span>
+								</Button>
 
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
-									onClick={handleClick}
+									onClick={handleNavMobi}
 								>
 									<span
 										className={`${
@@ -111,7 +110,12 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleClick} />
+								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
+								<CartCheckout
+									isShowingCart={showCart}
+									handleClose={handleCart}
+									item={cartItems}
+								/>
 							</div>
 						</div>
 					</nav>
