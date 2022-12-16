@@ -24,8 +24,6 @@ const Header = () => {
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 	const cartItems = useSelector((state) => state.cart.items);
 
-	console.log('total quantity: ', totalQuantity);
-
 	const dispatch = useDispatch();
 
 	const location = useLocation();
