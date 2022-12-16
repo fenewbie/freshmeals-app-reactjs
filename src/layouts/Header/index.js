@@ -11,8 +11,8 @@ import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
-import SideCart from './SideCart';
-import { cartActions } from '@store/cart/cartSlice';
+import SearchProducts from './Search';
+import { CartCheckout } from '@features/CartScreen/CartCheckout';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -22,6 +22,8 @@ const Header = () => {
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+	const cartItems = useSelector((state) => state.cart.items);
+
 	console.log('total quantity: ', totalQuantity);
 
 	const dispatch = useDispatch();
@@ -94,7 +96,14 @@ const Header = () => {
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-								</Link>
+									<span
+										className={`${
+											showCart
+												? 'fixed inset-0 w-full h-full bg-black opacity-40'
+												: ''
+										}`}
+									></span>
+								</Button>
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleNavMobi}
@@ -110,13 +119,12 @@ const Header = () => {
 								</Button>
 								<NavMobi
 									isDisplay={showNavMobi}
-									handleClick={handleClick}
+									handleClick={handleNavMobi}
 								/>
-								<SideCart
-									isDisplay={true}
-									handleClose={() =>
-										console.log('closed sidecart')
-									}
+								<CartCheckout
+									isShowingCart={showCart}
+									handleClose={handleCart}
+									item={cartItems}
 								/>
 							</div>
 						</div>
