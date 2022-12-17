@@ -1,4 +1,10 @@
-const Dropdown = ({ showDropdown, setShowDropdown, items, className }) => {
+const Dropdown = ({
+	showDropdown,
+	setShowDropdown,
+	items,
+	className,
+	isSort,
+}) => {
 	return (
 		<div
 			className={`${
@@ -7,7 +13,13 @@ const Dropdown = ({ showDropdown, setShowDropdown, items, className }) => {
 		>
 			<ul className="py-1 ">
 				{items.map((item) => (
-					<li key={item.id} className="block py-2 px-4">
+					<li
+						key={item.id}
+						className={`block py-2 px-4 transition-all ${
+							isSort &&
+							'hover:bg-[rgba(0,0,0,0.03)] cursor-pointer'
+						}`}
+					>
 						{item.title}
 					</li>
 				))}
