@@ -21,15 +21,9 @@ const ProductItem = ({
 	className,
 	product,
 }) => {
-	const isShowingQuickViewModal = useSelector(
-		(state) => state.modal.isShowingQuickViewModal
-	);
-	const isShowingSuccessModal = useSelector(
-		(state) => state.modal.isShowingSuccessModal
-	);
 	const dispatch = useDispatch();
 	const handleOpenQuickView = () => {
-		dispatch(modalActions.quickView());
+		dispatch(modalActions.quickView({ status: true, dataActive: product }));
 	};
 	const handleOpenAddToCardModal = (e) => {
 		dispatch(modalActions.successModal({ status: true, type: 'wishlist' }));
@@ -37,6 +31,7 @@ const ProductItem = ({
 	const handleOpenWishListModal = () => {
 		dispatch(modalActions.successModal({ status: true, type: 'cart' }));
 	};
+
 	return (
 		<Card
 			className={`${
@@ -93,16 +88,13 @@ const ProductItem = ({
 					>
 						{title}
 					</Link>
-					<Price card={card} discount={discount} price={price} />
+					<Price
+						card={card}
+						discount={discount}
+						price={price}
+					/>
 				</div>
 			</div>
-			{isShowingQuickViewModal ? (
-				<QuickViewProductModal product={product} />
-			) : null}
-
-			{isShowingSuccessModal.status ? (
-				<SuccessModal product={product} type={isShowingSuccessModal.type} />
-			) : null}
 		</Card>
 	);
 };

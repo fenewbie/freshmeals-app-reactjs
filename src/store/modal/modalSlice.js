@@ -5,7 +5,11 @@ const modalSlice = createSlice({
 	initialState: {
 		isDisplay: false,
 		isShowingCart: false,
-		isShowingQuickViewModal: false,
+		// isShowingQuickViewModal: false,
+		quickViewModal: {
+			status: false,
+			dataActive: null
+		},
 		isShowingSuccessModal: { status: false, type: null },
 		notification: null
 	},
@@ -16,8 +20,11 @@ const modalSlice = createSlice({
 		toggleCart(state) {
 			state.isShowingCart = !state.isShowingCart;
 		},
-		quickView(state) {
-			state.isShowingQuickViewModal = !state.isShowingQuickViewModal;
+		quickView(state, action) {
+			state.quickViewModal = {
+				status: action.payload.status,
+				dataActive: action.payload.dataActive,
+			};
 		},
 		successModal(state, action) {
 			state.isShowingSuccessModal = {
