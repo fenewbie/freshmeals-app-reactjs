@@ -4,7 +4,6 @@ function Pagination({ totalPages, currentPage, handlePageChange }) {
 		pageNumberBtns.push(index);
 	}
 
-	console.log(totalPages);
 	return (
 		<div className="flex justify-center items-center">
 			<button
