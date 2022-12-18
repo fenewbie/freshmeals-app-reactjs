@@ -10,6 +10,7 @@ const Button = ({
 	btn,
 }) => {
 	let classType;
+	let props = {};
 
 	switch (btn) {
 		case 'card':
@@ -24,6 +25,11 @@ const Button = ({
 			classType =
 				'text-sm rounded mr-2 mb-2 py-2 px-6  uppercase bg-sectionBg hover:bg-greenBtn hover:text-white ';
 			break;
+		case 'cancel':
+			classType =
+				'bg-red-600 hover:bg-red-800 mt-3  px-4 h-[58px] rounded-md text-white w-full max-md:mt-3';
+			props = { type: 'button' };
+			break;
 		default:
 			classType = '';
 			break;
@@ -35,6 +41,7 @@ const Button = ({
 				<Link
 					to={link}
 					className={`transition-all ${classType} ${className}`}
+					{...props}
 				>
 					{children}
 				</Link>
@@ -43,6 +50,7 @@ const Button = ({
 					type={type}
 					onClick={onClick}
 					className={`transition-all ${classType} ${className}`}
+					{...props}
 				>
 					{children}
 				</button>
