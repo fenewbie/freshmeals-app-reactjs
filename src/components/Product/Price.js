@@ -1,6 +1,6 @@
 export default function Price({ card, discount, price }) {
 	return (
-		<div className={`flex ${card && 'justify-center mt-2'} `}>
+		<div className={`flex ${card && 'justify-center'} `}>
 			<h4
 				className={`${card ? 'text-xl' : 'text-base'} font-bold text-greenBtn`}
 			>

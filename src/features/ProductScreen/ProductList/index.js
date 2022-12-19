@@ -7,14 +7,13 @@ import { labelProduct as label } from '@utils/constants';
 import ProductItem from '../ProductItem';
 import { useSelector } from 'react-redux';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
+import SuccessModal from '../ProductItem/SuccessModal';
 
 const ProductList = ({ products }) => {
-	const quickViewModal = useSelector(
-		(state) => state.modal.quickViewModal
+	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
+	const successModal = useSelector(
+		(state) => state.modal.successModal
 	);
-	// const isShowingSuccessModal = useSelector(
-	// 	(state) => state.modal.isShowingSuccessModal
-	// );
 	return (
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
@@ -62,8 +61,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -90,9 +88,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -119,9 +115,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -150,9 +144,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -181,9 +173,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -210,9 +200,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -222,15 +210,12 @@ const ProductList = ({ products }) => {
 			</div>
 
 			{quickViewModal.status ? (
-				<QuickViewProductModal product={quickViewModal.dataActive} />
+				<QuickViewProductModal/>
 			) : null}
 
-			{/* {isShowingSuccessModal.status ? (
-				<SuccessModal
-					product={product}
-					type={isShowingSuccessModal.type}
-				/>
-			) : null} */}
+			{successModal.status ? (
+				<SuccessModal type={successModal.type} />
+			) : null}
 		</div>
 	);
 };

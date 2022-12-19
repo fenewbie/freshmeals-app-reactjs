@@ -1,13 +1,13 @@
-import useFirestore from '@hooks/useFirestore';
+import { useRouteLoaderData } from 'react-router-dom';
+
 import { shuffle } from '@utils/helpers';
 import Title from '@components/Title';
 import ProductItem from '@features/ProductScreen/ProductItem';
 
 export default function FeatureHomePage() {
-	const { docs } = useFirestore('products');
-	const shuffleProducts = shuffle(docs);
+	const { products } = useRouteLoaderData('root');
+	const shuffleProducts = shuffle(products);
 	const featureProducts = shuffleProducts.slice(0, 8);
-
 	return (
 		<div className="my-[120px]">
 			<Title title="Featured Products" />
@@ -15,15 +15,9 @@ export default function FeatureHomePage() {
 				{featureProducts.map((el) => (
 					<ProductItem
 						key={el.id}
-						id={el.id}
-						rating={el.rating}
-						numReviews={el.numReviews}
-						image={el.image}
-						label={el.label || 'offer'}
-						title={el.title}
-						price={el.price}
-						discount={el.discount || 0}
+						{...el}
 						card
+						product={el}
 					/>
 				))}
 			</div>

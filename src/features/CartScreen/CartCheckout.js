@@ -20,13 +20,18 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 				>
 					<header className="flex items-center justify-between border-b border-b-sectionBg pb-5">
 						<p className="font-bold text-lg">Cart</p>
-						<button className="text-2xl" onClick={handleClose}>
+						<button
+							className="text-2xl"
+							onClick={handleClose}
+						>
 							<MdClose />
 						</button>
 					</header>
 					{item.length === 0 ? (
 						<div className="flex flex-col items-center">
-							<p className="text-xl font-bold">No item in your cart!</p>
+							<p className="text-xl font-bold">
+								No item in your cart!
+							</p>
 							<Link
 								to="../shop"
 								className="flex text-xl m-3 px-6 py-3 shadow border hover:bg-greenBtn hover:text-white hover:underline "
@@ -39,13 +44,18 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 							<div className="flex-1 overflow-y-auto py-3">
 								{item.map((item, index) => (
 									<div
+										key={item.id}
 										className={`relative py-4 mx-3 ${
 											index !== 0 && 'border-t'
 										}`}
 									>
 										<button
 											onClick={() => {
-												dispatch(cartActions.removeItem(item.id));
+												dispatch(
+													cartActions.removeItem(
+														item.id
+													)
+												);
 											}}
 											className="absolute bg-green-300 h-6 w-6 rounded-full top-2 -left-2 hover:brightness-95"
 										>
@@ -60,9 +70,12 @@ export function CartCheckout({ isShowingCart, handleClose, item }) {
 												/>
 											</div>
 											<div className="text-sm flex-1">
-												<h3 className="font-bold">{item.title}</h3>
+												<h3 className="font-bold">
+													{item.title}
+												</h3>
 												<p>
-													{item.quantity} x ${item.discount.toFixed(2)}
+													{item.quantity} x $
+													{item.discount.toFixed(2)}
 												</p>
 											</div>
 										</div>

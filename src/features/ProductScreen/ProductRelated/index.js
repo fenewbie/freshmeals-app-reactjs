@@ -12,17 +12,18 @@ import SuccessModal from '../ProductItem/SuccessModal';
 function ProductRelated({ types }) {
 	const { products } = useRouteLoaderData('root');
 
-	const isShowingQuickViewModal = useSelector(
-		(state) => state.modal.isShowingQuickViewModal
-	);
+	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
 
-	const isShowingSuccessModal = useSelector(
-		(state) => state.modal.isShowingSuccessModal
+	const successModal = useSelector(
+		(state) => state.modal.successModal
 	);
 
 	return (
 		<div className="py-24">
-			<Title title="Related Product" center={false} />
+			<Title
+				title="Related Product"
+				center={false}
+			/>
 			<Slider
 				breakpoints={{
 					768: {
@@ -37,8 +38,8 @@ function ProductRelated({ types }) {
 			>
 				{products
 					.filter((product) => {
-						const filterCategories = product.category.filter((item) =>
-							types.includes(item)
+						const filterCategories = product.category.filter(
+							(item) => types.includes(item)
 						);
 						return filterCategories.length > 0;
 					})
@@ -48,19 +49,17 @@ function ProductRelated({ types }) {
 							<SwiperSlide key={el.id}>
 								<ProductItem
 									{...el}
-									label={el.label || 'free'}
-									discount={el.discount || 0}
-									card={true}
+									card
 								/>
 							</SwiperSlide>
 						);
 					})}
-				{isShowingQuickViewModal ? (
-					<QuickViewProductModal products={products} />
+				{quickViewModal.status ? (
+					<QuickViewProductModal/>
 				) : null}
 
-				{isShowingSuccessModal.status ? (
-					<SuccessModal products={products} type={isShowingSuccessModal.type} />
+				{successModal.status ? (
+					<SuccessModal type={successModal.type} />
 				) : null}
 			</Slider>
 		</div>

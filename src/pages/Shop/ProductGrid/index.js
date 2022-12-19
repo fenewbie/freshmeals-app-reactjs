@@ -6,7 +6,7 @@ export default function ProductGrid() {
 	const {products} = useRouteLoaderData('root');
 
 	return (
-		<div>
+		<div className='container mx-auto'>
 			<ProductList products= {products}/>
 		</div>
 	);

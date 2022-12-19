@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { modalActions } from '@store/modal/modalSlice';
 import { cartActions } from '@store/cart/cartSlice';
@@ -15,9 +15,13 @@ import Button from '@components/UI/Button/index';
 import { Quantity } from '@components/Cart/Quantity';
 import { useState } from 'react';
 
-const QuickViewProductModal = ({ product }) => {
+const QuickViewProductModal = () => {
+	const product = useSelector(
+		(state) => state.modal.quickViewModal.dataActive
+	);
 	const { id, title, image, price, rating, reviews, discount, category } =
 		product;
+
 	let [quantity, setQuantity] = useState(1);
 
 	const dispatch = useDispatch();
@@ -44,12 +48,21 @@ const QuickViewProductModal = ({ product }) => {
 				quantity,
 			})
 		);
+		dispatch(
+			modalActions.successModal({
+				status: true,
+				type: 'cart',
+				dataActive: {
+					id,
+					title,
+					image,
+				},
+			})
+		);
 	};
 	const handleCloseModal = () => {
 		dispatch(modalActions.quickView({ status: false, dataActive: null }));
 	};
-
-	console.log(quantity);
 
 	return (
 		<Modal handleClose={handleCloseModal}>
@@ -96,14 +109,14 @@ const QuickViewProductModal = ({ product }) => {
 								))}
 							</ul>
 						</div>
-						<div>
+						<div className="flex">
 							<Quantity
 								decreaseItem={decreaseItem}
 								incrementItem={incrementItem}
 								quantity={quantity}
 							/>
 							<Button
-								btn="cart"
+								btn="card"
 								className="mt-0 ml-5"
 								onClick={addItem}
 							>

@@ -3,7 +3,7 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 
 export default function BtnIconItem({
 	handleOpenQuickView,
-	handleOpenAddToCardModal,
+	handleAddProductToCart,
 	handleOpenWishListModal
 }) {
 	return (
@@ -11,13 +11,15 @@ export default function BtnIconItem({
 			<button
 				className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
 				onClick={handleOpenQuickView}
+				title="Quick View"
 			>
 				<FaRegEye className="mx-auto" />
 			</button>
 
 			<button
 				className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-1"
-				onClick={handleOpenAddToCardModal}
+				onClick={handleAddProductToCart}
+				title="Add to Cart"
 			>
 				<FaShoppingCart className="mx-auto" />
 			</button>
@@ -25,6 +27,7 @@ export default function BtnIconItem({
 			<button
 				className="h-[50px] w-[50px] font-medium text-gray-900 bg-white rounded-full focus:outline-none hover:bg-greenBtn hover:text-white transition-all duration-300 mx-auto"
 				onClick={handleOpenWishListModal}
+				title="Wishlist"
 			>
 				<AiTwotoneHeart className="mx-auto" />
 			</button>
