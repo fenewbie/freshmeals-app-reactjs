@@ -23,7 +23,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
-const ProductGridPage = lazy(() => import('./pages/Shop/ProductGridPage'));
+const ProductGrid = lazy(() => import('./pages/Shop/ProductGrid'));
 const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 
@@ -41,7 +41,7 @@ function App() {
 			>
 				<Route index element={<Home />} />
 				<Route path="shop" element={<ShopLayout />}>
-					<Route index element={<ProductGridPage />}/>
+					<Route index element={<ProductGrid />} />
 					<Route
 						path=":productId"
 						element={<ProductDetailPage />}

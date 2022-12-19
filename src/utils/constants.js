@@ -1,7 +1,7 @@
 import logoHeader01 from '../assets/logo.png';
 import logoHeader02 from '../assets/logo01.png';
 import paymentImg from '../assets/payment.png';
-import noresult from '../assets/search/noresults.png';
+import noresult  from '../assets/search/noresults.png';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
@@ -16,6 +16,7 @@ export const labelProduct = [
 	{ id: 5, label: 'fish & meat' },
 	{ id: 6, label: 'fruits' },
 ];
+
 
 // Navbar
 export const navbarList = [
@@ -91,84 +92,3 @@ export const linkFooter = [
 	{ id: 1, title: 'Order tracking', url: '' },
 	{ id: 2, title: 'Promotional Offers', url: '' },
 ];
-
-export const productFilter = {
-	categories: [
-		{
-			id: 1,
-			name: 'bread',
-		},
-		{
-			id: 2,
-			name: 'cake',
-		},
-		{
-			id: 3,
-			name: 'dried food',
-		},
-		{
-			id: 4,
-			name: 'drink',
-		},
-		{
-			id: 5,
-			name: 'fish',
-		},
-		{
-			id: 6,
-			name: 'fruits',
-		},
-		{
-			id: 7,
-			name: 'meat',
-		},
-		{
-			id: 8,
-			name: 'vegetables',
-		},
-	],
-	labels: [
-		{
-			id: 1,
-			value: 'offer',
-			desc: 'Offer'
-		},
-		{
-			id: 2,
-			value: 'big sale',
-			desc: 'Big Sale'
-		},
-		{
-			id: 3,
-			value: 'new',
-			desc: 'New'
-		},
-	],
-	rating: [
-		{
-			id: 1,
-			value: 1,
-			desc: '1 start',
-		},
-		{
-			id: 2,
-			value: 2,
-			desc: '2 starts',
-		},
-		{
-			id: 3,
-			value: 3,
-			desc: '3 starts',
-		},
-		{
-			id: 4,
-			value: 4,
-			desc: '4 starts',
-		},
-		{
-			id: 5,
-			value: 5,
-			desc: '5 starts',
-		}
-	],
-};

@@ -27,6 +27,5 @@ export const getData = async () => {
 	const blogs = await getDocuments('blog');
 	const products = await getDocuments('products');
 	const promotions = await getDocuments('promotion');
-	console.log('get data from router root...');
 	return { blogs, products, promotions };
 };
