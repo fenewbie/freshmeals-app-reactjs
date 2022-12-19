@@ -26,6 +26,7 @@ function CartScreen() {
 						<CartItem
 							item={item}
 							key={index}
+							background={index % 2 === 0 ? false : true}
 						/>
 					))}
 					<div className="flex justify-end py-5">

@@ -4,7 +4,7 @@ export function Quantity({ className, decreaseItem, incrementItem, quantity }) {
 	return (
 		<div className={`flex ${className}`}>
 			<button
-				className="inline-block w-12  rounded-md border-2  border-gray-300 outline-greenBtn bg-white"
+				className="inline-block w-12  rounded-md border-2  border-gray-300 outline-greenBtn bg-white hover:border-greenBtn"
 				onClick={decreaseItem}
 			>
 				<AiOutlineMinus className="mx-auto" />
@@ -13,7 +13,7 @@ export function Quantity({ className, decreaseItem, incrementItem, quantity }) {
 				{quantity}
 			</p>
 			<button
-				className="inline-block w-12 border-2 rounded-md border-gray-300 outline-greenBtn bg-white"
+				className="inline-block w-12 border-2 rounded-md border-gray-300 outline-greenBtn bg-white hover:border-greenBtn"
 				onClick={incrementItem}
 			>
 				<AiOutlinePlus className="mx-auto" />
