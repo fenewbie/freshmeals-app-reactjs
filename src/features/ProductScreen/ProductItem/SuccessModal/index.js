@@ -20,7 +20,7 @@ function SuccessModal({ type }) {
 
 	return (
 		<Modal handleClose={handleClose}>
-			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] w-2/3 mx-auto">
+			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-2/3 w-[90%]  mx-auto">
 				<button
 					onClick={handleClose}
 					className="absolute top-2 right-2 bg-white"
@@ -39,7 +39,7 @@ function SuccessModal({ type }) {
 							className="h-32 w-48 object-contain mr-6 max-md:m-auto"
 						/>
 						<div className="max-md:text-center">
-							<h4 className="text-xl font-bold max-md:mt-5 text-ellipsis">
+							<h4 className="md:text-xl text-lg font-bold max-md:mt-5 text-ellipsis">
 								{title}
 							</h4>
 							<span className="mt-3 inline-block">
@@ -52,14 +52,18 @@ function SuccessModal({ type }) {
 							{type === 'cart' ? (
 								<div className="flex max-md:flex-wrap mt-5">
 									<Button
-										btn="cart"
-										className="lg:h-9 md:h-9 md:w-[120px] w-full mt-0"
+										btn="card"
+										className="lg:h-9 md:h-9 md:w-[120px]"
+										type='link'
+										link='/cart'
 									>
 										View Cart
 									</Button>
 									<Button
-										btn="cart"
-										className="lg:h-9 md:h-9 md:w-[120px] w-full md:mt-0 mt-2 md:ml-3"
+										btn="card"
+										className="lg:h-9 md:h-9 md:w-[120px] md:ml-3 bg-black hover:bg-greenBtn"
+										type='link'
+										link='/checkout'
 									>
 										Check Out
 									</Button>
@@ -78,7 +82,7 @@ function SuccessModal({ type }) {
 					</div>
 					{type === 'cart' && (
 						<div className="pt-5 border-t mt-10">
-							<p className="text-center mb-3">
+							<p className="text-center mb-3 text-sm">
 								We give you <b>20% discount</b> for your first
 								order. Use(LoveFreshMeals) discount code at
 								checkout

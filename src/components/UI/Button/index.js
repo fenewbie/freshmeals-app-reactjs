@@ -14,7 +14,7 @@ const Button = ({
 	switch (btn) {
 		case 'card':
 			classType =
-				'px-4 h-[58px] rounded-md bg-greenBtn hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3';
+				'px-4 h-[58px] rounded-md bg-greenBtn hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3 flex items-center justify-center';
 			break;
 		case 'tag':
 			classType =
