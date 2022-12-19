@@ -60,6 +60,7 @@ const QuickViewProductModal = () => {
 			})
 		);
 	};
+
 	const handleCloseModal = () => {
 		dispatch(modalActions.quickView({ status: false, dataActive: null }));
 	};
@@ -74,8 +75,8 @@ const QuickViewProductModal = () => {
 					<IoClose className="text-3xl" />
 				</button>
 
-				<div className="flex items-center gap-10">
-					<div className="h-96 px-6">
+				<div className="flex items-center gap-10 max-md:flex-wrap max-md:justify-center">
+					<div className="md:h-96 h-48 mx-auto px-6">
 						<img
 							src={image}
 							className="h-full object-contains mx-auto"
@@ -83,20 +84,22 @@ const QuickViewProductModal = () => {
 						/>
 					</div>
 					<div className="max-w-[400px]">
-						<Rating
-							value={rating}
-							text={reviews}
-						/>
-						<h4 className="text-xl font-bold mt-2">{title}</h4>
-						<div className="flex items-center">
-							<span className="inline-block text-[56px] font-semibold text-greenBtn">
+						<div className='flex max-md:justify-center'>
+							<Rating
+								value={rating}
+								text={reviews}
+							/>
+						</div>
+						<h4 className="md:text-xl text-lg font-bold mt-2 max-md:text-center ">{title}</h4>
+						<div className="flex items-center max-md:justify-center mt-2">
+							<span className="inline-block md:text-[56px] text-4xl font-semibold text-greenBtn">
 								${discount.toFixed(2)}
 							</span>
-							<span className="inline-block text-5xl font-semibold text-greenBtn opacity-50 line-through ml-4">
+							<span className="inline-block md:text-5xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
 								${price.toFixed(2)}
 							</span>
 						</div>
-						<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
+						<div className="flex items-center max-md:justify-center md:py-5 py-2 md:my-6 my-4 border-t-[1px] border-b-[1px] border-grey">
 							<span>Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category.map((item, index) => (
@@ -109,21 +112,22 @@ const QuickViewProductModal = () => {
 								))}
 							</ul>
 						</div>
-						<div className="flex">
+						<div className="flex max-md:flex-wrap max-md:justify-center">
 							<Quantity
 								decreaseItem={decreaseItem}
 								incrementItem={incrementItem}
 								quantity={quantity}
+								className='max-md:h-10 h-[58px]'
 							/>
 							<Button
 								btn="card"
-								className="mt-0 ml-5"
+								className="mt-0 ml-5 max-md:h-10"
 								onClick={addItem}
 							>
 								Add to cart
 							</Button>
 						</div>
-						<div className="flex mt-5">
+						<div className="flex mt-5 max-md:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
 								<span className="ml-1 font-medium">
