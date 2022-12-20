@@ -8,6 +8,7 @@ import Navigation from '@components/UI/Navbar';
 import SocialLink from '@components/UI/SocialLink';
 import Button from '@components/UI/Button';
 import SearchProducts from 'layouts/Header/Search';
+import { SearchForm } from '@components/Form';
 
 export function NavMobi({ isDisplay, handleClick }) {
 	return (
@@ -18,7 +19,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 					animate={{ x: 0 }}
 					transition={{ type: 'tween', stiffness: 50 }}
 					exit={{ x: -300 }}
-					className="bg-white pl-8 pt-7 w-72 h-screen fixed inset-y-0 left-0 z-30"
+					className="bg-white pl-8 pt-7 w-72 h-screen fixed inset-y-0 left-0 z-30 "
 				>
 					<div className="flex justify-between items-center pb-5 border-b border-slate-100 w-[87.3%]">
 						<Link
@@ -41,23 +42,31 @@ export function NavMobi({ isDisplay, handleClick }) {
 							<MdClose />
 						</button>
 					</div>
-					<SearchProducts />
-					<Navigation className="flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%]" />
-					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
-						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
-							<BiUser className="outline-1" />
-							My Account
-						</Button>
-						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
-							<BiHeart className="outline-1" />
-							Wishlist
-						</Button>
-						<Button className="hover:text-greenBtn inline-flex items-center gap-3">
-							<BiCartAlt className="outline-1" />
-							Shopping cart
-						</Button>
+					<div className="mr-5">
+						<SearchForm
+							type="products"
+							searchFor="title"
+							isMobi
+						/>
 					</div>
-					<SocialLink />
+					<div className="overflow-y-auto h-full pb-44 mt-5">
+						<Navigation className="flex flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%] " />
+						<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
+							<Button className="hover:text-greenBtn inline-flex items-center gap-3">
+								<BiUser className="outline-1" />
+								My Account
+							</Button>
+							<Button className="hover:text-greenBtn inline-flex items-center gap-3">
+								<BiHeart className="outline-1" />
+								Wishlist
+							</Button>
+							<Button className="hover:text-greenBtn inline-flex items-center gap-3">
+								<BiCartAlt className="outline-1" />
+								Shopping cart
+							</Button>
+						</div>
+						<SocialLink />
+					</div>
 				</motion.div>
 			)}
 		</AnimatePresence>
