@@ -13,15 +13,18 @@ const Login = () => {
 	const onLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
 			const username = userCredential.user;
 			navigate('/user-profile');
-			console.log(username);
+			return username;
 		} catch (error) {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-			  console.log('An error occured: ', errorCode, errorMessage);
+			console.log('An error occured: ', errorCode, errorMessage);
 		}
 	};
 
@@ -94,7 +97,7 @@ const Login = () => {
 							</p>
 							<Button
 								btn="card"
-								className="min-w-[210px] max-w-[200px] mt-8"
+								className="min-w-[210px] max-w-[200px] mt-8 m-auto"
 								onClick={() => navigate('/register')}
 							>
 								CREATE ACCOUNT
