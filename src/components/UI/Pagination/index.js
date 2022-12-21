@@ -3,7 +3,6 @@ function Pagination({ totalPages, currentPage, handlePageChange }) {
 	for (let index = 1; index < totalPages + 1; index++) {
 		pageNumberBtns.push(index);
 	}
-
 	return (
 		<div className="flex justify-center items-center flex-wrap">
 			<button

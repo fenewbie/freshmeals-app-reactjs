@@ -10,7 +10,11 @@ const Navigation = ({ className }) => {
 					key={navItem.id}
 					to={navItem.url}
 					className={({ isActive }) =>
-						isActive ? 'border-b-2 border-green-600' : 'border-b-0'
+						`max-md:my-2 max-md:py-1 max-md:px-2 border-b-2 ${
+							isActive
+								? 'border-greenBtn text-greenBtn'
+								: 'border-transparent'
+						}`
 					}
 					end
 				>
