@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 import Button from '@components/UI/Button';
 import { Input } from '@components/Form';
 import { useFormik } from 'formik';
-import { validateEmail as validate } from '@components/Form/Validate';
+import { getValidationSchema } from '@components/Form/getValidationSchema';
 import { login } from '@store/auth/auth-actions';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
+import validate from '@components/Form/Validate';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -17,24 +18,22 @@ const Login = () => {
 			email: '',
 			password: '',
 		},
-		validate,
-		onSubmit: (values) => {
-			signInWithEmailAndPassword(auth, values)
+		validate: validate(getValidationSchema),
+		onSubmit: (email, password) => {
+			signInWithEmailAndPassword(auth, email, password)
 				.then((userAuth) => {
 					dispatch(
 						login({
-							email: userAuth.values.email,
-							uid: userAuth.values.uid,
-							displayName: userAuth.values.displayName,
-							photoUrl: userAuth.values.photoURL,
+							email: userAuth.email,
+							uid: userAuth.uid,
 						})
 					);
+					console.log('Login successfully!', email, password);
+					navigate('/');
 				})
 				.catch((err) => {
 					console.log(err);
 				});
-			alert('Login successfully!');
-			navigate('/');
 		},
 	});
 
@@ -49,27 +48,23 @@ const Login = () => {
 								To Your Account
 							</h2>
 							<p className="mt-3 max-md:text-sm">
-								Lorem ipsum dolor, sit amet consectetur
-								adipisicing elit. <br />
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
 								Sit aliquid, Non distinctio vel iste.
 							</p>
 						</div>
 					</div>
 				</div>
 				<div className="grid lg:grid-cols-12 grid-cols-1 max-md:px-6 gap-8 mt-20  ">
-					<div className="lg:col-span-6 ">
+					<div className="lg:col-span-5 ">
 						<div className="">
-							<form
-								className=""
-								onSubmit={formik.handleSubmit}
-							>
+							<form className="" onSubmit={formik.handleSubmit}>
 								<Input
 									type="text"
 									name="email"
 									placeholder="Email*"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.email}
+									value={formik.email}
 									className="mb-7"
 								/>
 								<Input
@@ -78,14 +73,10 @@ const Login = () => {
 									placeholder="Password*"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.password}
+									value={formik.password}
 								/>
 								<div className="mt-7">
-									<Button
-										className="w-full"
-										btn="card"
-										type="submit"
-									>
+									<Button className="w-full" btn="card" type="submit">
 										SIGN IN
 									</Button>
 								</div>
@@ -104,19 +95,16 @@ const Login = () => {
 					</div>
 					<div className="lg:col-span-6 ">
 						<div className=" text-center pt-50">
-							<h4 className="font-bold mb-5">
-								DON'T HAVE AN ACCOUNT?
-							</h4>
+							<h4 className="font-bold mb-5">DON'T HAVE AN ACCOUNT?</h4>
 							<p className="max-md:text-sm max-md:mb-6">
-								Add items to your wishlistget personalised
-								recommendations
+								Add items to your wishlistget personalised recommendations
 								<br />
-								check out more quickly track your orders
-								register
+								check out more quickly track your orders register
 							</p>
 							<Button
 								btn="card"
 								className="min-w-[210px] max-w-[200px] mt-8"
+								onClick={() => navigate('/register')}
 							>
 								CREATE ACCOUNT
 							</Button>

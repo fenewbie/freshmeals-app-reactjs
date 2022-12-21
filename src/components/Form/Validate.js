@@ -1,16 +1,21 @@
-export const validateEmail = (values) => {
-	const errors = {};
+export default function Validate(getValidationSchema) {
+	return (values) => {
+		const validationSchema = getValidationSchema(values);
+		try {
+			validationSchema.validateSync(values, { abortEarly: false });
+			return {};
+		} catch (error) {
+			return getErrorsFromValidationError(error);
+		}
+	};
+}
 
-	if (!values.email) {
-		errors.email = 'Please enter your email';
-	} else if (
-		!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-	) {
-		errors.email = 'Invalid email address';
-	}
-
-	return errors;
-};
-
-
-
+function getErrorsFromValidationError(validationError) {
+	const FIRST_ERROR = 0;
+	return validationError.inner.reduce((errors, error) => {
+		return {
+			...errors,
+			[error.path]: error.errors[FIRST_ERROR],
+		};
+	}, {});
+}

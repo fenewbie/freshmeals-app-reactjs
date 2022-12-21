@@ -1,18 +1,17 @@
 import { useFormik } from 'formik';
+import Validate from './Validate';
+import { getValidationSchema } from './getValidationSchema';
 import Input from './Input';
 import { FiSend } from 'react-icons/fi';
 import { TiWarning } from 'react-icons/ti';
-
-
 import Button from '../UI/Button';
-import { validateEmail as validate } from './Validate';
 
 function SubscribeForm({ isFooter }) {
 	const formik = useFormik({
 		initialValues: {
 			email: '',
 		},
-		validate,
+		validate: Validate(getValidationSchema),
 		onSubmit: (values) => {
 			console.log(values);
 		},
@@ -41,18 +40,11 @@ function SubscribeForm({ isFooter }) {
 					) : null}
 				</div>
 				{isFooter ? (
-					<Button
-						type="submit"
-						btn="card"
-					>
+					<Button type="submit" btn="card">
 						<FiSend />
 					</Button>
 				) : (
-					<Button
-						btn="card"
-						type="submit"
-						className="md:ml-3 min-w-[140px]"
-					>
+					<Button btn="card" type="submit" className="md:ml-3 min-w-[140px]">
 						Subscribe
 					</Button>
 				)}
