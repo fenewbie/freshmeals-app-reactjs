@@ -1,41 +1,30 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
 import Button from '@components/UI/Button';
 import { Input } from '@components/Form';
-import { useFormik } from 'formik';
-import { getValidationSchema } from '@components/Form/getValidationSchema';
-import { login } from '@store/auth/auth-actions';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
-import validate from '@components/Form/Validate';
+import { useState } from 'react';
 
 const Login = () => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const formik = useFormik({
-		initialValues: {
-			email: '',
-			password: '',
-		},
-		validate: validate(getValidationSchema),
-		onSubmit: (email, password) => {
-			signInWithEmailAndPassword(auth, email, password)
-				.then((userAuth) => {
-					dispatch(
-						login({
-							email: userAuth.email,
-							uid: userAuth.uid,
-						})
-					);
-					console.log('Login successfully!', email, password);
-					navigate('/');
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		},
-	});
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
+	const onLogin = (e) => {
+		e.preventDefault();
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed in
+				const user = userCredential.user;
+				navigate('/');
+				console.log(user);
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorCode, errorMessage);
+			});
+	};
 
 	return (
 		<section className="my-28">
@@ -57,26 +46,29 @@ const Login = () => {
 				<div className="grid lg:grid-cols-12 grid-cols-1 max-md:px-6 gap-8 mt-20  ">
 					<div className="lg:col-span-5 ">
 						<div className="">
-							<form className="" onSubmit={formik.handleSubmit}>
+							<form className="">
 								<Input
 									type="text"
 									name="email"
 									placeholder="Email*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.email}
+									required
+									onChange={(e) => setEmail(e.target.value)}
 									className="mb-7"
 								/>
 								<Input
 									type="password"
 									name="password"
 									placeholder="Password*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.password}
+									required
+									onChange={(e) => setPassword(e.target.value)}
 								/>
 								<div className="mt-7">
-									<Button className="w-full" btn="card" type="submit">
+									<Button
+										className="w-full"
+										btn="card"
+										type="submit"
+										onClick={onLogin}
+									>
 										SIGN IN
 									</Button>
 								</div>

@@ -11,7 +11,7 @@ function SubscribeForm({ isFooter }) {
 		initialValues: {
 			email: '',
 		},
-		validate: Validate(getValidationSchema),
+		// validate: Validate(getValidationSchema),
 		onSubmit: (values) => {
 			console.log(values);
 		},
@@ -34,7 +34,7 @@ function SubscribeForm({ isFooter }) {
 						hasError={formik.errors.email}
 					/>
 					{formik.errors.email ? (
-						<p className="my-2 text-red-400 flex items-center justify-center">
+						<p className="my-2 text-white flex items-center justify-center">
 							<TiWarning className="mr-1" /> {formik.errors.email}
 						</p>
 					) : null}

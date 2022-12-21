@@ -1,36 +1,33 @@
 import { Input } from '@components/Form';
 import Button from '@components/UI/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useFormik } from 'formik';
-import validate from '@components/Form/Validate';
-import { getValidationSchema } from '@components/Form/getValidationSchema';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '@services/firebase';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function Register() {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const formik = useFormik({
-		initialValues: {
-			firstName: '',
-			lastName: '',
-			email: '',
-			password: '',
-			cPassword: '',
-			consent: false,
-		},
-		validate: validate(getValidationSchema),
-		onSubmit: async (values) => {
-			try {
-				const userCredential = createUserWithEmailAndPassword(auth, values);
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [cPassword, setCPassword] = useState('');
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+
+		await createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
 				const user = userCredential.user;
-				console.log('userRegister', user);
-			} catch (err) {
-				console.log(err);
-			}
-		},
-	});
+				console.log(user);
+				navigate('/login');
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorCode, errorMessage);
+			});
+	};
 	return (
 		<div className="container mx-auto py-28 max-md:px-6">
 			<div className="flex items-center justify-center">
@@ -50,45 +47,45 @@ export default function Register() {
 			</div>
 			<div className="flex items-center justify-center my-10 mt-24">
 				<div className="lg:w-3/6 md:w-8/12">
-					<form action="#" className="" onSubmit={formik.handleSubmit}>
+					<form className="" onSubmit={onSubmit}>
 						<Input
 							type="text"
 							name="firstName"
+							value={firstName}
+							onChange={(e) => setFirstName(e.target.value)}
 							placeholder="First Name"
-							onChange={formik.handleChange}
-							value={formik.values.firstName}
 							className="mb-7"
 						/>
 						<Input
 							type="text"
 							name="lastName"
+							value={lastName}
+							onChange={(e) => setLastName(e.target.value)}
 							placeholder="Last Name"
-							onChange={formik.handleChange}
-							value={formik.values.lastName}
 							className="mb-7"
 						/>
 						<Input
 							type="text"
 							name="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 							placeholder="Email*"
-							onChange={formik.handleChange}
-							value={formik.values.email}
 							className="mb-7"
 						/>
 						<Input
 							type="password"
 							name="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 							placeholder="Password*"
-							onChange={formik.handleChange}
-							value={formik.values.password}
 							className="mb-7"
 						/>
 						<Input
 							type="password"
-							name="confirmpassword"
+							name="cPassword"
+							value={cPassword}
+							onChange={(e) => setCPassword(e.target.value)}
 							placeholder="Confirm Password*"
-							onChange={formik.handleChange}
-							value={formik.values.cPassword}
 						/>
 						<label className="flex mt-8 text-sm">
 							<Input
