@@ -1,12 +1,9 @@
-export default function CartTotal({
-	items,
-	totalAmount,
-}) {
+export default function CartTotal({ items, totalAmount }) {
 	return (
 		<table className="w-full">
 			<tbody>
 				{items?.map((el) => (
-					<tr className="border-t border-b bg-[#F7F8FA] h-14">
+					<tr key={el.title} className="border-t border-b bg-[#F7F8FA] h-14">
 						<td className="px-6">
 							{el.title} x <span>{el.quantity}</span>
 						</td>

@@ -1,8 +1,5 @@
 import Button from '@components/UI/Button';
-import { Checkbox, Label, Radio } from 'flowbite-react';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Input from './Input';
+import { Label, Radio } from 'flowbite-react';
 
 export default function PaymentMethod() {
 	return (
@@ -33,7 +30,7 @@ export default function PaymentMethod() {
 					<div className="relative top-[2px]">
 						<Radio
 							id="disabled"
-							disabled={true}
+							disabled={false}
 						/>
 					</div>
 					<div className="text-gray-500">

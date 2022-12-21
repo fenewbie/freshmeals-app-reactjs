@@ -5,36 +5,50 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { Input } from '@components/Form';
 import Button from '@components/UI/Button';
+import { useFormik } from 'formik';
+import { ValidationSchema } from '@components/Form/ValidationSchema';
 
 export default function Register() {
 	const navigate = useNavigate();
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [cPassword, setCPassword] = useState('');
+	const [validation, setValidation] = useState(true);
 
-	const onSubmit = async (e) => {
-		e.preventDefault();
+	const formik = useFormik({
+		initialValues: {
+			firstname: '',
+			lastname: '',
+			email: '',
+			password1: '',
+			password2: '',
+		},
+		validationSchema: ValidationSchema,
+		onSubmit: async (values) => {
+			try {
+				const userCredential = await createUserWithEmailAndPassword(
+					auth,
+					values.email,
+					values.password1
+				);
+				const username = userCredential.user;
 
-		try {
-			const userCredential = await createUserWithEmailAndPassword(
-				auth,
-				email,
-				password
-			);
-			const username = userCredential.user;
-			await setDoc(doc(db, 'users', username.uid), {
-				uid: username.uid,
-				displayName: `${firstName} ${lastName}`,
-				email,
-			});
-			console.log(username);
-			navigate('/login');
-		} catch (error) {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			console.log('An error occured: ', errorCode, errorMessage);
+				await setDoc(doc(db, 'users', username.uid), {
+					uid: username.uid,
+					displayName: `${username.firstName} ${username.lastName}`,
+					// email,
+				});
+				console.log(username);
+				navigate('/login');
+			} catch (err) {
+				console.log(err);
+			}
+		},
+	});
+	const validatePassword = (e) => {
+		if (e.target.value === formik.values.password1) {
+			setValidation(true);
+			formik.handleChange(e);
+		} else {
+			setValidation(false);
+			formik.handleChange(e);
 		}
 	};
 	return (
@@ -56,46 +70,63 @@ export default function Register() {
 			</div>
 			<div className="flex items-center justify-center my-10 mt-24">
 				<div className="lg:w-3/6 md:w-8/12">
-					<form className="" onSubmit={onSubmit}>
+					<form onSubmit={formik.handleSubmit}>
 						<Input
 							type="text"
-							name="firstName"
-							value={firstName}
-							onChange={(e) => setFirstName(e.target.value)}
+							{...formik.getFieldProps('firstname')}
 							placeholder="First Name"
 							className="mb-7"
 						/>
+						{formik.errors.firstname ? (
+							<div className="text-red-500">
+								<small>{formik.errors.firstname}</small>
+							</div>
+						) : null}
 						<Input
 							type="text"
-							name="lastName"
-							value={lastName}
-							onChange={(e) => setLastName(e.target.value)}
+							{...formik.getFieldProps('lastname')}
 							placeholder="Last Name"
 							className="mb-7"
 						/>
+						{formik.errors.lastname ? (
+							<div className="text-red-500">
+								<small>{formik.errors.lastname}</small>
+							</div>
+						) : null}
 						<Input
 							type="text"
-							name="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							{...formik.getFieldProps('email')}
 							placeholder="Email*"
 							className="mb-7"
 						/>
+						{formik.errors.email ? (
+							<div className="text-red-500">
+								<small>{formik.errors.email}</small>
+							</div>
+						) : null}
 						<Input
 							type="password"
-							name="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							{...formik.getFieldProps('password1')}
 							placeholder="Password*"
 							className="mb-7"
 						/>
+						{formik.errors.password1 ? (
+							<div className="text-red-500">
+								<small>{formik.errors.password1}</small>
+							</div>
+						) : null}
 						<Input
 							type="password"
-							name="cPassword"
-							value={cPassword}
-							onChange={(e) => setCPassword(e.target.value)}
+							{...formik.getFieldProps('password2')}
 							placeholder="Confirm Password*"
+							onChange={(e) => validatePassword(e)}
 						/>
+						{!validation ? (
+							<div className="text-red-500">
+								<small>Password didn't match</small>
+							</div>
+						) : null}
+
 						<label className="flex mt-8 text-sm">
 							<Input
 								type="checkbox"
@@ -115,7 +146,15 @@ export default function Register() {
 							By clicking "create account", I consent to the privacy policy.
 						</label>
 						<div className="mt-7">
-							<Button className="my-6 w-full" type="submit" btn="card">
+							<Button
+								className="my-6 w-full"
+								type="submit"
+								btn="card"
+								onClick={() => {
+									formik.handleSubmit();
+									console.log('submit');
+								}}
+							>
 								CREATE ACCOUNT
 							</Button>
 						</div>

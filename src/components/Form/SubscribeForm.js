@@ -1,17 +1,21 @@
 import { useFormik } from 'formik';
-import Validate from './Validate';
-import { getValidationSchema } from './getValidationSchema';
 import Input from './Input';
 import { FiSend } from 'react-icons/fi';
 import { TiWarning } from 'react-icons/ti';
 import Button from '../UI/Button';
+import * as Yup from 'yup';
 
 function SubscribeForm({ isFooter }) {
+	const ValidationSchema = Yup.object().shape({
+		email: Yup.string()
+			.email('E-mail is not valid!')
+			.required('E-mail is required!'),
+	});
 	const formik = useFormik({
 		initialValues: {
 			email: '',
 		},
-		// validate: Validate(getValidationSchema),
+		validationSchema: ValidationSchema,
 		onSubmit: (values) => {
 			console.log(values.email);
 		},
