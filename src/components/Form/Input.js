@@ -1,13 +1,4 @@
-
-function Input({
-	type,
-	rows,
-	cols,
-	hasError,
-	icon,
-	className,
-	...inputProps
-}) {
+function Input({ type, rows, cols, hasError, icon, className, ...inputProps }) {
 	const element =
 		type === 'textarea' ? (
 			<textarea
@@ -24,18 +15,14 @@ function Input({
 			/>
 		);
 	return (
-		<div>
-			<div
-				className={`${
-					type !== ('checkbox' || 'radio') &&
-					'relative flex py-4 w-full outline-none rounded border-2 bg-white focus-within:border-greenBtn'
-				} ${
-					hasError ? 'border-red-400' : 'border-gray-200'
-				}  ${className}`}
-			>
-				{element}
-				{icon && <span className="mr-4 text-greenBtn">{icon}</span>}
-			</div>
+		<div
+			className={`${
+				type !== ('checkbox' || 'radio') &&
+				'relative flex py-4 w-full outline-none rounded border-2 bg-white focus-within:border-greenBtn'
+			} ${hasError ? 'border-red-400' : 'border-gray-200'}  ${className}`}
+		>
+			{element}
+			{icon && <span className="mr-4 text-greenBtn">{icon}</span>}
 		</div>
 	);
 }

@@ -1,32 +1,63 @@
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
 import PaymentMethod from '@components/Form/PaymentMethod';
+import { Formik } from 'formik';
+import {
+	Form,
+	Link,
+	useLoaderData,
+	useNavigate,
+	useSubmit,
+} from 'react-router-dom';
 
 export default function CheckoutScreen() {
 	return (
-		<div>
+		<div className="container mx-auto py-24 px-6">
 			<section>
-				<p>
-					Returning customer ? <span>Click here to login</span>
+				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
+					<span className="">Returning customer ?</span>{' '}
+					<Link
+						to="/login"
+						className="text-greenBtn"
+					>
+						Click here to login
+					</Link>
 				</p>
-				<p>
-					Hvae a coupon ? <span>Click here to enter your code</span>
+				<p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
+					<span className="">Have a coupon ?</span>{' '}
+					<button className="text-greenBtn">
+						Click here to enter your code
+					</button>
 				</p>
 			</section>
-			<section>
-				<h4>Billing Details</h4>
-				<CheckoutForm />
-			</section>
-			<section className="flex flex-row gap-x-32 py-10">
-				<div >
-					<h5>Payment Method</h5>
-					<PaymentMethod />
-				</div>
-				<div>
-					<h5>Cart Totals</h5>
-                    <CartTotal />
-				</div>
-			</section>
+			<Form method="post">
+				<section className="mt-14">
+					<h4 className="font-bold md:text-2xl text-xl mb-8">
+						Billing Details
+					</h4>
+					<CheckoutForm />
+				</section>
+				<section className="grid lg:grid-cols-12 grid-cols-1 gap-8 mt-20 ">
+					<div className="lg:col-span-7 lg:pr-28">
+						<h4 className="font-bold md:text-2xl text-xl mb-8">
+							Payment Method
+						</h4>
+						<PaymentMethod />
+					</div>
+					<div className="lg:col-span-5 lg:w-full md:w-8/12 w-full ml-auto">
+						<h4 className="font-bold md:text-2xl text-xl mb-8">
+							Cart Totals
+						</h4>
+						<CartTotal />
+					</div>
+				</section>
+			</Form>
 		</div>
 	);
 }
+
+export const action = async ({ request }) => {
+	const formData = Object.fromEntries(await request.formData());
+	console.log(formData);
+	return { checkout: 'ok' };
+};
