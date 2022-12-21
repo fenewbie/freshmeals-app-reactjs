@@ -5,10 +5,8 @@ import Button from '@components/UI/Button';
 import CartItem from './CartItem';
 
 function CartScreen() {
-
 	const cartItems = useSelector((state) => state.cart.items);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
-
 
 	return (
 		<div>
@@ -25,10 +23,17 @@ function CartScreen() {
 			) : (
 				<>
 					{cartItems.map((item, index) => (
-						<CartItem item={item} key={index} />
+						<CartItem
+							item={item}
+							key={index}
+							background={index % 2 === 0 ? false : true}
+						/>
 					))}
 					<div className="flex justify-end py-5">
-						<Button btn="card" className="min-w-[150px]">
+						<Button
+							btn="card"
+							className="min-w-[150px]"
+						>
 							Update Cart
 						</Button>
 					</div>
@@ -44,7 +49,9 @@ function CartScreen() {
 									</td>
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
-									<td className="px-6">Shipping and Handing</td>
+									<td className="px-6">
+										Shipping and Handing
+									</td>
 									<td className=" px-6 text-right">$15.00</td>
 								</tr>
 								<tr className="border-t border-b bg-[#F7F8FA] h-14">
@@ -53,15 +60,22 @@ function CartScreen() {
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
 									<td className="px-6">
-										<h3 className="font-bold">Order Total</h3>
+										<h3 className="font-bold">
+											Order Total
+										</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">{totalAmount.toFixed(2)}</h3>
+										<h3 className="font-bold">
+											{totalAmount.toFixed(2)}
+										</h3>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<Button btn="card" className="w-full mt-5">
+						<Button
+							btn="card"
+							className="w-full mt-5"
+						>
 							Proceed to checkout
 						</Button>
 					</div>

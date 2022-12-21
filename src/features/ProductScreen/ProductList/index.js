@@ -1,4 +1,3 @@
-
 import { SwiperSlide } from 'swiper/react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
@@ -6,9 +5,15 @@ import Slider from '@components/UI/Slider';
 import Title from '@components/Title';
 import { labelProduct as label } from '@utils/constants';
 import ProductItem from '../ProductItem';
+import { useSelector } from 'react-redux';
+import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
+import SuccessModal from '../ProductItem/SuccessModal';
 
 const ProductList = ({ products }) => {
-
+	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
+	const successModal = useSelector(
+		(state) => state.modal.successModal
+	);
 	return (
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
@@ -54,33 +59,9 @@ const ProductList = ({ products }) => {
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
-										<ProductItem {...el} product={el} card={true} />
-									</SwiperSlide>
-								))}
-						</Slider>
-					</TabPanel>
-					<TabPanel>
-						<Slider
-							breakpoints={{
-								768: {
-									slidesPerView: 2,
-								},
-								1024: {
-									slidesPerView: 4,
-								},
-							}}
-							grid={{ rows: 2, fill: 'row' }}
-							loop={false}
-						>
-							{products
-								?.filter((item) => item.category.includes('vegetables'))
-								.map((el) => (
-									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -100,14 +81,41 @@ const ProductList = ({ products }) => {
 							loop={false}
 						>
 							{products
-								?.filter((item) => item.category.includes('dried food'))
+								?.filter((item) =>
+									item.category.includes('vegetables')
+								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
+										/>
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 4,
+								},
+							}}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{products
+								?.filter((item) =>
+									item.category.includes('dried food')
+								)
+								.map((el) => (
+									<SwiperSlide key={el.id}>
+										<ProductItem
+											{...el}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -136,9 +144,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -167,9 +173,7 @@ const ProductList = ({ products }) => {
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -189,14 +193,14 @@ const ProductList = ({ products }) => {
 							loop={false}
 						>
 							{products
-								?.filter((item) => item.category.includes('fruits'))
+								?.filter((item) =>
+									item.category.includes('fruits')
+								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
 										<ProductItem
 											{...el}
-											product={el}
-											card={true}
-											label={el.label || 'free'}
+											card
 										/>
 									</SwiperSlide>
 								))}
@@ -204,6 +208,14 @@ const ProductList = ({ products }) => {
 					</TabPanel>
 				</Tabs>
 			</div>
+
+			{quickViewModal.status ? (
+				<QuickViewProductModal/>
+			) : null}
+
+			{successModal.status ? (
+				<SuccessModal type={successModal.type} />
+			) : null}
 		</div>
 	);
 };

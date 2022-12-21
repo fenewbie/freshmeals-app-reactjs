@@ -4,10 +4,10 @@ import usePagination from '@hooks/usePagination';
 
 function ProductGrid({ products }) {
 	const { dataRender, currentPage, totalPages, handlePageChange } =
-		usePagination({ listData: products, limit: 3 });
+		usePagination({ listData: products, limit: 6 });
 
 	return (
-		<div className='container mx-auto py-28'>
+		<div>
 			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-20">
 				{dataRender.map((product) => (
 					<ProductItem

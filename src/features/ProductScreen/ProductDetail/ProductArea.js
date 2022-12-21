@@ -12,13 +12,15 @@ import ProductDescTabs from './ProductDescTabs';
 import Rating from '@components/Product/Rating';
 import WishList from '../ProductItem/QuickViewProductModal/Wishlist';
 import { Quantity } from '@components/Cart/Quantity';
+import { modalActions } from '@store/modal/modalSlice';
 
 function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);
-
 	const dispatch = useDispatch();
+	
 	const { title, discount, image, id } = product;
-	const addItem = () => {
+	
+	const handleAddProductToCart = () => {
 		dispatch(
 			cartActions.addToCart({
 				id,
@@ -26,6 +28,17 @@ function ProductArea({ product }) {
 				discount,
 				image,
 				quantity,
+			})
+		);
+		dispatch(
+			modalActions.successModal({
+				status: true,
+				type: 'cart',
+				dataActive: {
+					id,
+					title,
+					image,
+				},
 			})
 		);
 	};
@@ -45,8 +58,13 @@ function ProductArea({ product }) {
 				<ProductListImages images={product.images} />
 				<div className="max-md:mt-10">
 					<div>
-						<Rating value={product.rating} text={product.numReviews} />
-						<h4 className="text-2xl font-bold mt-4">{product.title}</h4>
+						<Rating
+							value={product.rating}
+							text={product.numReviews}
+						/>
+						<h4 className="text-2xl font-bold mt-4">
+							{product.title}
+						</h4>
 						<div className="flex items-center">
 							<span className="inline-block text-[40px] font-semibold text-greenBtn">
 								${product.discount}
@@ -60,8 +78,13 @@ function ProductArea({ product }) {
 						<span>Categories:</span>
 						<div className="ml-3">
 							{product.category?.map((item, index) => (
-								<span className="capitalize font-semibold" key={index}>
-									{index === product.category.length - 1 ? item : `${item},`}
+								<span
+									className="capitalize font-semibold"
+									key={index}
+								>
+									{index === product.category.length - 1
+										? item
+										: `${item},`}
 								</span>
 							))}
 						</div>
@@ -72,14 +95,20 @@ function ProductArea({ product }) {
 							incrementItem={incrementItem}
 							quantity={quantity}
 						/>
-						<Button btn="cart" className="mt-0 ml-5" onClick={addItem}>
+						<Button
+							btn="cart"
+							className="mt-0 ml-5"
+							onClick={handleAddProductToCart}
+						>
 							Add to cart
 						</Button>
 					</div>
 					<div className="flex mt-5">
 						<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 							<WishList />
-							<span className="ml-1 font-medium">Add to Wishlist</span>
+							<span className="ml-1 font-medium">
+								Add to Wishlist
+							</span>
 						</div>
 						<Link className="flex items-center  hover:text-greenBtn transition-all">
 							<BsArrowLeftRight />
