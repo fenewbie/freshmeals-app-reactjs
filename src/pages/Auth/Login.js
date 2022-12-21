@@ -10,20 +10,19 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const onLogin = (e) => {
+	const onLogin = async (e) => {
 		e.preventDefault();
-		signInWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-				// Signed in
-				const user = userCredential.user;
-				navigate('/');
-				console.log(user);
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorCode, errorMessage);
-			});
+		try {
+			const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+			const username = userCredential.user;
+			navigate('/user-profile');
+			console.log(username);
+		} catch (error) {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			  console.log('An error occured: ', errorCode, errorMessage);
+		}
 	};
 
 	return (

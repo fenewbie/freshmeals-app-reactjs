@@ -25,14 +25,14 @@ export const fetchCartData = () => {
 				})
 			);
 		} catch (error) {
-			console.log('Fetching cart data failed!', error);
+			// console.log('Fetching cart data failed!', error);
 		}
 	};
 };
 
 export const sendCartData = (cart) => {
 	return async () => {
-		console.log('Sending cart data!');
+		// console.log('Sending cart data!');
 
 		const sendRequest = async () => {
 			const response = await axios.put(
@@ -53,7 +53,7 @@ export const sendCartData = (cart) => {
 			await sendRequest();
 			console.log('Sent cart data successfully!');
 		} catch (error) {
-			console.log('Fetching cart data failed!', error);
+			// console.log('Fetching cart data failed!', error);
 		}
 	};
 };

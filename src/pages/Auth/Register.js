@@ -1,9 +1,10 @@
-import { Input } from '@components/Form';
-import Button from '@components/UI/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '@services/firebase';
+import { auth, db } from '@services/firebase';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { Input } from '@components/Form';
+import Button from '@components/UI/Button';
 
 export default function Register() {
 	const navigate = useNavigate();
@@ -16,17 +17,25 @@ export default function Register() {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		await createUserWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-				const user = userCredential.user;
-				console.log(user);
-				navigate('/login');
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorCode, errorMessage);
+		try {
+			const userCredential = await createUserWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+			const username = userCredential.user;
+			await setDoc(doc(db, 'users', username.uid), {
+				uid: username.uid,
+				displayName: `${firstName} ${lastName}`,
+				email,
 			});
+			console.log(username);
+			navigate('/login');
+		} catch (error) {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.log('An error occured: ', errorCode, errorMessage);
+		}
 	};
 	return (
 		<div className="container mx-auto py-28 max-md:px-6">

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -21,6 +21,10 @@ import Login from 'pages/Auth/Login';
 import Register from 'pages/Auth/Register';
 import PrivateRoute from '@components/PrivateRoute';
 import UserProfile from 'pages/UserProfile';
+import { useDispatch, useSelector } from 'react-redux';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@services/firebase';
+import { saveUser } from '@store/auth/authSlice';
 
 const Home = lazy(() => import('./pages/Home'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -32,6 +36,18 @@ const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 
 function App() {
+	
+	const dispatch = useDispatch();
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				dispatch(saveUser(user.refreshToken));
+			} else {
+				dispatch(saveUser(undefined));
+			}
+		});
+	}, [dispatch]);
+	
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<Route
@@ -44,9 +60,14 @@ function App() {
 				<Route index element={<Home />} />
 				<Route path="login" element={<Login />} />
 				<Route path="register" element={<Register />} />
-				<Route element={<PrivateRoute />}>
-					<Route path="user-profile" element={<UserProfile />} />
-				</Route>
+				<Route
+					path="user-profile"
+					element={
+						<PrivateRoute>
+							<UserProfile />
+						</PrivateRoute>
+					}
+				></Route>
 				<Route path="shop" element={<ShopLayout />}>
 					<Route index element={<ProductGrid />} />
 					<Route
