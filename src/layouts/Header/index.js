@@ -12,7 +12,7 @@ import Dropdown from '@components/UI/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
 import SearchProducts from './Search';
-import { CartCheckout } from '@features/CartScreen/CartCheckout';
+import  ViewCart  from '@features/CartScreen/ViewCart';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -51,11 +51,7 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img
-									src={cs.logo01}
-									alt="logo"
-									className="h-12"
-								/>
+								<img src={cs.logo01} alt="logo" className="h-12" />
 							</Link>
 						</div>
 					</nav>
@@ -74,9 +70,7 @@ const Header = () => {
 								</div>
 								<Button
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() =>
-										setShowDropdown(!showDropdown)
-									}
+									onClick={() => setShowDropdown(!showDropdown)}
 								>
 									<BiUser />
 								</Button>
@@ -115,11 +109,8 @@ const Header = () => {
 									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi
-									isDisplay={showNavMobi}
-									handleClick={handleNavMobi}
-								/>
-								<CartCheckout
+								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
+								<ViewCart
 									isShowingCart={showCart}
 									handleClose={handleCart}
 									item={cartItems}

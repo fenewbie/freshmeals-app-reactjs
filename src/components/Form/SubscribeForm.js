@@ -13,7 +13,7 @@ function SubscribeForm({ isFooter }) {
 		},
 		// validate: Validate(getValidationSchema),
 		onSubmit: (values) => {
-			console.log(values);
+			console.log(values.email);
 		},
 	});
 

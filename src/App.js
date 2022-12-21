@@ -5,7 +5,7 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@services/firebase';
 import { saveUser } from '@store/auth/authSlice';
@@ -22,7 +22,7 @@ import Gallery from './pages/Gallery';
 import SearchPage from 'pages/Search';
 import SearchProductsPage from 'pages/Search/SearchProductsPage';
 import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
-import { action as checkoutAction } from '@features/CheckoutScreen/CheckoutScreen';
+import { action as checkoutAction } from '@features/CheckoutScreen';
 import Login from 'pages/Auth/Login';
 import Register from 'pages/Auth/Register';
 import PrivateRoute from '@components/PrivateRoute';
@@ -38,7 +38,6 @@ const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 
 function App() {
-	
 	const dispatch = useDispatch();
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
@@ -49,7 +48,7 @@ function App() {
 			}
 		});
 	}, [dispatch]);
-	
+
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<Route
@@ -71,63 +70,31 @@ function App() {
 					}
 				></Route>
 				<Route path="shop" element={<ShopLayout />}>
-					<Route index element={<ProductGridPage />}/>
+					<Route index element={<ProductGridPage />} />
 					<Route
 						path=":productId"
 						element={<ProductDetailPage />}
 						loader={productLoader}
 					/>
 				</Route>
-				<Route
-					path="cart"
-					element={<Cart />}
-				/>
-				<Route
-					path="checkout"
-					element={<Checkout />}
-					action={checkoutAction}
-				/>
-				<Route
-					path="about"
-					element={<About />}
-					loader={aboutLoader}
-				/>
-				<Route
-					path="contact"
-					element={<Contact />}
-				/>
+				<Route path="cart" element={<Cart />} />
+				<Route path="checkout" element={<Checkout />} action={checkoutAction} />
+				<Route path="about" element={<About />} loader={aboutLoader} />
+				<Route path="contact" element={<Contact />} />
 
-				<Route
-					path="blog"
-					element={<BlogLayout />}
-				>
-					<Route
-						index
-						element={<BlogGridPage />}
-					/>
+				<Route path="blog" element={<BlogLayout />}>
+					<Route index element={<BlogGridPage />} />
 					<Route
 						path=":blogId"
 						element={<BlogDetailPage />}
 						loader={blogLoader}
 					/>
 				</Route>
-				<Route
-					path="gallery"
-					element={<Gallery />}
-				/>
+				<Route path="gallery" element={<Gallery />} />
 				<Route path="search">
-					<Route
-						index
-						element={<SearchPage />}
-					/>
-					<Route
-						path="products"
-						element={<SearchProductsPage />}
-					/>
-					<Route
-						path="blogs"
-						element={<SearchBlogsPage />}
-					/>
+					<Route index element={<SearchPage />} />
+					<Route path="products" element={<SearchProductsPage />} />
+					<Route path="blogs" element={<SearchBlogsPage />} />
 				</Route>
 			</Route>
 		)

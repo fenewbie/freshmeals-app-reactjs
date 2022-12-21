@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Dropdown = ({
 	showDropdown,
 	setShowDropdown,
@@ -16,11 +18,10 @@ const Dropdown = ({
 					<li
 						key={item.id}
 						className={`block py-2 px-4 transition-all ${
-							isSort &&
-							'hover:bg-[rgba(0,0,0,0.03)] cursor-pointer'
+							isSort && 'hover:bg-[rgba(0,0,0,0.03)] cursor-pointer'
 						}`}
 					>
-						{item.title}
+						<Link to={item.to}>{item.title}</Link>
 					</li>
 				))}
 			</ul>

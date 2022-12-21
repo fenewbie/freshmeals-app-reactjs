@@ -1,30 +1,24 @@
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
 import PaymentMethod from '@components/Form/PaymentMethod';
-import { Formik } from 'formik';
-import {
-	Form,
-	Link,
-	useLoaderData,
-	useNavigate,
-	useSubmit,
-} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { Form, Link } from 'react-router-dom';
 
 export default function CheckoutScreen() {
+	const cartItems = useSelector((state) => state.cart.items);
+	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	return (
 		<div className="container mx-auto py-24 px-6">
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
-					<span className="">Returning customer ?</span>{' '}
-					<Link
-						to="/login"
-						className="text-greenBtn"
-					>
+					<span className="">Returning customer ?</span>
+					<Link to="/login" className="text-greenBtn">
 						Click here to login
 					</Link>
 				</p>
 				<p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
-					<span className="">Have a coupon ?</span>{' '}
+					<span className="">Have a coupon ?</span>
 					<button className="text-greenBtn">
 						Click here to enter your code
 					</button>
@@ -45,10 +39,8 @@ export default function CheckoutScreen() {
 						<PaymentMethod />
 					</div>
 					<div className="lg:col-span-5 lg:w-full md:w-8/12 w-full ml-auto">
-						<h4 className="font-bold md:text-2xl text-xl mb-8">
-							Cart Totals
-						</h4>
-						<CartTotal />
+						<h4 className="font-bold md:text-2xl text-xl mb-8">Cart Totals</h4>
+						<CartTotal items={cartItems} totalAmount={totalAmount} />
 					</div>
 				</section>
 			</Form>

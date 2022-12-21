@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
 
-export function CartCheckout({ isShowingCart, handleClose, item }) {
+export default function ViewCart({ isShowingCart, handleClose, item }) {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
 
