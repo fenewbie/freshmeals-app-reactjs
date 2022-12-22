@@ -45,7 +45,7 @@ export default function FormContainer() {
 						label="Email"
 						name="email"
 					/>
-					{/* <FormikControl control="textarea" label="description" name="description" /> */}
+					<FormikControl control="textarea" label="description" name="description" />
 					{/* <FormikControl
 						control="select"
 						label="Select a country"
