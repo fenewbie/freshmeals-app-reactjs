@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { Input } from '@components/Form';
 import Button from '@components/UI/Button';
-import { useFormik } from 'formik';
+import { useFormik} from 'formik';
 import { ValidationSchema } from '@components/Form/ValidationSchema';
 
 export default function Register() {
@@ -35,20 +35,21 @@ export default function Register() {
 					displayName: `${values.firstname} ${values.lastname}`,
 					email: username.email,
 				});
-
+				
 				navigate('/login');
+				
 			} catch (err) {
 				const errorCode = err.code;
 				if (errorCode === 'auth/email-already-in-use') {
-					console.log('The email address is already in use');
+					alert('The email address is already in use');
 				} else if (errorCode === 'auth/invalid-email') {
-					console.log('The email address is not valid.');
+					alert('The email address is not valid.');
 				} else if (errorCode === 'auth/operation-not-allowed') {
-					console.log('Operation not allowed.');
+					alert('Operation not allowed.');
 				} else if (errorCode === 'auth/weak-password') {
-					console.log('The password is too weak.');
+					alert('The password is too weak.');
 				} else {
-					console.log('auth error' + err.toString());
+					alert('auth error' + err.toString());
 				}
 			}
 		},
@@ -74,61 +75,56 @@ export default function Register() {
 				<div className="lg:w-3/6 md:w-8/12">
 					<form onSubmit={formik.handleSubmit}>
 						<Input
-							id="firstname"
 							type="text"
 							{...formik.getFieldProps('firstname')}
 							placeholder="First Name"
 							className="mb-7"
 						/>
-						{formik.errors.firstname ? (
+						{formik.touched.firstname && formik.errors.firstname ? (
 							<div className="text-red-500">
 								<small>{formik.errors.firstname}</small>
 							</div>
 						) : null}
 						<Input
-							id="lastname"
 							type="text"
 							{...formik.getFieldProps('lastname')}
 							placeholder="Last Name"
 							className="mb-7"
 						/>
-						{formik.errors.lastname ? (
+						{formik.touched.lastname && formik.errors.lastname ? (
 							<div className="text-red-500">
 								<small>{formik.errors.lastname}</small>
 							</div>
 						) : null}
 						<Input
-							id="email"
 							type="text"
 							{...formik.getFieldProps('email')}
 							placeholder="Email*"
 							className="mb-7"
 						/>
-						{formik.errors.email ? (
+						{formik.touched.email && formik.errors.email ? (
 							<div className="text-red-500">
 								<small>{formik.errors.email}</small>
 							</div>
 						) : null}
 						<Input
-							id="password1"
 							type="password"
 							{...formik.getFieldProps('password1')}
 							placeholder="Password*"
 							className="mb-7"
 						/>
-						{formik.errors.password1 ? (
+						{formik.touched.password1 && formik.errors.password1 ? (
 							<div className="text-red-500">
 								<small>{formik.errors.password1}</small>
 							</div>
 						) : null}
 						<Input
-							id="password2"
 							type="password"
 							{...formik.getFieldProps('password2')}
 							placeholder="Confirm Password*"
 						/>
 
-						{formik.errors.password2 ? (
+						{formik.touched.password2 && formik.errors.password2 ? (
 							<div className="text-red-500">
 								<small>{formik.errors.password2}</small>
 							</div>
@@ -137,14 +133,13 @@ export default function Register() {
 							<Input
 								{...formik.getFieldProps('consent1')}
 								type="checkbox"
-								id="consent1"
 								className="mr-2  relative top-[1px]"
 							/>
 							I consent to Herboil processing my personal data in order to send
 							personalized marketing material in accordance with the consent
 							form and the privacy policy.
 						</label>
-						{formik.errors.consent1 ? (
+						{formik.touched.consent1 && formik.errors.consent1 ? (
 							<div className="text-red-500">
 								<small>{formik.errors.consent1}</small>
 							</div>
@@ -154,12 +149,11 @@ export default function Register() {
 							<Input
 								{...formik.getFieldProps('consent2')}
 								type="checkbox"
-								id="consent2"
 								className="mr-2  relative top-[1px]"
 							/>
 							By clicking "create account", I consent to the privacy policy.
 						</label>
-						{formik.errors.consent2 ? (
+						{formik.touched.consent2 && formik.errors.consent2 ? (
 							<div className="text-red-500">
 								<small>{formik.errors.consent2}</small>
 							</div>
@@ -169,10 +163,6 @@ export default function Register() {
 								className="my-6 w-full"
 								type="submit"
 								btn="card"
-								// onClick={() => {
-								// 	formik.handleSubmit();
-								// 	console.log('submit');
-								// }}
 							>
 								CREATE ACCOUNT
 							</Button>

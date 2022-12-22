@@ -3,7 +3,7 @@ import Button from '@components/UI/Button';
 import { Input } from '@components/Form';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
-import {useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 
@@ -15,7 +15,6 @@ const Login = () => {
 			.email('E-mail is not valid!')
 			.required('E-mail is required!'),
 		password: Yup.string()
-			.min(6, 'Password has to be longer than 6 characters!')
 			.required('Password is required!'),
 	});
 	const formik = useFormik({
@@ -62,30 +61,24 @@ const Login = () => {
 							<form className="" onSubmit={formik.handleSubmit}>
 								{error && <label className="text-red-700">{error}</label>}
 								<Input
-									type="text"
-									name="email"
-									placeholder="Email*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.values.email}
-									className="mb-7"
 									id="email"
+									type="text"
+									placeholder="Email*"
+									className="mb-7"
+									{...formik.getFieldProps('email')}
 								/>
-								{formik.errors.email ? (
-									<div style={{ color: 'red' }}>
+								{formik.touched.email && formik.errors.email ? (
+									<div className="text-red-500">
 										<small>{formik.errors.email}</small>
 									</div>
 								) : null}
 								<Input
 									type="password"
-									name="password"
 									placeholder="Password*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.values.password}
+									{...formik.getFieldProps('password')}
 								/>
-								{formik.errors.password ? (
-									<div style={{ color: 'red' }}>
+								{formik.touched.password && formik.errors.password ? (
+									<div className="text-red-500">
 										<small>{formik.errors.password}</small>
 									</div>
 								) : null}
