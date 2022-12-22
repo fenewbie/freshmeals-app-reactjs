@@ -10,7 +10,7 @@ import { ValidationSchema } from '@components/Form/ValidationSchema';
 
 export default function Register() {
 	const navigate = useNavigate();
-	const [validation, setValidation] = useState(true);
+	// const [validation, setValidation] = useState(true);
 
 	const formik = useFormik({
 		initialValues: {
@@ -34,8 +34,8 @@ export default function Register() {
 
 				await setDoc(doc(db, 'users', username.uid), {
 					uid: username.uid,
-					displayName: `${username.firstName} ${username.lastName}`,
-					// email,
+					displayName: `${values.firstname} ${values.lastname}`,
+					email: values.email,
 				});
 				console.log('username', username);
 				navigate('/login');
@@ -44,15 +44,15 @@ export default function Register() {
 			}
 		},
 	});
-	const validatePassword = (e) => {
-		if (e.target.value === formik.values.password1) {
-			setValidation(true);
-			formik.handleChange(e);
-		} else {
-			setValidation(false);
-			formik.handleChange(e);
-		}
-	};
+	// const validatePassword = (e) => {
+	// 	if (e.target.value === formik.values.password1) {
+	// 		setValidation(true);
+	// 		formik.handleChange(e);
+	// 	} else {
+	// 		setValidation(false);
+	// 		formik.handleChange(e);
+	// 	}
+	// };
 	return (
 		<div className="container mx-auto py-28 max-md:px-6">
 			<div className="flex items-center justify-center">
