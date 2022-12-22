@@ -35,7 +35,7 @@ export default function Register() {
 					displayName: `${values.firstname} ${values.lastname}`,
 					email: username.email,
 				});
-				console.log('username', username);
+
 				navigate('/login');
 			} catch (err) {
 				const errorCode = err.code;
@@ -74,6 +74,7 @@ export default function Register() {
 				<div className="lg:w-3/6 md:w-8/12">
 					<form onSubmit={formik.handleSubmit}>
 						<Input
+							id="firstname"
 							type="text"
 							{...formik.getFieldProps('firstname')}
 							placeholder="First Name"
@@ -85,6 +86,7 @@ export default function Register() {
 							</div>
 						) : null}
 						<Input
+							id="lastname"
 							type="text"
 							{...formik.getFieldProps('lastname')}
 							placeholder="Last Name"
@@ -96,6 +98,7 @@ export default function Register() {
 							</div>
 						) : null}
 						<Input
+							id="email"
 							type="text"
 							{...formik.getFieldProps('email')}
 							placeholder="Email*"
@@ -107,6 +110,7 @@ export default function Register() {
 							</div>
 						) : null}
 						<Input
+							id="password1"
 							type="password"
 							{...formik.getFieldProps('password1')}
 							placeholder="Password*"
@@ -118,6 +122,7 @@ export default function Register() {
 							</div>
 						) : null}
 						<Input
+							id="password2"
 							type="password"
 							{...formik.getFieldProps('password2')}
 							placeholder="Confirm Password*"
@@ -132,7 +137,7 @@ export default function Register() {
 							<Input
 								{...formik.getFieldProps('consent1')}
 								type="checkbox"
-								value=""
+								id="consent1"
 								className="mr-2  relative top-[1px]"
 							/>
 							I consent to Herboil processing my personal data in order to send
@@ -149,7 +154,7 @@ export default function Register() {
 							<Input
 								{...formik.getFieldProps('consent2')}
 								type="checkbox"
-								value=""
+								id="consent2"
 								className="mr-2  relative top-[1px]"
 							/>
 							By clicking "create account", I consent to the privacy policy.
@@ -164,10 +169,10 @@ export default function Register() {
 								className="my-6 w-full"
 								type="submit"
 								btn="card"
-								onClick={() => {
-									formik.handleSubmit();
-									console.log('submit');
-								}}
+								// onClick={() => {
+								// 	formik.handleSubmit();
+								// 	console.log('submit');
+								// }}
 							>
 								CREATE ACCOUNT
 							</Button>
