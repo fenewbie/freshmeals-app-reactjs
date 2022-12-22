@@ -19,9 +19,11 @@ export default function Register() {
 			email: '',
 			password1: '',
 			password2: '',
+			consent: false,
 		},
 		validationSchema: ValidationSchema,
 		onSubmit: async (values) => {
+			console.log('Data before submit', values);
 			try {
 				const userCredential = await createUserWithEmailAndPassword(
 					auth,
@@ -35,10 +37,10 @@ export default function Register() {
 					displayName: `${username.firstName} ${username.lastName}`,
 					// email,
 				});
-				console.log(username);
+				console.log('username', username);
 				navigate('/login');
 			} catch (err) {
-				console.log(err);
+				console.log('err', err);
 			}
 		},
 	});
@@ -62,7 +64,8 @@ export default function Register() {
 						</h2>
 
 						<p className="mt-3 max-md:text-sm">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit. <br />
 							Sit aliquid, Non distinctio vel iste.
 						</p>
 					</div>
@@ -119,32 +122,46 @@ export default function Register() {
 							type="password"
 							{...formik.getFieldProps('password2')}
 							placeholder="Confirm Password*"
-							onChange={(e) => validatePassword(e)}
+							// onChange={(e) => validatePassword(e)}
 						/>
-						{!validation ? (
+						{/* {!validation ? (
 							<div className="text-red-500">
 								<small>Password didn't match</small>
 							</div>
+						) : null} */}
+						{formik.errors.password2 ? (
+							<div className="text-red-500">
+								<small>{formik.errors.password2}</small>
+							</div>
 						) : null}
 
-						<label className="flex mt-8 text-sm">
+						{/* <label className="flex mt-8 text-sm">
 							<Input
 								type="checkbox"
-								value=""
+								{...formik.getFieldProps('consent')}
 								className="mr-2 relative top-[1px]"
 							/>
-							I consent to Herboil processing my personal data in order to send
-							personalized marketing material in accordance with the consent
-							form and the privacy policy.
-						</label>
+							I consent to Herboil processing my personal data in
+							order to send personalized marketing material in
+							accordance with the consent form and the privacy
+							policy.
+						</label> */}
+
 						<label className="flex mt-4 text-sm">
 							<Input
+								{...formik.getFieldProps('consent')}
 								type="checkbox"
 								value=""
 								className="mr-2  relative top-[1px]"
 							/>
-							By clicking "create account", I consent to the privacy policy.
+							By clicking "create account", I consent to the
+							privacy policy.
 						</label>
+						{formik.errors.consent ? (
+							<div className="text-red-500">
+								<small>{formik.errors.consent}</small>
+							</div>
+						) : null}
 						<div className="mt-7">
 							<Button
 								className="my-6 w-full"
@@ -165,7 +182,8 @@ export default function Register() {
 						</p>
 						<p className="text-lg">
 							<Link to="#">
-								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY POLICY
+								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp;
+								&nbsp; PRIVACY POLICY
 							</Link>
 						</p>
 						<div className="mt-12 underline">
