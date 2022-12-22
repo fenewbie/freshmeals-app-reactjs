@@ -19,7 +19,14 @@ export function ValidationSchema(values) {
 		// address: Yup.string().required('Please enter your address'),
 		// city: Yup.string().required('Please enter your city'),
 		// zip: Yup.number().required('Please enter your zip code'),
-		consent: Yup.bool()
+		consent1: Yup.bool()
+			.test(
+				'consent',
+				'You have to agree with our Terms and Conditions!',
+				(value) => value === true
+			)
+			.required('You have to agree with our Terms and Conditions!'),
+		consent2: Yup.bool()
 			.test(
 				'consent',
 				'You have to agree with our Terms and Conditions!',
