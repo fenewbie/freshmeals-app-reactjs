@@ -3,7 +3,7 @@ import Price from '@components/Product/Price';
 import { Link } from 'react-router-dom';
 import Rating from '@components/Product/Rating';
 import Card from '@components/UI/Card';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
 import { cartActions } from '@store/cart/cartSlice';
 
@@ -91,7 +91,6 @@ const ProductItem = ({
 							? ` bg-slate-100 pt-[100%]`
 							: ' h-24 w-24 border border-[rgba(0, 0, 0, 0.1]'
 					}`}
-					reloadDocument
 				>
 					{label && (
 						<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-10">

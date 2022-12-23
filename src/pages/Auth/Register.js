@@ -1,54 +1,62 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '@services/firebase';
-import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import { Input } from '@components/Form';
 import Button from '@components/UI/Button';
-import { useFormik } from 'formik';
+import { Form, Formik } from 'formik';
 import { ValidationSchema } from '@components/Form/ValidationSchema';
+import FormikControl from '@components/Form/FormikControl';
+import Loader from '@components/UI/Loader';
 
 export default function Register() {
+	const consent = [
+		{
+			key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+			value: '0',
+		},
+		{
+			key: 'By clicking "create account", I consent to the privacy policy.',
+			value: '1',
+		},
+	];
 	const navigate = useNavigate();
-	const [validation, setValidation] = useState(true);
+	const initialValues = {
+		firstname: '',
+		lastname: '',
+		email: '',
+		password1: '',
+		password2: '',
+		consent: [],
+	};
+	const handleSubmit = async (values, { setSubmitting }) => {
+		try {
+			const userCredential = await createUserWithEmailAndPassword(
+				auth,
+				values.email,
+				values.password1
+			);
+			const username = userCredential.user;
 
-	const formik = useFormik({
-		initialValues: {
-			firstname: '',
-			lastname: '',
-			email: '',
-			password1: '',
-			password2: '',
-		},
-		validationSchema: ValidationSchema,
-		onSubmit: async (values) => {
-			try {
-				const userCredential = await createUserWithEmailAndPassword(
-					auth,
-					values.email,
-					values.password1
-				);
-				const username = userCredential.user;
-
-				await setDoc(doc(db, 'users', username.uid), {
-					uid: username.uid,
-					displayName: `${username.firstName} ${username.lastName}`,
-					// email,
-				});
-				console.log(username);
-				navigate('/login');
-			} catch (err) {
-				console.log(err);
+			setDoc(doc(db, 'users', username.uid), {
+				uid: username.uid,
+				displayName: `${values.firstname} ${values.lastname}`,
+				email: username.email,
+			});
+			setSubmitting(false);
+			navigate('/login');
+		} catch (err) {
+			const errorCode = err.code;
+			if (errorCode === 'auth/email-already-in-use') {
+				alert('The email address is already in use');
+			} else if (errorCode === 'auth/invalid-email') {
+				alert('The email address is not valid.');
+			} else if (errorCode === 'auth/operation-not-allowed') {
+				alert('Operation not allowed.');
+			} else if (errorCode === 'auth/weak-password') {
+				alert('The password is too weak.');
+			} else {
+				alert('auth error' + err.toString());
 			}
-		},
-	});
-	const validatePassword = (e) => {
-		if (e.target.value === formik.values.password1) {
-			setValidation(true);
-			formik.handleChange(e);
-		} else {
-			setValidation(false);
-			formik.handleChange(e);
 		}
 	};
 	return (
@@ -69,96 +77,57 @@ export default function Register() {
 				</div>
 			</div>
 			<div className="flex items-center justify-center my-10 mt-24">
-				<div className="lg:w-3/6 md:w-8/12">
-					<form onSubmit={formik.handleSubmit}>
-						<Input
-							type="text"
-							{...formik.getFieldProps('firstname')}
-							placeholder="First Name"
-							className="mb-7"
-						/>
-						{formik.errors.firstname ? (
-							<div className="text-red-500">
-								<small>{formik.errors.firstname}</small>
-							</div>
-						) : null}
-						<Input
-							type="text"
-							{...formik.getFieldProps('lastname')}
-							placeholder="Last Name"
-							className="mb-7"
-						/>
-						{formik.errors.lastname ? (
-							<div className="text-red-500">
-								<small>{formik.errors.lastname}</small>
-							</div>
-						) : null}
-						<Input
-							type="text"
-							{...formik.getFieldProps('email')}
-							placeholder="Email*"
-							className="mb-7"
-						/>
-						{formik.errors.email ? (
-							<div className="text-red-500">
-								<small>{formik.errors.email}</small>
-							</div>
-						) : null}
-						<Input
-							type="password"
-							{...formik.getFieldProps('password1')}
-							placeholder="Password*"
-							className="mb-7"
-						/>
-						{formik.errors.password1 ? (
-							<div className="text-red-500">
-								<small>{formik.errors.password1}</small>
-							</div>
-						) : null}
-						<Input
-							type="password"
-							{...formik.getFieldProps('password2')}
-							placeholder="Confirm Password*"
-							onChange={(e) => validatePassword(e)}
-						/>
-						{!validation ? (
-							<div className="text-red-500">
-								<small>Password didn't match</small>
-							</div>
-						) : null}
-
-						<label className="flex mt-8 text-sm">
-							<Input
-								type="checkbox"
-								value=""
-								className="mr-2 relative top-[1px]"
+				<div className="lg:w-[40%] md:w-8/12">
+					<Formik
+						initialValues={initialValues}
+						validationSchema={ValidationSchema}
+						onSubmit={handleSubmit}
+					>
+						<Form>
+							<FormikControl
+								control="input"
+								name="firstname"
+								placeholder="First Name"
+								className="mb-5"
 							/>
-							I consent to Herboil processing my personal data in order to send
-							personalized marketing material in accordance with the consent
-							form and the privacy policy.
-						</label>
-						<label className="flex mt-4 text-sm">
-							<Input
-								type="checkbox"
-								value=""
-								className="mr-2  relative top-[1px]"
+							<FormikControl
+								control="input"
+								name="lastname"
+								placeholder="Last Name"
+								className="mb-5"
 							/>
-							By clicking "create account", I consent to the privacy policy.
-						</label>
-						<div className="mt-7">
-							<Button
-								className="my-6 w-full"
-								type="submit"
-								btn="card"
-								onClick={() => {
-									formik.handleSubmit();
-									console.log('submit');
-								}}
-							>
-								CREATE ACCOUNT
-							</Button>
-						</div>
-					</form>
+							<FormikControl
+								control="input"
+								name="email"
+								placeholder="Email*"
+								className="mb-5"
+							/>
+							<FormikControl
+								control="input"
+								type="password"
+								name="password1"
+								placeholder="Password*"
+								className="mb-5"
+							/>
+							<FormikControl
+								control="input"
+								type="password"
+								name="password2"
+								placeholder="Confirm Password*"
+							/>
+							<FormikControl
+								control="checkbox"
+								name="consent"
+								options={consent}
+								className="mt-5"
+							/>
+							<div className="mt-7">
+								<Button className="my-6 w-full" type="submit" btn="card">
+									CREATE ACCOUNT
+								</Button>
+							</div>
+						</Form>
+					</Formik>
 					<div className="flex flex-col items-center mt-7">
 						<p className="mb-6 text-sm">
 							By creating an account, you agree to our:

@@ -1,44 +1,41 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@components/UI/Button';
-import { Input } from '@components/Form';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
-import {useFormik } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+
+import Loader from '@components/UI/Loader';
+import FormikControl from '@components/Form/FormikControl';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
+
+	const initialValues = { email: '', password: '' };
 	const ValidationSchema = Yup.object().shape({
 		email: Yup.string()
 			.email('E-mail is not valid!')
 			.required('E-mail is required!'),
-		password: Yup.string()
-			.min(6, 'Password has to be longer than 6 characters!')
-			.required('Password is required!'),
+		password: Yup.string().required('Password is required!'),
 	});
-	const formik = useFormik({
-		initialValues: {
-			email: '',
-			password: '',
-		},
-		validationSchema: ValidationSchema,
-		onSubmit: async (values) => {
-			try {
-				const userCredential = await signInWithEmailAndPassword(
-					auth,
-					values.email,
-					values.password
-				);
-				const username = userCredential.user;
-				navigate('/user-profile');
-				return username;
-			} catch (err) {
-				setError('Either Email or Password is incorrect');
-			}
-		},
-	});
+	const handleSubmit = async (values, { setSubmitting, isSubmitting }) => {
+		setSubmitting(true);
+		try {
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				values.email,
+				values.password
+			);
+			const username = userCredential.user;
+			setSubmitting(false);
+			navigate('/user-profile');
+			return username;
+		} catch (err) {
+			setError('Either Email or Password is incorrect');
+		}
+	};
 	return (
 		<section className="my-28">
 			<div className="container mx-auto">
@@ -58,54 +55,50 @@ const Login = () => {
 				</div>
 				<div className="grid lg:grid-cols-12 grid-cols-1 max-md:px-6 gap-8 mt-20  ">
 					<div className="lg:col-span-5 ">
-						<div className="">
-							<form className="" onSubmit={formik.handleSubmit}>
-								{error && <label className="text-red-700">{error}</label>}
-								<Input
-									type="text"
-									name="email"
-									placeholder="Email*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.values.email}
-									className="mb-7"
-									id="email"
-								/>
-								{formik.errors.email ? (
-									<div style={{ color: 'red' }}>
-										<small>{formik.errors.email}</small>
+						<Formik
+							initialValues={initialValues}
+							validationSchema={ValidationSchema}
+							onSubmit={handleSubmit}
+						>
+							{({ isSubmitting }) => (
+								<Form>
+									{isSubmitting && <Loader />}
+									{error && (
+										<label className="text-red-500 px-4 py-2 rounded mb-4 block">
+											{error}
+										</label>
+									)}
+									<FormikControl
+										control="input"
+										type="email"
+										name="email"
+										placeholder="Email*"
+										className="mb-7"
+									/>
+									<FormikControl
+										control="input"
+										type="password"
+										name="password"
+										placeholder="Password*"
+									/>
+									<div className="mt-7">
+										<Button className="w-full" btn="card" type="submit">
+											SIGN IN
+										</Button>
 									</div>
-								) : null}
-								<Input
-									type="password"
-									name="password"
-									placeholder="Password*"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-									value={formik.values.password}
-								/>
-								{formik.errors.password ? (
-									<div style={{ color: 'red' }}>
-										<small>{formik.errors.password}</small>
+									<div className="go-to-btn mt-6">
+										<Link
+											to="#"
+											className="text-lg font-light hover:text-greenBtn"
+										>
+											<small className="max-md:text-center max-md:block">
+												FORGOTTEN YOUR PASSWORD?
+											</small>
+										</Link>
 									</div>
-								) : null}
-								<div className="mt-7">
-									<Button className="w-full" btn="card" type="submit">
-										SIGN IN
-									</Button>
-								</div>
-								<div className="go-to-btn mt-6">
-									<Link
-										to="#"
-										className="text-lg font-light hover:text-greenBtn"
-									>
-										<small className="max-md:text-center max-md:block">
-											FORGOTTEN YOUR PASSWORD?
-										</small>
-									</Link>
-								</div>
-							</form>
-						</div>
+								</Form>
+							)}
+						</Formik>
 					</div>
 					<div className="lg:col-span-6 ">
 						<div className=" text-center pt-50">

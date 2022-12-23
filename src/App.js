@@ -40,13 +40,16 @@ const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		onAuthStateChanged(auth, (user) => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
 				dispatch(saveUser(user.refreshToken));
 			} else {
 				dispatch(saveUser(undefined));
 			}
 		});
+		return () => {
+			unsubscribe();
+		};
 	}, [dispatch]);
 
 	const router = createBrowserRouter(
