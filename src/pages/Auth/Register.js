@@ -2,10 +2,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '@services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import { Input } from '@components/Form';
 import Button from '@components/UI/Button';
-import { Formik} from 'formik';
+import { Formik } from 'formik';
 import { ValidationSchema } from '@components/Form/ValidationSchema';
+import Input1 from '@components/Form/Input1';
+import Checkboxes from '@components/Form/Checkboxes';
 
 export default function Register() {
 	const navigate = useNavigate();
@@ -15,15 +16,14 @@ export default function Register() {
 		email: '',
 		password1: '',
 		password2: '',
-		consent1: false,
-		consent2: false,
+		consent: [],
 	};
 
 	return (
 		<Formik
 			initialValues={initialValues}
 			validationSchema={ValidationSchema}
-			onSubmit={async(values, { setSubmitting }) => {
+			onSubmit={async (values, { setSubmitting }) => {
 				try {
 					const userCredential = await createUserWithEmailAndPassword(
 						auth,
@@ -66,8 +66,8 @@ export default function Register() {
 								</h2>
 
 								<p className="mt-3 max-md:text-sm">
-									Lorem ipsum dolor, sit amet consectetur adipisicing elit.{' '}
-									<br />
+									Lorem ipsum dolor, sit amet consectetur
+									adipisicing elit. <br />
 									Sit aliquid, Non distinctio vel iste.
 								</p>
 							</div>
@@ -76,92 +76,58 @@ export default function Register() {
 					<div className="flex items-center justify-center my-10 mt-24">
 						<div className="lg:w-3/6 md:w-8/12">
 							<form onSubmit={formik.handleSubmit}>
-								<Input
+								<Input1
 									type="text"
-									{...formik.getFieldProps('firstname')}
+									name="firstname"
 									placeholder="First Name"
-									className="mb-7"
+									className="mb-5"
 								/>
-								{formik.touched.firstname && formik.errors.firstname ? (
-									<div className="text-red-500">
-										<small>{formik.errors.firstname}</small>
-									</div>
-								) : null}
-								<Input
+								<Input1
 									type="text"
-									{...formik.getFieldProps('lastname')}
+									name="lastname"
 									placeholder="Last Name"
-									className="mb-7"
+									className="mb-5"
 								/>
-								{formik.touched.lastname && formik.errors.lastname ? (
-									<div className="text-red-500">
-										<small>{formik.errors.lastname}</small>
-									</div>
-								) : null}
-								<Input
-									type="text"
-									{...formik.getFieldProps('email')}
+								<Input1
+									type="email"
+									name="email"
 									placeholder="Email*"
-									className="mb-7"
+									className="mb-5"
 								/>
-								{formik.touched.email && formik.errors.email ? (
-									<div className="text-red-500">
-										<small>{formik.errors.email}</small>
-									</div>
-								) : null}
-								<Input
+								<Input1
 									type="password"
-									{...formik.getFieldProps('password1')}
+									name="password1"
 									placeholder="Password*"
-									className="mb-7"
+									className="mb-5"
 								/>
-								{formik.touched.password1 && formik.errors.password1 ? (
-									<div className="text-red-500">
-										<small>{formik.errors.password1}</small>
-									</div>
-								) : null}
-								<Input
+
+								<Input1
 									type="password"
-									{...formik.getFieldProps('password2')}
+									name="password2"
 									placeholder="Confirm Password*"
 								/>
 
-								{formik.touched.password2 && formik.errors.password2 ? (
-									<div className="text-red-500">
-										<small>{formik.errors.password2}</small>
-									</div>
-								) : null}
-								<label className="flex mt-4 text-sm">
-									<Input
-										{...formik.getFieldProps('consent1')}
-										type="checkbox"
-										className="mr-2  relative top-[1px]"
-									/>
-									I consent to Herboil processing my personal data in order to
-									send personalized marketing material in accordance with the
-									consent form and the privacy policy.
-								</label>
-								{formik.touched.consent1 && formik.errors.consent1 ? (
-									<div className="text-red-500">
-										<small>{formik.errors.consent1}</small>
-									</div>
-								) : null}
+								<Checkboxes
+									name="consent"
+									options={[
+										{
+											key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+											value: '0',
+										},
+										{
+											key: 'By clicking "create account", I consent to the privacy policy.',
+											value: '1',
+										},
+									]}
+									className="mt-5"
+								/>
 
-								<label className="flex mt-4 text-sm">
-									<Input
-										{...formik.getFieldProps('consent2')}
-										type="checkbox"
-										className="mr-2  relative top-[1px]"
-									/>
-									By clicking "create account", I consent to the privacy policy.
-								</label>
-								{formik.touched.consent2 && formik.errors.consent2 ? (
-									<div className="text-red-500">
-										<small>{formik.errors.consent2}</small>
-									</div>
-								) : null}
 								<div className="mt-7">
-									<Button className="my-6 w-full" type="submit" btn="card">
+									<Button
+										className="my-6 w-full"
+										type="submit"
+										btn="card"
+									>
 										CREATE ACCOUNT
 									</Button>
 								</div>
@@ -172,8 +138,8 @@ export default function Register() {
 								</p>
 								<p className="text-lg">
 									<Link to="#">
-										TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY
-										POLICY
+										TERMS OF CONDITIONS &nbsp; &nbsp; |
+										&nbsp; &nbsp; PRIVACY POLICY
 									</Link>
 								</p>
 								<div className="mt-12 underline">

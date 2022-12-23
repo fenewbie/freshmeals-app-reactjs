@@ -1,6 +1,8 @@
 import * as Yup from 'yup';
 export function ValidationSchema() {
 	return Yup.object().shape({
+		firstname: Yup.string().required('First name is required!'),
+		lastname: Yup.string().required('Last name is required!'),
 		email: Yup.string()
 			.email('E-mail is not valid!')
 			.required('E-mail is required!'),
@@ -11,15 +13,9 @@ export function ValidationSchema() {
 		password2: Yup.string()
 			.required('Password confirmation is required!')
 			.oneOf([Yup.ref('password1')], 'Passwords are not the same!'),
-		consent1: Yup.bool()
-			.test(
-				'consent',
-				'You have to agree with our Terms and Conditions!',
-				(value) => value === true
-			)
+		consent: Yup.array()
+			.min(2, 'You have to agree with our Terms and Conditions!')
+			.of(Yup.string())
 			.required('You have to agree with our Terms and Conditions!'),
-		consent2: Yup.bool()
-			.oneOf([true], 'You have to agree with our Terms and Conditions!')
-			.required('Required!'),
 	});
 }
