@@ -13,10 +13,7 @@ export default function Input1(props) {
 				className="relative flex py-4 px-6 w-full outline-none rounded border-2 bg-white focus-within:border-greenBtn"
 				{...rest}
 			/>
-			<ErrorMessage
-				name={name}
-				component={TextError}
-			/>
+			<ErrorMessage name={name} component={TextError} />
 		</div>
 	);
 }

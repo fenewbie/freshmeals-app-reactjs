@@ -5,7 +5,7 @@ import TextError from './TextError';
 export default function RadioButtons({ label, name, options, ...rest }) {
 	return (
 		<div>
-			<label htmlFor={name}>{label}</label>
+			<label>{label}</label>
 			<Field name={name} {...rest}>
 				{({ field }) => {
 					return options.map((option) => {
@@ -14,9 +14,9 @@ export default function RadioButtons({ label, name, options, ...rest }) {
 								<input
 									type="radio"
 									id={option.value}
+									{...field}
 									value={option.value}
 									checked={field.value === option.value}
-									{...field}
 								/>
 								<label htmlFor={option.value}>{option.key}</label>
 							</Fragment>

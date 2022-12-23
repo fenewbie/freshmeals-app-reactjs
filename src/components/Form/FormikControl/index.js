@@ -1,4 +1,4 @@
-import React from 'react';
+import Checkboxes from './Checkboxes';
 import Input from './Input';
 import RadioButtons from './RadioButtons';
 import Select1 from './Select1';
@@ -15,6 +15,8 @@ export default function FormikControl(props) {
 			return <Select1 {...rest} />;
 		case 'radio':
 			return <RadioButtons {...rest} />;
+		case 'checkbox':
+			return <Checkboxes {...rest} />;
 		default:
 			return null;
 	}

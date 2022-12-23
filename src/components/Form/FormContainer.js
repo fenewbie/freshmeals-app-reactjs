@@ -16,11 +16,18 @@ export default function FormContainer() {
 		{ key: 'England', value: 'England' },
 		{ key: 'Costa Rica', value: 'Costa Rica' },
 	];
+	const checkboxOptions = [
+		{ key: 'Australia', value: 'Australia' },
+		{ key: 'France', value: 'France' },
+		{ key: 'England', value: 'England' },
+		{ key: 'Costa Rica', value: 'Costa Rica' },
+	];
 	const initialValues = {
 		email: '',
 		description: '',
 		selectOption: '',
 		radioOption: '',
+		checkboxOption:[]
 	};
 	const validationSchema = Yup.object({
 		email: Yup.string()
@@ -29,6 +36,7 @@ export default function FormContainer() {
 		desc: Yup.string().required,
 		selectOption: Yup.string().required('Required'),
 		radioOption: Yup.string().required('Required'),
+		checkboxOption: Yup.string().required('Required'),
 	});
 	const onSubmit = (values) => console.log('Form data', values);
 	return (
@@ -45,11 +53,15 @@ export default function FormContainer() {
 						label="Email"
 						name="email"
 					/>
-					<FormikControl control="textarea" label="description" name="description" />
-					{/* <FormikControl
+					<FormikControl
+						control="textarea"
+						label="description"
+						name="description"
+					/>
+					<FormikControl
 						control="select"
-						label="Select a country"
 						name="selectOption"
+						defaultValue="Select a country"
 						options={dropdownOptions}
 					/>
 					<FormikControl
@@ -57,7 +69,13 @@ export default function FormContainer() {
 						label="Radio Topic"
 						name="radioOption"
 						options={radioOptions}
-					/> */}
+					/>
+					<FormikControl
+						control="checkbox"
+						label="Checkbox topics"
+						name="checkboxOption"
+						options={checkboxOptions}
+					/>
 					<button type="submit">Submit</button>
 				</Form>
 			)}

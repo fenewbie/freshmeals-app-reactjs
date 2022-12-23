@@ -1,40 +1,34 @@
 import { Field, ErrorMessage } from 'formik';
+import { Fragment } from 'react';
 import TextError from './TextError';
 
-function Checkboxes(props) {
-	const { label, name, options, className, ...rest } = props;
+function Checkboxes({ label, name, options, className, ...rest }) {
 	return (
 		<div className={`${className}`}>
 			<label>{label}</label>
 			<Field name={name}>
-				{(formik) => {
-					const { field } = formik;
+				{({ field }) => {
 					return options.map((option) => {
 						return (
-							<div
-								key={option.key}
-								className="mb-3"
-							>
+							<Fragment key={option.key}>
 								<input
 									type="checkbox"
 									id={option.value}
 									{...field}
-									{...rest}
 									value={option.value}
 									checked={field.value.includes(option.value)}
+									className="my-3"
 								/>
-								<label className="ml-2 max-md:text-sm">
+								<label htmlFor={option.value} className="ml-2 max-md:text-sm">
 									{option.key}
 								</label>
-							</div>
+								<br />
+							</Fragment>
 						);
 					});
 				}}
 			</Field>
-			<ErrorMessage
-				name={name}
-				component={TextError}
-			/>
+			<ErrorMessage name={name} component={TextError} />
 		</div>
 	);
 }
