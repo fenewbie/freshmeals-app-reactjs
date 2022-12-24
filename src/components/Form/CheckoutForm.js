@@ -2,54 +2,117 @@ import Input from './Input';
 import { FaUserAlt } from 'react-icons/fa';
 import { GrMail } from 'react-icons/gr';
 import { AiFillPhone } from 'react-icons/ai';
+import FormikControl from './FormikControl';
+import { Formik } from 'formik';
+import { countryOption, createaccount } from '@utils/constants';
 
 export default function CheckoutForm() {
-	 
+	const checkboxOptions = [
+		{ key: 'Australia', value: 'Australia' },
+		{ key: 'France', value: 'France' },
+		{ key: 'England', value: 'England' },
+		{ key: 'Costa Rica', value: 'Costa Rica' },
+	];
 	return (
-		<div className="border rounded px-8 py-8">
-			<h5 className="font-bold text-sm mb-4">Personal information</h5>
-			<div className="flex flex-wrap justify-between">
-				<Input
-					type="text"
-					name="name"
-					placeholder="First name"
-					className="mb-8 border md:w-[49%]"
-					icon={<FaUserAlt />}
-				/>
-				<Input
-					type="text"
-					name="lastName"
-					placeholder="Last name"
-					className="mb-8 border md:w-[49%]"
-					icon={<FaUserAlt />}
-				/>
-				<Input
-					type="email"
-					name="email"
-					placeholder="Your email"
-					className="mb-8 border md:w-[49%]"
-					icon={<GrMail />}
-				/>
-				<Input
-					type="number"
-					name="phone"
-					placeholder="Your phone"
-					className="mb-8 border md:w-[49%]"
-					icon={<AiFillPhone />}
-				/>
+		<Formik>
+			<div className="border rounded px-8 py-8">
+				<h5 className="font-bold text-sm mb-4">Personal information</h5>
+				<div className="flex gap-8 mb-8 max-md:flex-wrap">
+					<FormikControl
+						control="input"
+						name="firstname"
+						placeholder="First Name"
+						className="md:w-1/2 w-full"
+						icon={<FaUserAlt />}
+					/>
+					<FormikControl
+						control="input"
+						name="lastname"
+						placeholder="Last Name"
+						className="md:w-1/2 w-full"
+						icon={<FaUserAlt />}
+					/>
+					<div className="flex gap-8 mb-8 max-md:flex-wrap">
+						<FormikControl
+							control="input"
+							name="email"
+							placeholder="Email*"
+							className="md:w-1/2 w-full"
+							icon={<GrMail />}
+						/>
+						<FormikControl
+							control="input"
+							name="lastname"
+							placeholder="Your phone"
+							className="md:w-1/2 w-full"
+							icon={<AiFillPhone />}
+						/>
+					</div>
+				</div>
+				<div className="mt-10 md:w-1/3 w-full">
+					<h5 className="font-bold text-sm mb-4">Country</h5>
+					<FormikControl
+						control="select"
+						name="selectOption"
+						defaultValue="Select a country"
+						options={countryOption}
+					/>
+				</div>
+				<div className="mt-10">
+					<h5 className="font-bold text-sm mb-4">Address</h5>
+					<div className="">
+						<div className="flex gap-8 max-md:flex-wrap ">
+							<FormikControl
+								control="input"
+								name="address1"
+								placeholder="House number and street name"
+								className="md:w-1/2 w-full"
+								icon={<FaUserAlt />}
+							/>
+							<FormikControl
+								control="input"
+								name="address2"
+								placeholder="Apartment, suite, unit etc.(optional)"
+								className="md:w-1/2 w-full"
+								icon={<FaUserAlt />}
+							/>
+						</div>
+					</div>
+				</div>
+				<div className="mt-10 flex gap-8 max-lg:flex-wrap">
+					<div className="lg:w-1/3 md:flex-1 w-full">
+						<h5 className="font-bold text-sm mb-4">Town/City</h5>
+						<FormikControl control="input" name="city" placeholder="City" />
+					</div>
+					<div className="lg:w-1/3 md:flex-1 w-full">
+						<h5 className="font-bold text-sm mb-4">State</h5>
+						<FormikControl control="input" name="state" placeholder="State" />
+					</div>
+					<div className="lg:w-1/3 w-full">
+						<h5 className="font-bold text-sm mb-4">Zip</h5>
+						<FormikControl control="input" name="zip" placeholder="Zip" />
+					</div>
+				</div>
+				<div className="mt-5">
+					{/* <FormikControl
+						control="checkbox"
+						name="createaccount"
+						options={checkboxOptions}
+						className="mr-2"
+					/> */}
+				</div>
+
+				<div className="mt-10">
+					<h5 className="font-bold text-sm mb-4">Order Notes (optional)</h5>
+					<FormikControl
+						control="textarea"
+						label="description"
+						name="notes"
+						rows={6}
+						placeholder="Notes about your order, e.g. special notes for delivery"
+					/>
+				</div>
 			</div>
-			<div className="mt-2">
-				<h5 className="font-bold text-sm mb-4">
-					Order Notes (optional)
-				</h5>
-				<Input
-					type="textarea"
-					name="notes"
-					rows={6}
-					className="border w-full"
-					placeholder="Notes about your order, e.g. special notes for delivery"
-				/>
-			</div>
-		</div>
+		</Formik>
 	);
 }

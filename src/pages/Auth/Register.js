@@ -6,7 +6,6 @@ import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
 import { ValidationSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
-import Loader from '@components/UI/Loader';
 
 export default function Register() {
 	const consent = [

@@ -1,7 +1,7 @@
 import Checkboxes from './Checkboxes';
 import Input from './Input';
 import RadioButtons from './RadioButtons';
-import Select1 from './Select1';
+import Select from './Select';
 import Textarea from './Textarea';
 
 export default function FormikControl(props) {
@@ -12,7 +12,7 @@ export default function FormikControl(props) {
 		case 'textarea':
 			return <Textarea {...rest} />;
 		case 'select':
-			return <Select1 {...rest} />;
+			return <Select {...rest} />;
 		case 'radio':
 			return <RadioButtons {...rest} />;
 		case 'checkbox':

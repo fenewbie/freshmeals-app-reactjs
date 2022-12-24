@@ -131,17 +131,17 @@ export const productFilter = {
 		{
 			id: 1,
 			value: 'offer',
-			desc: 'Offer'
+			desc: 'Offer',
 		},
 		{
 			id: 2,
 			value: 'big sale',
-			desc: 'Big Sale'
+			desc: 'Big Sale',
 		},
 		{
 			id: 3,
 			value: 'new',
-			desc: 'New'
+			desc: 'New',
 		},
 	],
 	rating: [
@@ -169,6 +169,27 @@ export const productFilter = {
 			id: 5,
 			value: 5,
 			desc: '5 starts',
-		}
+		},
 	],
 };
+
+export const countryOption = [
+	{ key: 'Select country', value: '' },
+	{ key: 'Australia', value: 'Australia' },
+	{ key: 'France', value: 'France' },
+	{ key: 'United Kingdom (UK)', value: 'United Kingdom (UK)' },
+	{ key: 'China', value: 'China' },
+	{ key: 'Saudi Arabia', value: 'Saudi Arabia' },
+	{ key: 'Morocco', value: 'Morocco' },
+	{ key: 'United States (US)', value: 'United States (US)' },
+];
+export const createaccount = [
+	{
+		key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+		value: '0',
+	},
+	{
+		key: 'By clicking "create account", I consent to the privacy policy.',
+		value: '1',
+	},
+];
