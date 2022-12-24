@@ -1,58 +1,44 @@
-import { useFormik } from 'formik';
+import { Form, Formik, useFormik } from 'formik';
 import Input from './Input';
 import { FiSend } from 'react-icons/fi';
 import { TiWarning } from 'react-icons/ti';
 import Button from '../UI/Button';
 import * as Yup from 'yup';
+import { SubscribeSchema } from './ValidationSchema';
+import FormikControl from './FormikControl';
 
 function SubscribeForm({ isFooter }) {
-	const ValidationSchema = Yup.object().shape({
-		email: Yup.string()
-			.email('E-mail is not valid!')
-			.required('E-mail is required!'),
-	});
-	const formik = useFormik({
-		initialValues: {
-			email: '',
-		},
-		validationSchema: ValidationSchema,
-		onSubmit: (values) => {
-			console.log(values.email);
-		},
-	});
+	const handleSubmit = (values) => {
+		console.log(values.email);
+	};
 
 	return (
-		<div>
-			<form
-				className="flex max-md:flex-wrap"
-				onSubmit={formik.handleSubmit}
-				noValidate
+		<div className="text-black">
+			<Formik
+				initialValues={{ email: '' }}
+				validationSchema={SubscribeSchema}
+				onSubmit={handleSubmit}
 			>
-				<div className="flex-1">
-					<Input
-						name="email"
-						type="email"
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.firstName}
-						hasError={formik.errors.email}
-					/>
-					{formik.errors.email ? (
-						<p className="my-2 text-white flex items-center justify-center">
-							<TiWarning className="mr-1" /> {formik.errors.email}
-						</p>
-					) : null}
-				</div>
-				{isFooter ? (
-					<Button type="submit" btn="card">
-						<FiSend />
-					</Button>
-				) : (
-					<Button btn="card" type="submit" className="md:ml-3 min-w-[140px]">
-						Subscribe
-					</Button>
-				)}
-			</form>
+				<Form>
+					<div className="flex max-md:flex-wrap">
+						<FormikControl
+							control="input"
+							name="email"
+							placeholder="Enter your email"
+							className="w-full"
+						/>
+						<Button
+							type="submit"
+							btn="card"
+							className={`rounded-sm border-2 border-greenBtn ${
+								isFooter ? '' : 'md:min-w-[150px]  md:ml-4'
+							}`}
+						>
+							{isFooter ? <FiSend /> : 'Subscribe'}
+						</Button>
+					</div>
+				</Form>
+			</Formik>
 		</div>
 	);
 }
