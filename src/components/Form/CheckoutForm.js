@@ -6,12 +6,6 @@ import FormikControl from './FormikControl';
 import { countryOption, createaccount } from '@utils/constants';
 
 export default function CheckoutForm() {
-	const checkboxOptions = [
-		{ key: 'Australia', value: 'Australia' },
-		{ key: 'France', value: 'France' },
-		{ key: 'England', value: 'England' },
-		{ key: 'Costa Rica', value: 'Costa Rica' },
-	];
 
 	return (
 		<div className="border rounded px-8 py-8">
@@ -79,42 +73,28 @@ export default function CheckoutForm() {
 			<div className="mt-10 flex gap-8 max-lg:flex-wrap">
 				<div className="lg:w-1/3 md:flex-1 w-full">
 					<h5 className="font-bold text-sm mb-4">Town/City</h5>
-					<FormikControl
-						control="input"
-						name="city"
-						placeholder="City"
-					/>
+					<FormikControl control="input" name="city" placeholder="City" />
 				</div>
 				<div className="lg:w-1/3 md:flex-1 w-full">
 					<h5 className="font-bold text-sm mb-4">State</h5>
-					<FormikControl
-						control="input"
-						name="state"
-						placeholder="State"
-					/>
+					<FormikControl control="input" name="state" placeholder="State" />
 				</div>
 				<div className="lg:w-1/3 w-full">
 					<h5 className="font-bold text-sm mb-4">Zip</h5>
-					<FormikControl
-						control="input"
-						name="zip"
-						placeholder="Zip"
-					/>
+					<FormikControl control="input" name="zip" placeholder="Zip" />
 				</div>
 			</div>
 			<div className="mt-5">
-				{/* <FormikControl
-						control="checkbox"
-						name="createaccount"
-						options={checkboxOptions}
-						className="mr-2"
-					/> */}
+				<FormikControl
+					control="checkbox"
+					name="createaccount"
+					options={createaccount}
+					className="mr-2"
+				/>
 			</div>
 
 			<div className="mt-10">
-				<h5 className="font-bold text-sm mb-4">
-					Order Notes (optional)
-				</h5>
+				<h5 className="font-bold text-sm mb-4">Order Notes (optional)</h5>
 				<FormikControl
 					control="textarea"
 					name="notes"

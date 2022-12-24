@@ -10,12 +10,12 @@ import { TbGridDots } from 'react-icons/tb';
 import CommentSection from './CommentSection';
 import IntroSection from './IntroSection';
 
-import Button from '@components/UI/Button';
 import SocialLink from '@components/UI/SocialLink';
 import RelatedList from '@features/RelatedList/index';
 import { CommentForm, SearchForm } from '@components/Form';
 import { CommonSection, Post, BlogCategory, Tags } from '@components/Blog';
 import { default as PromotionRandom } from '@features/Promotion/Random';
+import PrivateRoute from '@components/PrivateRoute';
 
 function BlogDetail() {
 	const { blog, id } = useLoaderData();
@@ -34,24 +34,15 @@ function BlogDetail() {
 
 						<div className="flex justify-between mt-16">
 							<div>
-								<h3 className="font-bold text-lg mb-6">
-									Related Tags
-								</h3>
+								<h3 className="font-bold text-lg mb-6">Related Tags</h3>
 								<Tags
 									title="Related Tag"
 									relatedTag
-									tags={[
-										'business',
-										'healthy',
-										'Fresh food',
-										'Vegetables',
-									]}
+									tags={['business', 'healthy', 'Fresh food', 'Vegetables']}
 								/>
 							</div>
 							<div className="text-right">
-								<h3 className="font-bold text-lg">
-									Social Share
-								</h3>
+								<h3 className="font-bold text-lg">Social Share</h3>
 								<SocialLink />
 							</div>
 						</div>
@@ -68,10 +59,7 @@ function BlogDetail() {
 							>
 								<span className="flex items-center">
 									<FaRegArrowAltCircleLeft />
-									<Link
-										className="ml-2"
-										to={`/blog/${id - 1}`}
-									>
+									<Link className="ml-2" to={`/blog/${id - 1}`}>
 										Pre Post
 									</Link>
 								</span>
@@ -90,24 +78,18 @@ function BlogDetail() {
 								disabled={id === blogs.length}
 							>
 								<span className="flex items-center">
-									<Link
-										className="ml-2"
-										to={`/blog/${id + 1}`}
-										disabled={true}
-									>
+									<Link className="ml-2" to={`/blog/${id + 1}`} disabled={true}>
 										Next Post
 									</Link>
 									<FaRegArrowAltCircleRight />
 								</span>
 							</button>
 						</div>
-						<RelatedList
-							col="blogs"
-							related={blog.tags}
-							type="tags"
-						/>
+						<RelatedList col="blogs" related={blog.tags} type="tags" />
 						<CommentSection />
-						<CommentForm />
+						<PrivateRoute isLoggedIn={true}>
+							<CommentForm />
+						</PrivateRoute>
 					</div>
 				</div>
 
@@ -116,14 +98,11 @@ function BlogDetail() {
 						<IntroSection />
 					</div>
 					<CommonSection title="Search Object">
-						<SearchForm searchFor='title' type='blogs'/>
+						<SearchForm searchFor="title" type="blogs" />
 					</CommonSection>
 
 					<CommonSection title="Popular Feeds">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit
-						</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 					</CommonSection>
 
 					<BlogCategory
@@ -143,15 +122,13 @@ function BlogDetail() {
 
 					<CommonSection title="Twitter Feeds">
 						<div className="flex items-center">
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit
 						</div>
 					</CommonSection>
 
 					<CommonSection title="Instagram Feeds">
 						<div className="flex items-center">
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit
 						</div>
 					</CommonSection>
 

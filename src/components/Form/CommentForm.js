@@ -1,4 +1,3 @@
-import Input from './Input';
 import Button from '@components/UI/Button';
 
 import { TbEdit } from 'react-icons/tb';

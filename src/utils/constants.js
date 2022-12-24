@@ -191,13 +191,9 @@ export const countryOption = [
 ];
 export const createaccount = [
 	{
-		key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+		key: 'Create an account ?',
 		value: '0',
-	},
-	{
-		key: 'By clicking "create account", I consent to the privacy policy.',
-		value: '1',
-	},
+	}
 ];
 
 export const saveinfocomment = [
