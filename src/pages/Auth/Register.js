@@ -4,10 +4,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
-import {
-	RegisterSchema,
-	ValidationSchema,
-} from '@components/Form/ValidationSchema';
+import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
 
 export default function Register() {

@@ -193,3 +193,10 @@ export const createaccount = [
 		value: '1',
 	},
 ];
+
+export const saveinfocomment = [
+	{
+		key: 'Save my name, email, and website in this browser for the next time I comment.',
+		value: '0',
+	},
+];
