@@ -8,19 +8,16 @@ import * as Yup from 'yup';
 
 import Loader from '@components/UI/Loader';
 import FormikControl from '@components/Form/FormikControl';
+import { LoginSchema } from '@components/Form/ValidationSchema';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
 
 	const initialValues = { email: '', password: '' };
-	const ValidationSchema = Yup.object().shape({
-		email: Yup.string()
-			.email('E-mail is not valid!')
-			.required('E-mail is required!'),
-		password: Yup.string().required('Password is required!'),
-	});
+
 	const handleSubmit = async (values, { setSubmitting, isSubmitting }) => {
+		console.log(values);
 		setSubmitting(true);
 		try {
 			const userCredential = await signInWithEmailAndPassword(
@@ -47,7 +44,8 @@ const Login = () => {
 								To Your Account
 							</h2>
 							<p className="mt-3 max-md:text-sm">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
+								Lorem ipsum dolor, sit amet consectetur
+								adipisicing elit. <br />
 								Sit aliquid, Non distinctio vel iste.
 							</p>
 						</div>
@@ -57,7 +55,7 @@ const Login = () => {
 					<div className="lg:col-span-5 ">
 						<Formik
 							initialValues={initialValues}
-							validationSchema={ValidationSchema}
+							validationSchema={LoginSchema}
 							onSubmit={handleSubmit}
 						>
 							{({ isSubmitting }) => (
@@ -82,7 +80,11 @@ const Login = () => {
 										placeholder="Password*"
 									/>
 									<div className="mt-7">
-										<Button className="w-full" btn="card" type="submit">
+										<Button
+											className="w-full"
+											btn="card"
+											type="submit"
+										>
 											SIGN IN
 										</Button>
 									</div>
@@ -102,11 +104,15 @@ const Login = () => {
 					</div>
 					<div className="lg:col-span-6 ">
 						<div className=" text-center pt-50">
-							<h4 className="font-bold mb-5">DON'T HAVE AN ACCOUNT?</h4>
+							<h4 className="font-bold mb-5">
+								DON'T HAVE AN ACCOUNT?
+							</h4>
 							<p className="max-md:text-sm max-md:mb-6">
-								Add items to your wishlistget personalised recommendations
+								Add items to your wishlistget personalised
+								recommendations
 								<br />
-								check out more quickly track your orders register
+								check out more quickly track your orders
+								register
 							</p>
 							<Button
 								btn="card"
