@@ -93,10 +93,10 @@ export function ContactSchema(values) {
 		...name,
 		...email,
 		...phone,
+		...selectOption,
 		message: Yup.string()
 			.min(10, 'Message has to be longer than 10 characters!')
 			.max(100, 'Should not be more than 150 characters')
 			.required('Message is required!'),
-		servicetype: Yup.string().required('Service Type is required!'),
 	});
 }

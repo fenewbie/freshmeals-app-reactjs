@@ -1,9 +1,9 @@
 import { ErrorMessage, Field } from 'formik';
 import TextError from './TextError';
 
-export default function Textarea({ label, name, icon, ...rest }) {
+export default function Textarea({ label, name, icon,className, ...rest }) {
 	return (
-		<div>
+		<div className={`${className}`}>
 			<label htmlFor={name}>{label}</label>
 
 			<div className="flex rounded border-2 bg-white focus-within:border-greenBtn">

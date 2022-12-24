@@ -2,11 +2,17 @@ import logoHeader01 from '../assets/logo.png';
 import logoHeader02 from '../assets/logo01.png';
 import paymentImg from '../assets/payment.png';
 import noresult from '../assets/search/noresults.png';
+import emailImg from '../assets/contact/mail.png';
+import phoneImg from '../assets/contact/phone.png';
+import locateImg from '../assets/contact/locate.png';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
 export const paymentMethod = paymentImg;
 export const noResult = noresult;
+export const email = emailImg;
+export const phone = phoneImg;
+export const locate = locateImg;
 
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },
@@ -198,5 +204,28 @@ export const saveinfocomment = [
 	{
 		key: 'Save my name, email, and website in this browser for the next time I comment.',
 		value: '0',
+	},
+];
+
+export const servicetype = [
+	{
+		key: 'Select Service Type',
+		value: '',
+	},
+	{
+		key: 'Gardening',
+		value: 'Gardening',
+	},
+	{
+		key: 'Landscaping',
+		value: 'Landscaping',
+	},
+	{
+		key: 'Vegetables Growing',
+		value: 'Vegetables Growing',
+	},
+	{
+		key: 'Land Preparation',
+		value: 'Land Preparation',
 	},
 ];
