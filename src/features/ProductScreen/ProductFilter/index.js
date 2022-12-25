@@ -7,79 +7,37 @@ import { productFilter as filter } from '@utils/constants';
 import Button from '@components/UI/Button';
 import { default as Grid } from '@components/Product/ProductGrid';
 import { CommonSection } from '@components/Blog';
-import { Input } from '@components/Form';
+import FormikControl from '@components/Form/FormikControl';
+import { Formik } from 'formik';
+import { FilterProductSchema } from '@components/Form/ValidationSchema';
 
 function ProductFilter() {
 	const { products } = useRouteLoaderData('root');
 
-	const [filterArr, setFilterArr] = useState([]);
-	const { handleFilter, resultFilter } = useQuery('products', filterArr);
-
-	const [isClean, setIsClean] = useState(false);
+	const [filterResult, setFilterResult] = useState([]);
+	const [error, setError] = useState();
 	const [isFiltering, setIsFiltering] = useState(false);
 
-	const [types, setTypes] = useState([]);
-	const [label, setLabel] = useState();
-	const [price, setPrice] = useState({ from: 0, to: 1000 });
-	const [rating, setRating] = useState();
+	const { handleQuery, resultQuery } = useQuery('products', []);
+	const [rate, setRate] = useState();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setFilterArr([
-			{
-				name: 'category',
-				field: 'category',
-				operator: 'array-contains-any',
-				value: types,
-			},
-			{
-				name: 'sale',
-				field: 'label',
-				operator: '==',
-				value: label,
-			},
-			{
-				name: 'priceFrom',
-				field: 'price',
-				operator: '>=',
-				value: parseInt(price.from),
-			},
-			{
-				name: 'priceTo',
-				field: 'price',
-				operator: '<=',
-				value: parseInt(price.to),
-			},
-			{
-				name: 'popularity',
-				field: 'rating',
-				operator: '==',
-				value: rating,
-			},
-		]);
-		!isFiltering && setIsFiltering(true);
+	const initialValues = {
+		checkboxes: [],
+		minPrice: '',
+		maxPrice: '',
+		sale: '',
+		rate: '',
 	};
 
 	useEffect(() => {
-		isFiltering && handleFilter();
-		if (isClean) {
-			setFilterArr([]);
-			setTypes([]);
-			setLabel();
-			setPrice({ from: 0, to: 1000 });
-			setRating();
-			setIsClean(false);
+		if (isFiltering && resultQuery.length > 0 && rate) {
+			setFilterResult(
+				resultQuery.filter((product) => product.rating >= rate)
+			);
+		} else {
+			setFilterResult(resultQuery);
 		}
-	}, [filterArr, isFiltering, handleFilter, isClean]);
-
-	const handleCheckBox = (name, setName) => {
-		setName((pres) => {
-			const newArr = pres.includes(name)
-				? pres.filter((pre) => pre !== name)
-				: [...pres, name];
-			return newArr;
-		});
-	};
+	}, [resultQuery, isFiltering, rate]);
 
 	return (
 		<div className="grid md:grid-cols-12 grid-cols-1  gap-8">
@@ -87,8 +45,8 @@ function ProductFilter() {
 				<div className="flex justify-between mb-10 flex-wrap max-md:justify-center">
 					<h3 className="font-bold text-lg max-md:mb-5">
 						{isFiltering
-							? `Showing ${resultFilter.length} ${
-									resultFilter.length < 2
+							? `Showing ${filterResult.length} ${
+									filterResult.length < 2
 										? 'result'
 										: 'results'
 							  }`
@@ -106,124 +64,137 @@ function ProductFilter() {
 						</select>
 					</div>
 				</div>
-				<Grid products={isFiltering ? resultFilter : products} />
+				<Grid products={isFiltering ? filterResult : products} />
 			</div>
 			<div className="md:col-span-4">
 				<CommonSection title="Filter By">
-					<form onSubmit={handleSubmit}>
-						<div className="border-b pb-5">
-							<h4 className="font-bold mb-2">Type</h4>
-							<div className="flex flex-wrap">
-								{filter.categories.map((item) => (
-									<div
-										className="lg:w-1/3 w-1/2 my-1 flex items-center"
-										key={item.id}
-									>
-										<input
-											type="checkbox"
-											name="type"
-											value={item.name}
-											checked={types.includes(item.name)}
-											onChange={() =>
-												handleCheckBox(
-													item.name,
-													setTypes
-												)
-											}
+					<Formik
+						initialValues={initialValues}
+						validationSchema={FilterProductSchema}
+						onSubmit={(values) => {
+							const keys = Object.keys(values);
+							const check = keys.every(
+								(key) => values[key].length === 0
+							);
+							if (check) {
+								setError(
+									'Please set at least one condition to filter'
+								);
+							} else {
+								handleQuery([
+									{
+										name: 'category',
+										field: 'category',
+										operator: 'array-contains-any',
+										value: values['checkboxes'],
+									},
+									{
+										name: 'sale',
+										field: 'label',
+										operator: '==',
+										value: values['sale'],
+									},
+									{
+										name: 'priceFrom',
+										field: 'discount',
+										operator: '>=',
+										value: parseInt(values['minPrice']),
+									},
+									{
+										name: 'priceTo',
+										field: 'discount',
+										operator: '<=',
+										value: parseInt(values['maxPrice']),
+									},
+								]);
+
+								values['rate'].length > 0
+									? setRate(parseInt(values['rate']))
+									: setRate(false);
+
+								setError();
+								setIsFiltering(true);
+							}
+						}}
+					>
+						{({ resetForm, handleSubmit }) => (
+							<form onSubmit={handleSubmit}>
+								<div className="border-b pb-5">
+									<h4 className="font-bold mb-2">Type</h4>
+									<div className="flex flex-wrap">
+										<FormikControl
+											control="checkbox"
+											name="checkboxes"
+											options={filter.categories}
 										/>
-										<label className="ml-1 capitalize">
-											{item.name}
-										</label>
 									</div>
-								))}
-							</div>
-						</div>
-						<div className="border-b py-5">
-							<h4 className="font-bold mb-2">Price</h4>
-							<div className="flex">
-								<input
-									className="w-1/2 py-2 px-3 border-2 focus:border-greenBtn rounded outline-none"
-									type="number"
-									name="price"
-									placeholder="From"
-									value={price.from}
-									onChange={(e) =>
-										setPrice({
-											...price,
-											from: e.target.value,
-										})
-									}
-								/>
-								<input
-									className="w-1/2 py-2 px-3 ml-2 border-2 focus:border-greenBtn rounded outline-none"
-									type="number"
-									name="price"
-									placeholder="To"
-									value={price.to}
-									onChange={(e) =>
-										setPrice({
-											...price,
-											to: e.target.value,
-										})
-									}
-								/>
-							</div>
-						</div>
-						<div className="border-b py-5">
-							<h4 className="font-bold mb-2">Sale program</h4>
-							<div className="flex flex-wrap">
-								{filter.labels.map((item) => (
-									<div
-										className="lg:w-1/3 w-1/2 my-1 flex items-center"
-										key={item.id}
-									>
-										<input
-											type="radio"
-											name="label"
-											value={item.value}
-											checked={label === item.value}
-											onChange={() =>
-												setLabel(item.value)
-											}
-										/>
-										<label className="ml-1 capitalize">
-											{item.desc}
-										</label>
-									</div>
-								))}
-							</div>
-						</div>
-						<div className="border-b py-5">
-							<h4 className="font-bold mb-2">Start</h4>
-							{filter.rating.map((item) => (
-								<div key={item.id}>
-									<input
-										type="radio"
-										name="rating"
-										value={item.value}
-										checked={item.value === rating}
-										onChange={() => setRating(item.value)}
-									/>
-									<label className="ml-2">{item.desc}</label>
 								</div>
-							))}
-						</div>
-						<Button
-							btn="card"
-							className="w-full"
-						>
-							Apply Filter
-						</Button>
-						<Button
-							btn="cancel"
-							onClick={() => {
-								setIsFiltering(false);
-								setIsClean(true);
-							}}
-						>
-							Clear All Filter
-						</Button>
-					</form>
+								<div className="border-b py-5">
+									<h4 className="font-bold mb-2">Price</h4>
+									<div className="flex max-lg:flex-wrap">
+										<FormikControl
+											control="input"
+											type="number"
+											name="minPrice"
+											label="Min Price"
+										/>
+										<FormikControl
+											control="input"
+											type="number"
+											name="maxPrice"
+											label="Max Price"
+											className="lg:ml-4 max-lg:mt-4"
+										/>
+									</div>
+								</div>
+								<div className="border-b py-5">
+									<h4 className="font-bold mb-2">
+										Sale program
+									</h4>
+									<div className="flex flex-wrap">
+										<FormikControl
+											control="radio"
+											name="sale"
+											options={filter.labels}
+										/>
+									</div>
+								</div>
+								<div className="border-b py-5">
+									<h4 className="font-bold mb-2">
+										Popularity
+									</h4>
+									<FormikControl
+										control="radio"
+										name="rate"
+										options={filter.rating}
+									/>
+								</div>
+								{error && (
+									<span className=" inline-block my-3 py-2 px-4 rounded bg-red-100">
+										{error}
+									</span>
+								)}
+								<Button
+									type="submit"
+									btn="card"
+									className="w-full"
+								>
+									Apply Filter
+								</Button>
+								<Button
+									btn="cancel"
+									type="submit"
+									onClick={() => {
+										setIsFiltering(false);
+										setError();
+										resetForm();
+									}}
+								>
+									Clear All Filter
+								</Button>
+							</form>
+						)}
+					</Formik>
 				</CommonSection>
 			</div>
 		</div>

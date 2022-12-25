@@ -2,7 +2,7 @@ import { Field, ErrorMessage } from 'formik';
 import TextError from './TextError';
 
 function Select(props) {
-	const { label, name, options, className} = props;
+	const { label, name, options, className } = props;
 	return (
 		<div className={`form-control ${className}`}>
 			<label htmlFor={name}>{label}</label>
@@ -17,7 +17,7 @@ function Select(props) {
 						<option
 							key={option.value}
 							value={option.value}
-							className="py-3"
+							className="py-3 capitalize"
 						>
 							{option.key}
 						</option>

@@ -102,79 +102,87 @@ export const productFilter = {
 	categories: [
 		{
 			id: 1,
-			name: 'bread',
+			value: 'bread',
+			key: 'bread',
 		},
 		{
 			id: 2,
-			name: 'cake',
+			value: 'cake',
+			key: 'cake',
 		},
 		{
 			id: 3,
-			name: 'dried food',
+			value: 'dried food',
+			key: 'dried food',
 		},
 		{
 			id: 4,
-			name: 'drink',
+			value: 'drink',
+			key: 'drink',
 		},
 		{
 			id: 5,
-			name: 'fish',
+			value: 'fish',
+			key: 'fish',
 		},
 		{
 			id: 6,
-			name: 'fruits',
+			value: 'fruits',
+			key: 'fruits',
 		},
 		{
 			id: 7,
-			name: 'meat',
+			value: 'meat',
+			key: 'meat',
 		},
 		{
 			id: 8,
-			name: 'vegetables',
+			value: 'vegetables',
+			key: 'vegetables',
 		},
 	],
 	labels: [
 		{
 			id: 1,
 			value: 'offer',
-			desc: 'Offer',
+			key: 'Offer',
 		},
 		{
 			id: 2,
 			value: 'big sale',
-			desc: 'Big Sale',
+			key: 'Big Sale',
 		},
 		{
 			id: 3,
 			value: 'new',
-			desc: 'New',
+			key: 'New',
 		},
 	],
 	rating: [
 		{
 			id: 1,
-			value: 1,
-			desc: '1 start',
+			value: '1',
+			key: '1 start & Up',
 		},
 		{
 			id: 2,
-			value: 2,
-			desc: '2 starts',
+			value: '2',
+			key: '2 starts & Up',
 		},
 		{
 			id: 3,
-			value: 3,
-			desc: '3 starts',
+			value: '3',
+			key: '3 starts & Up',
 		},
 		{
 			id: 4,
-			value: 4,
-			desc: '4 starts',
+			value: '4',
+			key: '4 starts & Up',
 		},
 		{
 			id: 5,
-			value: 5,
-			desc: '5 starts',
+			value: '5',
+			key: '5 starts & Up',
 		},
 	],
 };
@@ -193,7 +201,7 @@ export const createaccount = [
 	{
 		key: 'Create an account ?',
 		value: '0',
-	}
+	},
 ];
 
 export const saveinfocomment = [

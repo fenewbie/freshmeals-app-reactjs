@@ -1,6 +1,5 @@
 import ContactForm from '@components/Form/ContactForm';
 import Card from '@components/UI/Card';
-import Loader from '../../components/UI/Loader';
 import * as cs from '../../utils/constants';
 
 const Contact = () => {
@@ -13,6 +12,7 @@ const Contact = () => {
 				<div className="flex gap-8 mb-20 max-md:flex-wrap">
 					<Card className="text-center md:basis-1/3 basis-full border-2 rounded-md py-12">
 						<img
+							alt="email"
 							src={cs.email}
 							className="mx-auto"
 						/>
@@ -25,6 +25,7 @@ const Contact = () => {
 					</Card>
 					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
 						<img
+							alt="phone"
 							src={cs.phone}
 							className="mx-auto"
 						/>
@@ -39,6 +40,7 @@ const Contact = () => {
 					</Card>
 					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
 						<img
+							alt="offical address"
 							src={cs.locate}
 							className="mx-auto"
 						/>
@@ -56,12 +58,13 @@ const Contact = () => {
 			</div>
 			<div className="w-full h-[800px] relative -top-24">
 				<iframe
+					title="locate"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59495.23878484945!2d-97.27585638943323!3d37.69428176532606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bafcbf966f3033%3A0xbbbbe2dcbe35057d!2sOlive%20Garden%20Italian%20Restaurant!5e0!3m2!1svi!2s!4v1671939193272!5m2!1svi!2s"
 					width="100%"
 					height="100%"
-					allowfullscreen={true}
+					allowFullScreen={true}
 					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
+					referrerPolicy="no-referrer-when-downgrade"
 				></iframe>
 			</div>
 		</div>
