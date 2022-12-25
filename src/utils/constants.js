@@ -233,3 +233,27 @@ export const servicetype = [
 		value: 'Land Preparation',
 	},
 ];
+
+export const paymentmethods = [
+	{
+		id: 1,
+		value: 'Check payments',
+		key: 'Check payments',
+		img: false,
+		note: 'Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.',
+	},
+	{
+		id: 2,
+		value: 'Cash on delivery',
+		key: 'Cash on delivery',
+		img: false,
+		note: 'Pay with cash upon delivery.',
+	},
+	{
+		id: 3,
+		value: 'Paypal',
+		key: 'Paypal',
+		img: 'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/icons/payment-3.png',
+		note: 'Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.',
+	},
+];

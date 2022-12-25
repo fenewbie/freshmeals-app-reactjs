@@ -1,104 +1,44 @@
 import Button from '@components/UI/Button';
-import { ErrorMessage, Field, useField } from 'formik';
-import { useState } from 'react';
-import TextError from './FormikControl/TextError';
+import Accordion from '@components/UI/Accordion';
+import FormikControl from './FormikControl';
+import { paymentmethods } from '@utils/constants';
 
 export default function PaymentMethod() {
-	const [indexActive, setIndexActive] = useState();
-
-	const handleToggleAccordion = (index) => {
-		setIndexActive((preIndex) => {
-			return preIndex === index ? undefined : index;
-		});
-	};
 	return (
 		<div className="w-full">
-			<div className="w-full border">
-				<div
-					className="border-b  px-6 py-4"
-					onClick={() => handleToggleAccordion(0)}
-				>
-					<div className="flex items-center gap-2">
-						<Field
-							id="check-payments"
-							name="paymentmethod"
-							type="radio"
-							value="check-payments"
-						/>
-						<label className="font-bold">Check payments</label>
-					</div>
-
-					<span
-						className={`text-sm block px-6   transition-all duration-300 overflow-hidden ${
-							indexActive === 0
-								? 'max-h-[100px]  py-2 shadow-sm mt-4'
-								: 'max-h-0 py-0'
+			<Accordion>
+				{paymentmethods.map((item, index) => (
+					<Accordion.Item
+						key={item.id}
+						id={item.id}
+						className={`p-4 border-x border-b ${
+							index === 0 && 'border-t'
 						}`}
 					>
-						Please send a check to Store Name, Store Street, Store
-						Town, Store State / County, Store Postcode.
-					</span>
-				</div>
-
-				<div
-					className="border-b  px-6 py-4"
-					onClick={() => handleToggleAccordion(1)}
-				>
-					<div className="flex items-center gap-2">
-						<Field
-							id="cash-on-delivery"
-							value="cash-on-delivery"
-							name="paymentmethod"
-							type="radio"
-						/>
-						<label className="font-bold">Cash on delivery</label>
-					</div>
-					<span
-						className={`text-sm block px-6  transition-all duration-300 overflow-hidden ${
-							indexActive === 1
-								? 'max-h-[100px]  py-2 shadow-sm mt-4'
-								: 'max-h-0 py-0'
-						}`}
-					>
-						Pay with cash upon delivery.
-					</span>
-				</div>
-
-				<div
-					className="px-6 py-4"
-					onClick={() => handleToggleAccordion(2)}
-				>
-					<div className="flex  items-center gap-2">
-						<Field
-							id="paypal"
-							value="paypal"
-							name="paymentmethod"
-							type="radio"
-						/>
-						<label className="font-bold">Paypal</label>
-						<img
-							src="https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/icons/payment-3.png"
-							alt="payment"
-							className="w-25 h-8 object-cover"
-						/>
-					</div>
-					<span
-						className={`text-sm block px-6   transition-all duration-300 overflow-hidden ${
-							indexActive === 2
-								? 'max-h-[100px]  py-2 shadow-sm mt-4'
-								: 'max-h-0 py-0'
-						}`}
-					>
-						Pay via PayPal; you can pay with your credit card if you
-						don’t have a PayPal account.
-					</span>
-				</div>
-			</div>
-			<ErrorMessage
-				name="paymentmethod"
-				component={TextError}
-			/>
-
+						<Accordion.Title>
+							<div className="flex items-center gap-2">
+								<FormikControl
+									control="radio"
+									name="paymentmethod"
+									options={[item]}
+								/>
+								{item.img && (
+									<img
+										src={item.img}
+										alt={item.key}
+										className="h-10 relative -top-1"
+									/>
+								)}
+							</div>
+						</Accordion.Title>
+						<Accordion.Content>
+							<p className="text-sm px-6 py-2 shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] mt-4 mx-2 mb-2 bg-white">
+								{item.note}
+							</p>
+						</Accordion.Content>
+					</Accordion.Item>
+				))}
+			</Accordion>
 			<div>
 				<p className="text-sm mt-8">
 					Your personal data will be used to process your order,
