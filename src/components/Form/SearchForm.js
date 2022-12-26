@@ -1,56 +1,50 @@
 import { BsSearch } from 'react-icons/bs';
 
-import Button from '@components/UI/Button';
-import { createSearchParams, useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 
-function SearchForm({ type, searchFor, isMobi}) {
-	const navigate = useNavigate();
+function SearchForm({ setSearchKey }) {
 	const inputRef = useRef();
+
+	const timer = useRef();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const key = inputRef.current.name;
-		const value = inputRef.current.value;
-		value &&
-			navigate({
-				pathname: `/search/${type}`,
-				search: `?${createSearchParams({ [key]: value })}`,
-			});
+		const value =
+			inputRef.current.value.trim().length > 0
+				? inputRef.current.value
+				: null;
+		setSearchKey({ value: value });
+	};
+
+	const handleChange = (e) => {
+		if (timer.current) {
+			clearTimeout(timer.current);
+		}
+
+		timer.current = setTimeout(() => {
+			const value =
+				e.target.value.trim().length > 0 ? e.target.value : null;
+			setSearchKey({ value: value });
+		}, 200);
 	};
 
 	return (
-		<form
-			className={`flex max-md:flex-wrap`}
-			onSubmit={handleSubmit}
-			role="search"
-		>
-			<div
-				className={`flex-1 border-2 border-greenBtn max-md:rounded-md max-md:overflow-hidden max-md:mt-6  ${
-					isMobi && 'flex'
-				}`}
-			>
+		<form onSubmit={handleSubmit}>
+			<div className="flex items-center border-2 rounded-md py-4 px-4 focus-within:border-greenBtn">
 				<input
-					className="h-full w-full py-4 px-5 border-none outline-none"
-					type="search"
-					name={searchFor}
-					placeholder="Looking for the name..."
+					id="search"
+					name="search"
+					type="text"
+					placeholder="Looking for some things..."
+					className="border-none outline-none w-full flex-1"
 					ref={inputRef}
+					onChange={handleChange}
 				/>
-				{isMobi && (
-					<button className="pr-3">
-						<BsSearch className="mx-auto" />
-					</button>
-				)}
-			</div>
-			{!isMobi && (
-				<Button
-					btn="card"
-					className="rounded-none"
-				>
+
+				<span className="ml-4">
 					<BsSearch className="mx-auto" />
-				</Button>
-			)}
+				</span>
+			</div>
 		</form>
 	);
 }

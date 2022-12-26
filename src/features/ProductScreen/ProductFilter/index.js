@@ -64,7 +64,10 @@ function ProductFilter() {
 						</select>
 					</div>
 				</div>
-				<Grid products={isFiltering ? filterResult : products} />
+				<Grid
+					products={isFiltering ? filterResult : products}
+					cols={3}
+				/>
 			</div>
 			<div className="md:col-span-4">
 				<CommonSection title="Filter By">

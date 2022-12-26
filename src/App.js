@@ -19,9 +19,8 @@ import About, { loader as aboutLoader } from './pages/About';
 import Contact from './pages/Contact';
 import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
 import Gallery from './pages/Gallery';
-import SearchPage from 'pages/Search';
-import SearchProductsPage from 'pages/Search/SearchProductsPage';
-import SearchBlogsPage from 'pages/Search/SearchBlogsPage';
+import SearchProductsPage from 'pages/Shop/ProductSearch';
+import SearchBlogsPage from 'pages/Blog/BlogSearch';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 import Login from 'pages/Auth/Login';
 import Register from 'pages/Auth/Register';
@@ -61,9 +60,18 @@ function App() {
 				errorElement={<NotFound />}
 				loader={rootLoader}
 			>
-				<Route index element={<Home />} />
-				<Route path="login" element={<Login />} />
-				<Route path="register" element={<Register />} />
+				<Route
+					index
+					element={<Home />}
+				/>
+				<Route
+					path="login"
+					element={<Login />}
+				/>
+				<Route
+					path="register"
+					element={<Register />}
+				/>
 				<Route
 					path="user-profile"
 					element={
@@ -72,33 +80,65 @@ function App() {
 						</PrivateRoute>
 					}
 				></Route>
-				<Route path="shop" element={<ShopLayout />}>
-					<Route index element={<ProductGridPage />} />
+				<Route
+					path="shop"
+					element={<ShopLayout />}
+				>
+					<Route
+						index
+						element={<ProductGridPage />}
+					/>
 					<Route
 						path=":productId"
 						element={<ProductDetailPage />}
 						loader={productLoader}
 					/>
+					<Route
+						path="search"
+						element={<SearchProductsPage />}
+					/>
 				</Route>
-				<Route path="cart" element={<Cart />} />
-				<Route path="checkout" element={<Checkout />} action={checkoutAction} />
-				<Route path="about" element={<About />} loader={aboutLoader} />
-				<Route path="contact" element={<Contact />} />
+				<Route
+					path="cart"
+					element={<Cart />}
+				/>
+				<Route
+					path="checkout"
+					element={<Checkout />}
+					action={checkoutAction}
+				/>
+				<Route
+					path="about"
+					element={<About />}
+					loader={aboutLoader}
+				/>
+				<Route
+					path="contact"
+					element={<Contact />}
+				/>
 
-				<Route path="blog" element={<BlogLayout />}>
-					<Route index element={<BlogGridPage />} />
+				<Route
+					path="blog"
+					element={<BlogLayout />}
+				>
+					<Route
+						index
+						element={<BlogGridPage />}
+					/>
 					<Route
 						path=":blogId"
 						element={<BlogDetailPage />}
 						loader={blogLoader}
 					/>
+					<Route
+						path="search"
+						element={<SearchBlogsPage />}
+					/>
 				</Route>
-				<Route path="gallery" element={<Gallery />} />
-				<Route path="search">
-					<Route index element={<SearchPage />} />
-					<Route path="products" element={<SearchProductsPage />} />
-					<Route path="blogs" element={<SearchBlogsPage />} />
-				</Route>
+				<Route
+					path="gallery"
+					element={<Gallery />}
+				/>
 			</Route>
 		)
 	);
