@@ -90,14 +90,11 @@ export function SubscribeSchema(values) {
 
 export function ContactSchema(values) {
 	return Yup.object().shape({
-		...name,
 		...email,
-		...phone,
-		...selectOption,
-		message: Yup.string()
-			.min(10, 'Message has to be longer than 10 characters!')
-			.max(100, 'Should not be more than 150 characters')
-			.required('Message is required!'),
+		phone: Yup.string().matches(
+			/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+			'Phone is not valid!'
+		),
 	});
 }
 
