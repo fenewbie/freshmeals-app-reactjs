@@ -10,9 +10,15 @@ const CountDownSection = () => {
 			<div className="lg:w-[1200px] max-w-full mx-auto">
 				{docs &&
 					docs.map((item, index) => (
-						<div className="grid lg:grid-cols-12 grid-cols-1 gap-10" key={index}>
+						<div
+							className="grid lg:grid-cols-12 grid-cols-1 gap-10"
+							key={index}
+						>
 							<div className="lg:col-span-5">
-								<img src={item.image} alt="countdown" />
+								<img
+									src={item.image}
+									alt="countdown"
+								/>
 							</div>
 
 							<div className="lg:col-span-7">
@@ -28,9 +34,9 @@ const CountDownSection = () => {
 								<Timer day={2} />
 								<Link
 									to="/shop"
-									className="group relative  mt-14 flex items-center justify-center w-full h-10  md:w-[150px] lg:h-14 md:h-12 bg-[#80B500]  hover:text-gray-900 hover:bg-black focus:outline-none focus:z-10 focus:ring focus:ring-blue-100 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-white after:w-[0%] after:h-full after:transition-all after:duration-[400ms] after:ease-in-out hover:after:w-full hover:after:border hover:after:border-gray-900"
+									className="btn-animated rounded-md mt-10"
 								>
-									<span className="group-hover:text-neutral-700 text-sm font-bold text-white uppercase relative z-10 m-auto">
+									<span className="btn-animated-text">
 										Shop now
 									</span>
 								</Link>

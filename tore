@@ -1,0 +1,2032 @@
+[33mcommit 459d4648d96c1df9ad14449eec01b039b0481420[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m)[m
+Merge: ca87e40 ff92309
+Author: gonin <goninha@outlook.fr>
+Date:   Sat Dec 24 00:13:51 2022 +0100
+
+    Merge branch 'feature/fix-authen' into develop
+
+[33mcommit ff923098ffa17cd80d042a2403e9f142f49f6965[m
+Author: gonin <goninha@outlook.fr>
+Date:   Sat Dec 24 00:13:24 2022 +0100
+
+     fix formik control
+
+[33mcommit 9779190e2e7b10151667b05d12db934f952a6b9f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 23 15:09:10 2022 +0700
+
+    use use Input 1 and Checkboxes in Register and Login
+
+[33mcommit 922eac83168da66598c45e89cd11c1bc01d6201b[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 23:48:35 2022 +0100
+
+     fix register loading slowly
+
+[33mcommit 91bd503a00e94ac161bfffb3077a39963ed780c9[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 23:11:56 2022 +0100
+
+     add resuable formik components
+
+[33mcommit bb981e52275263006053d368f3641a9e5d67b392[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 20:48:43 2022 +0100
+
+    add visited field formik
+
+[33mcommit 6fccac2f0eca5a19fbdec699592260da79ef4fbc[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 17:58:06 2022 +0100
+
+     register authen ok
+
+[33mcommit 0da93f724dbd2517f90a107429aaf180f19d1927[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 17:18:09 2022 +0100
+
+     register error check
+
+[33mcommit c5059bf16a69eaf3efdcefc1dd85f7bd9a0e0327[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 22 10:46:44 2022 +0700
+
+    fix auth
+
+[33mcommit c7e713aa8593cbad1a21deb6e3c09b03172e8817[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 22 10:24:26 2022 +0700
+
+    fix auth
+
+[33mcommit ca87e40b5fc54cfcda484643154937701e540b2a[m[33m ([m[1;31morigin/develop[m[33m)[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 22 00:07:57 2022 +0100
+
+    use formik for login page
+
+[33mcommit f6f4d78c94fccf25b887a42c2179e2ed7d4fcee9[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 22:42:05 2022 +0100
+
+    fix css login & delete useAuth
+
+[33mcommit 6822d7d82a4130cbcb236815185cd5253bf9331b[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 22:30:52 2022 +0100
+
+    fix cartTotal Checkout
+
+[33mcommit 82dce68bfa6541b09bbee75140da49a896235ad8[m
+Merge: 0d36d88 7bd0591
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 22:07:37 2022 +0100
+
+    merge checkout into dev
+
+[33mcommit 0d36d88c33acc39d3bea4ca52ed93beeba1652f0[m
+Merge: be377d4 f70b37f
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 22:03:35 2022 +0100
+
+    merge authen into dev
+
+[33mcommit be377d48043e3bb87316fccd70555fbd3a4c8461[m
+Merge: bb8e440 aa68a09
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 22:00:27 2022 +0100
+
+    Merge branch 'feature/productFilter' into develop
+
+[33mcommit f70b37f73a2cea7392f599114022517f27f97656[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 21:47:38 2022 +0100
+
+    authen connect firestore ok
+
+[33mcommit 7bd059116f857462880d78b85b18752a7561fc1a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 21 22:19:20 2022 +0700
+
+    css checkout
+
+[33mcommit 93c590f04355faf68e15a5558fe40522f4fcd530[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Dec 20 20:07:53 2022 +0700
+
+    fix navmobi ok
+
+[33mcommit 346b13e7ea08a716cce5d7de3e33fa3a7a748097[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 14:28:07 2022 +0100
+
+    login & register with firebase without validation
+
+[33mcommit b87b5313b80c23b6b2c3dde224076ba62b677e78[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 21 13:16:47 2022 +0100
+
+    validation with yup authen
+
+[33mcommit da90494fb679b9f14b6501883b4646d9b95ab079[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 21 17:11:20 2022 +0700
+
+    fix css authen
+
+[33mcommit 80f3ecda412d9d42309e190bbd5e6f64b8d0cd84[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Dec 20 00:08:27 2022 +0000
+
+    modify authSlice
+
+[33mcommit 3cdc96f7baaee78caba8d9235316913139467258[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 19 20:17:25 2022 +0000
+
+    Revert "add filter product"
+    
+    This reverts commit bd5c6057dec25386835a8fa95c43671f29b209a0.
+
+[33mcommit bd5c6057dec25386835a8fa95c43671f29b209a0[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 12:30:28 2022 +0700
+
+    add filter product
+
+[33mcommit aa68a091c9af0a80574f913c237195af248efff7[m
+Merge: 5a28037 236ad9f
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 19 17:26:35 2022 +0000
+
+    Merge branch 'feature/productFilter' of https://github.com/fenewbie/freshmeals-app-reactjs into feature/productFilter
+
+[33mcommit 5a28037930845dcf8737469376ea2c20af8912da[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 14:12:13 2022 +0700
+
+    fix css pagiantion
+
+[33mcommit c6a115ee62d6bf8a7697ff6e2b17582f4ae9cf48[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 12:30:28 2022 +0700
+
+    add filter
+
+[33mcommit f7a32ea02ba2d1fcfb95bf6b70987783888a4ae3[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 17 08:31:30 2022 +0700
+
+    filter in progress
+
+[33mcommit 265de312c2187ec25b479aab1ef59ac5158d1868[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 19 19:15:22 2022 +0700
+
+    fix css cart ok
+
+[33mcommit 87b0c9462d31b780aa5f2c289625c2a0f2d00244[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 19 15:35:16 2022 +0700
+
+    fix successModal responsive
+
+[33mcommit 12920c5494bdc4e251508549f3368a903c75b6ec[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 19 14:55:42 2022 +0700
+
+    fix quickview responsive
+
+[33mcommit 251989a2c456425ff0b05cf888761198383ae768[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 19 13:10:32 2022 +0700
+
+    fix modal ok
+
+[33mcommit ade2817a63b375f7dcbf8907eea0b52c1914ff24[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 23:38:46 2022 +0700
+
+    fix modal ok, and cannot open cart checkout
+
+[33mcommit 236ad9f85e2d3cc9bb50125fe529b1f8707e49d7[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 14:12:13 2022 +0700
+
+    fix css pagiantion
+
+[33mcommit fd3ac0e7ab5c61f38ddbaa0eacef5e8f757f7bce[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 18 12:30:28 2022 +0700
+
+    add filter
+
+[33mcommit 86b0a250372a7bcaef0df2f6c9f08a6843c24493[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 17 08:31:30 2022 +0700
+
+    filter in progress
+
+[33mcommit 59dc856e0f1267b021ffc431feee6395462118fc[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 16 18:31:50 2022 +0000
+
+     add auth Slice & private route
+
+[33mcommit 952409c36dd3b4bdbe718e3de8275f21d1120c98[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 16 12:33:49 2022 +0000
+
+    frame checkout page
+
+[33mcommit bb8e44005149e407fe31bc03be890fe73063a049[m
+Merge: 33e4ce4 a53130c
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 16 11:00:58 2022 +0000
+
+    Merge branch 'feature/sideCart' into develop
+
+[33mcommit a53130c8cb2fe72a06d433cf4a7b2ca9a8c53897[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 16 11:00:33 2022 +0000
+
+    cart checkout ok
+
+[33mcommit 9c40f0112da6ffb62905c6aa078ce4a2506261d1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 16 10:18:37 2022 +0700
+
+    rebase develop and fix css cartCheckout
+
+[33mcommit 461a5deaff20a4be0946979b8a9d7cd7c025aed0[m
+Merge: 753c436 a36b9f9
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 16 09:24:54 2022 +0700
+
+    Merge branch 'feature/sideCart' of github.com:fenewbie/freshmeals-app-reactjs into feature/sideCart
+
+[33mcommit 753c4369c522061754d96267c01c553c0f352033[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 22:28:44 2022 +0700
+
+    add sideCart
+
+[33mcommit f4d827200fbe4b06def173e57fc3246f2b3933eb[m
+Merge: 715118f 33e4ce4
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 16 09:19:19 2022 +0700
+
+    Merge branch 'develop' of github.com:fenewbie/freshmeals-app-reactjs into develop
+
+[33mcommit 33e4ce4334e9c2f86ea37745f65e6d53c15b4264[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 15 17:44:53 2022 +0000
+
+     fix css cart modal
+
+[33mcommit 6281df27205ec1ddeda8bb87ad6ad01804b16a83[m
+Merge: 7d43481 ca53300
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 15 17:04:11 2022 +0000
+
+    Merge branch 'feature/fix-productItem' into develop
+
+[33mcommit ca5330042cc1ea1f68b5243e55f065d05cbcb220[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 15 17:03:26 2022 +0000
+
+    add lazy loading & fix css cartmodal
+
+[33mcommit a36b9f9129b83b143c182a76bee5a2ec28205fe1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 22:28:44 2022 +0700
+
+    add sideCart
+
+[33mcommit 3b538aa40a833bfde580248a0a22b57b0e9b1474[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 19:49:20 2022 +0700
+
+    add search products and blogs
+
+[33mcommit 715118f3cbc4860ad57f744a161501fcb3b3df02[m
+Merge: 5568a3a 7d43481
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 19:16:00 2022 +0700
+
+    Merge branch 'develop' of github.com:fenewbie/freshmeals-app-reactjs into develop
+
+[33mcommit 5ac328cb48c1df16c895032f32d0cf7d8578551f[m
+Merge: 25c9b01 10a0f06
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 15 12:03:15 2022 +0000
+
+    Merge branch 'feature/search' of https://github.com/fenewbie/freshmeals-app-reactjs into feature/search
+
+[33mcommit 25c9b012ab1e6ee6aa8b4c5a22b761a41e617495[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 14 17:16:53 2022 +0700
+
+    add search for navi
+
+[33mcommit 10a0f066b5782c4fcbff25c216b96e254b224dae[m
+Merge: 56a2130 2f97855
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 15 11:53:00 2022 +0000
+
+    merge remote to local
+
+[33mcommit 56a21300cb5fcd381fee899c30e4ddb0bffccbc4[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 14:22:35 2022 +0700
+
+    add search products and search blogs
+
+[33mcommit 06b8399c8530ae8a09d8be3c2d82e6ca781db915[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 14 20:53:13 2022 +0700
+
+    add change post for blog-detail
+
+[33mcommit a8472d5cfddcaeffed76fa3c90e6d57678c4377f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 14 17:16:53 2022 +0700
+
+    add search for navi
+
+[33mcommit dc593db2faeb058e655a27f65f8dfc44c6dac8a2[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 11 20:28:20 2022 +0700
+
+    add form search for Header
+
+[33mcommit 51d19c64f134057774541fade8ae5fce7dd0c7e1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Dec 13 21:30:50 2022 +0700
+
+    Merge rebase
+
+[33mcommit 2f978553bfdb841a36bf44ca59728f445abd99da[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 15 14:22:35 2022 +0700
+
+    add search products and search blogs
+
+[33mcommit 0647aa10bdcfe8815dbe597f4664589c9373d0f4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 14 18:36:00 2022 +0000
+
+     not display detail in product modal
+
+[33mcommit 385925d896eb3caf477d0b4e912325d1e317efc4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 14 16:31:55 2022 +0000
+
+    test toggle cart in header
+
+[33mcommit b8dfc29ec7f66ef1e8ffae78637d7b8070aa1c0f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 14 20:53:13 2022 +0700
+
+    add change post for blog-detail
+
+[33mcommit 4451667764de0ee4886b2dc79a91716caaa04f85[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 14 17:16:53 2022 +0700
+
+    add search for navi
+
+[33mcommit 7d4348135fcc53d2c131bccab4c259e1ad9cd487[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 14 10:36:08 2022 +0000
+
+    fix cart, add product id in api
+
+[33mcommit 4a3a5074a586f07702c9e3846f70394d7538d43b[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 11 20:28:20 2022 +0700
+
+    add form search for Header
+
+[33mcommit 5568a3a677f9c6f429f211f9e4e96ce183ddc286[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Dec 13 21:30:50 2022 +0700
+
+    Merge rebase
+
+[33mcommit a3ff18bd541d388de7abe27e5159adbe65572d6a[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 12 15:19:34 2022 +0000
+
+    add redux-persist
+
+[33mcommit 1b54e961456193a5398a4543f5127d60b2b98c40[m
+Merge: fe01378 7dcc147
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 12 11:27:19 2022 +0000
+
+    Merge branch 'feature/fix-quickview' into develop
+
+[33mcommit fe0137878a0b0ffc278f565060a191c75856bd08[m
+Merge: b75a099 3bd5e53
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 12 11:18:42 2022 +0000
+
+    merge blog into dev
+
+[33mcommit 3bd5e539f90cfde6347bba1387aca19ddfdd9142[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 12 16:05:04 2022 +0700
+
+    fix some css, delete useQueryDocument and use router data, add
+    BlogSlider instead of BlogList for HomeScreen
+
+[33mcommit b75a09986633785d18693f8d855d971bf0260726[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Dec 11 15:43:04 2022 +0700
+
+    add usePagination hook, Pagination Component and use pagination for BlogGrid
+
+[33mcommit 495e91587f12d92380d477a5edc764d705765b73[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 10 20:21:30 2022 +0700
+
+    fix jsconfig
+
+[33mcommit 0289f1f614476c3b0b78eda3dce5eb9df54a90b5[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 10 19:59:01 2022 +0700
+
+    use router data on about and restructure about
+
+[33mcommit 77d80ad3fbbfd9af96d10e0d69953e649fc79f38[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 10 15:45:18 2022 +0700
+
+    add promotion features
+
+[33mcommit 77c6e309357cefa57c95712afd70f0a52c89e0ef[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 10 00:06:50 2022 +0700
+
+    add related component
+
+[33mcommit 7dcc1479e67f49a276ca75cf2ec1b0e0d89e939a[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 9 17:49:08 2022 +0000
+
+    cannot fetch product for quickview modal
+
+[33mcommit 4a746fe13dc83c50da6c7ec3fc377facd3cbd192[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 9 17:12:46 2022 +0000
+
+    fix number in totalprice cart
+
+[33mcommit dfa49db94e173af963f724f50de13049466f56f4[m
+Merge: 03af985 0922d78
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 9 15:40:28 2022 +0700
+
+    merge rebase
+
+[33mcommit 03af985dc90525f4309a451a7c9a15ee2aea8692[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 9 15:29:51 2022 +0700
+
+    rename container to features
+
+[33mcommit 2dccfb7cb191b995b8093bcca16b16346e18ecad[m
+Merge: e003f92 25052b2
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 8 18:48:58 2022 +0000
+
+    no commit
+
+[33mcommit 0922d785f85e047c6ecac761f3dfafe41652d886[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 8 18:01:31 2022 +0000
+
+    restructure project
+
+[33mcommit 25052b293b465f845d0d7db808b93522bb3a5fdb[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 8 16:35:31 2022 +0700
+
+    blog detail in progress
+
+[33mcommit e003f92352e8ca58ae3120d23159db38b5d8ca97[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 8 16:35:31 2022 +0700
+
+    blog detail in progress
+
+[33mcommit 391ecb7a2e40590e9797954bb462bc09fee5b3aa[m
+Merge: f5b6f3c fa91f53
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 7 16:21:01 2022 +0000
+
+    Merge branch 'feature/blog-page' into develop
+
+[33mcommit fa91f53c821ce98de47071236f300b8330eb848b[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 7 16:19:52 2022 +0000
+
+     delete unusable files
+
+[33mcommit 409a2ae70e298b1c9c938ec9b5ec3e2b2caebcaa[m
+Merge: 295ea9d acea526
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 7 15:55:46 2022 +0000
+
+    merge 2 branches
+
+[33mcommit 295ea9d8e3d463d2b1110f0e448de2575875c63b[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Dec 7 15:48:21 2022 +0000
+
+    clean up & arrange folder
+
+[33mcommit e96367e6ba7deba07a3bffe17acc541258c5eb05[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 7 15:59:38 2022 +0700
+
+    add blog with fetch data router
+
+[33mcommit b9c88580df6a5a55337ae62eb46b6a05c88d4755[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 7 11:05:57 2022 +0700
+
+    fetch data router with blog
+
+[33mcommit 07198e9b63ccaf3eae3d04f03c1d3e8b5494775f[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Dec 6 10:30:58 2022 +0000
+
+    add link to cart for homepage
+
+[33mcommit aa11afd532c32693d6fb99cacd0868873e76fa25[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Dec 6 09:33:23 2022 +0700
+
+    add cart page
+
+[33mcommit b2ccaf3596ae3730fccb202d0661751a0d1a8d0a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 5 20:16:59 2022 +0700
+
+    add about page
+
+[33mcommit 790ede77fd8991de0f95432d50a1b762eb92b0ed[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 3 22:32:39 2022 +0700
+
+     add validation form and fix btn component
+
+[33mcommit bd4a4be997afa15b0d683077d705574082c55fea[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 2 16:36:25 2022 +0700
+
+    about page  in progress
+
+[33mcommit a3571592a6f256d74e83abeb35843469d5dcfa75[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 12:24:16 2022 +0000
+
+    get single product ok
+
+[33mcommit 75ee6ab1ffda1255b9c4f2ca6487fce6c57679fb[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 2 18:30:18 2022 +0000
+
+    cannot fetch single product data
+
+[33mcommit acea526e120a6a8767c1656a68251adffd305c64[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 7 15:59:38 2022 +0700
+
+    add blog with fetch data router
+
+[33mcommit c7eb477c75d6cedd444684e94c8e1e4462f2faf2[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Dec 7 11:05:57 2022 +0700
+
+    fetch data router with blog
+
+[33mcommit f5b6f3cb660972f52dc436d3e38bad4478b3ce68[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Dec 6 10:30:58 2022 +0000
+
+    add link to cart for homepage
+
+[33mcommit f5f1c64c8dab60bdbbd5ecd1ba681824642a97d1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Dec 6 09:33:23 2022 +0700
+
+    add cart page
+
+[33mcommit 9f6abbb73ec81fe5811d68a42f3a7b0b83fc1b28[m
+Merge: 5b22209 6f0e5e0
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 17:35:28 2022 +0000
+
+    merge about into dev
+
+[33mcommit f04a17e2a8ee9b6fa6997c66e4b0a3eb8531847e[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 17:27:18 2022 +0000
+
+     fix undefined filer in quickview
+
+[33mcommit 6f0e5e0f8b642ae58db14b9bf38da8bff1b90501[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Dec 5 20:16:59 2022 +0700
+
+    add about page
+
+[33mcommit 4aeb711573341f65807b786ccc090a05e5ad2e47[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 16:30:36 2022 +0000
+
+     fix get single product with router ok
+
+[33mcommit 252864b57309c67b82a40a5cea69fad3ef78b347[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 15:39:17 2022 +0000
+
+    fix get products router ok
+
+[33mcommit 91317b424069654402c84c7a895bfa413a66c7e4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 15:18:27 2022 +0000
+
+     get products and useLoaderData ok, not display products in homepage
+
+[33mcommit 5b2220964856f0ef701d2b66da58f9af77f2ebb9[m
+Merge: d16f10a e121e76
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 12:24:40 2022 +0000
+
+    Merge branch 'feature/save-data-redux' into develop
+
+[33mcommit e121e767ebd92f93fd13892f7891ab2fffe7f35a[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Dec 5 12:24:16 2022 +0000
+
+    get single product ok
+
+[33mcommit aab0af81086b94d9ad8ba95276b253c4c50eb11d[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Dec 3 22:32:39 2022 +0700
+
+     add validation form and fix btn component
+
+[33mcommit 7ffa11d2c24f6083bfc4c7396a1aa03ba1198846[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 2 18:30:18 2022 +0000
+
+    cannot fetch single product data
+
+[33mcommit 79bfe9c2c2dc6ebba3f452e48f76d1dcc8b6989c[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 2 17:02:24 2022 +0000
+
+    fetch data for products undefined
+
+[33mcommit 7180cec7a02f58990a9277d01676f7110198e7cc[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Dec 2 16:36:25 2022 +0700
+
+    about page  in progress
+
+[33mcommit d16f10ab578c9dd573e2a63c0ae1f998ceaba1c5[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Dec 2 11:00:59 2022 +0000
+
+     fix product detail page link for top rated and related product
+
+[33mcommit a7b4d66d785cdd263216ba09eb3847e629136965[m
+Merge: 4cbd543 41776a3
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 18:17:03 2022 +0000
+
+    Merge branch 'feature/fix-tabs' into develop
+
+[33mcommit 41776a3efc500ac644f9d71e18d2784cef35b99d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 18:16:42 2022 +0000
+
+    restructure project
+
+[33mcommit 5adb51f1cba81de52dc238d558b36afadf694e38[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 17:19:14 2022 +0000
+
+    replace tabs flowbite into react-tabs
+
+[33mcommit 4cbd54362981968c3876cabde60d21cb02e901cd[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 16:07:34 2022 +0000
+
+     delete Loading component
+
+[33mcommit eb1f9ea0e8929cf8d9d8d8e7933e86fffd8545e3[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 14:30:23 2022 +0000
+
+    rename Loader
+
+[33mcommit 4c52ce617902f528527540b3c0a9b748c58eaa27[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 14:21:24 2022 +0000
+
+     merge fix-product-detail into dev
+
+[33mcommit 5b8fdc17de26dbbb5e0abdd128d119dc390f1b22[m
+Merge: 79f178f 9debf4b
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 13:47:15 2022 +0000
+
+    merge fix product detail into dev
+
+[33mcommit 9debf4b384140ff213225bb82d0aefa04a370bb9[m
+Merge: 47f67f4 c0e05f6
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 13:40:54 2022 +0000
+
+    merge fix product detail into dev
+
+[33mcommit 79f178f306cc4c40bac1119fa3588211308d53e0[m
+Merge: f0a566f 23da735
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 13:39:03 2022 +0000
+
+    Merge branch 'feature/fix-quickview' into develop
+
+[33mcommit 23da7356a90cd18377380e74deb5cb5724bb19de[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 13:38:49 2022 +0000
+
+    fix modal in product detail
+
+[33mcommit f767720b05e1eb2de703e03cc19fdc014fd9e06c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 19:43:02 2022 +0700
+
+    add PromotionCard and add Promotion in product-detail page
+
+[33mcommit e527028bb6127235a43fd5ee8c693ed40871ccee[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 17:09:40 2022 +0700
+
+    delete TopRatedProductCard and edit ProductItem
+
+[33mcommit 50b83bfff7010cf535902b59179975da98831e20[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 16:13:36 2022 +0700
+
+    add responsive
+
+[33mcommit c0e05f655c7521c5ece6ff5e201b03049d867628[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 19:43:02 2022 +0700
+
+    add PromotionCard and add Promotion in product-detail page
+
+[33mcommit cdc650a35c7aa379a3dbfcc2676beeb65a71249e[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Dec 1 12:07:11 2022 +0000
+
+     add Loader & fix Link product
+
+[33mcommit 27c400b6640e398fb83802ce54d47e8f02dd71b1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 17:09:40 2022 +0700
+
+    delete TopRatedProductCard and edit ProductItem
+
+[33mcommit 3c3af382b60c2baa8fa21f2389528abd92c60af3[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Dec 1 16:13:36 2022 +0700
+
+    add responsive
+
+[33mcommit 09ea7bd7acb12bdfb842a00e5ccf17586b229e91[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 20:52:24 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit 4623b76f35c77bf49123efac3450bdce296d6991[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 16:48:18 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit bd1dd1b9a4b0b025f6db32cab57b7491e9152f07[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 21:08:00 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit 47f67f4d4fb3c7ca4323a7eb006a12b983320c5a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 16:48:18 2022 +0700
+
+    fix productDetail
+
+[33mcommit cc3652f7a23efe94c73d38feeb93e772602ad4d5[m
+Merge: 5b71517 f0a566f
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 21:39:17 2022 +0700
+
+    Merge branch 'develop' into feature/fix-product-detail
+
+[33mcommit 392c60878c3b1b7881140313fc67e758837e7d8d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Nov 30 14:00:27 2022 +0000
+
+    test redux productById
+
+[33mcommit 5b715171d8b923274f19a920a6dc0a7d492704c7[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 20:52:24 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit ddf4288f4b7fde150bcb336a3a34ebd382f9750a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 30 16:48:18 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit f0a566f43b115bc1702ac96b97e04693ec48292f[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 17:43:42 2022 +0000
+
+     delete console in errorpage
+
+[33mcommit ddbb8be402f5a1fa4ec4f993fc7c07ec88f5c6d2[m
+Merge: bde164a 3b76246
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 17:09:35 2022 +0000
+
+    merge tabs into dev
+
+[33mcommit bde164abaa7ef1677a24c81a90ce9cd34e58e69e[m
+Merge: 2a5ebc5 2ed5bf3
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 17:07:14 2022 +0000
+
+    Merge branch 'feature/header-banner' into develop
+
+[33mcommit 2a5ebc50facbef97285e5f19c47d3136bc867707[m
+Merge: 815e0c5 9d5dad0
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 17:05:58 2022 +0000
+
+    Merge branch 'feature/fix-navbar' into develop
+
+[33mcommit 9d5dad04da454b564ac8bde3efdbeac49370917c[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 17:05:35 2022 +0000
+
+    navlink active ok
+
+[33mcommit 2668d1d211fb9d1c1ff590226b9a7a3f131e2159[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 10:39:31 2022 +0700
+
+    fix tabs
+
+[33mcommit 8785f0b2d4581a05fe9e854992f6904a309825b9[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 29 14:26:14 2022 +0000
+
+     fix rootlayout
+
+[33mcommit 800cdddfde45491a4091a9237cb8fd8118fd28c1[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 21:08:00 2022 +0700
+
+    fix product detail in progress
+
+[33mcommit 43b340efd137f11b246cd757ad8a6e145db122a9[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 09:53:43 2022 +0700
+
+    add animated text and pagination custom to banner
+
+[33mcommit 3b76246ceaa8b562bcd6115d8f738e7eff000b99[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 10:39:31 2022 +0700
+
+    fix tabs in progress
+
+[33mcommit 2ed5bf3406cddee267b88c57399394452cae117c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 29 09:53:43 2022 +0700
+
+    add animated text and pagination custom to banner
+
+[33mcommit eeb0f34dbeb98593b5c02713e1f6be63d958cd4f[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 16:52:45 2022 +0000
+
+    navlink active in progress
+
+[33mcommit 5f99ca30fbf3cc07d8dbc34d65f4fa39f71b2133[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 15:09:42 2022 +0000
+
+    fix tabs menu
+
+[33mcommit 15c89c55775c24e096ea20a37f0913fccc92025d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 15:09:42 2022 +0000
+
+    fix tabs menu
+
+[33mcommit 815e0c58e49835ea5a915a10002812897df01391[m
+Merge: 62852a1 db735bf
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 13:48:46 2022 +0000
+
+    merge breadcrumbs into dev
+
+[33mcommit db735bff872f513138a0ca23711701ebc381acc7[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 28 20:02:05 2022 +0700
+
+    fix breadcrumb
+
+[33mcommit 62852a190c5349f85099b820c1ea9463f1f8edac[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 12:27:09 2022 +0000
+
+    delete old product tabs
+
+[33mcommit 686b90e1439f83d15b7b6d6305c582fe6b9be099[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 12:20:03 2022 +0000
+
+    merge getProduct into develop
+
+[33mcommit 02588d7b5d1a96ad4fd49b7c4b5896c5a3d580ac[m
+Merge: aa70831 877d585
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 12:19:14 2022 +0000
+
+    merge getProduct into develop
+
+[33mcommit 877d5852dfee4a357915abc2fc221ee413ed7335[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 28 19:01:09 2022 +0700
+
+    fix css
+
+[33mcommit aa70831d9f0226f58fe39dd2877e5b773a59d25b[m
+Merge: 9470cc6 04ed19d
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 11:41:27 2022 +0000
+
+    Merge mdal into develop
+
+[33mcommit 2cdc4d25b139c93e9d8fceec04156be249f75141[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 11:26:30 2022 +0000
+
+    delete unneccessary files
+
+[33mcommit 3d33dbcd89068843e2ec3645cf962e9d2017af35[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 28 11:08:41 2022 +0000
+
+     fix tab with slider products
+
+[33mcommit e562e12134a0b4b4d463f6e6b7727b41838b148a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 28 16:57:29 2022 +0700
+
+    add breadcrumbs
+
+[33mcommit 56885c53ae82be0bc4a724800c21ec465531b40f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Nov 26 11:52:11 2022 +0700
+
+    use tailwind animation instead of libs csstransition
+
+[33mcommit 71649adc758f1ed58237c2ba72e585235f0d04dd[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 28 16:57:29 2022 +0700
+
+    add breadcrumbs
+
+[33mcommit 04ed19dc95623888217bee7ff0d33343adf209c3[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Nov 26 11:52:11 2022 +0700
+
+    use tailwind animation instead of libs csstransition
+
+[33mcommit e1a1ccf27c04989f6611f9f51eecab29a0efddba[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 17:02:40 2022 +0000
+
+    fetch single product ok
+
+[33mcommit 1acf659b5f02552bd09b520679984667020cd0a4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 16:37:11 2022 +0000
+
+    error fetch data single product
+
+[33mcommit 2d21b388931ff2f813d2ac3d1538347425b1949a[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 16:23:30 2022 +0000
+
+    update modal
+
+[33mcommit 173d50c5fb3680ee0de84ca661b6eb63ca1a4dfd[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 25 21:35:47 2022 +0700
+
+    add modal
+
+[33mcommit 9d4ded68294bb7e94e85db18f6ea6608973efac5[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 16:15:39 2022 +0000
+
+    fix tab products
+
+[33mcommit a31c5c28077e951d81b56d1ef8479f8a2010b3d9[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 25 21:35:47 2022 +0700
+
+    add modal
+
+[33mcommit 9470cc6087caea662dada14edff4b337b8b95d6f[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 10:21:30 2022 +0000
+
+    fix productlist
+
+[33mcommit c1cdc3b7c31f5b4f2bc53c02269b6822d38c585c[m
+Merge: 8280fb8 004e807
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 25 10:12:46 2022 +0000
+
+    merge product-item
+
+[33mcommit 8280fb8e7794784dc5b02e3ab6e4271cb2cf73f5[m
+Merge: 06d84c7 1ad7830
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 24 18:18:43 2022 +0000
+
+    Merge branch 'feature/quick-view-product' into develop
+
+[33mcommit 1ad78304da95ffabfa4dfadc0de9a19bd9bbbb43[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 24 18:17:59 2022 +0000
+
+    fix css in home page
+
+[33mcommit e69974f513e0bdff532c0df66457bdd5e3c087a2[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 23:02:58 2022 +0700
+
+    test modals
+
+[33mcommit 5691ecd982bd34347728a21256126d3bdf468a52[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 24 19:26:38 2022 +0700
+
+    fix slider of ProductList
+
+[33mcommit 67e3fd87337f9b9a948cd957740fb0d1e88b48a4[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 24 18:41:36 2022 +0700
+
+    fix css
+
+[33mcommit 3deb7fe2fdc6385f87eedb6e10d8aa91e552f4bf[m
+Merge: 88ee593 f3bf904
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 24 11:00:16 2022 +0000
+
+    Mergeproducts into quick-view
+
+[33mcommit 88ee59332e22cfb4aca11f27ffc3018832eb487c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 24 17:57:58 2022 +0700
+
+    add slider
+
+[33mcommit 58604bb1abe0a57277eee7c4542c0b19ebf8a92c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 22:03:59 2022 +0700
+
+    fix OurProduct to 2 rows
+
+[33mcommit e5644b78d903a3af7cc0ef3edea0a81f682afa34[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 24 10:32:07 2022 +0000
+
+    add featured products
+
+[33mcommit 004e807c81279044a26d6cf6d6680f9d8000a484[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 23:02:58 2022 +0700
+
+    test modals
+
+[33mcommit 33b6254af0ab8ed6b218885b58f4a1b0fe633127[m
+Merge: 1a32cd8 6ce9d6d
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 20:41:47 2022 +0700
+
+    Merge branch 'feature/quick-view-product' into feature/product-item
+
+[33mcommit 6ce9d6de3dfb9d566ed17a37bfa06346aa4d1f52[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Nov 23 11:21:01 2022 +0000
+
+    fix rating
+
+[33mcommit c1176c8bd5ab4cbf8c66373165a9b537c6390dba[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 15:29:30 2022 +0700
+
+    product item
+
+[33mcommit d71073690b6c4fb2ee071322d40956308eaf0910[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 15:29:30 2022 +0700
+
+    pick productItem to quick-view
+
+[33mcommit 1a32cd8a3d580a37e9f56ad8e93d65acc9a10632[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 23 15:29:30 2022 +0700
+
+    product item
+
+[33mcommit 44de4db46ec0f50cfeb2c6ffd6d26acc949f8cc1[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 22 17:37:52 2022 +0000
+
+    fix common-section & breadcrumbs in progress
+
+[33mcommit b9abc1d4dc39fb6907f98ac5b6dd1f29e7c7c596[m
+Merge: 4c324ee 06d84c7
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 22 14:46:01 2022 +0000
+
+    Merge branch 'feature/404' into feature/quick-view-product
+
+[33mcommit 4c324ee6f0afe7d0ad27881ac38b18d891c0b3da[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 22 14:42:08 2022 +0000
+
+    add reactportal & modal component
+
+[33mcommit ee1fd284031ef6a71b39a1e55ce3e493f1898aea[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 22 12:04:49 2022 +0000
+
+    add useFetchDocument hook and redux for cart
+
+[33mcommit 06d84c77ec28a03b98d32232bbeb48b16490fa55[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 22 08:40:21 2022 +0700
+
+    add 404 page
+
+[33mcommit 49c997a32ce6fe481ba86e7e770da342a29a96e4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 21 19:37:17 2022 +0000
+
+    common-section in progress
+
+[33mcommit 6b3f4737f194730b375e3c0c99663db5945df03c[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 21 15:18:42 2022 +0000
+
+    add modal for quick view
+
+[33mcommit f3bf904020c5915d60c88be2c078aaff522810f3[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 22:04:35 2022 +0700
+
+    move BackDrop to UI
+
+[33mcommit 168f4b3731935a36125043dab37347ef243901f4[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 22:03:59 2022 +0700
+
+    fix OurProduct to 2 rows
+
+[33mcommit db8a7da4e749e257f1b0b0f882e0244ad6305147[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 22:03:03 2022 +0700
+
+    fix Slider and delete PortFolioSwiperZoom
+
+[33mcommit 5483a837624fc1aa5486aef86a4786c52bc33245[m
+Merge: 8f7275f d8d3f1b
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 21 10:37:28 2022 +0000
+
+    Merge branch 'feature/products' into develop
+
+[33mcommit d8d3f1b4b9276fa6df714c1d69972032b12401b6[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 16:35:11 2022 +0700
+
+    add responsive for 404
+
+[33mcommit 196d88503ccc7d7495a9fc3d2f944a05b8f4c7d5[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 16:07:15 2022 +0700
+
+    add 404 page
+
+[33mcommit 868863fce50e64833d702142c19481013f4d4de6[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 21 15:47:37 2022 +0700
+
+    add switch case to Button
+
+[33mcommit 225cae198eeb368d89c3373ce143291fb6b00363[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 20 21:53:53 2022 +0700
+
+    404 in progress
+
+[33mcommit 7667a51dd051047cb768e76fd4173667eb56a44a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 20 21:53:27 2022 +0700
+
+    add fruits in OurProducts
+
+[33mcommit 4324c7b4e274344d3a37a65c3c6210890f1df7af[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 20 16:09:49 2022 +0700
+
+    add breakpoint for slider and use slider on OurProducts, Blog, PortFolio
+
+[33mcommit 91e4e71e52681187ca18ad6189978ef07a9e86cc[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 20 15:38:48 2022 +0700
+
+    add slider and fix css of SliderPagination
+
+[33mcommit 00b99729fb179a3a8e8eed86ae9cdeb861d3986d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 18 19:00:03 2022 +0000
+
+    add uiSlice RTK
+
+[33mcommit 357c06fc2170062ffa09ff25a32542567d35ec81[m
+Merge: 415273f 8f7275f
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 18 17:34:31 2022 +0000
+
+    merge develop into products
+
+[33mcommit 415273f52d4f1ca6c7f8e15b433eaa9b2c6eff96[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 18 17:23:55 2022 +0000
+
+    reconstrure project
+
+[33mcommit 453af3e5d1ae97a163bfa10acc2dc7773a0ad4aa[m
+Merge: d1de720 4e1c1f0
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 18 17:16:10 2022 +0000
+
+    merge product-detail into products
+
+[33mcommit d1de7201c0ce91c15d0378ff38c02c8d93d610dc[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 18 21:55:31 2022 +0700
+
+    fix css of ProductCart and add prop key in OurProduct
+
+[33mcommit 8c4415df8052b4868ca8ed1e58d4a442ec017e1f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 18 21:51:26 2022 +0700
+
+    fixed tabs
+
+[33mcommit 9971ee09c7347ac24b2aa32788d894512740af1c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 18 20:32:54 2022 +0700
+
+    add products to Ourproduct
+
+[33mcommit 8f7275f4e095eef9fb84c55ff7ec293139bc05b7[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 17 19:13:17 2022 +0000
+
+    configure tailwind for font & btn
+
+[33mcommit 3de2ab17261ab8d55b4a6ed4bf08d5417bf8e743[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 17 17:18:53 2022 +0000
+
+    modify font
+
+[33mcommit a4883d1fe18a55d83c45a18c7ab77c9e06ababaa[m
+Merge: a52268c 4d78709
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 17 16:26:45 2022 +0000
+
+    Merge branch 'feature/blog' into develop
+
+[33mcommit 4d787093e753c02d8ff9816deaffe7a5a9760758[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 17 23:02:10 2022 +0700
+
+    add product in tab
+
+[33mcommit 5fcb6c592fe7a35a18fad218a8d9fdf529dd996c[m
+Merge: 0cfe4ed 28ebbb3
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 17 22:29:26 2022 +0700
+
+    Merge branch 'feature/products' into feature/blog
+
+[33mcommit 28ebbb36a98c4c3171e33a07abfeee65db378af7[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 17 15:20:36 2022 +0000
+
+    modify tabs products
+
+[33mcommit 55d37c66995a41f664656b2a7862e4e8482289d4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 17 13:12:12 2022 +0000
+
+    add useFirestore hook
+
+[33mcommit 0cfe4ed05045f6f236fd0cd3f436d3e622bc558c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 16 15:36:04 2022 +0700
+
+    delete ProductDetail
+
+[33mcommit 4e1c1f0a1e6ce015f74a08c2c3c956ea1c77d983[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 16 15:34:06 2022 +0700
+
+    add ProductDetail from Blog without merging
+
+[33mcommit cf7b113e61ab7fd92c6ea3d9c616f88ef6c26047[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 16 15:01:39 2022 +0700
+
+    add ProductDetails
+
+[33mcommit 2f21bc413be2d6d7ca061f7f19970f11dbc16503[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 16 09:22:43 2022 +0700
+
+    remove arrow on input type number from @layer base
+
+[33mcommit 148e97ad74ba3b9836606c02c45eef539978cf72[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 17:10:48 2022 +0000
+
+     add Porfolio without merging its branch
+
+[33mcommit 9191289517df1f23d323af74d08eaede58311b95[m
+Merge: 7fbf7e7 a9ae6bf
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 16:59:26 2022 +0000
+
+    Merge branch 'feature/Portfolio' into feature/products
+
+[33mcommit a9ae6bf4b1350d943157c6586ec808c7320736bd[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 16:58:20 2022 +0000
+
+    add tabs
+
+[33mcommit 7fbf7e7e714d56911d3269b9b34b2ee712bcc8f9[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 16:30:40 2022 +0000
+
+    delete productList.js
+
+[33mcommit 85565277d534a89e9c4f04ac6beef872726de3ec[m
+Merge: 1bb9045 5f865e6
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 16:16:05 2022 +0000
+
+    merge blog into products
+
+[33mcommit 1bb9045ba952426e971b1caff11217aa50942a71[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 15 15:57:48 2022 +0000
+
+    create apiSlice with redux-toolkit
+
+[33mcommit 5f865e675bb09c9dfdd3bfc644c482f82430fdce[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 15 14:55:43 2022 +0700
+
+    add style to tab
+
+[33mcommit c404074a9e4ce1ea98cb65028fb240ca083d4bee[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 15 10:35:20 2022 +0700
+
+    fix tabs
+
+[33mcommit 69501641aec5e2973dfec03dd263bdd2911979a6[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 14 16:24:27 2022 +0000
+
+    add constant
+
+[33mcommit 15fb8e35dab3db23786518929c0b33440a044ec9[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 14 22:14:50 2022 +0700
+
+    add tabs
+
+[33mcommit 9f061c2410f45e77b20005bf206b36e17b91cf52[m
+Merge: 045c52c 26b84c2
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 14 16:32:52 2022 +0700
+
+    add margin top of read more
+
+[33mcommit 26b84c2219fcf31263fc0a59c9d08cf05633e01f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 14 16:19:51 2022 +0700
+
+    fix margin of pagination on mobile
+
+[33mcommit da572b21006d2eaca963efdb8496159ce04818d8[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 13 21:19:39 2022 +0700
+
+    fix PortFolio
+
+[33mcommit 045c52cc5971ee62c77c7ece805467d99b651640[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 13 21:18:18 2022 +0700
+
+    fix blog
+
+[33mcommit e9f5f88701f66c311e725e30fdef73b86a3aa7ec[m
+Merge: bbd7f0b 50f4e6b
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 13 21:11:15 2022 +0700
+
+    portfolio delete the context and add keyboard
+
+[33mcommit 50f4e6b7cc45741201bcb5b78e26fa6c1a8c4f83[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 13 14:50:55 2022 +0700
+
+    blog add pagination custom
+
+[33mcommit 5e4e00233ad06253f4c43f653fc96a180ecde2e9[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Nov 13 08:22:59 2022 +0700
+
+    add keyboard to swiper blog
+
+[33mcommit 20c34b4dab460c90b801dbfa89bc40059df60984[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Nov 12 22:25:15 2022 +0700
+
+    fix blog
+
+[33mcommit 41f01b1deb5b66acd36af729369aa6c6fe70a8f2[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 11 22:36:49 2022 +0700
+
+    Blog in progress
+
+[33mcommit bbd7f0b8e6912a9d47c29086fbbda58bf6e6f9cc[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 11 15:43:47 2022 +0700
+
+    fixed portfolio
+
+[33mcommit f48ca1227fc9723f76f64e3d70d03c63d2166f2e[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 11 15:38:52 2022 +0700
+
+    fixed portfolio
+
+[33mcommit dbf7aae3c200ef1af8ed6df2fa4733eb23e1945a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 11 14:58:11 2022 +0700
+
+    add font family
+
+[33mcommit ac4fc75beea1fd362f368fc11683f3be7ce8b348[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Nov 10 14:49:14 2022 +0000
+
+    call API in progress
+
+[33mcommit eabd55344c5c8da6c50bb769f117cf43db8bb3d8[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 10 20:18:52 2022 +0700
+
+    change resize event
+
+[33mcommit 516cbfaaaf32905af3ba16cc810387df54b7415b[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 10 17:11:25 2022 +0700
+
+    add backdrop portfolio
+
+[33mcommit 8dd2e72927f01ae34fcf2db321f0379e5894deda[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Nov 9 14:25:31 2022 +0000
+
+    delete fontawesome in package
+
+[33mcommit c548ca1127926bb7ad3d7adc3540a8e938f1c82a[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 9 21:16:28 2022 +0700
+
+    portfolio in progress
+
+[33mcommit 0c0a2b80860eada9657d1140be34936c6255b2eb[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 9 16:17:06 2022 +0700
+
+    portfolio in progress
+
+[33mcommit a52268c4710b30f0d915aa4bb2b21fa4980a21dc[m
+Merge: a6c7fd2 1fbe8b6
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 8 14:22:50 2022 +0000
+
+    Merge branch 'feature/btnSlider' into develop
+
+[33mcommit 1fbe8b6ff2fdd03e1dade0b517cb30a8b8cb9f6f[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 8 20:45:31 2022 +0700
+
+    fixed btn slider
+
+[33mcommit a6c7fd272e20407cc68c7e8f437ebed2befee0f1[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 8 12:23:54 2022 +0000
+
+     corect dropdown file
+
+[33mcommit 4033e8285cc16e865012cd66ed8f1ef002becefc[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 8 12:15:48 2022 +0000
+
+     fix countdown with useEffect
+
+[33mcommit 374cb4b14b98754f86df618af6a4682af162c369[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 8 08:26:39 2022 +0000
+
+    test API
+
+[33mcommit 5484741b07dc66a3928795e109f8e7b543ad4c29[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 8 14:29:19 2022 +0700
+
+    fixed import directory dropdown in index header
+
+[33mcommit b04dd5f25fc1a8020836a651af474976b6b7bf74[m
+Merge: 7a1d85d a81d388
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 7 15:41:12 2022 +0000
+
+    merge countdown into dev
+
+[33mcommit 7a1d85d0388e2e669b8e3c7a9bee2ec92b2f689d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 7 15:14:45 2022 +0000
+
+    delete unnecessary files after merging from navbar
+
+[33mcommit abaa2278e6692761b4a1b9b24eff32be6e8bcf65[m
+Merge: 2a6cde7 8789f35
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 7 14:52:58 2022 +0000
+
+    merge navbar
+
+[33mcommit 8789f35d0cf832bc51ab3c14d434418c36d7eec5[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Nov 7 14:40:05 2022 +0000
+
+    add dropdown user
+
+[33mcommit a81d388045f46cbacff40114a349b744e2b494fa[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 7 20:57:55 2022 +0700
+
+    countdown add data from firebase
+
+[33mcommit f322898e823e2f4df927b676c7189e91881b4aa5[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Nov 7 20:08:28 2022 +0700
+
+    fixed the countdown
+
+[33mcommit 46e2afb80c28330ed88c88a40ca21177713ef6e5[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Nov 5 21:49:14 2022 +0700
+
+    countdown in progress
+
+[33mcommit c8239658c73c4eba2585f50434004b5eeb75425e[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Nov 5 14:38:22 2022 +0700
+
+    countdown in progress
+
+[33mcommit 0e9e9fb178b18db1282cbc921271f90b5cc4ecec[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 4 18:18:15 2022 +0000
+
+    fix promotion & delete unnecessary components
+
+[33mcommit 6186a5b445e9cda3f34e0d22d59d9786b09ed930[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Nov 4 22:33:43 2022 +0700
+
+    products in progress
+
+[33mcommit b22727f3ba78d790a803796ce5bf774545bf3218[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Nov 4 11:44:56 2022 +0000
+
+    add modal & branch slider & pro
+
+[33mcommit 4643382b56db94da20517d55f5d8bafc2c7ea188[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 3 23:19:59 2022 +0700
+
+    add product
+
+[33mcommit 2a6cde7138d89d9c94f0f284143359aa00786bc5[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Thu Nov 3 08:12:24 2022 +0700
+
+    merge promotion into develop
+
+[33mcommit b74207a04adb8f6feddf0c6cc7f10a86d3c1dee9[m
+Author: gonin <goninha@outlook.fr>
+Date:   Wed Nov 2 18:09:40 2022 +0000
+
+    add transition navmobi
+
+[33mcommit c4c542136ad2b43329532248729e1d827830a60c[m
+Merge: b6c6db9 ae787d4
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 2 23:51:50 2022 +0700
+
+    Merge branch 'feature/pro' into develop
+
+[33mcommit ae787d4066f309e9b64567a22bfd9b1015f8a28c[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 2 23:44:58 2022 +0700
+
+    fixed promotion button
+
+[33mcommit 5294aa9ac2c01af643f20c92e69c9e4d98bf602d[m[33m ([m[1;31morigin/feature/pro[m[33m)[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 2 19:20:13 2022 +0700
+
+    fixed promotion to grid
+
+[33mcommit 8f6f42531dbee4a777c7446f67b0e50dcd5a1086[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Wed Nov 2 15:29:12 2022 +0700
+
+    fixed promotion
+
+[33mcommit fcb69cc2e00fc57b5f01b7e6954c43377ba0da38[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 1 18:17:02 2022 +0000
+
+    transition framer navmobi in progress
+
+[33mcommit eb38ec87068bc780475b19b761e33e430179513d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 1 16:01:58 2022 +0000
+
+    transition in progress
+
+[33mcommit e292d1408b80804f316d6ff19900a98c50903520[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 1 22:57:54 2022 +0700
+
+    fixed promotion
+
+[33mcommit 1433d9d1a2345c7a3ccb87cc1b0533ab2afe6841[m
+Merge: bec5498 7f9cd39
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 1 20:45:17 2022 +0700
+
+    fixed navbar
+
+[33mcommit 7f9cd39eaef0af57a80ff39edc920d70744567b3[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 1 12:41:37 2022 +0000
+
+    fix navbar mobi & responsive
+
+[33mcommit b6c6db99f048ae49fcbfc4c0e68b1bee3b788ca6[m
+Merge: d60f05a ea97097
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 1 19:23:27 2022 +0700
+
+    Merge branch 'develop' of github.com:fenewbie/freshmeals-app-reactjs into develop
+
+[33mcommit bec54984f354ab2378e1e43310831539a43dccd6[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Tue Nov 1 19:22:51 2022 +0700
+
+    fixed promotion
+
+[33mcommit 1171f958d86ea87168a00797b11c69b56a198013[m
+Author: gonin <goninha@outlook.fr>
+Date:   Tue Nov 1 09:11:50 2022 +0000
+
+    nav mobi still progress
+
+[33mcommit 547a1e72ef85bde29924358600bbc21625a1521e[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 15:57:01 2022 +0000
+
+    fix dropdown user
+
+[33mcommit c1f6c8702605460c9a57bb2abc57098aad9f61cc[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Oct 31 22:17:33 2022 +0700
+
+    promotion add icon
+
+[33mcommit 24750ece01406dae0fdc237fc1c9308f4cac0ea3[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Oct 31 22:02:43 2022 +0700
+
+    fix promotion
+
+[33mcommit b548bef6b443a2fe0f44fff5d30bee688c76b3d4[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 13:34:53 2022 +0000
+
+     add user dropdown
+
+[33mcommit 2cf885d24866ad0e89045cb009ea9712dac4442d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 11:19:59 2022 +0000
+
+    navbar dropdown in process
+
+[33mcommit c6b42f042db1e640d3345aa1ccfe620a20839394[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 10:20:08 2022 +0000
+
+    modify slide header with firestore
+
+[33mcommit 9670c711d899557c27ac25bd20491c349d67018c[m
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 09:37:45 2022 +0000
+
+     fix axiosAPI
+
+[33mcommit b63b195404ad729733221771202fc4efd29d00c2[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Mon Oct 31 16:28:21 2022 +0700
+
+    add promotion
+
+[33mcommit aaebd45afd21f30ab7f9f4111b0d8e1fd7998524[m
+Merge: 0d78d31 10d53a8
+Author: gonin <goninha@outlook.fr>
+Date:   Mon Oct 31 09:25:29 2022 +0000
+
+    merge slider-header
+
+[33mcommit ea97097e9658f48220613cdd323bdc9388629a39[m
+Author: Ha Gonin <97175351+hagonin@users.noreply.github.com>
+Date:   Sun Oct 30 11:51:00 2022 +0000
+
+    Delete .env
+
+[33mcommit ca6ca7c5b5148c7209ecebf16ec515c38839d20f[m
+Author: Ha Gonin <97175351+hagonin@users.noreply.github.com>
+Date:   Sun Oct 30 11:50:46 2022 +0000
+
+    Update .gitignore
+
+[33mcommit 2ef4cc6f70308385f7534c2db46e0ce4ff0e4a87[m
+Author: Ha Gonin <97175351+hagonin@users.noreply.github.com>
+Date:   Sun Oct 30 11:50:23 2022 +0000
+
+    update apiAxios
+
+[33mcommit a866ea9d67081bc694a61cf212ca33b06c00a5a9[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Oct 30 15:50:24 2022 +0700
+
+    add promotion
+
+[33mcommit 6e30ca7b7ea890117c7874064184387a4a1fdaef[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sun Oct 30 12:01:35 2022 +0700
+
+    add promotion
+
+[33mcommit 10d53a8464cccf5f9bb7ad22d2b9e349feb506af[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sun Oct 30 00:02:49 2022 +0700
+
+    changed fontawasomeIcon to react-icons
+
+[33mcommit de4014682569d037ca4cc251fe5054dc7a76efb4[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Oct 29 23:59:39 2022 +0700
+
+    add promotion
+
+[33mcommit 6763c16152882a19c8384736b349a66a41a8b960[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 23:38:28 2022 +0700
+
+    added brand logo
+
+[33mcommit 9d95b538603f6f67ae67fd7c12e6b3071cf68769[m
+Merge: 1552e05 305c096
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 23:29:08 2022 +0700
+
+    Merge remote into slider-header, fixed conflict
+
+[33mcommit 1552e05516670601857b16ab32cd799fc0a60adb[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 23:24:38 2022 +0700
+
+    header changed
+
+[33mcommit db164d3b954dbfff5e223039025cdeacbef08b76[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 22:55:06 2022 +0700
+
+    added xl theme in tailwind config
+
+[33mcommit 305c096fa205358069b99bae5440f5f9a1b58b67[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 22:55:06 2022 +0700
+
+    added xl theme in tailwind config
+
+[33mcommit f347ac923f1723f3673c2ff6898a836128a715d3[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 22:36:50 2022 +0700
+
+    install fontawesome package, basic header
+
+[33mcommit 007cacce1a134fc431f00f1a054d86254e820ef7[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Sat Oct 29 21:26:54 2022 +0700
+
+    fixed overflow, rounded corner still not fix
+
+[33mcommit 88ddba960d9fc8e287fb6b54c47d5e39c4abf17c[m
+Merge: 8b325db d60f05a
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Oct 29 19:32:19 2022 +0700
+
+    Merge branch 'develop' into feature/pro
+
+[33mcommit d60f05ae4111be09876538e7a3370afe869a2e92[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Sat Oct 29 19:26:31 2022 +0700
+
+    pull
+
+[33mcommit 0f6f733ca7833afbbb730fb522f1d4774657cf2a[m
+Author: Ha Gonin <97175351+hagonin@users.noreply.github.com>
+Date:   Fri Oct 28 23:29:52 2022 +0100
+
+    modify config tailwind
+
+[33mcommit f4f0a3931bcdba011047e5443ef1bd2cda754d11[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Oct 28 21:39:38 2022 +0100
+
+    config flowbite
+
+[33mcommit c94678c4b80a3fe837b27b7980d11719eebc153d[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Oct 28 21:35:45 2022 +0100
+
+    remove & install new icon & UI
+
+[33mcommit 45691e8e9a7cbd5bc6bc18e5c2c5890206221fce[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 23:49:35 2022 +0700
+
+    added flowbite flowbite-react, testing carousel of flowbite
+
+[33mcommit f75e08963512b69e7366cfc65a114506681306e1[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 22:59:19 2022 +0700
+
+    basic slider
+
+[33mcommit 0d78d318b17c3351112b0aab9f00e55e664fc183[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Oct 28 16:15:40 2022 +0100
+
+    add firebase
+
+[33mcommit 8b325db72009f8ab17d448505a25feb08b210b91[m
+Author: Pham Mi <huynhmi1209@gmail.com>
+Date:   Fri Oct 28 21:53:52 2022 +0700
+
+    pro
+
+[33mcommit 488cc2dc5cb3dacb53fbc7333b1477db5ba94c6c[m
+Merge: bb04438 c2017fb
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 21:14:44 2022 +0700
+
+    Merge branch 'develop' of https://github.com/fenewbie/freshmeals-app-reactjs into feature/layout
+
+[33mcommit c2017fbf28f160cfdb0ed31834dbda3d1ebe7bcf[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 21:12:51 2022 +0700
+
+    install framer-motion
+
+[33mcommit bb0443815e1c7691949bafc9d968d38d6e4493f1[m
+Merge: 1f66b13 3cb9a7c
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 21:10:19 2022 +0700
+
+    Merge branch 'develop' into feature/layout
+
+[33mcommit 1f66b138512c8ed17d2a3d38e56d213b14aac4f6[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 20:44:09 2022 +0700
+
+    removed navbarSlice, use local dynamic navbar, check active link
+
+[33mcommit 3cb9a7c63f3eb99e5bd4b1bb834772db75561a4f[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Oct 28 12:05:48 2022 +0100
+
+    add icon & material-tailwind
+
+[33mcommit a2f20c509dfa7a3bcefdff4ec0f373871edc1d2b[m
+Author: gonin <goninha@outlook.fr>
+Date:   Fri Oct 28 10:18:45 2022 +0100
+
+    test user api
+
+[33mcommit 4b92b96a7636f0809f12e8fc7ffc9ef75d34ff8b[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 01:51:12 2022 +0700
+
+    fixed useEffect inside Header
+
+[33mcommit 838653ab456f7d79b3b446c30c9f58f2dd783bf8[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 01:48:07 2022 +0700
+
+    basic resposive
+
+[33mcommit 705403f9183b40bafea2fcfdd2f865420272dd2f[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 01:39:01 2022 +0700
+
+    added some more page, navbar data + slice, redesign folder tree
+
+[33mcommit 921501e39b0e471cb19f37c1409b623b3d3ee989[m
+Author: phantrunghieu91 <phantrunghieu1291@gmail.com>
+Date:   Fri Oct 28 00:21:40 2022 +0700
+
+    basic layout + setup router
+
+[33mcommit d92d1105713e06634d09acb4392d58643f7c2224[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Oct 27 10:29:24 2022 +0100
+
+    update readme
+
+[33mcommit 57746620995f3c5710ee343dadfcc16dcfa2bf79[m
+Author: gonin <goninha@outlook.fr>
+Date:   Thu Oct 27 10:23:29 2022 +0100
+
+    first config

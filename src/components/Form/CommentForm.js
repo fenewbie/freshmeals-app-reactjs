@@ -1,4 +1,3 @@
-import Input from './Input';
 import Button from '@components/UI/Button';
 
 import { TbEdit } from 'react-icons/tb';
@@ -6,52 +5,79 @@ import { FiMessageCircle } from 'react-icons/fi';
 import { AiOutlineGlobal } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
+import { Form, Formik } from 'formik';
+import FormikControl from './FormikControl';
+import { CommentSchema } from './ValidationSchema';
+import { saveinfocomment } from '@utils/constants';
 
 function FormSection() {
+	const initialValues = {
+		comment: '',
+		name: '',
+		email: '',
+		website: '',
+		saveinfo: [],
+	};
+
+	const handleSubmit = (values) => {
+		console.log('Comment form', values);
+	};
 	return (
 		<div>
 			<h3 className="font-bold text-2xl mb-10">Comments</h3>
-			<form className="bg-[#F0F4F7] p-12">
-				<Input
-					type="textarea"
-					rows={6}
-					className="border"
-					icon={<TbEdit className="text-2xl" />}
-				/>
-				<Input
-					type="text"
-					placeholder="Type your name"
-					className="mt-8 border"
-					icon={<FaUserAlt />}
-				/>
-				<Input
-					type="email"
-					placeholder="Type your email"
-					className="mt-8 border"
-					icon={<IoMdMail />}
-				/>
-				<Input
-					type="text"
-					placeholder="Type your website"
-					className="mt-8 border"
-					icon={<AiOutlineGlobal />}
-				/>
-				<div className="flex items-center mt-8 mb-8">
-					<Input type="checkbox" />
-					<label className="ml-2 text-sm">
-						Save my name, email, and website in this browser for the
-						next time I comment.
-					</label>
-				</div>
+			<Formik
+				initialValues={initialValues}
+				validationSchema={CommentSchema}
+				onSubmit={handleSubmit}
+			>
+				<Form>
+					<FormikControl
+						control="textarea"
+						name="comment"
+						placeholder="Type your comment..."
+						rows={6}
+						icon={<TbEdit />}
+					/>
+					<FormikControl
+						control="input"
+						name="name"
+						placeholder="Type your name"
+						className="mt-8"
+						icon={<FaUserAlt />}
+					/>
+					<FormikControl
+						control="input"
+						name="email"
+						placeholder="Type your email"
+						className="mt-8"
+						icon={<IoMdMail />}
+					/>
 
-				<Button
-					btn="card"
-					className="flex items-center"
-				>
-					<FiMessageCircle className="mr-2" />
-					Post Comment
-				</Button>
-			</form>
+					<FormikControl
+						control="input"
+						name="website"
+						placeholder="Type your website"
+						className="mt-8"
+						icon={<AiOutlineGlobal />}
+					/>
+
+					<FormikControl
+						control="checkbox"
+						name="saveinfo"
+						options={saveinfocomment}
+						className="my-5"
+					/>
+
+					<Button
+						btn="card"
+						className="flex items-center"
+						type="submit"
+					>
+						<FiMessageCircle className="mr-2" />
+						Post Comment
+					</Button>
+				</Form>
+			</Formik>
 		</div>
 	);
 }

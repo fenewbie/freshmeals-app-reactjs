@@ -19,7 +19,10 @@ function Checkboxes({ label, name, options, className, ...rest }) {
 									checked={field.value.includes(option.value)}
 									className="my-3"
 								/>
-								<label htmlFor={option.value} className="ml-2 max-md:text-sm">
+								<label
+									htmlFor={option.value}
+									className="ml-2 max-md:text-sm capitalize"
+								>
 									{option.key}
 								</label>
 								<br />

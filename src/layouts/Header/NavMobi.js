@@ -43,11 +43,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 						</button>
 					</div>
 					<div className="mr-5">
-						<SearchForm
-							type="products"
-							searchFor="title"
-							isMobi
-						/>
+						<SearchProducts isMobi />
 					</div>
 					<div className="overflow-y-auto h-full pb-44 mt-5">
 						<Navigation className="flex flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%] " />

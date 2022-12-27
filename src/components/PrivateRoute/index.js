@@ -6,7 +6,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 const PrivateRoute = ({ children }) => {
 	const navigate = useNavigate();
 	const currentUser = useSelector((state) => state.auth.user);
-	
+
 	if (!currentUser) {
 		return (
 			<section className="flex items-center justify-center py-6">

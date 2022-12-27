@@ -2,13 +2,15 @@ import Pagination from '@components/UI/Pagination';
 import ProductItem from '@features/ProductScreen/ProductItem';
 import usePagination from '@hooks/usePagination';
 
-function ProductGrid({ products }) {
+function ProductGrid({ products, cols = 4 }) {
 	const { dataRender, currentPage, totalPages, handlePageChange } =
 		usePagination({ listData: products, limit: 6 });
 
 	return (
 		<div>
-			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-20">
+			<div
+				className={`grid lg:grid-cols-${cols} md:grid-cols-2 grid-cols-1 gap-8 mb-20`}
+			>
 				{dataRender.map((product) => (
 					<ProductItem
 						key={product.id}

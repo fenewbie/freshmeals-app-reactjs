@@ -4,9 +4,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
-import { ValidationSchema } from '@components/Form/ValidationSchema';
+import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
-import Loader from '@components/UI/Loader';
 
 export default function Register() {
 	const consent = [
@@ -24,8 +23,8 @@ export default function Register() {
 		firstname: '',
 		lastname: '',
 		email: '',
-		password1: '',
-		password2: '',
+		password: '',
+		passwordConfirm: '',
 		consent: [],
 	};
 	const handleSubmit = async (values, { setSubmitting }) => {
@@ -33,7 +32,7 @@ export default function Register() {
 			const userCredential = await createUserWithEmailAndPassword(
 				auth,
 				values.email,
-				values.password1
+				values.password
 			);
 			const username = userCredential.user;
 
@@ -70,7 +69,8 @@ export default function Register() {
 						</h2>
 
 						<p className="mt-3 max-md:text-sm">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit. <br />
 							Sit aliquid, Non distinctio vel iste.
 						</p>
 					</div>
@@ -80,7 +80,7 @@ export default function Register() {
 				<div className="lg:w-[40%] md:w-8/12">
 					<Formik
 						initialValues={initialValues}
-						validationSchema={ValidationSchema}
+						validationSchema={RegisterSchema}
 						onSubmit={handleSubmit}
 					>
 						<Form>
@@ -105,14 +105,14 @@ export default function Register() {
 							<FormikControl
 								control="input"
 								type="password"
-								name="password1"
+								name="password"
 								placeholder="Password*"
 								className="mb-5"
 							/>
 							<FormikControl
 								control="input"
 								type="password"
-								name="password2"
+								name="passwordConfirm"
 								placeholder="Confirm Password*"
 							/>
 							<FormikControl
@@ -122,7 +122,11 @@ export default function Register() {
 								className="mt-5"
 							/>
 							<div className="mt-7">
-								<Button className="my-6 w-full" type="submit" btn="card">
+								<Button
+									className="my-6 w-full"
+									type="submit"
+									btn="card"
+								>
 									CREATE ACCOUNT
 								</Button>
 							</div>
@@ -134,7 +138,8 @@ export default function Register() {
 						</p>
 						<p className="text-lg">
 							<Link to="#">
-								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY POLICY
+								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp;
+								&nbsp; PRIVACY POLICY
 							</Link>
 						</p>
 						<div className="mt-12 underline">

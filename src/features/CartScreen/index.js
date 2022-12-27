@@ -72,11 +72,8 @@ function CartScreen() {
 								</tr>
 							</tbody>
 						</table>
-						<Button
-							btn="card"
-							className="w-full mt-5"
-						>
-							Proceed to checkout
+						<Button className="btn-animated w-full mt-5">
+							<span className='btn-animated-text'>Proceed to checkout</span>
 						</Button>
 					</div>
 				</>
