@@ -88,18 +88,22 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 									${totalAmount.toFixed(2)}
 								</span>
 							</div>
-							<div className="flex py-6">
+							<div className="flex py-6 max-md:flex-wrap">
 								<Link
-									className="w-1/2 mr-5 flex items-center justify-center px-4 h-[58px] rounded-md bg-greenBtn hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3"
 									to="/cart"
+									className="btn-animated md:mr-5 md:w-1/2 w-full max-md:mb-5"
 								>
-									View Cart
+									<span className="btn-animated-text">
+										View Cart
+									</span>
 								</Link>
 								<Link
-									className="w-1/2 flex items-center justify-center px-4 h-[58px] rounded-md bg-black hover:bg-[#6a9700] text-white max-md:w-full max-md:mt-3"
+									className="btn-animated btn-animated--revert md:w-1/2 w-full"
 									to="/checkout"
 								>
-									Checkout
+									<span className="btn-animated-text">
+										Checkout
+									</span>
 								</Link>
 							</div>
 							<span className="text-sm">
