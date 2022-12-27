@@ -1,44 +1,58 @@
 import Button from '@components/UI/Button';
 import Accordion from '@components/UI/Accordion';
-import FormikControl from './FormikControl';
 import { paymentmethods } from '@utils/constants';
+import { ErrorMessage, Field, useField } from 'formik';
+import TextError from './FormikControl/TextError';
 
 export default function PaymentMethod() {
+	const [field] = useField('paymentmethod');
 	return (
 		<div className="w-full">
-			<Accordion>
-				{paymentmethods.map((item, index) => (
+			<Accordion opened={field.value}>
+				{paymentmethods.map((option, index) => (
 					<Accordion.Item
-						key={item.id}
-						id={item.id}
+						key={option.id}
+						id={option.value}
 						className={`p-4 border-x border-b ${
 							index === 0 && 'border-t'
 						}`}
 					>
 						<Accordion.Title>
-							<div className="flex items-center gap-2">
-								<FormikControl
-									control="radio"
+							<label
+								htmlFor={option.value}
+								className="flex items-center cursor-pointer"
+							>
+								<Field
+									id={option.value}
+									type="radio"
 									name="paymentmethod"
-									options={[item]}
+									value={option.value}
 								/>
-								{item.img && (
+
+								<span className="ml-2">{option.key}</span>
+								{option.img && (
 									<img
-										src={item.img}
-										alt={item.key}
-										className="h-10 relative -top-1"
+										src={option.img}
+										alt={option.key}
+										className="h-10 relative -top-1 ml-2"
 									/>
 								)}
-							</div>
+							</label>
 						</Accordion.Title>
 						<Accordion.Content>
 							<p className="text-sm px-6 py-2 shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] mt-4 mx-2 mb-2 bg-white">
-								{item.note}
+								{option.note}
 							</p>
 						</Accordion.Content>
 					</Accordion.Item>
 				))}
 			</Accordion>
+
+			<ErrorMessage
+				name="paymentmethod"
+				component={TextError}
+			/>
+
 			<div>
 				<p className="text-sm mt-8">
 					Your personal data will be used to process your order,

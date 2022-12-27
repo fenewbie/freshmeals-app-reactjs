@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Accordion({ children }) {
+function Accordion({ children, opened }) {
 	const [indexAct, setIndexAct] = useState();
 
 	const handleClick = (id) => {
 		id === indexAct ? setIndexAct(false) : setIndexAct(id);
 	};
+
+	useEffect(() => {
+		opened && setIndexAct(opened);
+	}, [opened]);
 
 	return (
 		<div>
@@ -18,7 +22,7 @@ function Accordion({ children }) {
 					<div
 						key={id}
 						className={`cursor-pointer ${className}`}
-						onClick={() => handleClick(id)}
+						onClick={opened ? () => {} : () => handleClick(id)}
 						{...itemProps}
 					>
 						<div>{Title}</div>
