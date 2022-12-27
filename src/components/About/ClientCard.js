@@ -1,11 +1,11 @@
 import Card from '@components/UI/Card/index';
 import { TiMessages } from 'react-icons/ti';
 
-function ClientCard({ name, desc, job, avatar }) {
+function ClientCard({ name, desc, job, image }) {
 	return (
 		<Card className="relative flex max-md:flex-wrap items-center bg-white p-10 rounded shadow-card ">
 			<img
-				src={avatar}
+				src={image}
 				alt="client"
 				className="h-40 w-40 max-md:mr-auto object-cover mr-8 rounded-full"
 			/>

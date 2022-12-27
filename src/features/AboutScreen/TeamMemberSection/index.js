@@ -1,4 +1,5 @@
-import { useLoaderData } from '../../../../node_modules/react-router-dom/dist/index';
+import { useLoaderData } from 'react-router-dom';
+
 import Title from '@components/Title';
 import MemberCard from '@components/About/MemberCard';
 
@@ -10,11 +11,7 @@ function TeamMemberSection() {
 			<div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
 				{teams.map((member) => (
 					<div key={member.id}>
-						<MemberCard
-							name={member.name}
-							image={member.image}
-							position={member.position}
-						/>
+						<MemberCard {...member} />
 					</div>
 				))}
 			</div>

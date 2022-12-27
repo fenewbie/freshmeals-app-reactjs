@@ -1,4 +1,4 @@
-import SubscribeForm from '../../../components/Form/SubscribeForm';
+import SubscribeForm from '@components/Form/SubscribeForm';
 
 function SubscribeSection() {
 	return (
@@ -10,12 +10,11 @@ function SubscribeSection() {
 					we make your inbox better
 				</h2>
 				<p className="mt-5 mb-6 lg:px-20 ">
-					Be first to know about our newsletter, blogs, offer, new
-					products and exclusive access to pre-launch product pricing
-					and more at FreshMeals.
+					Be first to know about our newsletter, blogs, offer, new products and
+					exclusive access to pre-launch product pricing and more at FreshMeals.
 				</p>
 				<div className="h-14">
-					<SubscribeForm/>
+					<SubscribeForm />
 				</div>
 			</div>
 		</div>

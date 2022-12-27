@@ -1,5 +1,5 @@
 import FooterLink from './FooterLink';
-import { linkFooter } from '../../utils/constants';
+import { linkFooter } from '@utils/constants';
 
 
 const FooterService = () => {

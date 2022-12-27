@@ -1,14 +1,15 @@
-import Button from '@components/UI/Button';
-import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { useNavigate, useRouteError } from 'react-router-dom';
+import { TbArrowBigLeftLines } from 'react-icons/tb';
+
+import Button from '@components/UI/Button';
 import Footer from 'layouts/Footer';
 import CommonSection from '@components/CommonSection';
 import Header from 'layouts/Header';
 
-
 function NotFound() {
 	const error = useRouteError();
 	const navigate = useNavigate();
+	const handleClick = () => navigate('/');
 
 	return (
 		<div className="w-full mx-auto flex flex-col space-y-1 p-0 m-0">
@@ -27,13 +28,13 @@ function NotFound() {
 						We are sorry! But the page you are looking for does not exist. It
 						might have been moved or deleted.
 					</p>
-					<p className='text-xl text-red-700 font-bold'>
+					<p className="text-xl text-red-700 font-bold">
 						<i>{error.statusText || error.message}</i>
 					</p>
 					<Button
 						btn="card"
 						className="mx-auto bg-greenBtn p-2 rounded mt-5"
-						onClick={() => navigate('/')}
+						onClick={handleClick}
 					>
 						<span className="flex items-center">
 							<TbArrowBigLeftLines className="text-xl mr-2" />

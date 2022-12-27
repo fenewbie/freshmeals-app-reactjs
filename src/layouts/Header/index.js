@@ -1,23 +1,29 @@
-import { NavMobi } from './NavMobi';
-import Navigation from '@components/UI/Navbar';
 import { useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { NavMobi } from './NavMobi';
+import Navigation from '@components/UI/Navbar';
 import Button from '@components/UI/Button';
 import Banner from './Banner';
-import { userList } from '@utils/constants';
-import * as cs from '@utils/constants';
 import Dropdown from '@components/UI/Dropdown';
-import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
 import SearchProducts from './Search';
-import  ViewCart  from '@features/CartScreen/ViewCart';
+import ViewCart from '@features/CartScreen/ViewCart';
+import * as cs from '@utils/constants';
+import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
 	const headerRef = useRef(null);
+	const dropdownRef = useRef(null);
+	
+	const closeHoverDropdown = () => {
+		setShowDropdown(false);
+	};
+	useOnHoverOutside(dropdownRef, closeHoverDropdown);
 
 	const showNavMobi = useSelector((state) => state.modal.isDisplay);
 	const showCart = useSelector((state) => state.modal.isShowingCart);
@@ -61,28 +67,28 @@ const Header = () => {
 						</div>
 
 						<div className="flex flex-wrap gap-6 order-2">
-							<Button className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 font-raj">
+							<Button
+								type="link"
+								link="/contact"
+								className=" hidden lg:inline-flex text-white bg-greenBtn hover:bg-[#699403] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 font-raj"
+							>
 								GET A QUOTE
 							</Button>
-							<div className="flex gap-3">
+							<div className="relative flex gap-3" ref={dropdownRef}>
 								<div className="lg:visible invisible">
 									<SearchProducts />
 								</div>
 								<Button
-									className="p-3 bg-white rounded-full hover:bg-[#80B500] focus:ring-4 inline-flex items-center"
-									onClick={() => setShowDropdown(!showDropdown)}
+									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center"
+									onMouseOver={() => setShowDropdown(true)}
 								>
 									<BiUser />
 								</Button>
-								<Dropdown
-									className="absolute top-10 right-12 w-36 "
-									showDropdown={!showDropdown}
-									items={userList}
-								></Dropdown>
+								{showDropdown ? <Dropdown items={cs.userList} /> : ''}
 
 								<Button
 									onClick={handleCart}
-									className="p-3 bg-white rounded-full hover:bg-greenBtn focus:ring-4 relative"
+									className="p-3 bg-white rounded-full hover:bg-greenBtn relative"
 								>
 									<BiCartAlt />
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">

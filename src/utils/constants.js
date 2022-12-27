@@ -84,18 +84,19 @@ export const userList = [
 	{
 		id: 4,
 		title: 'Wishlist',
+		to:'/wishlist'
 	},
 ];
 
 export const linkList = [
 	{ id: 1, title: 'About', url: '/about' },
-	{ id: 2, title: 'Blog', url: '/' },
-	{ id: 3, title: 'Locations Map', url: '/' },
+	{ id: 2, title: 'Blog', url: '/blog' },
+	{ id: 3, title: 'Locations Map', url: '/contact' },
 ];
 
 export const linkFooter = [
-	{ id: 1, title: 'Order tracking', url: '' },
-	{ id: 2, title: 'Promotional Offers', url: '' },
+	{ id: 1, title: 'Order tracking', url: '/user-profile' },
+	{ id: 2, title: 'Promotional Offers', url: '/shop' },
 ];
 
 export const productFilter = {
@@ -186,6 +187,16 @@ export const productFilter = {
 		},
 	],
 };
+export const consent = [
+	{
+		key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+		value: '0',
+	},
+	{
+		key: 'By clicking "create account", I consent to the privacy policy.',
+		value: '1',
+	},
+];
 
 export const countryOption = [
 	{ key: 'Select country', value: '' },

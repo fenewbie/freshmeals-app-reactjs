@@ -4,7 +4,6 @@ import Button from '@components/UI/Button';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
 import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
 
 import Loader from '@components/UI/Loader';
 import FormikControl from '@components/Form/FormikControl';
@@ -16,8 +15,7 @@ const Login = () => {
 
 	const initialValues = { email: '', password: '' };
 
-	const handleSubmit = async (values, { setSubmitting, isSubmitting }) => {
-		console.log(values);
+	const handleSubmit = async (values, { setSubmitting }) => {
 		setSubmitting(true);
 		try {
 			const userCredential = await signInWithEmailAndPassword(

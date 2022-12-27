@@ -1,7 +1,8 @@
+import { AiOutlinePlus } from 'react-icons/ai';
+import { useLoaderData } from 'react-router-dom';
+
 import Title from '@components/Title';
 import Accordion from '@components/UI/Accordion';
-import { useLoaderData } from '../../../../node_modules/react-router-dom/dist/index';
-import { AiOutlinePlus } from 'react-icons/ai';
 
 function QuestionSection() {
 	const { questions } = useLoaderData();

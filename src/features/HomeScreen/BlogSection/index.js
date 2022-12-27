@@ -1,10 +1,7 @@
 import BlogSlider from '@components/Blog/BlogSlider';
-import Slider from '@components/UI/Slider';
 import { useRouteLoaderData } from 'react-router-dom';
-import { SwiperSlide } from 'swiper/react';
-import BlogList from '../../../components/Blog/BlogGrid';
 
-import Title from '../../../components/Title';
+import Title from '@components/Title';
 
 const BlogSection = () => {
 	const { blogs } = useRouteLoaderData('root');

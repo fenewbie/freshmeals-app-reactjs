@@ -1,11 +1,12 @@
-import Footer from './Footer';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+
+import Footer from './Footer';
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
-import { getData, getProductByTitle } from '../services/api';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { getData} from '../services/api';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
 
 let isInitial = true;

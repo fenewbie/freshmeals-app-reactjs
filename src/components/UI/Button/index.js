@@ -8,6 +8,7 @@ const Button = ({
 	onClick,
 	reload = true,
 	btn,
+	onMouseOver,
 }) => {
 	let classType;
 	let props = {};
@@ -49,6 +50,7 @@ const Button = ({
 				<button
 					type={type}
 					onClick={onClick}
+					onMouseOver={onMouseOver}
 					className={`transition-all ${classType} ${className}`}
 					{...props}
 				>

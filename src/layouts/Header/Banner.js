@@ -4,7 +4,7 @@ import 'swiper/css/pagination';
 
 import BannerSlideItem from './BannerSlideItem';
 import SliderButton from '@components/UI/Slider/SliderButton';
-import useFirestore from '../../hooks/useFirestore';
+import useFirestore from '@hooks/useFirestore';
 import { useState } from 'react';
 import SliderPagination from '@components/UI/Slider/SliderPagination';
 
@@ -23,10 +23,7 @@ const Banner = () => {
 			}}
 		>
 			{docs.length > 0 && (
-				<Swiper
-					loop={true}
-					onSlideChange={(e) => setRealIndex(e.realIndex)}
-				>
+				<Swiper loop={true} onSlideChange={(e) => setRealIndex(e.realIndex)}>
 					<SliderButton
 						isNext={false}
 						iconSize={36}
@@ -57,7 +54,11 @@ const Banner = () => {
 							/>
 						</SwiperSlide>
 					))}
-					<SliderPagination totalSlides={docs.length} indexAct={realIndex} isBanner/>
+					<SliderPagination
+						totalSlides={docs.length}
+						indexAct={realIndex}
+						isBanner
+					/>
 				</Swiper>
 			)}
 		</div>

@@ -1,5 +1,5 @@
-import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs';
 
 function MemberCard({ name, image, position }) {
 	return (

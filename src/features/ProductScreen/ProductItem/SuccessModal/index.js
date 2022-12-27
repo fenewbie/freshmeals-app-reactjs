@@ -8,7 +8,7 @@ import * as cs from '@utils/constants';
 
 function SuccessModal({ type }) {
 	const dispatch = useDispatch();
-	const { id, title, image } = useSelector(
+	const { title, image } = useSelector(
 		(state) => state.modal.successModal.dataActive
 	);
 
@@ -20,7 +20,7 @@ function SuccessModal({ type }) {
 
 	return (
 		<Modal handleClose={handleClose}>
-			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-2/3 w-[90%]  mx-auto">
+			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-5/6 w-[90%]  mx-auto">
 				<button
 					onClick={handleClose}
 					className="absolute top-2 right-2 bg-white"

@@ -1,6 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../services/firebase';
+import { db } from '@services/firebase';
 
 const useFirestore = (col) => {
 	const [docs, setDocs] = useState([]);

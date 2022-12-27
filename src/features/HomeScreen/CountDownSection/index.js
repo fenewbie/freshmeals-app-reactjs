@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+
 import Timer from './Timer';
-import useFirestore from '../../../hooks/useFirestore';
+import useFirestore from '@hooks/useFirestore';
 
 const CountDownSection = () => {
 	const { docs } = useFirestore('countdown');

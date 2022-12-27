@@ -1,94 +1,87 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  a, button{
+	a, button{
     @apply font-raj;
   }
-    body {
-        font-family: 'Open Sans', sans-serif;
-    }
-  }
-@layer components {
-  .btn-animated {
-    font-size: 16px;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    
-    display: inline-block;
-    min-width: 150px;
-    padding: 15px 0px;
-    
-    border: 1px solid #80B500;
-    border-radius: 5px;
-    outline: none;
-    
-    
-    position: relative;
-    
-    color: #333;
-    background-color: #ffffff;
-    
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color linear 200ms;
-  }
-
- 
-.btn-animated--revert {
-border-color: #000;
+	body {
+		font-family: 'Open Sans', sans-serif;
+	}
 }
+@layer components {
+	.btn-animated {
+		font-size: 16px;
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
 
+		display: inline-block;
+		min-width: 150px;
+		padding: 15px 0px;
 
-  .btn-animated-text {
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    transition: all linear 150ms;
-  }
+		border: 1px solid #80b500;
+		border-radius: 5px;
+		outline: none;
 
-  .btn-animated::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+		position: relative;
 
-    background-color: #80B500;
-    transition: all linear 250ms;
+		color: #333;
+		background-color: #ffffff;
 
-  }
+		overflow: hidden;
+		cursor: pointer;
+		transition: border-color linear 200ms;
+	}
 
-     .btn-animated--revert::after {
-      left: 0;
-      right: unset;
-       background-color: #000;
-     }
+	.btn-animated--revert {
+		border-color: #000;
+	}
 
+	.btn-animated-text {
+		position: relative;
+		z-index: 1;
+		color: #fff;
+		transition: all linear 150ms;
+	}
 
-  .btn-animated:focus {
-    outline: 2px solid #DBEAFE;
-  }
+	.btn-animated::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
 
-  .btn-animated:hover {
-    border-color: #000000;
-  }
+		background-color: #80b500;
+		transition: all linear 250ms;
+	}
 
-  .btn-animated--revert:hover {
-    border-color: #80B500;
-  }
+	.btn-animated--revert::after {
+		left: 0;
+		right: unset;
+		background-color: #000;
+	}
 
-  .btn-animated:hover .btn-animated-text {
-    color: #333;
-  }
+	.btn-animated:focus {
+		outline: 2px solid #dbeafe;
+	}
 
-  .btn-animated:hover::after {
-    background-color: #000;
-    width: 0%;
-  }
+	.btn-animated:hover {
+		border-color: #000000;
+	}
 
+	.btn-animated--revert:hover {
+		border-color: #80b500;
+	}
+
+	.btn-animated:hover .btn-animated-text {
+		color: #333;
+	}
+
+	.btn-animated:hover::after {
+		background-color: #000;
+		width: 0%;
+	}
 }

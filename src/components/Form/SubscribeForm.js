@@ -1,9 +1,6 @@
-import { Form, Formik, useFormik } from 'formik';
-import Input from './Input';
+import { Form, Formik} from 'formik';
 import { FiSend } from 'react-icons/fi';
-import { TiWarning } from 'react-icons/ti';
 import Button from '../UI/Button';
-import * as Yup from 'yup';
 import { SubscribeSchema } from './ValidationSchema';
 import FormikControl from './FormikControl';
 

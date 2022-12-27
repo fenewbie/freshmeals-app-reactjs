@@ -1,6 +1,6 @@
-import { doc, getDoc} from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../services/firebase';
+import { db } from '@services/firebase';
 
 export default function useFetchDocument(collectionName, documentID) {
 	const [document, setDocument] = useState(null);
@@ -9,7 +9,6 @@ export default function useFetchDocument(collectionName, documentID) {
 		const docSnap = await getDoc(docRef);
 
 		if (docSnap.exists()) {
-			// console.log(('Document data:', docSnap.data()));
 			const obj = {
 				id: documentID,
 				...docSnap.data(),

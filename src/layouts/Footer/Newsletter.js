@@ -1,4 +1,4 @@
-import * as cs from '../../utils/constants';
+import * as cs from '@utils/constants';
 import SubscribeForm from '@components/Form/SubscribeForm';
 
 const Newsletter = () => {

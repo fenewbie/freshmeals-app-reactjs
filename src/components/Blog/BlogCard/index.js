@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-
-import Tags from '../Tags';
-import Card from '../../UI/Card';
 import { BiCalendar } from 'react-icons/bi';
 import { FaUserEdit } from 'react-icons/fa';
+
+import Tags from '../Tags';
+import Card from '@components/UI/Card';
 
 const BlogCard = ({ id, title, description, image, tags = [] }) => (
 	<Card className="shadow-xl rounded-lg overflow-hidden mb-10  border min-h-[650px]">

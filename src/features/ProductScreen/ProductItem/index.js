@@ -18,7 +18,7 @@ const ProductItem = ({
 	id,
 	card,
 	className,
-	category
+	category,
 }) => {
 	const dispatch = useDispatch();
 	const handleOpenQuickView = () => {
@@ -74,12 +74,11 @@ const ProductItem = ({
 		);
 	};
 
-
 	return (
 		<Card
 			className={`${
 				card &&
-				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group min-h-[510px]'
+				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group min-h-[400px]'
 			} ${className}`}
 			key={id}
 		>
@@ -101,9 +100,7 @@ const ProductItem = ({
 					<img
 						src={image}
 						title="product"
-						className={
-							'absolute top-0 left-0 w-full h-full object-contain'
-						}
+						className={'absolute top-0 left-0 w-full h-full object-contain'}
 						alt={title}
 					/>
 					{card && (
@@ -131,11 +128,7 @@ const ProductItem = ({
 					>
 						{title}
 					</Link>
-					<Price
-						card={card}
-						discount={discount}
-						price={price}
-					/>
+					<Price card={card} discount={discount} price={price} />
 				</div>
 			</div>
 		</Card>

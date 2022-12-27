@@ -102,7 +102,7 @@ const QuickViewProductModal = () => {
 						<div className="flex items-center max-md:justify-center md:py-5 py-2 md:my-6 my-4 border-t-[1px] border-b-[1px] border-grey">
 							<span>Categories:</span>
 							<ul className="flex items-center ml-5">
-								{category.map((item, index) => (
+								{category?.map((item, index) => (
 									<li
 										className="font-semibold capitalize"
 										key={index}

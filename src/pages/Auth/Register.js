@@ -6,18 +6,9 @@ import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
 import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
+import { consent } from '@utils/constants';
 
 export default function Register() {
-	const consent = [
-		{
-			key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
-			value: '0',
-		},
-		{
-			key: 'By clicking "create account", I consent to the privacy policy.',
-			value: '1',
-		},
-	];
 	const navigate = useNavigate();
 	const initialValues = {
 		firstname: '',
@@ -58,6 +49,7 @@ export default function Register() {
 			}
 		}
 	};
+	const handleClick = () => navigate('/login');
 	return (
 		<div className="container mx-auto py-28 max-md:px-6">
 			<div className="flex items-center justify-center">
@@ -69,8 +61,7 @@ export default function Register() {
 						</h2>
 
 						<p className="mt-3 max-md:text-sm">
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. <br />
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
 							Sit aliquid, Non distinctio vel iste.
 						</p>
 					</div>
@@ -122,11 +113,7 @@ export default function Register() {
 								className="mt-5"
 							/>
 							<div className="mt-7">
-								<Button
-									className="my-6 w-full"
-									type="submit"
-									btn="card"
-								>
+								<Button className="my-6 w-full" type="submit" btn="card">
 									CREATE ACCOUNT
 								</Button>
 							</div>
@@ -138,14 +125,13 @@ export default function Register() {
 						</p>
 						<p className="text-lg">
 							<Link to="#">
-								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp;
-								&nbsp; PRIVACY POLICY
+								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY POLICY
 							</Link>
 						</p>
 						<div className="mt-12 underline">
 							<Button
 								className="hover:text-greenBtn text-lg"
-								onClick={() => navigate('/login')}
+								onClick={handleClick}
 							>
 								ALREADY HAVE AN ACCOUNT ?
 							</Button>

@@ -1,5 +1,5 @@
-import BlogSideBar from '@features/BlogScreen/BlogSideBar';
 import { Outlet } from 'react-router-dom';
+import BlogSideBar from '@features/BlogScreen/BlogSideBar';
 
 function BlogLayout({ children }) {
 	return (

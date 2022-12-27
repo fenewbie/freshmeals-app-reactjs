@@ -1,31 +1,29 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import ReactPortal from './ReactPortal';
 
-function Modal({ children, classNames, handleClose }) {
-	const nodeRef = useRef(null);
-	useEffect(() => {
-		const closeOnEscapeKey = (e) =>
-			e.key === 'Escape' ? handleClose() : null;
-		document.body.addEventListener('keydown', closeOnEscapeKey);
-		return () => {
-			document.body.removeEventListener('keydown', closeOnEscapeKey);
-		};
-	}, [handleClose]);
-
-	const handleCloseModal = (e) => {
-		const overlay = e.target.closest('.overlay');
-		return overlay && handleClose();
+function Modal({ children, className, handleClose }) {
+	const closeOnEscapeKeyDown = (e) => {
+		if ((e.charCode || e.keyCode) === 27) {
+			handleClose();
+		}
 	};
+	useEffect(() => {
+		document.body.addEventListener('keydown', closeOnEscapeKeyDown);
+		return function cleanup() {
+			document.body.removeEventListener('keydown', closeOnEscapeKeyDown);
+		};
+	}, []);
 
 	return (
 		<ReactPortal wrapperId="react-portal-modal-container">
 			<div
-				className={`fixed top-0 left-0 bottom-0 right-0  z-[10000] flex ${classNames}`}
-				ref={nodeRef}
-				onClick={handleCloseModal}
+				className={`fixed top-0 left-0 bottom-0 right-0  z-[999] flex bg-[#0009] ${className}`}
+				onClick={handleClose}
 			>
-				<div className="overlay absolute top-0 left-0 w-full h-full bg-[#0003] animate-[overlayApper_200ms_ease-in-out_forwards] "></div>
-				<div className="m-auto animate-[modalAppear_300ms_ease-in-out_forwards]">
+				<div
+					className="m-auto animate-[modalAppear_300ms_ease-in-out_forwards]"
+					onClick={(e) => e.stopPropagation()}
+				>
 					{children}
 				</div>
 			</div>
