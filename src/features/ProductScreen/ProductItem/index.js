@@ -78,7 +78,7 @@ const ProductItem = ({
 		<Card
 			className={`${
 				card &&
-				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group min-h-[400px]'
+				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group '
 			} ${className}`}
 			key={id}
 		>
@@ -100,7 +100,9 @@ const ProductItem = ({
 					<img
 						src={image}
 						title="product"
-						className={'absolute top-0 left-0 w-full h-full object-contain'}
+						className={
+							'absolute top-0 left-0 w-full h-full object-contain'
+						}
 						alt={title}
 					/>
 					{card && (
@@ -120,15 +122,19 @@ const ProductItem = ({
 						size={card ? '18' : '15'}
 					/>
 					<Link
-						className={`text-[15px] ${
+						className={`text-[15px] line-clamp-2  min-h-[45px]  ${
 							card ? 'text-center block' : 'inline-block'
-						} capitalize font-bold my-2 block hover:text-greenBtn transition-all duration-300`}
+						} capitalize font-bold my-2 hover:text-greenBtn transition-all duration-300`}
 						to={`/shop/${id}`}
 						reloadDocument
 					>
 						{title}
 					</Link>
-					<Price card={card} discount={discount} price={price} />
+					<Price
+						card={card}
+						discount={discount}
+						price={price}
+					/>
 				</div>
 			</div>
 		</Card>

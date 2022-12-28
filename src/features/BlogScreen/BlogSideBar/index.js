@@ -1,7 +1,6 @@
 import IntroSection from './IntroSection';
 
 import SocialLink from '@components/UI/SocialLink';
-import { SearchForm } from '@components/Form';
 import { CommonSection, BlogCategory, Tags } from '@components/Blog';
 import { default as PromotionRandom } from '@features/Promotion/Random';
 import SearchSection from './SearchSection';

@@ -9,7 +9,7 @@ function usePagination({ listData, limit = 1 }) {
 		setTotalPages(Math.ceil(listData.length / limit));
 		setDataRender(() => [...listData].splice(0, limit));
 		setCurrentPage(1);
-	}, [listData]);
+	}, [listData, limit]);
 
 	useEffect(() => {
 		const lastIndex = limit * currentPage;
