@@ -19,7 +19,7 @@ const Header = () => {
 
 	const headerRef = useRef(null);
 	const dropdownRef = useRef(null);
-	
+
 	const closeHoverDropdown = () => {
 		setShowDropdown(false);
 	};
@@ -106,16 +106,9 @@ const Header = () => {
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleNavMobi}
 								>
-									<span
-										className={`${
-											showNavMobi
-												? 'fixed inset-0 w-full h-full bg-black opacity-40'
-												: ''
-										}`}
-									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi isDisplay={showNavMobi} handleClick={handleNavMobi} />
+								{showNavMobi ? <NavMobi handleClose={handleNavMobi} /> : null}
 								<ViewCart
 									isShowingCart={showCart}
 									handleClose={handleCart}

@@ -67,7 +67,7 @@ const QuickViewProductModal = () => {
 
 	return (
 		<Modal handleClose={handleCloseModal}>
-			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8]">
+			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards]">
 				<button
 					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
@@ -84,13 +84,12 @@ const QuickViewProductModal = () => {
 						/>
 					</div>
 					<div className="max-w-[400px]">
-						<div className='flex max-md:justify-center'>
-							<Rating
-								value={rating}
-								text={reviews}
-							/>
+						<div className="flex max-md:justify-center">
+							<Rating value={rating} text={reviews} />
 						</div>
-						<h4 className="md:text-xl text-lg font-bold mt-2 max-md:text-center ">{title}</h4>
+						<h4 className="md:text-xl text-lg font-bold mt-2 max-md:text-center ">
+							{title}
+						</h4>
 						<div className="flex items-center max-md:justify-center mt-2">
 							<span className="inline-block md:text-[56px] text-4xl font-semibold text-greenBtn">
 								${discount.toFixed(2)}
@@ -103,10 +102,7 @@ const QuickViewProductModal = () => {
 							<span>Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category?.map((item, index) => (
-									<li
-										className="font-semibold capitalize"
-										key={index}
-									>
+									<li className="font-semibold capitalize" key={index}>
 										{index === 0 ? item : `, ${item}`}
 									</li>
 								))}
@@ -117,7 +113,7 @@ const QuickViewProductModal = () => {
 								decreaseItem={decreaseItem}
 								incrementItem={incrementItem}
 								quantity={quantity}
-								className='max-md:h-10 h-[58px]'
+								className="max-md:h-10 h-[58px]"
 							/>
 							<Button
 								btn="card"
@@ -130,15 +126,11 @@ const QuickViewProductModal = () => {
 						<div className="flex mt-5 max-md:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
-								<span className="ml-1 font-medium">
-									Add to Wishlist
-								</span>
+								<span className="ml-1 font-medium">Add to Wishlist</span>
 							</div>
 							<Link className="flex items-center  hover:text-greenBtn transition-all">
 								<BsArrowLeftRight />
-								<span className="ml-1 font-medium">
-									Compare
-								</span>
+								<span className="ml-1 font-medium">Compare</span>
 							</Link>
 						</div>
 						<div className="flex items-center border-t-[1px] mt-8">

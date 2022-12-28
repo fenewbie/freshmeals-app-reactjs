@@ -8,36 +8,27 @@ import Navigation from '@components/UI/Navbar';
 import SocialLink from '@components/UI/SocialLink';
 import Button from '@components/UI/Button';
 import SearchProducts from 'layouts/Header/Search';
+import Modal from '@components/UI/Modal';
 
-export function NavMobi({ isDisplay, handleClick }) {
+export function NavMobi({ handleClose }) {
 	return (
-		<AnimatePresence>
-			{isDisplay && (
+		<Modal className="h-full w-full" handleClose={handleClose}>
+			<AnimatePresence>
 				<motion.div
 					initial={{ x: -200 }}
 					animate={{ x: 0 }}
 					transition={{ type: 'tween', stiffness: 50 }}
 					exit={{ x: -300 }}
-					className="bg-white pl-8 pt-7 w-72 h-screen fixed inset-y-0 left-0 z-30 "
+					className="bg-white pl-8 pt-7 w-[400px] h-screen fixed inset-y-0 left-0 overflow-y-auto "
 				>
 					<div className="flex justify-between items-center pb-5 border-b border-slate-100 w-[87.3%]">
-						<Link
-							to="/"
-							className="flex items-center"
-						>
-							<img
-								src={cs.logo02}
-								alt="logo"
-								className="h-12 -ml-5"
-							/>
+						<Link to="/" className="flex items-center">
+							<img src={cs.logo02} alt="logo" className="h-12 -ml-5" />
 							<span className="text-xl font-bold whitespace-nowrap uppercase -ml-5 mt-4 ">
 								Freshmeals
 							</span>
 						</Link>
-						<button
-							className="flex pl-12 mt-5 text-lg "
-							onClick={handleClick}
-						>
+						<button className="flex pl-12 mt-5 text-lg " onClick={handleClose}>
 							<MdClose />
 						</button>
 					</div>
@@ -63,7 +54,7 @@ export function NavMobi({ isDisplay, handleClick }) {
 						<SocialLink />
 					</div>
 				</motion.div>
-			)}
-		</AnimatePresence>
+			</AnimatePresence>
+		</Modal>
 	);
 }
