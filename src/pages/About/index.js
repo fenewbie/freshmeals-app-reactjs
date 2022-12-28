@@ -1,4 +1,4 @@
-import { BlogGrid as BlogSection } from '@components/Blog';
+import BlogSlider from '@components/Blog/BlogSlider';
 import {
 	IntroSection,
 	QuestionSection,
@@ -11,7 +11,7 @@ import { getDocuments } from '@services/api';
 import { useLoaderData } from 'react-router-dom';
 
 const About = () => {
-	const {blogs} = useLoaderData();
+	const { blogs } = useLoaderData();
 	return (
 		<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 			<IntroSection />
@@ -20,7 +20,9 @@ const About = () => {
 			<TestimonialsSection />
 			<QuestionSection />
 			<SubscribeSection />
-			<BlogSection blogs={blogs} />
+			<div className="py-[120px]">
+				<BlogSlider blogs={blogs} />
+			</div>
 		</div>
 	);
 };
@@ -34,7 +36,7 @@ export const loader = () => {
 		const services = await getDocuments('features/1/feature-serivce');
 		const teams = await getDocuments('members');
 		const feedbacks = await getDocuments('members/1/client-feedback');
-		return {blogs, questions, services, teams, feedbacks};
+		return { blogs, questions, services, teams, feedbacks };
 	};
 
 	return getDocs();
