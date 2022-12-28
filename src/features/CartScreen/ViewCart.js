@@ -3,14 +3,15 @@ import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
+import Modal from '@components/UI/Modal';
 
-export default function ViewCart({ isShowingCart, handleClose, item }) {
+export default function ViewCart({ handleClose, item }) {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
 
 	return (
-		<AnimatePresence>
-			{isShowingCart && (
+		<Modal className="h-full w-full" handleClose={handleClose}>
+			<AnimatePresence>
 				<motion.div
 					initial={{ x: '100%' }}
 					animate={{ x: 0 }}
@@ -20,18 +21,13 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 				>
 					<header className="flex items-center justify-between border-b border-b-sectionBg pb-5">
 						<p className="font-bold text-lg">Cart</p>
-						<button
-							className="text-2xl"
-							onClick={handleClose}
-						>
+						<button className="text-2xl" onClick={handleClose}>
 							<MdClose />
 						</button>
 					</header>
 					{item.length === 0 ? (
 						<div className="flex flex-col items-center">
-							<p className="text-xl font-bold">
-								No item in your cart!
-							</p>
+							<p className="text-xl font-bold">No item in your cart!</p>
 							<Link
 								to="../shop"
 								className="flex text-xl m-3 px-6 py-3 shadow border hover:bg-greenBtn hover:text-white hover:underline "
@@ -41,7 +37,7 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 						</div>
 					) : (
 						<div className="my-5 flex-1 h-full flex flex-col">
-							<div className="flex-1 overflow-y-auto py-3">
+							<div className="overflow-y-auto py-3">
 								{item.map((item, index) => (
 									<div
 										key={item.id}
@@ -51,11 +47,7 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 									>
 										<button
 											onClick={() => {
-												dispatch(
-													cartActions.removeItem(
-														item.id
-													)
-												);
+												dispatch(cartActions.removeItem(item.id));
 											}}
 											className="absolute bg-green-300 h-6 w-6 rounded-full top-2 -left-2 hover:brightness-95"
 										>
@@ -70,12 +62,9 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 												/>
 											</div>
 											<div className="text-sm flex-1">
-												<h3 className="font-bold">
-													{item.title}
-												</h3>
+												<h3 className="font-bold">{item.title}</h3>
 												<p>
-													{item.quantity} x $
-													{item.discount.toFixed(2)}
+													{item.quantity} x ${item.discount.toFixed(2)}
 												</p>
 											</div>
 										</div>
@@ -93,17 +82,13 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 									to="/cart"
 									className="btn-animated md:mr-5 md:w-1/2 w-full max-md:mb-5"
 								>
-									<span className="btn-animated-text">
-										View Cart
-									</span>
+									<span className="btn-animated-text">View Cart</span>
 								</Link>
 								<Link
 									className="btn-animated btn-animated--revert md:w-1/2 w-full"
 									to="/checkout"
 								>
-									<span className="btn-animated-text">
-										Checkout
-									</span>
+									<span className="btn-animated-text">Checkout</span>
 								</Link>
 							</div>
 							<span className="text-sm">
@@ -112,7 +97,7 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 						</div>
 					)}
 				</motion.div>
-			)}
-		</AnimatePresence>
+			</AnimatePresence>
+		</Modal>
 	);
 }

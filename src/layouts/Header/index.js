@@ -94,14 +94,10 @@ const Header = () => {
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-									<span
-										className={`${
-											showCart
-												? 'fixed inset-0 w-full h-full bg-black opacity-40'
-												: ''
-										}`}
-									></span>
 								</Button>
+								{showCart ? (
+									<ViewCart handleClose={handleCart} item={cartItems} />
+								) : null}
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleNavMobi}
@@ -109,11 +105,6 @@ const Header = () => {
 									<BiMenu />
 								</Button>
 								{showNavMobi ? <NavMobi handleClose={handleNavMobi} /> : null}
-								<ViewCart
-									isShowingCart={showCart}
-									handleClose={handleCart}
-									item={cartItems}
-								/>
 							</div>
 						</div>
 					</nav>
