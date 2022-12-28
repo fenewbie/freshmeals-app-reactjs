@@ -4,7 +4,7 @@ import * as cs from '@utils/constants';
 
 const Contact = () => {
 	return (
-		<div className="py-28 ">
+		<div className="pt-28 ">
 			<div title="Contact Us" className="container mx-auto px-6">
 				<div className="flex gap-8 mb-20 max-md:flex-wrap">
 					<Card className="text-center md:basis-1/3 basis-full border-2 rounded-md py-12">
