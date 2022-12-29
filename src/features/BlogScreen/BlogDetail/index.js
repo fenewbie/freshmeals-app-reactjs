@@ -98,7 +98,7 @@ function BlogDetail() {
 				type="tags"
 			/>
 			<CommentSection />
-			<PrivateRoute isLoggedIn={true}>
+			<PrivateRoute isLoggedIn={true} type='admin'>
 				<CommentForm />
 			</PrivateRoute>
 		</div>

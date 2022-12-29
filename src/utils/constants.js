@@ -5,6 +5,7 @@ import noresult from '../assets/search/noresults.png';
 import emailImg from '../assets/contact/mail.png';
 import phoneImg from '../assets/contact/phone.png';
 import locateImg from '../assets/contact/locate.png';
+import spinnerImg from '../assets/spinner.jpg';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
@@ -13,6 +14,7 @@ export const noResult = noresult;
 export const email = emailImg;
 export const phone = phoneImg;
 export const locate = locateImg;
+export const spinner = spinnerImg;
 
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },

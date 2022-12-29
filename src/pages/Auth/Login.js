@@ -5,9 +5,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
 import { Form, Formik } from 'formik';
 
-import Loader from '@components/UI/Loader';
 import FormikControl from '@components/Form/FormikControl';
 import { LoginSchema } from '@components/Form/ValidationSchema';
+import Loader from '@components/UI/Loader';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -42,8 +42,7 @@ const Login = () => {
 								To Your Account
 							</h2>
 							<p className="mt-3 max-md:text-sm">
-								Lorem ipsum dolor, sit amet consectetur
-								adipisicing elit. <br />
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
 								Sit aliquid, Non distinctio vel iste.
 							</p>
 						</div>
@@ -58,7 +57,7 @@ const Login = () => {
 						>
 							{({ isSubmitting }) => (
 								<Form>
-									{isSubmitting && <Loader />}
+									{isSubmitting && <Loader type="section" />}
 									{error && (
 										<label className="text-red-500 px-4 py-2 rounded mb-4 block">
 											{error}
@@ -78,11 +77,7 @@ const Login = () => {
 										placeholder="Password*"
 									/>
 									<div className="mt-7">
-										<Button
-											className="w-full"
-											btn="card"
-											type="submit"
-										>
+										<Button className="w-full" btn="card" type="submit">
 											SIGN IN
 										</Button>
 									</div>
@@ -102,15 +97,11 @@ const Login = () => {
 					</div>
 					<div className="lg:col-span-6 ">
 						<div className=" text-center pt-50">
-							<h4 className="font-bold mb-5">
-								DON'T HAVE AN ACCOUNT?
-							</h4>
+							<h4 className="font-bold mb-5">DON'T HAVE AN ACCOUNT?</h4>
 							<p className="max-md:text-sm max-md:mb-6">
-								Add items to your wishlistget personalised
-								recommendations
+								Add items to your wishlistget personalised recommendations
 								<br />
-								check out more quickly track your orders
-								register
+								check out more quickly track your orders register
 							</p>
 							<Button
 								btn="card"

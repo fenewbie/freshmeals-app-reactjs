@@ -9,6 +9,8 @@ import { Form, Formik } from 'formik';
 import FormikControl from './FormikControl';
 import { CommentSchema } from './ValidationSchema';
 import { saveinfocomment } from '@utils/constants';
+import { doc, setDoc, Timestamp } from 'firebase/firestore';
+import { db } from '@services/firebase';
 
 function FormSection() {
 	const initialValues = {
@@ -19,8 +21,22 @@ function FormSection() {
 		saveinfo: [],
 	};
 
-	const handleSubmit = (values) => {
-		console.log('Comment form', values);
+	const handleSubmit = async (values) => {
+		const comment= 'bi'
+		try {
+			setDoc(doc(db, 'comment-form', values.email), {
+				comment: values.comment,
+				name: values.name,
+				email: values.email,
+				saveinfo: values.saveinfo[0],
+				createdAt: Timestamp.now().toDate(),
+			});
+		} catch (err) {
+			if(values.comment === comment) {
+				console.log('your comment existed already, please try another comment! ')
+			}
+		}
+		console.log(comment)
 	};
 	return (
 		<div>
@@ -68,11 +84,7 @@ function FormSection() {
 						className="my-5"
 					/>
 
-					<Button
-						btn="card"
-						className="flex items-center"
-						type="submit"
-					>
+					<Button btn="card" className="flex items-center" type="submit">
 						<FiMessageCircle className="mr-2" />
 						Post Comment
 					</Button>
