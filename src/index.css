@@ -85,3 +85,19 @@
 		width: 0%;
 	}
 }
+
+@layer utilities {
+	.scroll-bar::-webkit-scrollbar {
+		appearance: none;
+		width: 4px;
+		background: #F5F5F5;
+		border-radius: 4px;
+	}
+
+	.scroll-bar::-webkit-scrollbar-thumb {
+		appearance: none;
+		width: 4px;
+		border-radius: 4px;
+		background: #DDDDDD;
+	}
+}
