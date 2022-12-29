@@ -101,7 +101,7 @@ module.exports = {
 			animation: {
 				animate: 'animate 0.8s linear infinite',
 				jump: ' jump 0.8s ease-in-out infinite',
-				overlay: 'overlayApper 0.2s linear forwards'
+				overlay: 'overlayApper 0.2s linear forwards',
 			},
 
 			fontFamily: {
@@ -110,6 +110,8 @@ module.exports = {
 			backgroundImage: {
 				'hero-image':
 					"linear-gradient(to right bottom, rgba(33,34,69,0.8), rgba(33,34,69,0.8)), url('https://images.unsplash.com/photo-1513223945279-4bf9e7049c9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2092&q=80')",
+				'comming-soon':
+					"linear-gradient(to right bottom, rgba(33,34,69,0.8), rgba(33,34,69,0.8)), url('https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')",
 			},
 		},
 		plugins: [require('flowbite/plugin')],

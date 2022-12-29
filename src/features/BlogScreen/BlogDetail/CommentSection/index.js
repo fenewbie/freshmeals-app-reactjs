@@ -1,6 +1,6 @@
 import CommentCard from "@components/Comment";
 
-function CommentSection({name,}) {
+function CommentSection({name,comment,date}) {
     return (
 			<div className="">
 				<h3 className="font-bold text-2xl mb-10">Comments</h3>
@@ -19,9 +19,9 @@ function CommentSection({name,}) {
 				/>
 				<CommentCard
 					avatar="https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/testimonial/1.jpg"
-					name="Adam Smit"
-					date="20th May 2020"
-					comment="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione."
+					name={name}
+					date={date}
+					comment={comment}
 					separate
 				/>
 			</div>

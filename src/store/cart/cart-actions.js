@@ -21,7 +21,7 @@ export const fetchCartData = () => {
 				cartActions.replaceCart({
 					items: cartData.items || [],
 					totalQuantity: cartData.totalQuantity,
-					totalAmount: cartData.totalAmount,
+					totalAmount: cartData.totalAmount.toFixed(2),
 				})
 			);
 		} catch (error) {
@@ -40,7 +40,7 @@ export const sendCartData = (cart) => {
 				{
 					items: cart.items,
 					totalQuantity: cart.totalQuantity,
-					totalAmount: cart.totalAmount,
+					totalAmount: cart.totalAmount.toFixed(2),
 				}
 			);
 
