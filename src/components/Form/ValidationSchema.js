@@ -98,12 +98,3 @@ export function ContactSchema(values) {
 	});
 }
 
-export function FilterProductSchema(values) {
-	return Yup.object().shape({
-		minPrice: Yup.number().min(0, 'The lowest value is 0'),
-		maxPrice: Yup.number().min(
-			Yup.ref('minPrice'),
-			'The lowest value must be greater than Min Price'
-		),
-	});
-}

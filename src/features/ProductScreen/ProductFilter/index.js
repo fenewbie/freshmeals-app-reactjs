@@ -9,10 +9,9 @@ import Button from '@components/UI/Button';
 import { default as Grid } from '@components/Product/ProductGrid';
 import { CommonSection } from '@components/Blog';
 import FormikControl from '@components/Form/FormikControl';
-import { FilterProductSchema } from '@components/Form/ValidationSchema';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
-import RangSlider from '@components/UI/RangSlider';
+import FilterPriceRange from './FilterPriceRange';
 
 function ProductFilter() {
 	const { products } = useRouteLoaderData('root');
@@ -86,7 +85,6 @@ function ProductFilter() {
 				<CommonSection title="Filter By">
 					<Formik
 						initialValues={initialValues}
-						validationSchema={FilterProductSchema}
 						onSubmit={(values) => {
 							const keys = Object.keys(values);
 							const check = keys.every(
@@ -133,7 +131,7 @@ function ProductFilter() {
 							}
 						}}
 					>
-						{({ resetForm, handleSubmit }) => (
+						{({ resetForm, handleSubmit, setFieldValue }) => (
 							<form onSubmit={handleSubmit}>
 								<div className="border-b pb-5">
 									<h4 className="font-bold mb-2">Type</h4>
@@ -147,22 +145,9 @@ function ProductFilter() {
 								</div>
 								<div className="border-b py-5">
 									<h4 className="font-bold mb-2">Price</h4>
-									<div className="flex max-lg:flex-wrap">
-										<FormikControl
-											control="input"
-											type="number"
-											name="minPrice"
-											label="Min Price"
-										/>
-										<FormikControl
-											control="input"
-											type="number"
-											name="maxPrice"
-											label="Max Price"
-											className="lg:ml-4 max-lg:mt-4"
-										/>
-									</div>
-									<RangSlider />
+									<FilterPriceRange
+										setFieldValue={setFieldValue}
+									/>
 								</div>
 								<div className="border-b py-5">
 									<h4 className="font-bold mb-2">
