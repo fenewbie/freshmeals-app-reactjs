@@ -6,7 +6,7 @@ import Footer from './Footer';
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
-import { getData} from '../services/api';
+import { getData } from '../services/api';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
 
 let isInitial = true;
@@ -39,7 +39,7 @@ function RootLayout() {
 					<Header />
 				</CommonSection>
 			)}
-			<main className="w-full mx-auto p-1">
+			<main className="container max-w-xl py-28">
 				<Outlet />
 			</main>
 			<FeatureFooter />

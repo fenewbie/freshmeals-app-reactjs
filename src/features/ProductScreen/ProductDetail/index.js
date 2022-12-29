@@ -6,7 +6,7 @@ import { default as Promotion } from '@features/Promotion/Random';
 function ProductDetail({ product }) {
 	return (
 		<div>
-			<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8 my-20">
+			<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8">
 				<div className="lg:col-span-8">
 					<ProductArea product={product} />
 				</div>

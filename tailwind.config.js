@@ -6,11 +6,18 @@ module.exports = {
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 	],
 	theme: {
+		maxWidth: {
+			xl: '1200px',
+		},
 		screens: {
 			sm: '480px',
 			md: '768px',
 			lg: '1024px',
 			xl: '1280px',
+		},
+		container: {
+			center: true,
+			padding: '8px',
 		},
 		extend: {
 			boxShadow: {
@@ -101,7 +108,7 @@ module.exports = {
 			animation: {
 				animate: 'animate 0.8s linear infinite',
 				jump: ' jump 0.8s ease-in-out infinite',
-				overlay: 'overlayApper 0.2s linear forwards'
+				overlay: 'overlayApper 0.2s linear forwards',
 			},
 
 			fontFamily: {

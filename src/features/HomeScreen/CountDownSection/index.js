@@ -15,14 +15,14 @@ const CountDownSection = () => {
 							className="grid lg:grid-cols-12 grid-cols-1 gap-10"
 							key={index}
 						>
-							<div className="lg:col-span-5">
+							<div className="lg:col-span-4">
 								<img
 									src={item.image}
 									alt="countdown"
 								/>
 							</div>
 
-							<div className="lg:col-span-7">
+							<div className="lg:col-span-8">
 								<h6 className="font-bold text-greenBtn capitalize mb-3">
 									{item.subtitle}
 								</h6>

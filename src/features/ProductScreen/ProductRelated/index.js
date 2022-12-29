@@ -19,7 +19,7 @@ function ProductRelated({ types }) {
 	);
 
 	return (
-		<div className="py-24">
+		<div className="pt-24">
 			<Title
 				title="Related Product"
 				center={false}

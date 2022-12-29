@@ -4,18 +4,31 @@ import * as cs from '@utils/constants';
 
 const Contact = () => {
 	return (
-		<div className="pt-28 ">
-			<div title="Contact Us" className="container mx-auto px-6">
+		<>
+			<div
+				title="Contact Us"
+				className=""
+			>
 				<div className="flex gap-8 mb-20 max-md:flex-wrap">
 					<Card className="text-center md:basis-1/3 basis-full border-2 rounded-md py-12">
-						<img alt="email" src={cs.email} className="mx-auto" />
+						<img
+							alt="email"
+							src={cs.email}
+							className="mx-auto"
+						/>
 						<h2 className="font-semibold lg:text-2xl text-xl mt-6">
 							Email Address
 						</h2>
-						<span className="mt-3 block">freshmeals@webmail.com</span>
+						<span className="mt-3 block">
+							freshmeals@webmail.com
+						</span>
 					</Card>
 					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
-						<img alt="phone" src={cs.phone} className="mx-auto" />
+						<img
+							alt="phone"
+							src={cs.phone}
+							className="mx-auto"
+						/>
 						<h2 className="font-semibold lg:text-2xl text-xl mt-6">
 							Phone Number
 						</h2>
@@ -26,7 +39,11 @@ const Contact = () => {
 						</span>
 					</Card>
 					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
-						<img alt="offical address" src={cs.locate} className="mx-auto" />
+						<img
+							alt="offical address"
+							src={cs.locate}
+							className="mx-auto"
+						/>
 						<h2 className="font-semibold lg:text-2xl text-xl mt-6">
 							Offical Address
 						</h2>
@@ -50,7 +67,7 @@ const Contact = () => {
 					referrerPolicy="no-referrer-when-downgrade"
 				></iframe>
 			</div>
-		</div>
+		</>
 	);
 };
 
