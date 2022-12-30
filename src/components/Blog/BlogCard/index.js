@@ -6,12 +6,12 @@ import Tags from '../Tags';
 import Card from '@components/UI/Card';
 
 const BlogCard = ({ id, title, description, image, tags = [] }) => (
-	<Card className="shadow-xl rounded-lg overflow-hidden mb-10  border min-h-[650px]">
+	<Card className="shadow-xl rounded-lg overflow-hidden mb-10  border">
 		<Link
 			to={`/blog/${id}`}
-			className="pb-[70%] w-full overflow-hidden relative flex bg-slate-50"
+			className="pb-[70%] w-full overflow-hidden relative flex bg-slate-50 border-b border-b-[rgba(0,0,0,0.001)]"
 		>
-			<div className="absolute top-0 left-0 h-full w-full">
+			<div className="absolute top-0 left-0 h-full w-full ">
 				<img
 					alt="Blog"
 					src={image}
@@ -23,9 +23,9 @@ const BlogCard = ({ id, title, description, image, tags = [] }) => (
 			<Tags tags={tags} />
 			<Link
 				to={`/blog/${id}`}
-				className="text-xl lg:text-2xl font-bold capitalize inline-block mb-2 hover:text-greenBtn transition-all duration-300"
+				className="text-xl lg:text-2xl font-bold capitalize  mb-2 hover:text-greenBtn transition-all duration-300 min-h-[56px] flex items-center"
 			>
-				{title}
+				<span className="line-clamp-2 ">{title}</span>
 			</Link>
 			<p className="text-justify truncate">{description}</p>
 			<Link

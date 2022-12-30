@@ -87,7 +87,7 @@ const ProductItem = ({
 					className={`block relative cursor-pointer
 					${
 						card
-							? ` bg-slate-100 pt-[100%]`
+							? ` bg-[rgba(0,0,0,0.01)] pt-[100%]`
 							: ' h-24 w-24 border border-[rgba(0, 0, 0, 0.1]'
 					}`}
 				>

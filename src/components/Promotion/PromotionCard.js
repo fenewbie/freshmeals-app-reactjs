@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 function PromotionCard({ id, type, title, subtitle, image }) {
 	return (
-		<Link to="/">
+		<Link to="/shop">
 			<div className="lg:pt-[65%] md:pt-[60%] max-[320px]:pt-[65%] pt-[55%] relative overflow-hidden rounded">
 				<div
 					className={`absolute top-0 left-0 w-full h-full flex items-center max-[320px]:px-[15px]  px-[30px] md:px-[25px] hover:scale-110 transition-all duration-[1000ms] 
-					${id == 2 ? 'bg-[#103001]' : 'bg-[orange]'}`}
+					${id === '2' ? 'bg-[#103001]' : 'bg-[orange]'}`}
 				>
 					<div className="text-[#fffffff7] shrink-0 grow ">
 						<span className="text-xs xsm:text-sm sm:text-lg md:text-[0.9rem] font-semibold uppercase">
