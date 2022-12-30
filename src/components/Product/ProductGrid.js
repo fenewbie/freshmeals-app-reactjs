@@ -9,19 +9,12 @@ function ProductGrid({ products, cols = 4 }) {
 	return (
 		<div>
 			<div
-				className={`grid lg:grid-cols-${cols} md:grid-cols-2 grid-cols-1 gap-8 mb-20`}
+				className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-20`}
 			>
 				{dataRender.map((product) => (
 					<ProductItem
-						key={product.id}
-						id={product.id}
-						rating={product.rating}
-						numReviews={product.reviews}
-						image={product.image}
-						label={product.label}
-						title={product.title}
-						price={product.price}
-						discount={product.discount}
+						{...product}
+						reviews={false}
 						card
 					/>
 				))}

@@ -7,10 +7,10 @@ function ClientCard({ name, desc, job, image }) {
 			<img
 				src={image}
 				alt="client"
-				className="h-40 w-40 max-md:mr-auto object-cover mr-8 rounded-full"
+				className="h-40 w-40 max-md:mx-auto object-cover mr-8 rounded-full"
 			/>
 			<div className="">
-				<p className="mb-4 max-md:mt-6">{desc}</p>
+				<p className="mb-4 max-md:mt-6 line-clamp-4 max-h-[120px]">{desc}</p>
 				<h4 className="block text-xl font-bold ">{name}</h4>
 				<span className="font-light">{job}</span>
 			</div>

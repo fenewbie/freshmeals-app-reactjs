@@ -92,7 +92,7 @@ const ProductItem = ({
 					}`}
 				>
 					{label && (
-						<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-10">
+						<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-[1]">
 							{label}
 						</span>
 					)}
@@ -114,21 +114,27 @@ const ProductItem = ({
 					)}
 				</div>
 
-				<div className={card ? 'p-8' : 'ml-5 flex-1'}>
+				<div className={`${card ? 'p-8' : 'ml-5 flex-1'}`}>
 					<Rating
 						value={rating}
-						text={reviews}
+						text={reviews ? reviews : null}
 						center={card}
 						size={card ? '18' : '15'}
 					/>
 					<Link
-						className={`text-[15px] line-clamp-2  min-h-[45px]  ${
-							card ? 'text-center block' : 'inline-block'
+						className={`text-[15px]  ${
+							card
+								? ' min-h-[45px] flex items-center justify-center '
+								: 'inline-block'
 						} capitalize font-bold my-2 hover:text-greenBtn transition-all duration-300`}
 						to={`/shop/${id}`}
 						reloadDocument
 					>
-						{title}
+						<span
+							className={`line-clamp-2 ${card && 'text-center'}`}
+						>
+							{title}
+						</span>
 					</Link>
 					<Price
 						card={card}

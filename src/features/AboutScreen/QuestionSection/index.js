@@ -9,7 +9,7 @@ function QuestionSection() {
 	return (
 		<div className="py-[120px] px-4">
 			<Title title="Some questions" />
-			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
+			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10 max-md:mb-16">
 				<Accordion>
 					{questions.map((question, index) => (
 						<Accordion.Item
@@ -21,8 +21,8 @@ function QuestionSection() {
 						>
 							<Accordion.Title>
 								<h4 className="font-bold capitalize flex justify-between items-center">
-									{question.title}
-									<span className="w-10 h-10 bg-sectionBg flex items-center justify-center text-2xl">
+									<span className='flex-1'>{question.title}</span>
+									<span className="w-10 h-10 bg-sectionBg flex items-center justify-center text-2xl ml-5">
 										<AiOutlinePlus className="text-greenBtn" />
 									</span>
 								</h4>
@@ -36,11 +36,13 @@ function QuestionSection() {
 					))}
 				</Accordion>
 
-				<img
-					src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/Q%26A%2Fimage.webp?alt=media&token=4ebad5c3-5648-49d9-8532-013d4541ad3b"
-					className="w-full object-contain"
-					alt="img-about"
-				/>
+				<div className="relative lg:top-20 top-10">
+					<img
+						src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/Q%26A%2Fimage.webp?alt=media&token=4ebad5c3-5648-49d9-8532-013d4541ad3b"
+						className="w-full object-contain"
+						alt="img-about"
+					/>
+				</div>
 			</div>
 		</div>
 	);

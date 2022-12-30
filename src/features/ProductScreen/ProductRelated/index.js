@@ -14,9 +14,7 @@ function ProductRelated({ types }) {
 
 	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
 
-	const successModal = useSelector(
-		(state) => state.modal.successModal
-	);
+	const successModal = useSelector((state) => state.modal.successModal);
 
 	return (
 		<div className="pt-24">
@@ -27,9 +25,9 @@ function ProductRelated({ types }) {
 			<Slider
 				breakpoints={{
 					768: {
-						slidesPerView: 2,
+						slidesPerView: 3,
 					},
-					1024: {
+					1280: {
 						slidesPerView: 4,
 					},
 				}}
@@ -49,14 +47,13 @@ function ProductRelated({ types }) {
 							<SwiperSlide key={el.id}>
 								<ProductItem
 									{...el}
+									reviews={false}
 									card
 								/>
 							</SwiperSlide>
 						);
 					})}
-				{quickViewModal.status ? (
-					<QuickViewProductModal/>
-				) : null}
+				{quickViewModal.status ? <QuickViewProductModal /> : null}
 
 				{successModal.status ? (
 					<SuccessModal type={successModal.type} />

@@ -1,15 +1,18 @@
-import Slider from "@components/UI/Slider";
-import { SwiperSlide } from "swiper/react";
-import BlogCard from "../BlogCard";
+import Slider from '@components/UI/Slider';
+import { SwiperSlide } from 'swiper/react';
+import BlogCard from '../BlogCard';
 
-function BlogSlider({blogs}) {
-    return (
+function BlogSlider({ blogs }) {
+	return (
 		<Slider
 			breakpoints={{
 				768: {
 					slidesPerView: 2,
 				},
 				1024: {
+					slidesPerView: 2,
+				},
+				1280: {
 					slidesPerView: 3,
 				},
 			}}

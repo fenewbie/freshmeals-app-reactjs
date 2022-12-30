@@ -9,8 +9,8 @@ const Contact = () => {
 				title="Contact Us"
 				className=""
 			>
-				<div className="flex gap-8 mb-20 max-md:flex-wrap">
-					<Card className="text-center md:basis-1/3 basis-full border-2 rounded-md py-12">
+				<div className="flex gap-8 mb-20 max-lg:flex-wrap justify-center">
+					<Card className="text-center lg:basis-1/3 basis-full border-2 rounded-md py-12">
 						<img
 							alt="email"
 							src={cs.email}
@@ -23,7 +23,7 @@ const Contact = () => {
 							freshmeals@webmail.com
 						</span>
 					</Card>
-					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
+					<Card className="text-center lg:basis-1/3  basis-full border-2 rounded-md py-12">
 						<img
 							alt="phone"
 							src={cs.phone}
@@ -38,7 +38,7 @@ const Contact = () => {
 							+987-6543210
 						</span>
 					</Card>
-					<Card className="text-center md:basis-1/3  basis-full border-2 rounded-md py-12">
+					<Card className="text-center lg:basis-1/3  basis-full border-2 rounded-md py-12">
 						<img
 							alt="offical address"
 							src={cs.locate}

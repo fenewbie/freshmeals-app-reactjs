@@ -49,11 +49,11 @@ const Header = () => {
 		>
 			{isHomePage && <Banner />}
 			<div
-				className={`z-10 ${
+				className={`z-10 container xl:max-w-xl lg:max-w-lg md:max-w-md ${
 					isHomePage ? 'absolute' : ''
 				} mx-auto py-6 flex flex-wrap justify-center items-center md:justify-between  ease-in-out duration-200`}
 			>
-				<div className="container flex flex-col md:flex-row lg:flex-row justify-between md:justify-around items-center mx-auto">
+				<div className="container flex flex-col md:flex-row lg:flex-row justify-space md:justify-around items-center mx-auto">
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
@@ -82,7 +82,7 @@ const Header = () => {
 								className="relative flex gap-3"
 								ref={dropdownRef}
 							>
-								<div className="lg:visible invisible">
+								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
 								<Button

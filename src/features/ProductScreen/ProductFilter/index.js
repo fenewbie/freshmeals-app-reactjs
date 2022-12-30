@@ -45,8 +45,8 @@ function ProductFilter() {
 	}, [resultQuery, isFiltering, rate]);
 
 	return (
-		<div className="grid md:grid-cols-12 grid-cols-1  gap-8">
-			<div className="md:col-span-8">
+		<div className="grid lg:grid-cols-12 grid-cols-1  gap-8">
+			<div className="lg:col-span-8">
 				<div className="flex justify-between mb-10 flex-wrap max-md:justify-center">
 					<h3 className="font-bold text-lg max-md:mb-5">
 						{isFiltering
@@ -81,7 +81,7 @@ function ProductFilter() {
 					cols={3}
 				/>
 			</div>
-			<div className="md:col-span-4">
+			<div className="lg:col-span-4 lg:-mt-8">
 				<CommonSection title="Filter By">
 					<Formik
 						initialValues={initialValues}

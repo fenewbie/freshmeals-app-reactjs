@@ -8,6 +8,8 @@ module.exports = {
 	theme: {
 		maxWidth: {
 			xl: '1200px',
+			lg: '960px',
+			md: '720px',
 		},
 		screens: {
 			sm: '480px',

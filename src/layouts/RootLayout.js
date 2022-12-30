@@ -39,7 +39,7 @@ function RootLayout() {
 					<Header />
 				</CommonSection>
 			)}
-			<main className="container max-w-xl py-28">
+			<main className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 				<Outlet />
 			</main>
 			<FeatureFooter />

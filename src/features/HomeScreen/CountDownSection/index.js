@@ -7,22 +7,22 @@ const CountDownSection = () => {
 	const { docs } = useFirestore('countdown');
 
 	return (
-		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8 mt-[120px] font-raj">
-			<div className="lg:w-[1200px] max-w-full mx-auto">
+		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8 mt-[120px] font-raj ">
+			<div className="overflow-hidden">
 				{docs &&
 					docs.map((item, index) => (
 						<div
-							className="grid lg:grid-cols-12 grid-cols-1 gap-10"
+							className="grid lg:grid-cols-12 grid-cols-1 gap-10 "
 							key={index}
 						>
-							<div className="lg:col-span-4">
+							<div className="lg:col-span-5">
 								<img
 									src={item.image}
 									alt="countdown"
 								/>
 							</div>
 
-							<div className="lg:col-span-8">
+							<div className="lg:col-span-7">
 								<h6 className="font-bold text-greenBtn capitalize mb-3">
 									{item.subtitle}
 								</h6>
