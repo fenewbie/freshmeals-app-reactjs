@@ -23,12 +23,20 @@ function ProductRelated({ types }) {
 				center={false}
 			/>
 			<Slider
+				slidesPerView={2}
+				spaceBetween={15}
 				breakpoints={{
 					768: {
+						slidesPerView: 2,
+						spaceBetween: 30,
+					},
+					1024: {
 						slidesPerView: 3,
+						spaceBetween: 30,
 					},
 					1280: {
 						slidesPerView: 4,
+						spaceBetween: 30,
 					},
 				}}
 				grid={{ rows: 1, fill: 'row' }}

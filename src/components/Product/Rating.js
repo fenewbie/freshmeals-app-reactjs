@@ -97,7 +97,7 @@ const Rating = ({ value, text, color = '#FFB800', size = 18, center = false }) =
 			</span>
 			{text && (
 				<span className="relative top-[1px] ml-2 text-greenBtn text-sm">
-					({text} reviews)
+					({text})
 				</span>
 			)}
 		</div>

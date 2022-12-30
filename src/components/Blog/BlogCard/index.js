@@ -5,8 +5,14 @@ import { FaUserEdit } from 'react-icons/fa';
 import Tags from '../Tags';
 import Card from '@components/UI/Card';
 
-const BlogCard = ({ id, title, description, image, tags = [] }) => (
-	<Card className="shadow-xl rounded-lg overflow-hidden mb-10  border">
+const BlogCard = ({
+	id,
+	title,
+	description,
+	image,
+	tags = [],
+}) => (
+	<Card className={`shadow-xl rounded-lg overflow-hidden mb-10  border`}>
 		<Link
 			to={`/blog/${id}`}
 			className="pb-[70%] w-full overflow-hidden relative flex bg-slate-50 border-b border-b-[rgba(0,0,0,0.001)]"

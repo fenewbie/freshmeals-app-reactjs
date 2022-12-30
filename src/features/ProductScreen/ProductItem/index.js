@@ -92,7 +92,7 @@ const ProductItem = ({
 					}`}
 				>
 					{label && (
-						<span className="absolute top-4 right-4 text-sm font-bold text-white py-1 px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-[1]">
+						<span className="absolute top-4 right-4 md:text-sm text-[0.7rem] md:font-bold font-semibold text-white md:py-1 py-[2px] px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-[1]">
 							{label}
 						</span>
 					)}
@@ -114,12 +114,12 @@ const ProductItem = ({
 					)}
 				</div>
 
-				<div className={`${card ? 'p-8' : 'ml-5 flex-1'}`}>
+				<div className={`${card ? 'p-7' : 'ml-5 flex-1'}`}>
 					<Rating
 						value={rating}
 						text={reviews ? reviews : null}
 						center={card}
-						size={card ? '18' : '15'}
+						size={card ? '16' : '15'}
 					/>
 					<Link
 						className={`text-[15px]  ${
