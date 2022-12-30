@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from 'react-icons/md';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
 import Modal from '@components/UI/Modal';
@@ -14,7 +14,6 @@ export default function ViewCart({ handleClose, item }) {
 			className="h-full w-full"
 			handleClose={handleClose}
 		>
-			<AnimatePresence>
 				<motion.div
 					initial={{ x: '100%' }}
 					animate={{ x: '0%' }}
@@ -116,7 +115,6 @@ export default function ViewCart({ handleClose, item }) {
 						</div>
 					)}
 				</motion.div>
-			</AnimatePresence>
 		</Modal>
 	);
 }

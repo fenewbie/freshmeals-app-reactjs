@@ -14,6 +14,8 @@ import ViewCart from '@features/CartScreen/ViewCart';
 import * as cs from '@utils/constants';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 
+import { AnimatePresence } from 'framer-motion';
+
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
@@ -106,21 +108,26 @@ const Header = () => {
 										{totalQuantity}
 									</span>
 								</Button>
-								{showCart ? (
-									<ViewCart
-										handleClose={handleCart}
-										item={cartItems}
-									/>
-								) : null}
+								<AnimatePresence>
+									{showCart ? (
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
+									) : null}
+								</AnimatePresence>
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleNavMobi}
 								>
 									<BiMenu />
 								</Button>
-								{showNavMobi ? (
-									<NavMobi handleClose={handleNavMobi} />
-								) : null}
+
+								<AnimatePresence>
+									{showNavMobi && (
+										<NavMobi handleClose={handleNavMobi} />
+									)}
+								</AnimatePresence>
 							</div>
 						</div>
 					</nav>

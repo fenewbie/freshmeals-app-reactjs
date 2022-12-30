@@ -16,7 +16,6 @@ export function NavMobi({ handleClose }) {
 			className="h-full w-full"
 			handleClose={handleClose}
 		>
-			<AnimatePresence>
 				<motion.div
 					initial={{ x: '-100%' }}
 					animate={{ x: 0 }}
@@ -69,7 +68,6 @@ export function NavMobi({ handleClose }) {
 						<SocialLink />
 					</div>
 				</motion.div>
-			</AnimatePresence>
 		</Modal>
 	);
 }
