@@ -19,7 +19,7 @@ const PortfolioSection = () => {
 	}, []);
 
 	return (
-		<div className="bg-[#F7F5EB] pt-[110px] pb-[90] text-center font-raj">
+		<div className="bg-[#F7F5EB] pt-[110px] pb-[90px] text-center font-raj">
 			<Title title="We Have Done" subtitle="Portfolio" />
 			{docs.length > 0 && (
 				<Slider

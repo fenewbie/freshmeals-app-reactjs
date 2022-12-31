@@ -7,12 +7,12 @@ const CountDownSection = () => {
 	const { docs } = useFirestore('countdown');
 
 	return (
-		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8 mt-[120px] font-raj">
-			<div className="lg:w-[1200px] max-w-full mx-auto">
+		<div className="bg-[#F7F5EB] py-[120px] px-4 sm:px-8 mt-[120px] font-raj ">
+			<div className="overflow-hidden">
 				{docs &&
 					docs.map((item, index) => (
 						<div
-							className="grid lg:grid-cols-12 grid-cols-1 gap-10"
+							className="grid lg:grid-cols-12 grid-cols-1 gap-10 "
 							key={index}
 						>
 							<div className="lg:col-span-5">

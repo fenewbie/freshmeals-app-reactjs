@@ -9,12 +9,12 @@ function MemberCard({ name, image, position }) {
 				alt="member"
 			/>
 			<div className="p-8 text-center">
-				<span className="block font-bold text-greenBtn text-sm">
+				<span className="font-bold text-greenBtn text-sm min-h-[40px] flex items-center justify-center">
 					{position}
 				</span>
 				<Link
 					to="/team-Detail"
-					className="block text-xl font-bold transition-all hover:text-greenBtn mt-2"
+					className="block text-xl font-bold transition-all hover:text-greenBtn mt-2 "
 				>
 					{name}
 				</Link>

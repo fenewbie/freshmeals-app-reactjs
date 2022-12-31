@@ -7,7 +7,7 @@ import SocialLink from '@components/UI/SocialLink';
 
 const WebInfo = () => {
 	return (
-		<div className="w-full p-2 pb-14">
+		<div className="w-full p-2">
 			<div className="bg-black w-2/3 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 py-1 mb-6 rounded-lg">
 				<img className="rounded-lg" src={cs.logo01} alt="Freshmeals" />
 			</div>

@@ -11,9 +11,7 @@ import SuccessModal from '../ProductItem/SuccessModal';
 
 const ProductList = ({ products }) => {
 	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
-	const successModal = useSelector(
-		(state) => state.modal.successModal
-	);
+	const successModal = useSelector((state) => state.modal.successModal);
 	return (
 		<div className="mt-[120px]">
 			<Title title="Our Products" />
@@ -40,12 +38,20 @@ const ProductList = ({ products }) => {
 
 					<TabPanel>
 						<Slider
+							slidesPerView={2}
+							spaceBetween={15}
 							breakpoints={{
 								768: {
 									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
+									slidesPerView: 3,
+									spaceBetween: 30,
+								},
+								1280: {
 									slidesPerView: 4,
+									spaceBetween: 30,
 								},
 							}}
 							grid={{ rows: 2, fill: 'row' }}
@@ -74,6 +80,9 @@ const ProductList = ({ products }) => {
 									slidesPerView: 2,
 								},
 								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
 									slidesPerView: 4,
 								},
 							}}
@@ -101,6 +110,9 @@ const ProductList = ({ products }) => {
 									slidesPerView: 2,
 								},
 								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
 									slidesPerView: 4,
 								},
 							}}
@@ -128,6 +140,9 @@ const ProductList = ({ products }) => {
 									slidesPerView: 2,
 								},
 								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
 									slidesPerView: 4,
 								},
 							}}
@@ -157,6 +172,9 @@ const ProductList = ({ products }) => {
 									slidesPerView: 2,
 								},
 								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
 									slidesPerView: 4,
 								},
 							}}
@@ -186,6 +204,9 @@ const ProductList = ({ products }) => {
 									slidesPerView: 2,
 								},
 								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
 									slidesPerView: 4,
 								},
 							}}
@@ -209,9 +230,7 @@ const ProductList = ({ products }) => {
 				</Tabs>
 			</div>
 
-			{quickViewModal.status ? (
-				<QuickViewProductModal/>
-			) : null}
+			{quickViewModal.status ? <QuickViewProductModal /> : null}
 
 			{successModal.status ? (
 				<SuccessModal type={successModal.type} />

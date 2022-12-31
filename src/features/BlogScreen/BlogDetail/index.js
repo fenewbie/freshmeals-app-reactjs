@@ -27,7 +27,7 @@ function BlogDetail() {
 		<div className="border-2 rounded py-10 px-12 ">
 			<Post blog={blog} />
 
-			<div className="flex justify-between mt-16">
+			<div className="flex justify-between mt-16 max-lg:flex-wrap">
 				<div>
 					<h3 className="font-bold text-lg mb-6">Related Tags</h3>
 					<Tags
@@ -41,7 +41,7 @@ function BlogDetail() {
 						]}
 					/>
 				</div>
-				<div className="text-right">
+				<div className="text-right max-lg:text-left max-lg:mt-5">
 					<h3 className="font-bold text-lg">Social Share</h3>
 					<SocialLink />
 				</div>

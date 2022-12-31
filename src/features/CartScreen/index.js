@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '@components/UI/Button';
-
 import CartItem from './CartItem';
 
 function CartScreen() {
@@ -52,11 +51,11 @@ function CartScreen() {
 									<td className="px-6">
 										Shipping and Handing
 									</td>
-									<td className=" px-6 text-right">$15.00</td>
+									<td className=" px-6 text-right">$0.00</td>
 								</tr>
 								<tr className="border-t border-b bg-[#F7F8FA] h-14">
 									<td className="px-6">Vat</td>
-									<td className=" px-6 text-right">$10.00</td>
+									<td className=" px-6 text-right">$0.00</td>
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
 									<td className="px-6">
@@ -66,7 +65,7 @@ function CartScreen() {
 									</td>
 									<td className="px-6 text-right">
 										<h3 className="font-bold">
-											{totalAmount.toFixed(2)}
+											${totalAmount.toFixed(2)}
 										</h3>
 									</td>
 								</tr>

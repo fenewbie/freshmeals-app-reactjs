@@ -60,7 +60,7 @@ export default function CartItem({ item, background }) {
 					</td>
 					<td className="max-md:block max-md:border-b md:w-32 text-center py-5">
 						<h3 className="font-bold text-[18px]">
-							{totalPrice.toFixed(2)}
+							$ {totalPrice.toFixed(2)}
 						</h3>
 					</td>
 				</tr>

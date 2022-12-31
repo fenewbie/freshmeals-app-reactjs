@@ -8,9 +8,12 @@ function TeamMemberSection() {
 	return (
 		<div className="py-[120px] px-4">
 			<Title title="Team Member" />
-			<div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
-				{teams.map((member) => (
-					<div key={member.id}>
+			<div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+				{teams.map((member, index) => (
+					<div
+						key={member.id}
+						className={`${index === 3 ? 'lg:col-start-2 xl:col-start-auto' : ''}`}
+					>
 						<MemberCard {...member} />
 					</div>
 				))}

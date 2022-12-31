@@ -5,7 +5,7 @@ export default function Promotion() {
 	const { promotions } = useRouteLoaderData('root');
 
 	return (
-		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7 mt-[120px]">
+		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7">
 			{promotions.map((item) => (
 				<div
 					key={item.id}

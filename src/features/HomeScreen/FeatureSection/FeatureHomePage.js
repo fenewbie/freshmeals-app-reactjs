@@ -11,11 +11,12 @@ export default function FeatureHomePage() {
 	return (
 		<div className="my-[120px]">
 			<Title title="Featured Products" />
-			<div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-[30px] mt-[15px]  ">
+			<div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 md:gap-8 gap-4  mt-[15px]">
 				{featureProducts.map((el) => (
 					<ProductItem
 						key={el.id}
 						{...el}
+						reviews={false}
 						card
 						product={el}
 					/>

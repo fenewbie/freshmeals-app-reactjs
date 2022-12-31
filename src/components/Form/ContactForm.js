@@ -73,10 +73,9 @@ export default function ContactForm() {
 				/>
 				<Button
 					type="submit"
-					btn="card"
-					className="group relative mt-10 flex items-center justify-center w-full h-10  md:w-1/6 lg:h-14 md:h-12 bg-[#80B500]  hover:text-gray-900 hover:bg-black focus:outline-none focus:z-10 focus:ring focus:ring-blue-100 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-white after:w-[0%] after:h-full after:transition-all after:duration-[400ms] after:ease-in-out hover:after:w-full hover:after:border hover:after:border-gray-900"
+					className="btn-animated md:min-w-[200px] max-md:w-full"
 				>
-					<span className="group-hover:text-neutral-700 text-sm font-bold text-white uppercase relative z-10 m-auto">
+					<span className="btn-animated-text">
 						GET AN FREE SERVICE
 					</span>
 				</Button>

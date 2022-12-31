@@ -9,9 +9,9 @@ import Button from '@components/UI/Button';
 import { default as Grid } from '@components/Product/ProductGrid';
 import { CommonSection } from '@components/Blog';
 import FormikControl from '@components/Form/FormikControl';
-import { FilterProductSchema } from '@components/Form/ValidationSchema';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
+import FilterPriceRange from './FilterPriceRange';
 
 function ProductFilter() {
 	const { products } = useRouteLoaderData('root');
@@ -36,23 +36,29 @@ function ProductFilter() {
 
 	useEffect(() => {
 		if (isFiltering && resultQuery.length > 0 && rate) {
-			setFilterResult(resultQuery.filter((product) => product.rating >= rate));
+			setFilterResult(
+				resultQuery.filter((product) => product.rating >= rate)
+			);
 		} else {
 			setFilterResult(resultQuery);
 		}
 	}, [resultQuery, isFiltering, rate]);
 
 	return (
-		<div className="grid md:grid-cols-12 grid-cols-1  gap-8">
-			<div className="md:col-span-8">
+		<div className="grid lg:grid-cols-12 grid-cols-1  gap-8">
+			<div className="lg:col-span-8">
 				<div className="flex justify-between mb-10 flex-wrap max-md:justify-center">
 					<h3 className="font-bold text-lg max-md:mb-5">
 						{isFiltering
 							? `Showing ${filterResult.length} ${
-									filterResult.length < 2 ? 'result' : 'results'
+									filterResult.length < 2
+										? 'result'
+										: 'results'
 							  }`
 							: 'All products'}
-						{quickViewModal.status ? <QuickViewProductModal /> : null}
+						{quickViewModal.status ? (
+							<QuickViewProductModal />
+						) : null}
 
 						{successModal.status ? (
 							<SuccessModal type={successModal.type} />
@@ -61,23 +67,33 @@ function ProductFilter() {
 					<div>
 						<select className="font-bold bg-gray-50 -2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
 							<option value="1">Sort By Popularity</option>
-							<option value="2">Sort By Price: From Hight to Low</option>
-							<option value="3">Sort By Price: From Low to High</option>
+							<option value="2">
+								Sort By Price: From Hight to Low
+							</option>
+							<option value="3">
+								Sort By Price: From Low to High
+							</option>
 						</select>
 					</div>
 				</div>
-				<Grid products={isFiltering ? filterResult : products} cols={3} />
+				<Grid
+					products={isFiltering ? filterResult : products}
+					cols={3}
+				/>
 			</div>
-			<div className="md:col-span-4">
+			<div className="lg:col-span-4 lg:-mt-8">
 				<CommonSection title="Filter By">
 					<Formik
 						initialValues={initialValues}
-						validationSchema={FilterProductSchema}
 						onSubmit={(values) => {
 							const keys = Object.keys(values);
-							const check = keys.every((key) => values[key].length === 0);
+							const check = keys.every(
+								(key) => values[key].length === 0
+							);
 							if (check) {
-								setError('Please set at least one condition to filter');
+								setError(
+									'Please set at least one condition to filter'
+								);
 							} else {
 								handleQuery([
 									{
@@ -115,7 +131,7 @@ function ProductFilter() {
 							}
 						}}
 					>
-						{({ resetForm, handleSubmit }) => (
+						{({ resetForm, handleSubmit, setFieldValue }) => (
 							<form onSubmit={handleSubmit}>
 								<div className="border-b pb-5">
 									<h4 className="font-bold mb-2">Type</h4>
@@ -129,24 +145,14 @@ function ProductFilter() {
 								</div>
 								<div className="border-b py-5">
 									<h4 className="font-bold mb-2">Price</h4>
-									<div className="flex max-lg:flex-wrap">
-										<FormikControl
-											control="input"
-											type="number"
-											name="minPrice"
-											label="Min Price"
-										/>
-										<FormikControl
-											control="input"
-											type="number"
-											name="maxPrice"
-											label="Max Price"
-											className="lg:ml-4 max-lg:mt-4"
-										/>
-									</div>
+									<FilterPriceRange
+										setFieldValue={setFieldValue}
+									/>
 								</div>
 								<div className="border-b py-5">
-									<h4 className="font-bold mb-2">Sale program</h4>
+									<h4 className="font-bold mb-2">
+										Sale program
+									</h4>
 									<div className="flex flex-wrap">
 										<FormikControl
 											control="radio"
@@ -156,7 +162,9 @@ function ProductFilter() {
 									</div>
 								</div>
 								<div className="border-b py-5">
-									<h4 className="font-bold mb-2">Popularity</h4>
+									<h4 className="font-bold mb-2">
+										Popularity
+									</h4>
 									<FormikControl
 										control="radio"
 										name="rate"
@@ -168,7 +176,11 @@ function ProductFilter() {
 										{error}
 									</span>
 								)}
-								<Button type="submit" btn="card" className="w-full">
+								<Button
+									type="submit"
+									btn="card"
+									className="w-full"
+								>
 									Apply Filter
 								</Button>
 								<Button

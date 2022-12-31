@@ -11,6 +11,7 @@ function TestimonialsSection() {
 		<div className="py-[120px] px-4 bg-sectionBg">
 			<Title title="Clients Feedbacks" />
 			<Slider
+				centeredSlides
 				breakpoints={{
 					768: {
 						slidesPerView: 1,

@@ -17,6 +17,7 @@ function ProductTopRated() {
 					<ProductItem
 						key={product.id}
 						{...product}
+						reviews={false}
 						label={false}
 						className={index !== 0 && 'mt-5'}
 					/>

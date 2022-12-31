@@ -7,7 +7,7 @@ const BlogSection = () => {
 	const { blogs } = useRouteLoaderData('root');
 	return (
 		<div>
-			<div className="pt-[115px] pb-[70px]">
+			<div className="pt-[115px]">
 				<Title title="Lastest Blog" />
 				<BlogSlider blogs={blogs} />
 			</div>
