@@ -14,6 +14,8 @@ import ViewCart from '@features/CartScreen/ViewCart';
 import * as cs from '@utils/constants';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 
+import { AnimatePresence } from 'framer-motion';
+
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
@@ -82,7 +84,7 @@ const Header = () => {
 								className="relative flex gap-3"
 								ref={dropdownRef}
 							>
-								<div className="lg:block hidden">
+								<div className="lg:visible invisible">
 									<SearchProducts />
 								</div>
 								<Button
@@ -105,36 +107,27 @@ const Header = () => {
 									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
-									<span
-										className={`${
-											showCart
-												? 'fixed inset-0 w-full h-full bg-black opacity-40'
-												: ''
-										}`}
-									></span>
 								</Button>
+								<AnimatePresence>
+									{showCart ? (
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
+									) : null}
+								</AnimatePresence>
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
 									onClick={handleNavMobi}
 								>
-									<span
-										className={`${
-											showNavMobi
-												? 'fixed inset-0 w-full h-full bg-black opacity-40'
-												: ''
-										}`}
-									></span>
 									<BiMenu />
 								</Button>
-								<NavMobi
-									isDisplay={showNavMobi}
-									handleClick={handleNavMobi}
-								/>
-								<ViewCart
-									isShowingCart={showCart}
-									handleClose={handleCart}
-									item={cartItems}
-								/>
+
+								<AnimatePresence>
+									{showNavMobi && (
+										<NavMobi handleClose={handleNavMobi} />
+									)}
+								</AnimatePresence>
 							</div>
 						</div>
 					</nav>

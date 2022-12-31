@@ -1,21 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from 'react-icons/md';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
+import Modal from '@components/UI/Modal';
 
-export default function ViewCart({ isShowingCart, handleClose, item }) {
+export default function ViewCart({ handleClose, item }) {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
 
 	return (
-		<AnimatePresence>
-			{isShowingCart && (
+		<Modal
+			className="h-full w-full"
+			handleClose={handleClose}
+		>
 				<motion.div
 					initial={{ x: '100%' }}
-					animate={{ x: 0 }}
+					animate={{ x: '0%' }}
 					transition={{ type: 'tween', stiffness: 50 }}
-					exit={{ x: '200%' }}
+					exit={{ x: '100%' }}
 					className="bg-white md:w-96 w-80 fixed inset-y-0 right-0 z-30 px-8 py-6 pb-24 flex flex-col"
 				>
 					<header className="flex items-center justify-between border-b border-b-sectionBg pb-5">
@@ -41,7 +44,7 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 						</div>
 					) : (
 						<div className="my-5 flex-1 h-full flex flex-col">
-							<div className="flex-1 overflow-y-auto py-3">
+							<div className="overflow-y-auto py-3 scroll-bar">
 								{item.map((item, index) => (
 									<div
 										key={item.id}
@@ -112,7 +115,6 @@ export default function ViewCart({ isShowingCart, handleClose, item }) {
 						</div>
 					)}
 				</motion.div>
-			)}
-		</AnimatePresence>
+		</Modal>
 	);
 }
