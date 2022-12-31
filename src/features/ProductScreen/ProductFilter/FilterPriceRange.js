@@ -1,5 +1,4 @@
-import FormikControl from '@components/Form/FormikControl';
-import RangSlider from '@components/UI/RangSlider';
+import RangSlider from '@components/Product/RangSlider';
 import { memo, useEffect, useState } from 'react';
 
 function FilterPriceRange({ setFieldValue }) {
@@ -28,7 +27,7 @@ function FilterPriceRange({ setFieldValue }) {
 		<>
 			<div className="flex max-lg:flex-wrap mb-5">
 				<span className="mr-5">
-					From:<b className="ml-1">{values.minPrice}$</b>{' '}
+					From:<b className="ml-1">{values.minPrice}$</b>
 				</span>
 				<span>
 					To:
