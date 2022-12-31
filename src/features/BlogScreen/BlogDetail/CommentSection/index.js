@@ -3,7 +3,7 @@ import CommentCard from "@components/Comment";
 function CommentSection({name,comment,date}) {
     return (
 			<div className="">
-				<h3 className="font-bold text-2xl mb-10">Comments</h3>
+				<h3 className="font-bold text-2xl mb-5">Comments</h3>
 				<CommentCard
 					avatar="https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/testimonial/1.jpg"
 					name="Adam Smit"

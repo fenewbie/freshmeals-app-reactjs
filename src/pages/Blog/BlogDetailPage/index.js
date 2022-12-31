@@ -3,7 +3,7 @@ import { getDocumentById } from '@services/api';
 
 function BlogDetailPage() {
 	return (
-		<div className="px-4 sm:px-8 mx-auto">
+		<div className="">
 			<BlogDetail />
 		</div>
 	);

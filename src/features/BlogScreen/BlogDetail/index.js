@@ -42,7 +42,7 @@ function BlogDetail() {
 	}, [blog]);
 
 	return (
-		<div className="border-2 rounded py-10 px-12 ">
+		<div className="border-2 rounded py-10 md:px-12 px-6">
 			<Post blog={blog} />
 
 			<div className="flex justify-between mt-16 max-lg:flex-wrap">
@@ -94,7 +94,7 @@ function BlogDetail() {
 						<Link className="ml-2" to={`/blog/${id + 1}`} disabled={true}>
 							Next Post
 						</Link>
-						<FaRegArrowAltCircleRight />
+						<FaRegArrowAltCircleRight className='ml-2'/>
 					</span>
 				</button>
 			</div>		

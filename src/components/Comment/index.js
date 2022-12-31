@@ -3,17 +3,21 @@ import Card from '@components/UI/Card';
 import { IoArrowUndoOutline } from 'react-icons/io5';
 function CommentCard({ avatar, name, date, comment, separate }) {
 	return (
-		<Card className={`flex items-center py-8 ${separate && 'border-b border-[rgba(0, 0, 0, 0.05)]'}`}>
+		<Card
+			className={`flex max-md:flex-wrap items-center py-8 ${
+				separate && 'border-b border-[rgba(0, 0, 0, 0.05)]'
+			}`}
+		>
 			<img
 				src={avatar}
 				alt="user"
 				className="h-24 w-24 rounded-full"
 			/>
-			<div className="ml-10">
+			<div className="md:ml-10 max-md:mt-5">
 				<div className="flex justify-between">
 					<div>
-						<h3 className="font-bold text-lg">{name}</h3>
-						<span className="block font-bold text-sm text-greenBtn mt-1">
+						<h3 className="font-bold md:text-lg">{name}</h3>
+						<span className="block font-semibold md:text-sm text-[0.8rem] text-greenBtn mt-1">
 							{date}
 						</span>
 					</div>
@@ -21,7 +25,7 @@ function CommentCard({ avatar, name, date, comment, separate }) {
 						<Button
 							type="link"
 							link="/blog"
-							className="flex items-center py-2 px-7 rounded-full border-2 
+							className="flex items-center py-2 max-md:text-sm md:px-7 px-5 rounded-full border-2 
                         border-[#e7e7e7]
                         hover:border-greenBtn hover:text-greenBtn"
 						>
