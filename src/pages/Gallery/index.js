@@ -8,14 +8,15 @@ const Gallery = () => {
 	const { blogs } = useRouteLoaderData('root');
 	return (
 		<div>
+			<Title title="Our Activities" />
 			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
 				{galleries[0].images.map((item) => {
 					return (
-						<div className="h-72 w-full">
+						<div className="h-72 w-full group overflow-hidden">
 							<img
 								src={item}
 								alt="gallery"
-								className="h-full w-full object-cover"
+								className="h-full w-full object-cover group-hover:scale-110 transition-all duration-[1s]"
 							/>
 						</div>
 					);
