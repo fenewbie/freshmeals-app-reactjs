@@ -32,6 +32,7 @@ export default function Register() {
 				displayName: `${values.firstname} ${values.lastname}`,
 				email: username.email,
 			});
+			
 			setSubmitting(false);
 			navigate('/login');
 		} catch (err) {

@@ -2,6 +2,7 @@ import Button from '@components/UI/Button';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
+import * as cs from '@utils/constants';
 
 const PrivateRoute = ({ children }) => {
 	const navigate = useNavigate();
@@ -9,22 +10,30 @@ const PrivateRoute = ({ children }) => {
 
 	if (!currentUser) {
 		return (
-			<section className="flex items-center justify-center py-6">
-				<div className="container">
-					<h2>Permission Denied.</h2>
-					<p>Please sign in or sign up to view the page.</p>
-					<br />
-					<Button
-						btn="card"
-						className="mx-auto bg-greenBtn p-2 rounded mt-5"
-						onClick={() => navigate('/login')}
-					>
-						<span className="flex items-center">
-							<TbArrowBigLeftLines className="text-xl mr-2" />
-							BACK TO SIGNIN
-						</span>
-					</Button>
-				</div>
+			<section className="">
+				<img
+					alt="permission_denied"
+					src={cs.denied}
+					className="h-20 w-20 mx-auto mb-8"
+				/>
+				<h2 className="font-bold lg:text-4xl md:text-3xl text-2xl text-center">
+					Permission Denied
+				</h2>
+				<p className="text-center mt-5">
+					You don't have permissions to access this page. <br />
+					Please sign in or sign up.
+				</p>
+				<br />
+				<Button
+					btn="card"
+					className="mx-auto bg-greenBtn p-2 rounded mt-3"
+					onClick={() => navigate('/login')}
+				>
+					<span className="flex items-center">
+						<TbArrowBigLeftLines className="text-xl mr-2" />
+						BACK TO SIGNIN
+					</span>
+				</Button>
 			</section>
 		);
 	}
