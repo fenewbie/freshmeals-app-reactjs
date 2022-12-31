@@ -53,7 +53,7 @@
   -Contact form
 - 404 page
 - Coming soon page
-- Add to cart & check out
+- Add to cart & check out process ( shipping, payment method)
 - Singe product
 
 <br/>

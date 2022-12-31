@@ -10,7 +10,7 @@ import FormikControl from './FormikControl';
 import { CommentSchema } from './ValidationSchema';
 import { saveinfocomment } from '@utils/constants';
 
-function FormSection() {
+function FormSection({ handleSubmit }) {
 	const initialValues = {
 		comment: '',
 		name: '',
@@ -19,9 +19,6 @@ function FormSection() {
 		saveinfo: [],
 	};
 
-	const handleSubmit = (values) => {
-		console.log('Comment form', values);
-	};
 	return (
 		<div>
 			<h3 className="font-bold text-2xl mb-10">Comments</h3>
@@ -68,11 +65,7 @@ function FormSection() {
 						className="my-5"
 					/>
 
-					<Button
-						btn="card"
-						className="flex items-center"
-						type="submit"
-					>
+					<Button btn="card" className="flex items-center" type="submit">
 						<FiMessageCircle className="mr-2" />
 						Post Comment
 					</Button>

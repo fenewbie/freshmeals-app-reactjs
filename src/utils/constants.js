@@ -7,6 +7,7 @@ import phoneImg from '../assets/contact/phone.png';
 import locateImg from '../assets/contact/locate.png';
 import userImg from '../assets/user/user.png';
 import deniedImg from '../assets/permission_denied.png';
+import spinnerImg from '../assets/spinner.jpg';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
@@ -17,6 +18,7 @@ export const phone = phoneImg;
 export const locate = locateImg;
 export const user = userImg;
 export const denied = deniedImg;
+export const spinner = spinnerImg;
 
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },

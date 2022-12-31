@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '@services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, Timestamp } from 'firebase/firestore';
 import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
 import { RegisterSchema } from '@components/Form/ValidationSchema';
@@ -31,6 +31,7 @@ export default function Register() {
 				uid: username.uid,
 				displayName: `${values.firstname} ${values.lastname}`,
 				email: username.email,
+				createdAt: Timestamp.now().toDate(),
 			});
 			
 			setSubmitting(false);
