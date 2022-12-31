@@ -5,13 +5,7 @@ import { FaUserEdit } from 'react-icons/fa';
 import Tags from '../Tags';
 import Card from '@components/UI/Card';
 
-const BlogCard = ({
-	id,
-	title,
-	description,
-	image,
-	tags = [],
-}) => (
+const BlogCard = ({ id, title, description, image, tags = [] }) => (
 	<Card className={`shadow-xl rounded-lg overflow-hidden mb-10  border`}>
 		<Link
 			to={`/blog/${id}`}
@@ -25,11 +19,11 @@ const BlogCard = ({
 				/>
 			</div>
 		</Link>
-		<div className="bg-white p-8 ">
-			<Tags tags={tags} />
+		<div className="bg-white px-8 py-6">
+			{tags && <Tags tags={tags} />}
 			<Link
 				to={`/blog/${id}`}
-				className="text-xl lg:text-2xl font-bold capitalize  mb-2 hover:text-greenBtn transition-all duration-300 min-h-[56px] flex items-center"
+				className="text-xl xl:text-3xl lg:text-2xl font-bold capitalize  lg:mb-2 hover:text-greenBtn transition-all duration-300 min-h-[65px] flex items-center"
 			>
 				<span className="line-clamp-2 ">{title}</span>
 			</Link>
@@ -41,16 +35,16 @@ const BlogCard = ({
 				Read more
 			</Link>
 
-			<div className="flex items-center justify-between mt-7 border-t pt-6">
+			<div className="flex items-center justify-between mt-7 border-t pt-6 pb-2 flex-wrap">
 				<Link
 					to="/"
-					className="flex items-center hover:text-greenBtn transition-all duration-300"
+					className="flex items-center hover:text-greenBtn transition-all duration-300 "
 				>
 					<FaUserEdit className="text-greenBtn mr-2" />
 					by
-					<span className="ml-1 font-medium capitalize">admin</span>
+					<span className="ml-1 font-medium capitalize ">admin</span>
 				</Link>
-				<span className="flex items-center">
+				<span className="flex items-center text-sm">
 					<BiCalendar className="text-greenBtn mr-2" />
 					Nov 12, 2022
 				</span>
