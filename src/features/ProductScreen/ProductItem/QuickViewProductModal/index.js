@@ -76,7 +76,7 @@ const QuickViewProductModal = () => {
 				</button>
 
 				<div className="flex items-center gap-10 max-md:flex-wrap max-md:justify-center">
-					<div className="md:h-96 h-48 mx-auto px-6">
+					<div className="md:h-70 h-48 mx-auto px-6">
 						<img
 							src={image}
 							className="h-full object-contains mx-auto"
@@ -91,10 +91,10 @@ const QuickViewProductModal = () => {
 							{title}
 						</h4>
 						<div className="flex items-center max-md:justify-center mt-2">
-							<span className="inline-block md:text-[56px] text-4xl font-semibold text-greenBtn">
+							<span className="inline-block md:text-3xl text-4xl font-semibold text-greenBtn">
 								${discount.toFixed(2)}
 							</span>
-							<span className="inline-block md:text-5xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
+							<span className="inline-block md:text-3xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
 								${price.toFixed(2)}
 							</span>
 						</div>
@@ -113,11 +113,11 @@ const QuickViewProductModal = () => {
 								decreaseItem={decreaseItem}
 								incrementItem={incrementItem}
 								quantity={quantity}
-								className="max-md:h-10 h-[58px]"
+								className="max-md:h-7"
 							/>
 							<Button
 								btn="card"
-								className="mt-0 ml-5 max-md:h-10"
+								className="mt-0 ml-5 max-md:h-6"
 								onClick={addItem}
 							>
 								Add to cart

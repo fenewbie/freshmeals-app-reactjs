@@ -1,7 +1,7 @@
-import { BsSearch } from 'react-icons/bs';
-
 import { useRef } from 'react';
 import { Form, Formik } from 'formik';
+import { BsSearch } from 'react-icons/bs';
+
 import FormikControl from './FormikControl';
 
 function SearchForm({ setSearchKey }) {

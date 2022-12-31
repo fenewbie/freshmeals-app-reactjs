@@ -20,7 +20,7 @@ function SuccessModal({ type }) {
 
 	return (
 		<Modal handleClose={handleClose}>
-			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-7/12 w-[90%] animate-[modalAppear_300ms_ease-in-out_forwards] mx-auto">
+			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-4/5 w-[90%] animate-[modalAppear_300ms_ease-in-out_forwards] mx-auto">
 				<button
 					onClick={handleClose}
 					className="absolute top-2 right-2 bg-white"

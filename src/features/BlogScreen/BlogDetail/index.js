@@ -1,8 +1,7 @@
 import { Link, useLoaderData, useRouteLoaderData } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
-import { onValue, ref, set } from 'firebase/database';
-import { database, db } from '@services/firebase';
+import { useEffect } from 'react';
+import { doc, setDoc, Timestamp } from 'firebase/firestore';
+import { db } from '@services/firebase';
 
 import {
 	FaRegArrowAltCircleLeft,
@@ -98,10 +97,10 @@ function BlogDetail() {
 						<FaRegArrowAltCircleRight />
 					</span>
 				</button>
-			</div>
+			</div>		
 			<RelatedList col="blogs" related={blog.tags} type="tags" />
 			<CommentSection />
-			<CommentCard />
+			{/* <CommentCard /> */}
 			<PrivateRoute isLoggedIn={true} type="admin">
 				<CommentForm handleSubmit={handleSubmit} />
 			</PrivateRoute>

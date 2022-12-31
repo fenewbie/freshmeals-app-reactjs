@@ -1,5 +1,5 @@
 import { useRouteLoaderData } from 'react-router-dom';
-import SearchByTitle from '@components/UI/SearchByTitle';
+import SearchByTitle from '@features/SearchByTitle';
 
 function SearchProductsPage() {
 	const { products } = useRouteLoaderData('root');

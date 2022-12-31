@@ -17,13 +17,6 @@ function CommentSection({name,comment,date}) {
 					date="21th May 2020"
 					comment="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione."
 				/>
-				<CommentCard
-					avatar="https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/testimonial/1.jpg"
-					name={name}
-					date={date}
-					comment={comment}
-					separate
-				/>
 			</div>
 		);
 }

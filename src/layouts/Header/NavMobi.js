@@ -1,14 +1,14 @@
+import { Link } from 'react-router-dom';
+import { motion} from 'framer-motion';
 import { BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
-import * as cs from '@utils/constants';
 import Navigation from '@components/UI/Navbar';
 import SocialLink from '@components/UI/SocialLink';
 import Button from '@components/UI/Button';
 import SearchProducts from 'layouts/Header/Search';
 import Modal from '@components/UI/Modal';
+import * as cs from '@utils/constants';
 
 export function NavMobi({ handleClose }) {
 	return (

@@ -14,7 +14,7 @@ export default function Input(props) {
 					{...rest}
 				/>
 				{icon && (
-					<div className="mr-4 text-greenBtn flex justify-center items-center">
+					<div className="mr-4 text-greenBtn flex justify-center items-center cursor-pointer">
 						{icon}
 					</div>
 				)}
