@@ -42,7 +42,7 @@ function BlogDetail() {
 	}, [blog]);
 
 	return (
-		<div className="border-2 rounded py-10 px-12 ">
+		<div className="border-2 rounded py-10 md:px-12 px-6">
 			<Post blog={blog} />
 
 			<div className="flex justify-between mt-16 max-lg:flex-wrap">
@@ -97,7 +97,7 @@ function BlogDetail() {
 						<FaRegArrowAltCircleRight />
 					</span>
 				</button>
-			</div>		
+			</div>
 			<RelatedList col="blogs" related={blog.tags} type="tags" />
 			<CommentSection />
 			{/* <CommentCard /> */}
