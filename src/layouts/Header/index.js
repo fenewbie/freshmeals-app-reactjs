@@ -77,7 +77,7 @@ const Header = () => {
 								GET A QUOTE
 							</Button>
 							<div className="relative flex gap-3" ref={dropdownRef}>
-								<div className="lg:visible invisible">
+								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
 								<Button
