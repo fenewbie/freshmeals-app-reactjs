@@ -14,27 +14,32 @@ import Loader from '@components/UI/Loader';
 import RootLayout, { loader as rootLoader } from './layouts/RootLayout';
 import ShopLayout from './layouts/ShopLayout';
 import BlogLayout from './layouts/BlogLayout';
+import PrivateRoute from '@components/PrivateRoute';
+
 import { loader as productLoader } from './pages/Shop/ProductDetailPage';
-import About, { loader as aboutLoader } from './pages/About';
-import Contact from './pages/Contact';
+import { loader as aboutLoader } from './pages/About';
 import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
-import Gallery from './pages/Gallery';
 import SearchProductsPage from 'pages/Shop/ProductSearch';
 import SearchBlogsPage from 'pages/Blog/BlogSearch';
 import { action as checkoutAction } from '@features/CheckoutScreen';
-import Login from 'pages/Auth/Login';
-import Register from 'pages/Auth/Register';
-import PrivateRoute from '@components/PrivateRoute';
-import UserProfile from 'pages/UserProfile';
 
 const Home = lazy(() => import('./pages/Home'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Checkout = lazy(() => import('./pages/Checkout'));
+const About = lazy(() => import('./pages/About'));
 const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
 const ProductGridPage = lazy(() => import('./pages/Shop/ProductGridPage'));
+const Contact = lazy(() => import('./pages/Contact'));
 const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Cart = lazy(() => import('./pages/Cart'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+
+const Login = lazy(() => import('./pages/Auth/Login'));
+const Register = lazy(() => import('./pages/Auth/Register'));
+const UserProfile = lazy(() => import('./pages/UserProfile'));
+
+const ComingSoon = lazy(() => import('./pages/comingSoon'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
 	const dispatch = useDispatch();
@@ -53,93 +58,56 @@ function App() {
 
 	const router = createBrowserRouter(
 		createRoutesFromElements(
-			<Route
-				id="root"
-				path="/"
-				element={<RootLayout />}
-				errorElement={<NotFound />}
-				loader={rootLoader}
-			>
+			<>
 				<Route
-					index
-					element={<Home />}
-				/>
-				<Route
-					path="login"
-					element={<Login />}
-				/>
-				<Route
-					path="register"
-					element={<Register />}
-				/>
-				<Route
-					path="user-profile"
-					element={
-						<PrivateRoute>
-							<UserProfile />
-						</PrivateRoute>
-					}
-				></Route>
-				<Route
-					path="shop"
-					element={<ShopLayout />}
+					id="root"
+					path="/"
+					element={<RootLayout />}
+					errorElement={<NotFound />}
+					loader={rootLoader}
 				>
+					<Route index element={<Home />} />
+					<Route path="login" element={<Login />} />
+					<Route path="register" element={<Register />} />
 					<Route
-						index
-						element={<ProductGridPage />}
-					/>
+						path="user-profile"
+						element={
+							<PrivateRoute>
+								<UserProfile />
+							</PrivateRoute>
+						}
+					></Route>
+					<Route path="shop" element={<ShopLayout />}>
+						<Route index element={<ProductGridPage />} />
+						<Route
+							path=":productId"
+							element={<ProductDetailPage />}
+							loader={productLoader}
+						/>
+						<Route path="search" element={<SearchProductsPage />} />
+					</Route>
+					<Route path="cart" element={<Cart />} />
 					<Route
-						path=":productId"
-						element={<ProductDetailPage />}
-						loader={productLoader}
+						path="checkout"
+						element={<Checkout />}
+						action={checkoutAction}
 					/>
-					<Route
-						path="search"
-						element={<SearchProductsPage />}
-					/>
-				</Route>
-				<Route
-					path="cart"
-					element={<Cart />}
-				/>
-				<Route
-					path="checkout"
-					element={<Checkout />}
-					action={checkoutAction}
-				/>
-				<Route
-					path="about"
-					element={<About />}
-					loader={aboutLoader}
-				/>
-				<Route
-					path="contact"
-					element={<Contact />}
-				/>
+					<Route path="about" element={<About />} loader={aboutLoader} />
+					<Route path="contact" element={<Contact />} />
 
-				<Route
-					path="blog"
-					element={<BlogLayout />}
-				>
-					<Route
-						index
-						element={<BlogGridPage />}
-					/>
-					<Route
-						path=":blogId"
-						element={<BlogDetailPage />}
-						loader={blogLoader}
-					/>
-					<Route
-						path="search"
-						element={<SearchBlogsPage />}
-					/>
+					<Route path="blog" element={<BlogLayout />}>
+						<Route index element={<BlogGridPage />} />
+						<Route
+							path=":blogId"
+							element={<BlogDetailPage />}
+							loader={blogLoader}
+						/>
+						<Route path="search" element={<SearchBlogsPage />} />
+					</Route>
+					<Route path="gallery" element={<Gallery />} />
 				</Route>
-				<Route
-					path="gallery"
-					element={<Gallery />}
-				/>
-			</Route>
+				<Route path="coming-soon" element={<ComingSoon />} />
+			</>
 		)
 	);
 	return (
