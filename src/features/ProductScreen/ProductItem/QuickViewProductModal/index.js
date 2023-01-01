@@ -76,16 +76,20 @@ const QuickViewProductModal = () => {
 				</button>
 
 				<div className="flex items-center gap-10 max-md:flex-wrap max-md:justify-center">
-					<div className="md:h-70 h-48 mx-auto px-6">
+					<div className="md:h-72 h-48 mx-auto px-6 bg-[rgba(0,0,0,0.05)]">
 						<img
 							src={image}
-							className="h-full object-contains mx-auto"
+							className="h-full object-contain mx-auto"
 							alt={title}
 						/>
 					</div>
 					<div className="max-w-[400px]">
 						<div className="flex max-md:justify-center">
-							<Rating value={rating} text={reviews} />
+							<Rating
+								value={rating}
+								text={reviews}
+								size='16'
+							/>
 						</div>
 						<h4 className="md:text-xl text-lg font-bold mt-2 max-md:text-center ">
 							{title}
@@ -102,7 +106,10 @@ const QuickViewProductModal = () => {
 							<span>Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category?.map((item, index) => (
-									<li className="font-semibold capitalize" key={index}>
+									<li
+										className="font-semibold capitalize"
+										key={index}
+									>
 										{index === 0 ? item : `, ${item}`}
 									</li>
 								))}
@@ -126,11 +133,15 @@ const QuickViewProductModal = () => {
 						<div className="flex mt-5 max-md:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
-								<span className="ml-1 font-medium">Add to Wishlist</span>
+								<span className="ml-1 font-medium">
+									Add to Wishlist
+								</span>
 							</div>
 							<Link className="flex items-center  hover:text-greenBtn transition-all">
 								<BsArrowLeftRight />
-								<span className="ml-1 font-medium">Compare</span>
+								<span className="ml-1 font-medium">
+									Compare
+								</span>
 							</Link>
 						</div>
 						<div className="flex items-center border-t-[1px] mt-8">
