@@ -9,7 +9,6 @@ const Contact = () => {
 			<Container>
 				<div
 					title="Contact Us"
-					className=""
 				>
 					<div className="flex gap-8 mb-20 max-lg:flex-wrap justify-center">
 						<Card className="text-center lg:basis-1/3 basis-full border-2 rounded-md py-12">
@@ -59,7 +58,7 @@ const Contact = () => {
 					</div>
 				</div>
 			</Container>
-			<div className="h-[800px] relative  -top-48">
+			<div className="h-[800px] relative -top-28">
 				<iframe
 					title="locate"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59495.23878484945!2d-97.27585638943323!3d37.69428176532606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bafcbf966f3033%3A0xbbbbe2dcbe35057d!2sOlive%20Garden%20Italian%20Restaurant!5e0!3m2!1svi!2s!4v1671939193272!5m2!1svi!2s"

@@ -8,16 +8,12 @@ function CommentCard({ avatar, name, date, comment, separate }) {
 				separate && 'border-b border-[rgba(0, 0, 0, 0.05)]'
 			}`}
 		>
-			<img
-				src={avatar}
-				alt="user"
-				className="h-24 w-24 rounded-full"
-			/>
+			<img src={avatar} alt="user" className="h-24 w-24 rounded-full" />
 			<div className="md:ml-10 max-md:mt-5">
 				<div className="flex justify-between">
 					<div>
-						<h3 className="font-bold md:text-lg">{name}</h3>
-						<span className="block font-semibold md:text-sm text-[0.8rem] text-greenBtn mt-1">
+						<h3 className="font-bold md:text-lg font-raj">{name}</h3>
+						<span className="block font-semibold md:text-sm text-[0.8rem] text-greenBtn mt-1 font-raj">
 							{date}
 						</span>
 					</div>

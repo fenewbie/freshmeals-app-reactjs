@@ -31,7 +31,7 @@ export default function ComingSoon() {
 					</div>
 					<div className="mb-14 ">
 						<Link
-							to="contact"
+							to="/contact"
 							className="btn-animated uppercase text-white"
 						>
 							<span className="btn-animated-text max-md:text-sm">

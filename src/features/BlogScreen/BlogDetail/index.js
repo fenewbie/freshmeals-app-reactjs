@@ -1,14 +1,13 @@
-import { Link, useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Link, useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
-import { db } from '@services/firebase';
-
 import {
 	FaRegArrowAltCircleLeft,
 	FaRegArrowAltCircleRight,
 } from 'react-icons/fa';
 import { TbGridDots } from 'react-icons/tb';
 
+import { db } from '@services/firebase';
 import CommentSection from './CommentSection';
 import SocialLink from '@components/UI/SocialLink';
 import RelatedList from '@features/RelatedList/index';
@@ -16,15 +15,16 @@ import { CommentForm } from '@components/Form';
 import { Post, Tags } from '@components/Blog';
 import PrivateRoute from '@components/PrivateRoute';
 import CommentCard from '@components/Comment';
+import Button from '@components/UI/Button';
 
 function BlogDetail() {
 	const { blog, id } = useLoaderData();
 	const { blogs } = useRouteLoaderData('root');
 
-	const handleSubmit = (values) => {
+	const handleSubmit = (values, actions) => {
 		console.log(values);
 		try {
-			setDoc(doc(db, 'comment-form', id), {
+			setDoc(doc(db, 'comment-form', values.email), {
 				comment: values.comment,
 				name: values.name,
 				email: values.email,
@@ -32,6 +32,8 @@ function BlogDetail() {
 				createdAt: Timestamp.now().toDate(),
 				// time: new Date(),
 			});
+			alert('Thank you for your comment! ');
+			actions.resetForm();
 		} catch (err) {
 			console.log(err);
 		}
@@ -42,7 +44,7 @@ function BlogDetail() {
 	}, [blog]);
 
 	return (
-		<div className="border-2 rounded py-10 md:px-12 px-6">
+		<div className="border-2 rounded py-10 md:px-12 px-6 mb-28">
 			<Post blog={blog} />
 
 			<div className="flex justify-between mt-16 max-lg:flex-wrap">
@@ -61,7 +63,7 @@ function BlogDetail() {
 			</div>
 
 			<div className="flex justify-between items-center py-12 my-14 border-t border-b">
-				<button
+				<Button
 					type="link"
 					link="/blog"
 					className={`text-xl text-greenBtn  ${
@@ -76,7 +78,7 @@ function BlogDetail() {
 							Pre Post
 						</Link>
 					</span>
-				</button>
+				</Button>
 
 				<TbGridDots className="text-greenBtn text-3xl" />
 
@@ -94,10 +96,10 @@ function BlogDetail() {
 						<Link className="ml-2" to={`/blog/${id + 1}`} disabled={true}>
 							Next Post
 						</Link>
-						<FaRegArrowAltCircleRight className='ml-2'/>
+						<FaRegArrowAltCircleRight className="ml-2" />
 					</span>
 				</button>
-			</div>		
+			</div>
 			<RelatedList col="blogs" related={blog.tags} type="tags" />
 			<CommentSection />
 			{/* <CommentCard /> */}
