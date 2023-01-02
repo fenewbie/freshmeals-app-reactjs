@@ -4,7 +4,9 @@ import Rating from '@components/Product/Rating'
 function ProductTabs({ desc, review, rating, numReviews }) {
 	return (
 		<Tabs
-			onSelect={(firstTab, lastTab) => console.log(`${firstTab}, ${lastTab}`)}
+			onSelect={(firstTab, lastTab) =>
+				console.log(`${firstTab}, ${lastTab}`)
+			}
 		>
 			<TabList className="flex flex-wrap py-5 px-0 font-bold cursor-pointer">
 				<Tab
@@ -21,16 +23,19 @@ function ProductTabs({ desc, review, rating, numReviews }) {
 				</Tab>
 			</TabList>
 			<TabPanel className="text-justify ">
-				<p className="py-3 mb-2 text-2xl font-bold font-raj">
+				<p className="py-3 mb-2 md:text-2xl text-xl font-bold font-raj">
 					Some advantage features of this product
 				</p>
-				{desc}
+				<p className='max-md:text-sm'>{desc}</p>
 			</TabPanel>
 			<TabPanel>
-				<p className="py-3 mb-2 text-2xl font-bold font-raj">
+				<p className="py-3 mb-2 text-2xl text-xl font-bold font-raj">
 					Customer Reviews
 				</p>
-				<Rating value={rating} text={numReviews} />
+				<Rating
+					value={rating}
+					text={numReviews}
+				/>
 				{review || 'No Review'}
 			</TabPanel>
 		</Tabs>

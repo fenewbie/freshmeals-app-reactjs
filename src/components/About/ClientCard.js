@@ -10,8 +10,10 @@ function ClientCard({ name, desc, job, image }) {
 				className="h-40 w-40 max-md:mx-auto object-cover mr-8 rounded-full"
 			/>
 			<div className="">
-				<p className="mb-4 max-md:mt-6 line-clamp-4 max-h-[120px]">{desc}</p>
-				<h4 className="block text-xl font-bold ">{name}</h4>
+				<p className="mb-4 max-md:mt-6 line-clamp-4 max-h-[120px]">
+					{desc}
+				</p>
+				<h4 className="block md:text-xl text-lg font-bold ">{name}</h4>
 				<span className="font-light">{job}</span>
 			</div>
 			<span className="absolute text-9xl bottom-2 right-6 opacity-[0.03]">

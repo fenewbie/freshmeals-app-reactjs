@@ -8,7 +8,7 @@ import { countryOption, createaccount } from '@utils/constants';
 export default function CheckoutForm() {
 
 	return (
-		<div className="border rounded px-8 py-8">
+		<div className="border rounded md:px-8 px-6 py-8">
 			<h5 className="font-bold text-sm mb-4">Personal information</h5>
 			<div className="flex gap-8 mb-8 max-md:flex-wrap">
 				<FormikControl

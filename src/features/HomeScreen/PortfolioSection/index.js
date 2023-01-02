@@ -6,6 +6,7 @@ import Title from '@components/Title';
 import Backdrop from '@components/UI/Modal/BackDrop';
 import useFirestore from '@hooks/useFirestore';
 import Slider from '@components/UI/Slider';
+import Container from '@components/UI/Container';
 
 const PortfolioSection = () => {
 	const [indexAct, setIndexAct] = useState();
@@ -19,8 +20,11 @@ const PortfolioSection = () => {
 	}, []);
 
 	return (
-		<div className="bg-[#F7F5EB] pt-[110px] pb-[90px] text-center font-raj">
-			<Title title="We Have Done" subtitle="Portfolio" />
+		<div className="bg-[#F7F5EB] pb-24 pt-20 text-center font-raj max-md:px-4">
+			<Title
+				title="We Have Done"
+				subtitle="Portfolio"
+			/>
 			{docs.length > 0 && (
 				<Slider
 					centeredSlides
@@ -29,7 +33,7 @@ const PortfolioSection = () => {
 							slidesPerView: 2,
 						},
 						1024: {
-							slidesPerView: 4,
+							slidesPerView: 3.5,
 						},
 					}}
 					onClick={(e) => {
@@ -54,7 +58,6 @@ const PortfolioSection = () => {
 					))}
 				</Slider>
 			)}
-
 			{indexAct && (
 				<Backdrop handleUnmount={() => setIndexAct()}>
 					<Slider
@@ -63,7 +66,10 @@ const PortfolioSection = () => {
 						effect="fade"
 						pagination={{
 							type: 'fraction',
-							renderFraction: function (currentClass, totalClass) {
+							renderFraction: function (
+								currentClass,
+								totalClass
+							) {
 								return (
 									'<span class="' +
 									currentClass +
@@ -80,7 +86,10 @@ const PortfolioSection = () => {
 						}}
 					>
 						{docs.map((imgItem) => (
-							<SwiperSlide key={imgItem.id} onClick={handleUnmount}>
+							<SwiperSlide
+								key={imgItem.id}
+								onClick={handleUnmount}
+							>
 								<div className="overflow-hidden rounded-md relative lg:pt-[30%] pt-[50%] w-full md:w-1/2 bg-transparent mx-auto">
 									<div className="absolute top-0 left-0 h-full w-full ">
 										<img

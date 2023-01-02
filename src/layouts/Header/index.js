@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { NavMobi } from './NavMobi';
+import NavMobi from './NavMobi';
 import Navigation from '@components/UI/Navbar';
 import Button from '@components/UI/Button';
 import Banner from './Banner';
@@ -93,7 +93,7 @@ const Header = () => {
 									className="p-3 bg-white rounded-full hover:bg-greenBtn relative"
 								>
 									<BiCartAlt />
-									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
+									<span className="absolute -top-3 -right-1 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
 								</Button>

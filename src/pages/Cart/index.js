@@ -1,10 +1,11 @@
-import CartScreen from "@features/CartScreen";
+import Container from '@components/UI/Container';
+import CartScreen from '@features/CartScreen';
 
 function Cart() {
-    return (
-		<div className="container mx-auto py-[120px]">
+	return (
+		<Container>
 			<CartScreen />
-		</div>
+		</Container>
 	);
 }
 

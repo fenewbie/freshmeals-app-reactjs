@@ -2,6 +2,7 @@ import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
 import PaymentMethod from '@components/Form/PaymentMethod';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
+import Container from '@components/UI/Container';
 import { Formik, Form } from 'formik';
 import { useSelector } from 'react-redux';
 
@@ -30,10 +31,10 @@ export default function CheckoutScreen() {
 	};
 
 	return (
-		<div className="container mx-auto py-24 px-6">
+		<Container>
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
-					<span className="">Returning customer ?</span>
+					<span className="">Returning customer ? </span>
 					<Link
 						to="/login"
 						className="text-greenBtn"
@@ -42,7 +43,7 @@ export default function CheckoutScreen() {
 					</Link>
 				</p>
 				<p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
-					<span className="">Have a coupon ?</span>
+					<span className="">Have a coupon ? </span>
 					<button className="text-greenBtn">
 						Click here to enter your code
 					</button>
@@ -81,7 +82,7 @@ export default function CheckoutScreen() {
 					</section>
 				</Form>
 			</Formik>
-		</div>
+		</Container>
 	);
 }
 
