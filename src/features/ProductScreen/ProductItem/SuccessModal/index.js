@@ -5,6 +5,7 @@ import { IoClose } from 'react-icons/io5';
 import Modal from '@components/UI/Modal';
 import Button from '@components/UI/Button';
 import * as cs from '@utils/constants';
+import { useNavigate } from 'react-router-dom';
 
 function SuccessModal({ type }) {
 	const dispatch = useDispatch();
@@ -13,9 +14,18 @@ function SuccessModal({ type }) {
 	);
 
 	const handleClose = () => {
-		return dispatch(
-			modalActions.successModal({ status: false, type: null })
-		);
+		return dispatch(modalActions.successModal({ status: false, type: null }));
+	};
+
+	const navigate = useNavigate();
+
+	const handleCart = () => {
+		dispatch(modalActions.successModal({ status: false, type: null }));
+		navigate('/cart');
+	};
+	const handleCheckout = () => {
+		dispatch(modalActions.successModal({ status: false, type: null }));
+		navigate('/checkout');
 	};
 
 	return (
@@ -54,16 +64,14 @@ function SuccessModal({ type }) {
 									<Button
 										btn="card"
 										className="lg:h-9 md:h-9 md:w-[120px]"
-										type="link"
-										link="/cart"
+										onClick={handleCart}
 									>
 										View Cart
 									</Button>
 									<Button
 										btn="card"
 										className="lg:h-9 md:h-9 md:w-[120px] md:ml-3 bg-black hover:bg-greenBtn"
-										type="link"
-										link="/checkout"
+										onClick={handleCheckout}
 									>
 										Check Out
 									</Button>

@@ -1,13 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
 import Modal from '@components/UI/Modal';
+import { modalActions } from '@store/modal/modalSlice';
+import Button from '@components/UI/Button';
 
 export default function ViewCart({ handleClose, item }) {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
+	const navigate = useNavigate()
+
+	const handleCart = () => {
+		dispatch(modalActions.toggleCart());
+		navigate('/cart')
+	}
+	const handleCheckout = () => {
+		dispatch(modalActions.toggleCart());
+		navigate('/checkout');
+	};
 
 	return (
 		<Modal className="h-full w-full" handleClose={handleClose}>
@@ -75,18 +87,19 @@ export default function ViewCart({ handleClose, item }) {
 							</span>
 						</div>
 						<div className="flex py-6 max-md:flex-wrap">
-							<Link
-								to="/cart"
+							<Button
+								onClick={handleCart}
 								className="btn-animated md:mr-5 md:w-1/2 w-full max-md:mb-5"
+								cart
 							>
 								<span className="btn-animated-text">View Cart</span>
-							</Link>
-							<Link
+							</Button>
+							<Button
 								className="btn-animated btn-animated--revert md:w-1/2 w-full"
-								to="/checkout"
+								onClick={handleCheckout}
 							>
 								<span className="btn-animated-text">Checkout</span>
-							</Link>
+							</Button>
 						</div>
 						<span className="text-sm">
 							Free shipping on All Orders Over $100!
