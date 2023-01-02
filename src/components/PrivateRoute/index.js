@@ -18,7 +18,7 @@ const PrivateRoute = ({ type, children }) => {
 				);
 			default:
 				return (
-					<section>
+					<section className='my-10'>
 						<img
 							alt="permission_denied"
 							src={cs.denied}

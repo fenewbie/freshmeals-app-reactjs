@@ -17,7 +17,6 @@ import BlogLayout from './layouts/BlogLayout';
 import PrivateRoute from '@components/PrivateRoute';
 
 import { loader as productLoader } from './pages/Shop/ProductDetailPage';
-import { loader as aboutLoader } from './pages/About';
 import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 
@@ -92,7 +91,7 @@ function App() {
 						element={<Checkout />}
 						action={checkoutAction}
 					/>
-					<Route path="about" element={<About />} loader={aboutLoader} />
+					<Route path="about" element={<About />} />
 					<Route path="contact" element={<Contact />} />
 
 					<Route path="blog" element={<BlogLayout />}>

@@ -1,4 +1,4 @@
-import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from 'react-router-dom';
 
 import Title from '@components/Title';
 import MemberCard from '@components/About/MemberCard';
