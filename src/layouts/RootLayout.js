@@ -1,15 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import Footer from './Footer';
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
-import { getData } from '../services/api';
+import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
+import { getData } from '../services/api';
 
 let isInitial = true;
+
 function RootLayout() {
 	const cart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();

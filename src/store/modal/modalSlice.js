@@ -18,6 +18,7 @@ const modalSlice = createSlice({
 	reducers: {
 		toggleNavMobi(state) {
 			state.isDisplay = !state.isDisplay;
+			
 		},
 		toggleCart(state) {
 			state.isShowingCart = !state.isShowingCart;

@@ -99,7 +99,7 @@ const Header = () => {
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems} />
+										<ViewCart handleClose={handleCart} item={cartItems}/>
 									) : null}
 								</AnimatePresence>
 								<Button
