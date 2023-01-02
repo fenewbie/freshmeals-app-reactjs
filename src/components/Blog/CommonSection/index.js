@@ -2,7 +2,7 @@ import { BsFilterLeft } from 'react-icons/bs';
 
 function CommonSection({ title, children, icon }) {
 	return (
-		<div className="border-2 rounded  py-8 px-8 my-8">
+		<div className="border-2 rounded  py-8 md:px-8 px-4 my-8">
 			<div className="flex items-center mb-8">
 				{icon ? (
 					icon

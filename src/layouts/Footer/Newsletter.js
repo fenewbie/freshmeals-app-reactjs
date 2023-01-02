@@ -1,5 +1,5 @@
-import * as cs from '@utils/constants';
 import SubscribeForm from '@components/Form/SubscribeForm';
+import * as cs from '@utils/constants';
 
 const Newsletter = () => {
 	return (

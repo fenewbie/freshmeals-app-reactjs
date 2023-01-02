@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import {  useRouteLoaderData } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
 import Title from '@components/Title';
@@ -6,9 +6,9 @@ import Slider from '@components/UI/Slider';
 import ClientCard from '@components/About/ClientCard';
 
 function TestimonialsSection() {
-	const { feedbacks } = useLoaderData();
+	const { feedbacks } = useRouteLoaderData('root');
 	return (
-		<div className="py-[120px] px-4 bg-sectionBg">
+		<div className="py-[120px] bg-sectionBg max-md:px-4">
 			<Title title="Clients Feedbacks" />
 			<Slider
 				centeredSlides
@@ -17,7 +17,7 @@ function TestimonialsSection() {
 						slidesPerView: 1,
 					},
 					1024: {
-						slidesPerView: 2,
+						slidesPerView: 2.5,
 					},
 				}}
 			>

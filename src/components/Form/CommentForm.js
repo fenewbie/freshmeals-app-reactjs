@@ -20,7 +20,7 @@ function FormSection({ handleSubmit }) {
 	};
 
 	return (
-		<div>
+		<div className='bg-[#F0F4F7] p-[50px]'>
 			<h3 className="font-bold text-2xl mb-10">Comments</h3>
 			<Formik
 				initialValues={initialValues}

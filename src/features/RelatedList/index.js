@@ -18,7 +18,7 @@ function RelatedList({ col, related, type }) {
 		setDocs(resultArr1);
 	}, []);
 	return (
-		<div className="py-24">
+		<>
 			<Title title="Related Product" center={false} />
 			{docs.length > 0 && (
 				<Slider
@@ -37,7 +37,7 @@ function RelatedList({ col, related, type }) {
 						<SwiperSlide key={el.id}>
 							{
 								(type = 'blog' ? (
-									<BlogCard {...el} />
+									<BlogCard {...el} tags={false} />
 								) : (
 									<ProductItem
 										{...el}
@@ -51,7 +51,7 @@ function RelatedList({ col, related, type }) {
 					))}
 				</Slider>
 			)}
-		</div>
+		</>
 	);
 }
 

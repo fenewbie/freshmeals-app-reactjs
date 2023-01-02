@@ -9,7 +9,7 @@ export function Quantity({ className, decreaseItem, incrementItem, quantity }) {
 			>
 				<AiOutlineMinus className="mx-auto" />
 			</button>
-			<p className="text-lg font-bold flex items-center justify-center w-24 border-2 rounded-md  mx-2 border-gray-300">
+			<p className="text-lg font-bold flex items-center justify-center lg:w-24 w-16 border-2 rounded-md  mx-2 border-gray-300">
 				{quantity}
 			</p>
 			<button

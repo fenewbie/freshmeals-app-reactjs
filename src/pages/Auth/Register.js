@@ -7,6 +7,7 @@ import { Form, Formik } from 'formik';
 import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
 import { consent } from '@utils/constants';
+import Container from '@components/UI/Container';
 
 export default function Register() {
 	const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Register() {
 				email: username.email,
 				createdAt: Timestamp.now().toDate(),
 			});
-			
+
 			setSubmitting(false);
 			navigate('/login');
 		} catch (err) {
@@ -53,17 +54,17 @@ export default function Register() {
 	};
 	const handleClick = () => navigate('/login');
 	return (
-		<div className="container mx-auto py-28 max-md:px-6">
+		<Container>
 			<div className="flex items-center justify-center">
-				<div className="mt-4">
+				<div className="">
 					<div className="text-center">
 						<h2 className="lg:text-[42px]  md:text-3xl text-2xl font-bold lg:leading-[3.5rem]">
 							Register <br />
 							Your Account
 						</h2>
-
 						<p className="mt-3 max-md:text-sm">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit. <br />
 							Sit aliquid, Non distinctio vel iste.
 						</p>
 					</div>
@@ -115,7 +116,11 @@ export default function Register() {
 								className="mt-5"
 							/>
 							<div className="mt-7">
-								<Button className="my-6 w-full" type="submit" btn="card">
+								<Button
+									className="my-6 w-full max-md:h-[47px] max-md:text-sm"
+									type="submit"
+									btn="card"
+								>
 									CREATE ACCOUNT
 								</Button>
 							</div>
@@ -127,7 +132,8 @@ export default function Register() {
 						</p>
 						<p className="text-lg">
 							<Link to="#">
-								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY POLICY
+								TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp;
+								&nbsp; PRIVACY POLICY
 							</Link>
 						</p>
 						<div className="mt-12 underline">
@@ -141,6 +147,6 @@ export default function Register() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 }

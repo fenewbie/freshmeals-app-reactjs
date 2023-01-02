@@ -87,12 +87,12 @@ const ProductItem = ({
 					className={`block relative cursor-pointer
 					${
 						card
-							? ` bg-[rgba(0,0,0,0.01)] pt-[100%]`
+							? ` bg-[rgba(0,0,0,0.05)] pt-[100%]`
 							: ' h-24 w-24 border border-[rgba(0, 0, 0, 0.1]'
 					}`}
 				>
 					{label && (
-						<span className="absolute top-4 right-4 md:text-sm text-[0.7rem] md:font-bold font-semibold text-white md:py-1 py-[2px] px-3 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-[1]">
+						<span className="absolute top-4 right-4 md:text-sm text-[0.7rem] md:font-bold font-semibold text-white md:py-1 py-[2px] md:px-3 px-2 rounded-tl-2xl rounded-br-2xl bg-greenBtn z-[1]">
 							{label}
 						</span>
 					)}

@@ -90,7 +90,7 @@ export const userList = [
 	{
 		id: 4,
 		title: 'Wishlist',
-		to: '/wishlist',
+		to: '/coming-soon',
 	},
 ];
 

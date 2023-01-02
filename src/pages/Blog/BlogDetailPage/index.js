@@ -3,7 +3,7 @@ import { getDocumentById } from '@services/api';
 
 function BlogDetailPage() {
 	return (
-		<div>
+		<div className="">
 			<BlogDetail />
 		</div>
 	);

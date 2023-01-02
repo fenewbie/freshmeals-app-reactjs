@@ -9,7 +9,10 @@ import { GrMail } from 'react-icons/gr';
 import { AiFillPhone } from 'react-icons/ai';
 
 export default function ContactForm() {
-	const onSubmit = (values) => console.log('Form data', values);
+	const onSubmit = (values) => {
+		console.log('Form data', values);
+		alert('Thank you for your contact! We will come back to you soon!');
+	};
 	const initialValues = {
 		email: '',
 		name: '',
@@ -75,9 +78,7 @@ export default function ContactForm() {
 					type="submit"
 					className="btn-animated md:min-w-[200px] max-md:w-full"
 				>
-					<span className="btn-animated-text">
-						GET AN FREE SERVICE
-					</span>
+					<span className="btn-animated-text">GET AN FREE SERVICE</span>
 				</Button>
 			</Form>
 		</Formik>

@@ -21,7 +21,7 @@ const ReactPortal = ({ children, wrapperId="react-portal" }) => {
 		setWrapper(element);
 
 		return () => {
-			if (created && element?.parentNode) {
+			if (created && element.parentNode) {
 				element.parentNode.removeChild(element);
 			}
 		};
