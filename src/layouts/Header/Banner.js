@@ -1,10 +1,10 @@
 import { SwiperSlide, Swiper } from 'swiper/react';
+import { useRouteLoaderData } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import BannerSlideItem from './BannerSlideItem';
 import SliderButton from '@components/UI/Slider/SliderButton';
-import useFirestore from '@hooks/useFirestore';
 import { useRef, useState } from 'react';
 import SliderPagination from '@components/UI/Slider/SliderPagination';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
@@ -12,7 +12,7 @@ import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 const Banner = () => {
 	const [showArrowBtn, setShowArrowBtn] = useState(false);
 	const [realIndex, setRealIndex] = useState(0);
-	const { docs } = useFirestore('slide-header');
+	const { slideHeader } = useRouteLoaderData('root');
 
 	const arrowBtnRef = useRef();
 	const closeHoverArrowBtn = () => {
@@ -26,7 +26,7 @@ const Banner = () => {
 			onMouseOver={() => setShowArrowBtn(true)}
 			ref={arrowBtnRef}
 		>
-			{docs.length > 0 && (
+			{slideHeader.length > 0 && (
 				<Swiper loop={true} onSlideChange={(e) => setRealIndex(e.realIndex)}>
 					<SliderButton
 						isNext={false}
@@ -50,7 +50,7 @@ const Banner = () => {
 						} transition-all ease-in-out duration-300 lg:block hidden`}
 						iconClassName={`transition-all ease-in-out duration-300`}
 					/>
-					{docs.map((imgItem, index) => (
+					{slideHeader.map((imgItem, index) => (
 						<SwiperSlide key={imgItem.id}>
 							<BannerSlideItem
 								imgItem={imgItem}
@@ -59,7 +59,7 @@ const Banner = () => {
 						</SwiperSlide>
 					))}
 					<SliderPagination
-						totalSlides={docs.length}
+						totalSlides={slideHeader.length}
 						indexAct={realIndex}
 						isBanner
 					/>
