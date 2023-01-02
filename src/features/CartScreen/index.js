@@ -28,7 +28,7 @@ function CartScreen() {
 							background={index % 2 === 0 ? false : true}
 						/>
 					))}
-					<div className="flex justify-end md:py-5">
+					<div className="flex justify-end md:py-5 max-md:mt-7">
 						<Button
 							btn="card"
 							className="min-w-[150px] max-md:h-[42px] max-md:text-sm"

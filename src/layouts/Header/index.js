@@ -59,7 +59,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -76,7 +80,10 @@ const Header = () => {
 							>
 								GET A QUOTE
 							</Button>
-							<div className="relative flex gap-3" ref={dropdownRef}>
+							<div
+								className="relative flex gap-3"
+								ref={dropdownRef}
+							>
 								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
@@ -86,7 +93,11 @@ const Header = () => {
 								>
 									<BiUser />
 								</Button>
-								{showDropdown ? <Dropdown items={cs.userList} /> : ''}
+								{showDropdown ? (
+									<Dropdown items={cs.userList} />
+								) : (
+									''
+								)}
 
 								<Button
 									onClick={handleCart}
@@ -99,7 +110,10 @@ const Header = () => {
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems} />
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
 									) : null}
 								</AnimatePresence>
 								<Button
@@ -110,7 +124,9 @@ const Header = () => {
 								</Button>
 
 								<AnimatePresence>
-									{showNavMobi && <NavMobi handleClose={handleNavMobi} />}
+									{showNavMobi && (
+										<NavMobi handleClose={handleNavMobi} />
+									)}
 								</AnimatePresence>
 							</div>
 						</div>
