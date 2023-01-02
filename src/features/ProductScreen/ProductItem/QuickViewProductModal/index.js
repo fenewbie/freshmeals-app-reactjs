@@ -75,7 +75,7 @@ const QuickViewProductModal = () => {
 					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
 				>
-					<IoClose className="text-3xl" />
+					<IoClose className="md:text-3xl text-4xl" />
 				</button>
 
 				<div className="flex items-center max-lg:flex-col lg:gap-10 gap-4">

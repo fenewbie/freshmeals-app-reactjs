@@ -25,7 +25,7 @@ function SuccessModal({ type }) {
 					onClick={handleClose}
 					className="absolute top-2 right-2 bg-white"
 				>
-					<IoClose className="text-3xl" />
+					<IoClose className="md:text-3xl text-4xl" />
 				</button>
 
 				<div>
@@ -71,7 +71,7 @@ function SuccessModal({ type }) {
 									</Button>
 								</div>
 							) : (
-								<div className='mt-3'>
+								<div className="mt-3">
 									<Button className="btn-animated md:w-[120px] w-full mt-3 h-full py-2">
 										<span className="btn-animated-text text-sm">
 											View WishList

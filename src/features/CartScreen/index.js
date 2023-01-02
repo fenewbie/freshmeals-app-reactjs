@@ -28,10 +28,10 @@ function CartScreen() {
 							background={index % 2 === 0 ? false : true}
 						/>
 					))}
-					<div className="flex justify-end py-5">
+					<div className="flex justify-end md:py-5 max-md:mt-7">
 						<Button
 							btn="card"
-							className="min-w-[150px]"
+							className="min-w-[150px] max-md:h-[42px] max-md:text-sm"
 						>
 							Update Cart
 						</Button>
@@ -71,8 +71,10 @@ function CartScreen() {
 								</tr>
 							</tbody>
 						</table>
-						<Button className="btn-animated w-full mt-5">
-							<span className='btn-animated-text'>Proceed to checkout</span>
+						<Button className="btn-animated mt-10 w-full max-md:py-2">
+							<span className="btn-animated-text max-md:text-sm">
+								Proceed to checkout
+							</span>
 						</Button>
 					</div>
 				</>

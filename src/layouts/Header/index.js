@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { NavMobi } from './NavMobi';
+import NavMobi from './NavMobi';
 import Navigation from '@components/UI/Navbar';
 import Button from '@components/UI/Button';
 import Banner from './Banner';
@@ -59,7 +59,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -76,7 +80,10 @@ const Header = () => {
 							>
 								GET A QUOTE
 							</Button>
-							<div className="relative flex gap-3" ref={dropdownRef}>
+							<div
+								className="relative flex gap-3"
+								ref={dropdownRef}
+							>
 								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
@@ -86,20 +93,27 @@ const Header = () => {
 								>
 									<BiUser />
 								</Button>
-								{showDropdown ? <Dropdown items={cs.userList} /> : ''}
+								{showDropdown ? (
+									<Dropdown items={cs.userList} />
+								) : (
+									''
+								)}
 
 								<Button
 									onClick={handleCart}
 									className="p-3 bg-white rounded-full hover:bg-greenBtn relative"
 								>
 									<BiCartAlt />
-									<span className="absolute -top-2 -right-0 text-2xl text-red-600">
+									<span className="absolute -top-3 -right-1 text-2xl text-red-600">
 										{totalQuantity}
 									</span>
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems} />
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
 									) : null}
 								</AnimatePresence>
 								<Button
@@ -110,7 +124,9 @@ const Header = () => {
 								</Button>
 
 								<AnimatePresence>
-									{showNavMobi && <NavMobi handleClose={handleNavMobi} />}
+									{showNavMobi && (
+										<NavMobi handleClose={handleNavMobi} />
+									)}
 								</AnimatePresence>
 							</div>
 						</div>

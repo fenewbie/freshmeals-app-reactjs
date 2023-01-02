@@ -1,3 +1,4 @@
+import Container from '@components/UI/Container';
 import Slider from '@components/UI/Slider';
 import { SwiperSlide } from 'swiper/react';
 import BlogCard from '../BlogCard';

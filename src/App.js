@@ -15,7 +15,7 @@ import RootLayout, { loader as rootLoader } from './layouts/RootLayout';
 import ShopLayout from './layouts/ShopLayout';
 import BlogLayout from './layouts/BlogLayout';
 import { loader as productLoader } from './pages/Shop/ProductDetailPage';
-import About, { loader as aboutLoader } from './pages/About';
+import About from './pages/About';
 import Contact from './pages/Contact';
 import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
 import Gallery from './pages/Gallery';
@@ -110,7 +110,6 @@ function App() {
 				<Route
 					path="about"
 					element={<About />}
-					loader={aboutLoader}
 				/>
 				<Route
 					path="contact"
