@@ -19,15 +19,15 @@ import PrivateRoute from '@components/PrivateRoute';
 import { loader as productLoader } from './pages/Shop/ProductDetailPage';
 import { loader as aboutLoader } from './pages/About';
 import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
-import SearchProductsPage from 'pages/Shop/ProductSearch';
-import SearchBlogsPage from 'pages/Blog/BlogSearch';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 
 const Home = lazy(() => import('./pages/Home'));
+const SearchProductsPage = lazy(() => import('./pages/Shop/ProductSearch'));
 const About = lazy(() => import('./pages/About'));
 const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
 const ProductGridPage = lazy(() => import('./pages/Shop/ProductGridPage'));
 const Contact = lazy(() => import('./pages/Contact'));
+const SearchBlogsPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 const Gallery = lazy(() => import('./pages/Gallery'));

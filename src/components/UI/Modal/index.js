@@ -9,7 +9,7 @@ function Modal({ children, className, handleClose }) {
 	};
 	useEffect(() => {
 		document.body.addEventListener('keydown', closeOnEscapeKeyDown);
-		return function cleanup() {
+		return () => {
 			document.body.removeEventListener('keydown', closeOnEscapeKeyDown);
 		};
 	}, []);
