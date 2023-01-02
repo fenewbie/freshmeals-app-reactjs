@@ -35,7 +35,7 @@ function SuccessModal({ type }) {
 					onClick={handleClose}
 					className="absolute top-2 right-2 bg-white"
 				>
-					<IoClose className="text-3xl" />
+					<IoClose className="md:text-3xl text-4xl" />
 				</button>
 
 				<div>
@@ -49,10 +49,10 @@ function SuccessModal({ type }) {
 							className="h-32 w-48 object-contain mr-6 max-md:m-auto"
 						/>
 						<div className="max-md:text-center">
-							<h4 className="md:text-xl text-lg font-bold max-md:mt-5 text-ellipsis">
+							<h4 className="md:text-xl font-bold max-md:mt-5 text-ellipsis">
 								{title}
 							</h4>
-							<span className="mt-3 inline-block">
+							<span className="mt-3 inline-block text-sm md:text-base">
 								<BsFillCheckCircleFill className="inline relative -top-[1px] mr-2 text-greenBtn" />
 								{type === 'cart'
 									? 'Success! Product has been added to your cart.'
@@ -60,29 +60,32 @@ function SuccessModal({ type }) {
 							</span>
 
 							{type === 'cart' ? (
-								<div className="flex max-md:flex-wrap mt-5">
+								<div className="flex max-md:flex-col md:gap-6 gap-4 mt-5">
 									<Button
 										btn="card"
-										className="lg:h-9 md:h-9 md:w-[120px]"
 										onClick={handleCart}
+										className="btn-animated  md:w-[120px] h-full py-2"
 									>
-										View Cart
+										<span className="btn-animated-text text-sm">
+											View Cart
+										</span>
 									</Button>
 									<Button
 										btn="card"
-										className="lg:h-9 md:h-9 md:w-[120px] md:ml-3 bg-black hover:bg-greenBtn"
 										onClick={handleCheckout}
-									>
-										Check Out
+										className="btn-animated btn-animated--revert  md:w-[120px] h-full py-2"
+										>
+										<span className="btn-animated-text text-sm">
+											Checkout
+										</span>
 									</Button>
 								</div>
 							) : (
-								<div>
-									<Button
-										btn="cart"
-										className="lg:h-9 md:h-9 md:w-[120px] w-full mt-3"
-									>
-										View WishList
+								<div className="mt-3">
+									<Button className="btn-animated md:w-[120px] w-full mt-3 h-full py-2">
+										<span className="btn-animated-text text-sm">
+											View WishList
+										</span>
 									</Button>
 								</div>
 							)}
@@ -91,8 +94,9 @@ function SuccessModal({ type }) {
 					{type === 'cart' && (
 						<div className="pt-5 border-t mt-10">
 							<p className="text-center mb-3 text-sm">
-								We give you <b>20% discount</b> for your first order.
-								Use(LoveFreshMeals) discount code at checkout
+								We give you <b>20% discount</b> for your first
+								order. Use(LoveFreshMeals) discount code at
+								checkout
 							</p>
 							<img
 								src={cs.paymentMethod}

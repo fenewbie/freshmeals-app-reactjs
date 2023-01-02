@@ -86,19 +86,18 @@ export default function ViewCart({ handleClose, item }) {
 								${totalAmount.toFixed(2)}
 							</span>
 						</div>
-						<div className="flex py-6 max-md:flex-wrap">
+						<div className="flex py-6 max-md:flex-col md:gap-6 gap-4 ">
 							<Button
 								onClick={handleCart}
-								className="btn-animated md:mr-5 md:w-1/2 w-full max-md:mb-5"
-								cart
+								className="btn-animated md:w-1/2 w-full max-md:py-2"
 							>
-								<span className="btn-animated-text">View Cart</span>
+								<span className="btn-animated-text text-sm">View Cart</span>
 							</Button>
 							<Button
-								className="btn-animated btn-animated--revert md:w-1/2 w-full"
+								className="btn-animated btn-animated--revert md:w-1/2 w-full max-md:py-2"
 								onClick={handleCheckout}
 							>
-								<span className="btn-animated-text">Checkout</span>
+								<span className="btn-animated-text text-sm">Checkout</span>
 							</Button>
 						</div>
 						<span className="text-sm">

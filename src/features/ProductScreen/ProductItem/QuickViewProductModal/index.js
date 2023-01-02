@@ -66,75 +66,90 @@ const QuickViewProductModal = () => {
 	};
 
 	return (
-		<Modal handleClose={handleCloseModal}>
-			<div className="bg-white relative p-8 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards]">
+		<Modal
+			handleClose={handleCloseModal}
+			className="overflow-y-auto overflow-x-hidden scroll-bar"
+		>
+			<div className="bg-white relative lg:p-8 p-7 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards] lg:w-4/5 w-[90%]">
 				<button
 					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
 				>
-					<IoClose className="text-3xl" />
+					<IoClose className="md:text-3xl text-4xl" />
 				</button>
 
-				<div className="flex items-center gap-10 max-md:flex-wrap max-md:justify-center">
-					<div className="md:h-70 h-48 mx-auto px-6">
+				<div className="flex items-center max-lg:flex-col lg:gap-10 gap-4">
+					<div className="lg:basis-1/2  mx-auto bg-[rgba(0,0,0,0.05)]">
 						<img
 							src={image}
-							className="h-full object-contains mx-auto"
+							className="w-full lg:h-full lg:max-h-[430px]  md:h-[200px] h-[150px] object-contain mx-auto"
 							alt={title}
 						/>
 					</div>
-					<div className="max-w-[400px]">
-						<div className="flex max-md:justify-center">
-							<Rating value={rating} text={reviews} />
+					<div className="">
+						<div className="flex max-lg:justify-center">
+							<Rating
+								value={rating}
+								text={reviews}
+								size="16"
+							/>
 						</div>
-						<h4 className="md:text-xl text-lg font-bold mt-2 max-md:text-center ">
+						<h4 className="text-lg md:text-2xl font-bold mt-2 max-lg:text-center capitalize">
 							{title}
 						</h4>
-						<div className="flex items-center max-md:justify-center mt-2">
-							<span className="inline-block md:text-3xl text-4xl font-semibold text-greenBtn">
+						<div className="flex items-end max-lg:justify-center max-md:items-center mt-2">
+							<span className="inline-block md:text-5xl text-[33px] font-semibold text-greenBtn">
 								${discount.toFixed(2)}
 							</span>
-							<span className="inline-block md:text-3xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
+							<span className="inline-block md:text-4xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
 								${price.toFixed(2)}
 							</span>
 						</div>
-						<div className="flex items-center max-md:justify-center md:py-5 py-2 md:my-6 my-4 border-t-[1px] border-b-[1px] border-grey">
-							<span>Categories:</span>
+						<div className="flex items-center max-lg:justify-center md:py-5 py-2 md:my-6 my-4 border-t-[1px] border-b-[1px] border-grey max-md:text-sm">
+							<span className="">Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category?.map((item, index) => (
-									<li className="font-semibold capitalize" key={index}>
+									<li
+										className="font-semibold capitalize"
+										key={index}
+									>
 										{index === 0 ? item : `, ${item}`}
 									</li>
 								))}
 							</ul>
 						</div>
-						<div className="flex max-md:flex-wrap max-md:justify-center">
+						<div className="flex items-center max-md:flex-col md:justify-center lg:justify-start">
 							<Quantity
 								decreaseItem={decreaseItem}
 								incrementItem={incrementItem}
 								quantity={quantity}
-								className="max-md:h-7"
+								className="h-12 md:h-14"
 							/>
 							<Button
-								btn="card"
-								className="mt-0 ml-5 max-md:h-6"
+								className="btn-animated md:ml-5 h-full max-md:py-2 max-md:w-full max-md:mt-4"
 								onClick={addItem}
 							>
-								Add to cart
+								<span className="btn-animated-text max-md:text-sm">
+									Add to cart
+								</span>
 							</Button>
 						</div>
-						<div className="flex mt-5 max-md:justify-center">
+						<div className="flex mt-5 max-md:text-sm max-lg:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
-								<span className="ml-1 font-medium">Add to Wishlist</span>
+								<span className="ml-1 font-medium">
+									Add to Wishlist
+								</span>
 							</div>
 							<Link className="flex items-center  hover:text-greenBtn transition-all">
 								<BsArrowLeftRight />
-								<span className="ml-1 font-medium">Compare</span>
+								<span className="ml-1 font-medium">
+									Compare
+								</span>
 							</Link>
 						</div>
-						<div className="flex items-center border-t-[1px] mt-8">
-							<span className="mr-6">Share:</span>
+						<div className="flex items-center max-lg:justify-center border-t-[1px] md:mt-8 mt-5 text-sm ">
+							<span className="md:mr-6 mr-2">Share:</span>
 							<SocialLink />
 						</div>
 					</div>

@@ -9,7 +9,7 @@ import SearchProducts from 'layouts/Header/Search';
 import Modal from '@components/UI/Modal';
 import * as cs from '@utils/constants';
 
-export function NavMobi({ handleClose }) {
+const NavMobi = ({ handleClose }) => {
 	return (
 		<Modal className="h-full w-full" handleClose={handleClose}>
 			<motion.div
@@ -19,7 +19,7 @@ export function NavMobi({ handleClose }) {
 				exit={{
 					x: '-100%',
 				}}
-				className="scroll-bar bg-white pl-8 pt-7 w-[400px] h-screen fixed inset-y-0 left-0 overflow-y-auto overflow-x-hidden"
+				className="scroll-bar bg-white pl-8 pt-7 max-lg:w-4/5 w-full h-screen fixed inset-y-0 left-0 overflow-y-auto overflow-x-hidden"
 			>
 				<div className="flex justify-between items-center pb-5 border-b border-slate-100 w-[87.3%]">
 					<Link to="/" className="flex items-center">
@@ -29,7 +29,7 @@ export function NavMobi({ handleClose }) {
 						</span>
 					</Link>
 					<button className="flex pl-12 mt-5 text-lg " onClick={handleClose}>
-						<MdClose />
+						<MdClose className="md:text-3xl text-4xl" />
 					</button>
 				</div>
 				<div className="mr-5">
@@ -65,4 +65,6 @@ export function NavMobi({ handleClose }) {
 			</motion.div>
 		</Modal>
 	);
-}
+};
+
+export default NavMobi;
