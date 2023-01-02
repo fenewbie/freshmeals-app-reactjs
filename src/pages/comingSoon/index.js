@@ -2,10 +2,10 @@ import { SubscribeForm } from '@components/Form';
 import { Link } from 'react-router-dom';
 import Timer from '@features/HomeScreen/CountDownSection/Timer';
 
-export default function CommingSoon() {
+export default function ComingSoon() {
 	return (
 		<div className="py-28">
-			<div className="bg-comming-soon bg-cover bg-center bg-no-repeat lg:h-[750px] h-[800px] px-0 -mt-1">
+			<div className="bg-coming-soon bg-cover bg-center bg-no-repeat lg:h-[750px] h-[800px] px-0 -mt-1">
 				<div className="flex flex-col items-center justify-center px-4">
 					<div className="text-center mt-14">
 						<h6 className="text-green-600 bold font-raj text-lg mb-3">
