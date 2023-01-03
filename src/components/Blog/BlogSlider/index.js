@@ -10,9 +10,6 @@ function BlogSlider({ blogs }) {
 				768: {
 					slidesPerView: 2,
 				},
-				1024: {
-					slidesPerView: 2,
-				},
 				1280: {
 					slidesPerView: 3,
 				},
