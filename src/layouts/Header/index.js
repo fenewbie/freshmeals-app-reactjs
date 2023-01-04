@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ const Header = () => {
 	};
 	useOnHoverOutside(dropdownRef, closeHoverDropdown);
 
-	const showNavMobi = useSelector((state) => state.modal.isDisplay);
+	const showNavMobi = useSelector((state) => state.modal.navMobi.status);
 	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 	const cartItems = useSelector((state) => state.cart.items);
@@ -37,12 +37,18 @@ const Header = () => {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
-	const handleNavMobi = () => {
-		dispatch(modalActions.toggleNavMobi());
-	};
 	const handleCart = () => {
 		dispatch(modalActions.toggleCart());
 	};
+
+	const handleNavMobi = (status) => {
+		dispatch(modalActions.navMobi({ status }));
+	};
+
+	const { pathname } = location;
+	useEffect(() => {
+		showNavMobi && handleNavMobi(false);
+	}, [pathname]);
 
 	return (
 		<header
@@ -110,19 +116,26 @@ const Header = () => {
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems}/>
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
 									) : null}
 								</AnimatePresence>
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
-									onClick={handleNavMobi}
+									onClick={() => handleNavMobi(true)}
 								>
 									<BiMenu />
 								</Button>
 
 								<AnimatePresence>
 									{showNavMobi && (
-										<NavMobi handleClose={handleNavMobi} />
+										<NavMobi
+											handleClose={() =>
+												handleNavMobi(false)
+											}
+										/>
 									)}
 								</AnimatePresence>
 							</div>

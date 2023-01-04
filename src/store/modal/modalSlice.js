@@ -6,7 +6,7 @@ isShowingSuccessModal: type wishlist/cart
 const modalSlice = createSlice({
 	name: 'modal',
 	initialState: {
-		isDisplay: false,
+		navMobi: { status: false },
 		isShowingCart: false,
 		quickViewModal: {
 			status: false,
@@ -16,9 +16,10 @@ const modalSlice = createSlice({
 		notification: null,
 	},
 	reducers: {
-		toggleNavMobi(state) {
-			state.isDisplay = !state.isDisplay;
-			
+		navMobi(state, action) {
+			state.navMobi = {
+				status: action.payload.status,
+			};
 		},
 		toggleCart(state) {
 			state.isShowingCart = !state.isShowingCart;
