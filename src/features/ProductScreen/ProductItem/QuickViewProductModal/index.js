@@ -16,9 +16,7 @@ import { Quantity } from '@components/Cart/Quantity';
 import { useState } from 'react';
 
 const QuickViewProductModal = () => {
-	const product = useSelector(
-		(state) => state.modal.quickViewModal.dataActive
-	);
+	const product = useSelector((state) => state.modal.quickViewModal.dataActive);
 	const { id, title, image, price, rating, reviews, discount, category } =
 		product;
 
@@ -37,7 +35,9 @@ const QuickViewProductModal = () => {
 			setQuantity(0);
 		}
 	};
-
+	const handleCloseModal = () => {
+		dispatch(modalActions.quickView({ status: false }));
+	};
 	const addItem = () => {
 		dispatch(
 			cartActions.addToCart({
@@ -59,10 +59,7 @@ const QuickViewProductModal = () => {
 				},
 			})
 		);
-	};
-
-	const handleCloseModal = () => {
-		dispatch(modalActions.quickView({ status: false, dataActive: null }));
+		handleCloseModal();
 	};
 
 	return (
@@ -88,11 +85,7 @@ const QuickViewProductModal = () => {
 					</div>
 					<div className="">
 						<div className="flex max-lg:justify-center">
-							<Rating
-								value={rating}
-								text={reviews}
-								size="16"
-							/>
+							<Rating value={rating} text={reviews} size="16" />
 						</div>
 						<h4 className="text-lg md:text-2xl font-bold mt-2 max-lg:text-center capitalize">
 							{title}
@@ -109,10 +102,7 @@ const QuickViewProductModal = () => {
 							<span className="">Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category?.map((item, index) => (
-									<li
-										className="font-semibold capitalize"
-										key={index}
-									>
+									<li className="font-semibold capitalize" key={index}>
 										{index === 0 ? item : `, ${item}`}
 									</li>
 								))}
@@ -137,15 +127,11 @@ const QuickViewProductModal = () => {
 						<div className="flex mt-5 max-md:text-sm max-lg:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
-								<span className="ml-1 font-medium">
-									Add to Wishlist
-								</span>
+								<span className="ml-1 font-medium">Add to Wishlist</span>
 							</div>
 							<Link className="flex items-center  hover:text-greenBtn transition-all">
 								<BsArrowLeftRight />
-								<span className="ml-1 font-medium">
-									Compare
-								</span>
+								<span className="ml-1 font-medium">Compare</span>
 							</Link>
 						</div>
 						<div className="flex items-center max-lg:justify-center border-t-[1px] md:mt-8 mt-5 text-sm ">

@@ -1,38 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { modalActions } from '@store/modal/modalSlice';
+import { useNavigate } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { IoClose } from 'react-icons/io5';
+
+import { modalActions } from '@store/modal/modalSlice';
 import Modal from '@components/UI/Modal';
 import Button from '@components/UI/Button';
 import * as cs from '@utils/constants';
-import { useNavigate } from 'react-router-dom';
 
 function SuccessModal({ type }) {
-	const dispatch = useDispatch();
 	const { title, image } = useSelector(
 		(state) => state.modal.successModal.dataActive
 	);
 
-	const handleClose = () => {
-		return dispatch(modalActions.successModal({ status: false, type: null }));
-	};
-
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-	const handleCart = () => {
+	const handleCloseModal = () => {
 		dispatch(modalActions.successModal({ status: false, type: null }));
-		navigate('/cart');
 	};
-	const handleCheckout = () => {
-		dispatch(modalActions.successModal({ status: false, type: null }));
-		navigate('/checkout');
+
+	const handleClick = (link) => {
+		dispatch(
+			modalActions.successModal({
+				status: false,
+				type: null,
+			})
+		);
+		link && navigate(`/${link}`);
 	};
 
 	return (
-		<Modal handleClose={handleClose}>
+		<Modal handleClose={handleCloseModal}>
 			<div className="bg-white relative px-8 py-10 rounded  border border-[#e8e8e8] md:w-4/5 w-[90%] animate-[modalAppear_300ms_ease-in-out_forwards] mx-auto">
 				<button
-					onClick={handleClose}
+					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
 				>
 					<IoClose className="md:text-3xl text-4xl" />
@@ -63,21 +65,17 @@ function SuccessModal({ type }) {
 								<div className="flex max-md:flex-col md:gap-6 gap-4 mt-5">
 									<Button
 										btn="card"
-										onClick={handleCart}
+										onClick={() => handleClick('cart')}
 										className="btn-animated  md:w-[120px] h-full py-2"
 									>
-										<span className="btn-animated-text text-sm">
-											View Cart
-										</span>
+										<span className="btn-animated-text text-sm">View Cart</span>
 									</Button>
 									<Button
 										btn="card"
-										onClick={handleCheckout}
+										onClick={() => handleClick('checkout')}
 										className="btn-animated btn-animated--revert  md:w-[120px] h-full py-2"
-										>
-										<span className="btn-animated-text text-sm">
-											Checkout
-										</span>
+									>
+										<span className="btn-animated-text text-sm">Checkout</span>
 									</Button>
 								</div>
 							) : (
@@ -94,9 +92,8 @@ function SuccessModal({ type }) {
 					{type === 'cart' && (
 						<div className="pt-5 border-t mt-10">
 							<p className="text-center mb-3 text-sm">
-								We give you <b>20% discount</b> for your first
-								order. Use(LoveFreshMeals) discount code at
-								checkout
+								We give you <b>20% discount</b> for your first order.
+								Use(LoveFreshMeals) discount code at checkout
 							</p>
 							<img
 								src={cs.paymentMethod}

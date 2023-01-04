@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { cartActions } from '@store/cart/cartSlice';
 import Modal from '@components/UI/Modal';
 import { modalActions } from '@store/modal/modalSlice';
@@ -10,15 +10,11 @@ import Button from '@components/UI/Button';
 export default function ViewCart({ handleClose, item }) {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const dispatch = useDispatch();
-	const navigate = useNavigate()
-
-	const handleCart = () => {
+	const navigate = useNavigate();
+	
+	const handleClick = (link) => {
 		dispatch(modalActions.toggleCart());
-		navigate('/cart')
-	}
-	const handleCheckout = () => {
-		dispatch(modalActions.toggleCart());
-		navigate('/checkout');
+		navigate(`/${link}`);
 	};
 
 	return (
@@ -39,12 +35,12 @@ export default function ViewCart({ handleClose, item }) {
 				{item.length === 0 ? (
 					<div className="flex flex-col items-center">
 						<p className="text-xl font-bold">No item in your cart!</p>
-						<Link
-							to="../shop"
+						<Button
+							onClick={() => handleClick('shop')}
 							className="flex text-xl m-3 px-6 py-3 shadow border hover:bg-greenBtn hover:text-white hover:underline "
 						>
 							<span>Back to Shop</span>
-						</Link>
+						</Button>
 					</div>
 				) : (
 					<div className="my-5 flex-1 h-full flex flex-col">
@@ -88,14 +84,14 @@ export default function ViewCart({ handleClose, item }) {
 						</div>
 						<div className="flex py-6 max-md:flex-col md:gap-6 gap-4 ">
 							<Button
-								onClick={handleCart}
+								onClick={() => handleClick('cart')}
 								className="btn-animated md:w-1/2 w-full max-md:py-2"
 							>
 								<span className="btn-animated-text text-sm">View Cart</span>
 							</Button>
 							<Button
 								className="btn-animated btn-animated--revert md:w-1/2 w-full max-md:py-2"
-								onClick={handleCheckout}
+								onClick={() => handleClick('checkout')}
 							>
 								<span className="btn-animated-text text-sm">Checkout</span>
 							</Button>

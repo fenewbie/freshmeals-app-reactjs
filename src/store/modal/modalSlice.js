@@ -12,8 +12,7 @@ const modalSlice = createSlice({
 			status: false,
 			dataActive: null,
 		},
-		successModal: { status: false, type: null, dataActive: null },
-		notification: null,
+		successModal: { status: false, type: null, dataActive: null }
 	},
 	reducers: {
 		navMobi(state, action) {
