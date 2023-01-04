@@ -13,12 +13,12 @@ const PrivateRoute = ({ type, children }) => {
 			case 'admin':
 				return (
 					<p className="mt-3 text-red-600 italic font-light text-xs">
-						Please sign in or sign up to discover our products!{' '}
+						Please sign in or sign up to discover our products!
 					</p>
 				);
 			default:
 				return (
-					<section className='my-10'>
+					<section className="my-10">
 						<img
 							alt="permission_denied"
 							src={cs.denied}
@@ -31,17 +31,18 @@ const PrivateRoute = ({ type, children }) => {
 							You don't have permissions to access this page. <br />
 							Please sign in or sign up.
 						</p>
-						<br />
-						<Button
-							btn="card"
-							className="mx-auto bg-greenBtn p-2 rounded mt-3"
-							onClick={() => navigate('/login')}
-						>
-							<span className="flex items-center">
-								<TbArrowBigLeftLines className="text-xl mr-2" />
-								BACK TO SIGNIN
-							</span>
-						</Button>
+						<div className="mx-9 mt-8 mb-28">
+							<Button
+								btn="card"
+								className="mx-auto bg-greenBtn p-2 rounded mt-3"
+								onClick={() => navigate('/login')}
+							>
+								<span className="flex items-center">
+									<TbArrowBigLeftLines className="text-xl mr-2" />
+									BACK TO SIGNIN
+								</span>
+							</Button>
+						</div>
 					</section>
 				);
 		}

@@ -1,6 +1,6 @@
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
-import PaymentMethod from '@components/Form/PaymentMethod';
+import PaymentMethod from '@components/Form/PaymentForm';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
 import Container from '@components/UI/Container';
 import { Formik, Form } from 'formik';
@@ -35,10 +35,7 @@ export default function CheckoutScreen() {
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
 					<span className="">Returning customer ? </span>
-					<Link
-						to="/login"
-						className="text-greenBtn"
-					>
+					<Link to="/login" className="text-greenBtn">
 						Click here to login
 					</Link>
 				</p>
@@ -52,8 +49,10 @@ export default function CheckoutScreen() {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={CheckoutSchema}
-				onSubmit={(values) => {
+				onSubmit={(values, actions) => {
 					submit(values, { method: 'post', action: '/checkout' });
+					alert('Form submitted successfully! Thank you for your information!');
+					actions.resetForm();
 				}}
 			>
 				<Form>
@@ -74,10 +73,7 @@ export default function CheckoutScreen() {
 							<h4 className="font-bold md:text-2xl text-xl mb-8">
 								Cart Totals
 							</h4>
-							<CartTotal
-								items={cartItems}
-								totalAmount={totalAmount}
-							/>
+							<CartTotal items={cartItems} totalAmount={totalAmount} />
 						</div>
 					</section>
 				</Form>

@@ -2,6 +2,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { GrMail } from 'react-icons/gr';
 import { FiEdit2 } from 'react-icons/fi';
 import { AiFillPhone } from 'react-icons/ai';
+
 import FormikControl from './FormikControl';
 import { countryOption, createaccount } from '@utils/constants';
 

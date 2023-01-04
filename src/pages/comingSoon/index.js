@@ -1,5 +1,5 @@
-import { SubscribeForm } from '@components/Form';
 import { Link } from 'react-router-dom';
+import { SubscribeForm } from '@components/Form';
 import Timer from '@features/HomeScreen/CountDownSection/Timer';
 
 export default function ComingSoon() {

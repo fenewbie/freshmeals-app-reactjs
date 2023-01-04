@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useLoaderData, useRouteLoaderData } from 'react-router-dom';
+import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
 import {
 	FaRegArrowAltCircleLeft,
@@ -39,9 +39,9 @@ function BlogDetail() {
 		}
 	};
 
-	useEffect(() => {
-		window.scrollTo({ top: 130, left: 0 });
-	}, [blog]);
+	// useEffect(() => {
+	// 	window.scrollTo({ top: 130, left: 0 });
+	// }, [blog]);
 
 	return (
 		<div className="border-2 rounded py-10 md:px-12 px-6 mb-28">

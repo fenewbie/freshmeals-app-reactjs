@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
+import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import NavMobi from './NavMobi';
 import Navigation from '@components/UI/Navbar';
@@ -11,10 +12,9 @@ import Dropdown from '@components/UI/Dropdown';
 import { modalActions } from '@store/modal/modalSlice';
 import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
-import * as cs from '@utils/constants';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
+import * as cs from '@utils/constants';
 
-import { AnimatePresence } from 'framer-motion';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -130,13 +130,13 @@ const Header = () => {
 								</Button>
 
 								<AnimatePresence>
-									{showNavMobi && (
+									{showNavMobi ? (
 										<NavMobi
 											handleClose={() =>
 												handleNavMobi(false)
 											}
 										/>
-									)}
+									): null}
 								</AnimatePresence>
 							</div>
 						</div>

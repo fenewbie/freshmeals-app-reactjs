@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-/*
-isShowingSuccessModal: type wishlist/cart
-*/
 const modalSlice = createSlice({
 	name: 'modal',
 	initialState: {

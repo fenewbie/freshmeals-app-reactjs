@@ -71,11 +71,11 @@ function CartScreen() {
 								</tr>
 							</tbody>
 						</table>
-						<Button className="btn-animated mt-10 w-full max-md:py-2">
+						<Link className="btn-animated mt-10 w-full max-md:py-2" to='/checkout'>
 							<span className="btn-animated-text max-md:text-sm">
 								Proceed to checkout
 							</span>
-						</Button>
+						</Link>
 					</div>
 				</>
 			)}
