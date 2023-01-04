@@ -8,8 +8,11 @@ import SocialLink from '@components/UI/SocialLink';
 const WebInfo = () => {
 	return (
 		<div className="w-full p-2">
-			<div className="bg-black w-2/3 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 py-1 mb-6 rounded-lg">
-				<img className="rounded-lg" src={cs.logo01} alt="Freshmeals" />
+			<div className="flex items-center w-2/3 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-3">
+				<img src={cs.logo02} alt="logo" className="h-16 -ml-8" />
+				<span className="text-2xl font-bold whitespace-nowrap uppercase -ml-6 mt-4 ">
+					Freshmeals
+				</span>
 			</div>
 			<p className="mb-6">
 				Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem
