@@ -53,7 +53,12 @@ function BlogDetail() {
 					<Tags
 						title="Related Tag"
 						relatedTag
-						tags={['business', 'healthy', 'Fresh food', 'Vegetables']}
+						tags={[
+							'business',
+							'healthy',
+							'Fresh food',
+							'Vegetables',
+						]}
 					/>
 				</div>
 				<div className="text-right max-lg:text-left max-lg:mt-5">
@@ -65,7 +70,7 @@ function BlogDetail() {
 			<div className="flex justify-between items-center py-12 my-14 border-t border-b">
 				<Button
 					type="link"
-					link="/blog"
+					link={`/blog/${id - 1}`}
 					className={`text-xl text-greenBtn  ${
 						id === 1
 							? 'opacity-50 pointer-events-none'
@@ -74,17 +79,15 @@ function BlogDetail() {
 				>
 					<span className="flex items-center">
 						<FaRegArrowAltCircleLeft />
-						<Link className="ml-2" to={`/blog/${id - 1}`}>
-							Pre Post
-						</Link>
+						<span className="ml-2">Pre Post</span>
 					</span>
 				</Button>
 
 				<TbGridDots className="text-greenBtn text-3xl" />
 
-				<button
+				<Button
 					type="link"
-					link="/blog"
+					link={`/blog/${id + 1}`}
 					className={`text-xl text-greenBtn  ${
 						id === blogs.length
 							? 'opacity-50 pointer-events-none'
@@ -93,17 +96,27 @@ function BlogDetail() {
 					disabled={id === blogs.length}
 				>
 					<span className="flex items-center">
-						<Link className="ml-2" to={`/blog/${id + 1}`} disabled={true}>
+						<span
+							className="ml-2"
+							disabled={true}
+						>
 							Next Post
-						</Link>
+						</span>
 						<FaRegArrowAltCircleRight className="ml-2" />
 					</span>
-				</button>
+				</Button>
 			</div>
-			<RelatedList col="blogs" related={blog.tags} type="tags" />
+			<RelatedList
+				col="blogs"
+				related={blog.tags}
+				type="tags"
+			/>
 			<CommentSection />
 			{/* <CommentCard /> */}
-			<PrivateRoute isLoggedIn={true} type="admin">
+			<PrivateRoute
+				isLoggedIn={true}
+				type="admin"
+			>
 				<CommentForm handleSubmit={handleSubmit} />
 			</PrivateRoute>
 		</div>
