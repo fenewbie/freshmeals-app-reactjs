@@ -5,18 +5,26 @@ import * as cs from '@utils/constants';
 
 export default function UserProfile() {
 	return (
-		<>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md my-28">
 			<div className="my-12 mx-7 flex max-md:flex-wrap max-md:justify-center items-center gap-8">
-				<img alt="avatar_default" src={cs.user} className="h-36 w-36" />
+				<img
+					alt="avatar_default"
+					src={cs.user}
+					className="h-36 w-36"
+				/>
 				<div className="max-md:basis-full">
 					<div className="flex items-center mb-1 max-md:justify-center">
-						<h3 className="md:text-2xl text-xl font-bold">User Name:</h3>
+						<h3 className="md:text-2xl text-xl font-bold">
+							User Name:
+						</h3>
 						<span className="ml-2 md:text-xl relative md:top-[2px]">
 							User Name
 						</span>
 					</div>
 					<div className="flex items-center max-md:justify-center">
-						<h3 className="md:text-2xl text-xl font-bold">Email:</h3>
+						<h3 className="md:text-2xl text-xl font-bold">
+							Email:
+						</h3>
 						<span className="ml-2 md:text-xl relative md:top-[2px]">
 							User's email
 						</span>
@@ -39,6 +47,6 @@ export default function UserProfile() {
 					<span className="btn-animated-text">Log out</span>
 				</Button>
 			</div>
-		</>
+		</div>
 	);
 }

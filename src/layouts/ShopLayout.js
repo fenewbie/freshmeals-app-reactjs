@@ -1,11 +1,10 @@
-import Container from '@components/UI/Container';
 import { Outlet } from 'react-router-dom';
 
 function ShopLayout() {
 	return (
-		<Container>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 			<Outlet />
-		</Container>
+		</div>
 	);
 }
 

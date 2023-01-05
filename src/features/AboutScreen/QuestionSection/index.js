@@ -3,12 +3,11 @@ import { useRouteLoaderData } from 'react-router-dom';
 
 import Title from '@components/Title';
 import Accordion from '@components/UI/Accordion';
-import Container from '@components/UI/Container';
 
 function QuestionSection() {
 	const { questions } = useRouteLoaderData('root');
 	return (
-		<Container>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 			<Title title="Some questions" />
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10 max-md:mb-16">
 				<Accordion>
@@ -46,7 +45,7 @@ function QuestionSection() {
 					/>
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 }
 

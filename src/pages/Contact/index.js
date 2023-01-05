@@ -1,12 +1,12 @@
+import * as cs from '@utils/constants';
+
 import ContactForm from '@components/Form/ContactForm';
 import Card from '@components/UI/Card';
-import Container from '@components/UI/Container';
-import * as cs from '@utils/constants';
 
 const Contact = () => {
 	return (
-		<div className='mb-28'>
-			<Container>
+		<div className="mb-28">
+			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 				<div title="Contact Us">
 					<div className="flex gap-8 mb-20 max-lg:flex-wrap justify-center">
 						<Card className="text-center lg:basis-1/3 basis-full border-2 rounded-md py-12">
@@ -55,7 +55,7 @@ const Contact = () => {
 						<ContactForm />
 					</div>
 				</div>
-			</Container>
+			</div>
 			<div className="h-[800px]">
 				<iframe
 					title="locate"

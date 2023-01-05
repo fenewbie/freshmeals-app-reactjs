@@ -13,7 +13,7 @@ const ProductList = ({ products }) => {
 	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
 	const successModal = useSelector((state) => state.modal.successModal);
 	return (
-		<div className="mt-[120px]">
+		<>
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
 				<Tabs>
@@ -244,7 +244,7 @@ const ProductList = ({ products }) => {
 			{successModal.status ? (
 				<SuccessModal type={successModal.type} />
 			) : null}
-		</div>
+		</>
 	);
 };
 

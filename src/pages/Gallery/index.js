@@ -1,7 +1,5 @@
-import BlogSlider from '@components/Blog/BlogSlider';
 import Title from '@components/Title';
 import Button from '@components/UI/Button';
-import Container from '@components/UI/Container';
 import BlogLeatest from '@features/BlogScreen/BlogLeatest';
 import { useRouteLoaderData } from 'react-router-dom';
 
@@ -9,7 +7,7 @@ const Gallery = () => {
 	const { galleries } = useRouteLoaderData('root');
 	return (
 		<>
-			<Container>
+			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 				<Title title="Our Activities" />
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
 					{galleries[0].images.map((item) => {
@@ -29,7 +27,7 @@ const Gallery = () => {
 						<span className="btn-animated-text">Load More</span>
 					</Button>
 				</div>
-			</Container>
+			</div>
 			<BlogLeatest />
 		</>
 	);

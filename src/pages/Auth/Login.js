@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Button from '@components/UI/Button';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
 import { Form, Formik } from 'formik';
 
 import FormikControl from '@components/Form/FormikControl';
 import { LoginSchema } from '@components/Form/ValidationSchema';
+import Button from '@components/UI/Button';
 import Loader from '@components/UI/Loader';
-import Container from '@components/UI/Container';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -33,7 +32,7 @@ const Login = () => {
 		}
 	};
 	return (
-		<Container>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 			<div className="grid grid-flow-row">
 				<div className="lg:grid-cols-12">
 					<div className="text-center">
@@ -121,7 +120,7 @@ const Login = () => {
 					</div>
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 };
 

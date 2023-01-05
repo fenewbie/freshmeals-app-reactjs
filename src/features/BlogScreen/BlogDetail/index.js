@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
 import {
@@ -14,7 +13,6 @@ import RelatedList from '@features/RelatedList/index';
 import { CommentForm } from '@components/Form';
 import { Post, Tags } from '@components/Blog';
 import PrivateRoute from '@components/PrivateRoute';
-import CommentCard from '@components/Comment';
 import Button from '@components/UI/Button';
 
 function BlogDetail() {

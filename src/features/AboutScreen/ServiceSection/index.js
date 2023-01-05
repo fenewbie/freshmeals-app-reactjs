@@ -2,13 +2,12 @@ import {  useRouteLoaderData } from 'react-router-dom';
 
 import Title from '@components/Title';
 import ServiceCard from '@components/About/ServiceCard';
-import Container from '@components/UI/Container';
 
 function ServiceSection() {
 	const { services } = useRouteLoaderData('root');
 	return (
 		<div className="bg-sectionBg">
-			<Container>
+			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 				<Title title="Why Choose Us" />
 				<div className="grid lg:grid-cols-3 gap-8 md:grid-cols-4 grid-cols-1 ">
 					{services.map((item, index) => (
@@ -26,7 +25,7 @@ function ServiceSection() {
 						</div>
 					))}
 				</div>
-			</Container>
+			</div>
 		</div>
 	);
 }

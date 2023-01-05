@@ -7,7 +7,6 @@ import { Form, Formik } from 'formik';
 import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
 import { consent } from '@utils/constants';
-import Container from '@components/UI/Container';
 
 export default function Register() {
 	const navigate = useNavigate();
@@ -54,7 +53,7 @@ export default function Register() {
 	};
 	const handleClick = () => navigate('/login');
 	return (
-		<Container>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 			<div className="flex items-center justify-center">
 				<div className="">
 					<div className="text-center">
@@ -147,6 +146,6 @@ export default function Register() {
 					</div>
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 }

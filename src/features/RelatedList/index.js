@@ -18,7 +18,7 @@ function RelatedList({ col, related, type }) {
 			return resultArr2.length > 0;
 		});
 		setDocs(resultArr1);
-	}, []);
+	}, [dataRoot, col, related, type]);
 	return (
 		<div className="py-24">
 			<Title

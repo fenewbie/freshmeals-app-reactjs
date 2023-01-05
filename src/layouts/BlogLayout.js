@@ -1,10 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import BlogSideBar from '@features/BlogScreen/BlogSideBar';
-import Container from '@components/UI/Container';
 
 function BlogLayout() {
 	return (
-		<Container>
+		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 			<div className="grid lg:grid-cols-12 grid-cols-1 gap-8">
 				<div className="lg:col-span-8">
 					<Outlet />
@@ -13,7 +12,7 @@ function BlogLayout() {
 					<BlogSideBar />
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 }
 

@@ -5,7 +5,6 @@ import 'swiper/css';
 import Title from '@components/Title';
 import Backdrop from '@components/UI/Modal/BackDrop';
 import Slider from '@components/UI/Slider';
-import Container from '@components/UI/Container';
 
 const PortfolioSection = () => {
 	const [indexAct, setIndexAct] = useState();

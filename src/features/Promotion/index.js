@@ -10,7 +10,7 @@ export default function Promotion() {
 				<div
 					key={item.id}
 					className={`lg:col-span-1 ${
-						item.id == 3 ? 'md:col-[2_/_span_2]' : 'md:col-span-2'
+						item.id === 3 ? 'md:col-[2_/_span_2]' : 'md:col-span-2'
 					}`}
 				>
 					<PromotionCard
