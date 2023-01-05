@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs';
-import TooltipCustom from '@components/UI/TooltipCustom';
+import SocialLink from '@components/UI/SocialLink';
 
 function MemberCard({ name, image, position }) {
 	return (
@@ -20,32 +19,7 @@ function MemberCard({ name, image, position }) {
 					{name}
 				</Link>
 				<div className="flex justify-center">
-					<TooltipCustom
-						content="Feature under development"
-						placement="bottom"
-					>
-						<span className="flex justify-center mt-4">
-							<Link
-								to="/about"
-								className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-							>
-								<BsFacebook />
-							</Link>
-
-							<Link
-								to="/about"
-								className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-							>
-								<BsTwitter />
-							</Link>
-							<Link
-								to="/about"
-								className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-							>
-								<BsLinkedin />
-							</Link>
-						</span>
-					</TooltipCustom>
+					<SocialLink />
 				</div>
 			</div>
 		</div>
