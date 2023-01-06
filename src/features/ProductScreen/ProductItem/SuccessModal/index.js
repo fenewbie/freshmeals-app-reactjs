@@ -64,18 +64,20 @@ function SuccessModal({ type }) {
 							{type === 'cart' ? (
 								<div className="flex max-md:flex-col md:gap-6 gap-4 mt-5">
 									<Button
-										btn="card"
 										onClick={() => handleClick('cart')}
 										className="btn-animated  md:w-[120px] h-full py-2"
 									>
-										<span className="btn-animated-text text-sm">View Cart</span>
+										<span className="btn-animated-text text-sm">
+											View Cart
+										</span>
 									</Button>
 									<Button
-										btn="card"
 										onClick={() => handleClick('checkout')}
 										className="btn-animated btn-animated--revert  md:w-[120px] h-full py-2"
 									>
-										<span className="btn-animated-text text-sm">Checkout</span>
+										<span className="btn-animated-text text-sm">
+											Checkout
+										</span>
 									</Button>
 								</div>
 							) : (
@@ -92,8 +94,9 @@ function SuccessModal({ type }) {
 					{type === 'cart' && (
 						<div className="pt-5 border-t mt-10">
 							<p className="text-center mb-3 text-sm">
-								We give you <b>20% discount</b> for your first order.
-								Use(LoveFreshMeals) discount code at checkout
+								We give you <b>20% discount</b> for your first
+								order. Use(LoveFreshMeals) discount code at
+								checkout
 							</p>
 							<img
 								src={cs.paymentMethod}

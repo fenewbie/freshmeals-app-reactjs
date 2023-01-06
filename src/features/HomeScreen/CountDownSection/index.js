@@ -31,7 +31,7 @@ const CountDownSection = () => {
 							<Timer day={2} />
 							<Link
 								to="/shop"
-								className="btn-animated rounded-md mt-10"
+								className="btn-animated rounded-md mt-10 max-md:w-full"
 							>
 								<span className="btn-animated-text">
 									Shop now
