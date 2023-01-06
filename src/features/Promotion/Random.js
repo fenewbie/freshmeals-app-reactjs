@@ -19,6 +19,7 @@ function Random() {
 				title={promotion.title}
 				subtitle={promotion.subtitle}
 				image={promotion.image}
+				isRandom
 			/>
 		)
 	);

@@ -90,7 +90,7 @@ function ProductArea({ product }) {
 							))}
 						</div>
 					</div>
-					<div className="flex ">
+					<div className="flex xl:flex-row lg:flex-col">
 						<Quantity
 							decreaseItem={decreaseItem}
 							incrementItem={incrementItem}
@@ -98,7 +98,7 @@ function ProductArea({ product }) {
 							className="h-14"
 						/>
 						<Button
-							className="btn-animated mt-0 ml-5 py-3"
+							className="btn-animated xl:ml-5 lg:ml-0 ml-5 xl:mt-0 lg:mt-5  mt-0  py-3 w-full"
 							onClick={handleAddProductToCart}
 						>
 							<span className="btn-animated-text">
