@@ -10,7 +10,7 @@ const BannerSlideItem = ({ imgItem, isActive }) => {
 			/>
 			<div className="absolute transition-colors delay-1000 bg bg-slate-900 bg-opacity-60 w-full h-full top-0 left-0 text-white">
 				<div
-					className={`absolute p-8 space-y-6 md:bottom-1/3 bottom-[15%] sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/3  ${
+					className={`absolute p-8 space-y-6 md:bottom-1/3 bottom-[20%] sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/3  ${
 						imgItem.id % 2 === 0
 							? 'md:left-8 lg:left-8 xl:left-20'
 							: 'md:right-8 lg:right-8  xl:right-20 text-right'
