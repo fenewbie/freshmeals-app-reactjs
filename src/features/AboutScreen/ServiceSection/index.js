@@ -7,7 +7,7 @@ function ServiceSection() {
 	const { services } = useRouteLoaderData('root');
 	return (
 		<div className="bg-sectionBg">
-			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+			<div className="container py-28">
 				<Title title="Why Choose Us" />
 				<div className="grid lg:grid-cols-3 gap-8 md:grid-cols-4 grid-cols-1 ">
 					{services.map((item, index) => (

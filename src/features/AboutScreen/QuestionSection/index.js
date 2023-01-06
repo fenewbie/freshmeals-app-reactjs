@@ -7,7 +7,7 @@ import Accordion from '@components/UI/Accordion';
 function QuestionSection() {
 	const { questions } = useRouteLoaderData('root');
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+		<div className="container py-28">
 			<Title title="Some questions" />
 			<div className="grid lg:grid-cols-2 grid-cols-1 gap-10 max-md:mb-16">
 				<Accordion>

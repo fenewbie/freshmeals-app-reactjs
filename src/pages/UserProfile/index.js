@@ -5,8 +5,8 @@ import * as cs from '@utils/constants';
 
 export default function UserProfile() {
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md my-28">
-			<div className="my-12 mx-7 flex max-md:flex-wrap max-md:justify-center items-center gap-8">
+		<div className="container my-28">
+			<div className="flex max-md:flex-col max-md:justify-center items-center gap-8">
 				<img
 					alt="avatar_default"
 					src={cs.user}
@@ -17,7 +17,7 @@ export default function UserProfile() {
 						<h3 className="md:text-2xl text-xl font-bold">
 							User Name:
 						</h3>
-						<span className="ml-2 md:text-xl relative md:top-[2px]">
+						<span className="ml-2 md:text-xl text-lg relative md:top-[2px]">
 							User Name
 						</span>
 					</div>
@@ -25,28 +25,26 @@ export default function UserProfile() {
 						<h3 className="md:text-2xl text-xl font-bold">
 							Email:
 						</h3>
-						<span className="ml-2 md:text-xl relative md:top-[2px]">
+						<span className="ml-2 md:text-xl text-lg relative md:top-[2px]">
 							User's email
 						</span>
 					</div>
 				</div>
 			</div>
-			<div className="mb-28 mx-9">
-				<Button
-					className="btn-animated max-md:w-full"
-					onClick={() => {
-						signOut(auth)
-							.then(() => {
-								console.log('user signed out');
-							})
-							.catch((error) => {
-								console.log('error', error);
-							});
-					}}
-				>
-					<span className="btn-animated-text">Log out</span>
-				</Button>
-			</div>
+			<Button
+				className="btn-animated max-md:w-full mt-10"
+				onClick={() => {
+					signOut(auth)
+						.then(() => {
+							console.log('user signed out');
+						})
+						.catch((error) => {
+							console.log('error', error);
+						});
+				}}
+			>
+				<span className="btn-animated-text">Log out</span>
+			</Button>
 		</div>
 	);
 }

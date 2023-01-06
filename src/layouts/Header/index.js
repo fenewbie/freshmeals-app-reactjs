@@ -15,7 +15,6 @@ import ViewCart from '@features/CartScreen/ViewCart';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 import * as cs from '@utils/constants';
 
-
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 
@@ -57,11 +56,11 @@ const Header = () => {
 		>
 			{isHomePage && <Banner />}
 			<div
-				className={`z-10 container xl:max-w-xl lg:max-w-lg md:max-w-md ${
+				className={`z-10 container ${
 					isHomePage ? 'absolute' : ''
 				} mx-auto py-6 flex flex-wrap justify-center items-center md:justify-between  ease-in-out duration-200`}
 			>
-				<div className="container flex flex-col md:flex-row lg:flex-row justify-space md:justify-around items-center mx-auto">
+				<div className="w-full flex flex-col md:flex-row lg:flex-row justify-space md:justify-around items-center mx-auto">
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
@@ -136,7 +135,7 @@ const Header = () => {
 												handleNavMobi(false)
 											}
 										/>
-									): null}
+									) : null}
 								</AnimatePresence>
 							</div>
 						</div>

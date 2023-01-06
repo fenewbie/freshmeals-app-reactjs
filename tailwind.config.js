@@ -6,20 +6,11 @@ module.exports = {
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 	],
 	theme: {
-		maxWidth: {
-			xl: '1200px',
-			lg: '960px',
-			md: '720px',
-		},
 		screens: {
 			sm: '480px',
 			md: '768px',
 			lg: '1024px',
 			xl: '1280px',
-		},
-		container: {
-			center: true,
-			padding: '15px',
 		},
 		extend: {
 			boxShadow: {

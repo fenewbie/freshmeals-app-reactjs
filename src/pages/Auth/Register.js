@@ -53,7 +53,7 @@ export default function Register() {
 	};
 	const handleClick = () => navigate('/login');
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+		<div className="container my-28">
 			<div className="flex items-center justify-center">
 				<div className="">
 					<div className="text-center">
