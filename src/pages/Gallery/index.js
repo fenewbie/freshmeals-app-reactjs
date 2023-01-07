@@ -2,7 +2,7 @@ import BlogSlider from '@components/Blog/BlogSlider';
 import Title from '@components/Title';
 import Button from '@components/UI/Button';
 import Container from '@components/UI/Container';
-import TooltipCustom from '@components/UI/TooltipCustom';
+import Tooltip from '@components/UI/Tooltip';
 import BlogLeatest from '@features/BlogScreen/BlogLeatest';
 import { useRouteLoaderData } from 'react-router-dom';
 
@@ -29,11 +29,11 @@ const Gallery = () => {
 					})}
 				</div>
 				<div className="mt-10 flex justify-center">
-					<TooltipCustom content="Feature under development">
+					<Tooltip content="Feature under development">
 						<Button className="btn-animated max-md:w-full">
 							<span className="btn-animated-text">Load More</span>
 						</Button>
-					</TooltipCustom>
+					</Tooltip>
 				</div>
 			</Container>
 			<BlogLeatest />

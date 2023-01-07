@@ -1,6 +1,6 @@
 import { FaRegEye, FaShoppingCart } from 'react-icons/fa';
 import { AiTwotoneHeart } from 'react-icons/ai';
-import TooltipCustom from '@components/UI/TooltipCustom';
+import Tooltip from '@components/UI/Tooltip';
 
 export default function BtnIconItem({
 	handleOpenQuickView,
@@ -9,7 +9,7 @@ export default function BtnIconItem({
 }) {
 	return (
 		<div className="absolute left-0 top-1/2 w-full text-center opacity-0 transition-all duration-300 translate-y-1/2 group-hover:opacity-100 group-hover:-translate-y-1/2 flex justify-center">
-			<TooltipCustom
+			<Tooltip
 				arrow
 				content="QuickView"
 			>
@@ -20,9 +20,9 @@ export default function BtnIconItem({
 				>
 					<FaRegEye className="mx-auto" />
 				</button>
-			</TooltipCustom>
+			</Tooltip>
 
-			<TooltipCustom
+			<Tooltip
 				arrow
 				content="Add to Cart"
 			>
@@ -33,9 +33,9 @@ export default function BtnIconItem({
 				>
 					<FaShoppingCart className="mx-auto" />
 				</button>
-			</TooltipCustom>
+			</Tooltip>
 
-			<TooltipCustom
+			<Tooltip
 				arrow
 				content="Wishlist"
 			>
@@ -45,7 +45,7 @@ export default function BtnIconItem({
 				>
 					<AiTwotoneHeart className="mx-auto" />
 				</button>
-			</TooltipCustom>
+			</Tooltip>
 		</div>
 	);
 }

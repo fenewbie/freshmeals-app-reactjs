@@ -1,29 +1,29 @@
 import { FaFacebookF, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import TooltipCustom from '../TooltipCustom';
+import Tooltip from '../Tooltip';
 
 export default function SocialLink() {
 	return (
 		<div className="flex gap-4 py-7">
-			<TooltipCustom content="Feature under development">
+			<Tooltip content="Facebook">
 				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaFacebookF />
 				</button>
-			</TooltipCustom>
-			<TooltipCustom content="Feature under development">
+			</Tooltip>
+			<Tooltip content="Twitter">
 				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaTwitter />
 				</button>
-			</TooltipCustom>
-			<TooltipCustom content="Feature under development">
+			</Tooltip>
+			<Tooltip content="Falinkedin">
 				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaLinkedin />
 				</button>
-			</TooltipCustom>
-			<TooltipCustom content="Feature under development">
+			</Tooltip>
+			<Tooltip content="Youtube">
 				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
 					<FaYoutube />
 				</button>
-			</TooltipCustom>
+			</Tooltip>
 		</div>
 	);
 }

@@ -158,6 +158,7 @@
 		border-width: 6px;
 		margin-left: calc(6px * -1);
 	}
+
 	/* Absolute positioning */
 	.tooltip.top {
 		top: calc(30px * -1);
