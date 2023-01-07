@@ -1,5 +1,6 @@
 import BlogSlider from '@components/Blog/BlogSlider';
 import Title from '@components/Title';
+import { memo } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
 
 function BlogLeatest() {
@@ -12,4 +13,4 @@ function BlogLeatest() {
 	);
 }
 
-export default BlogLeatest;
+export default memo(BlogLeatest);

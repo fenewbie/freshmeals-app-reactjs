@@ -1,31 +1,56 @@
 import Title from '@components/Title';
 import Button from '@components/UI/Button';
+import Loader from '@components/UI/Loader';
 import BlogLeatest from '@features/BlogScreen/BlogLeatest';
+import { useEffect, useState } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
 
 const Gallery = () => {
 	const { galleries } = useRouteLoaderData('root');
+	const [listToShow, setListToShow] = useState([]);
+	const [visible, setVisible] = useState(3);
+
+	useEffect(() => {
+		const list = [...galleries[0].images].splice(0, visible);
+		setListToShow(list);
+	}, [galleries, visible]);
+
+	const handleClick = () => {
+		setVisible(visible + 3);
+	};
 	return (
 		<>
 			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
 				<Title title="Our Activities" />
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
-					{galleries[0].images.map((item) => {
-						return (
-							<div className="h-72 w-full group overflow-hidden">
-								<img
-									src={item}
-									alt="gallery"
-									className="h-full w-full object-cover group-hover:scale-110 transition-all duration-[1s]"
-								/>
-							</div>
-						);
-					})}
+					{listToShow.length > 0 ? (
+						listToShow.map((item, index) => {
+							return (
+								<div
+									className="h-72 w-full group overflow-hidden"
+									key={index}
+								>
+									<img
+										src={item}
+										alt="gallery"
+										className="h-full w-full object-cover group-hover:scale-125 transition-all duration-[1s]"
+									/>
+								</div>
+							);
+						})
+					) : (
+						<Loader />
+					)}
 				</div>
 				<div className="text-center">
-					<Button className="btn-animated mt-16 max-md:w-full">
-						<span className="btn-animated-text">Load More</span>
-					</Button>
+					{galleries[0].images.length > listToShow.length && (
+						<Button
+							className="btn-animated mt-16 max-md:w-full"
+							onClick={handleClick}
+						>
+							<span className="btn-animated-text">Load More</span>
+						</Button>
+					)}
 				</div>
 			</div>
 			<BlogLeatest />
