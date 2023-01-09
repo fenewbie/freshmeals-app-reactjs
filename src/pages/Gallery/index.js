@@ -8,7 +8,7 @@ import { useRouteLoaderData } from 'react-router-dom';
 const Gallery = () => {
 	const { galleries } = useRouteLoaderData('root');
 	const [listToShow, setListToShow] = useState([]);
-	const [visible, setVisible] = useState(3);
+	const [visible, setVisible] = useState(6);
 
 	useEffect(() => {
 		const list = [...galleries[0].images].splice(0, visible);
@@ -20,7 +20,7 @@ const Gallery = () => {
 	};
 	return (
 		<>
-			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+			<div className="container py-28">
 				<Title title="Our Activities" />
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
 					{listToShow.length > 0 ? (
