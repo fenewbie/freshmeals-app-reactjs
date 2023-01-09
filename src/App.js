@@ -26,7 +26,7 @@ const About = lazy(() => import('./pages/About'));
 const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
 const ProductGridPage = lazy(() => import('./pages/Shop/ProductGridPage'));
 const Contact = lazy(() => import('./pages/Contact'));
-const SearchBlogsPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
+const SearchBlogsPage = lazy(() => import('./pages/Blog/BlogSearch'));
 const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
 const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
 const Gallery = lazy(() => import('./pages/Gallery'));
@@ -65,9 +65,18 @@ function App() {
 					errorElement={<NotFound />}
 					loader={rootLoader}
 				>
-					<Route index element={<Home />} />
-					<Route path="login" element={<Login />} />
-					<Route path="register" element={<Register />} />
+					<Route
+						index
+						element={<Home />}
+					/>
+					<Route
+						path="login"
+						element={<Login />}
+					/>
+					<Route
+						path="register"
+						element={<Register />}
+					/>
 					<Route
 						path="user-profile"
 						element={
@@ -76,36 +85,70 @@ function App() {
 							</PrivateRoute>
 						}
 					></Route>
-					<Route path="shop" element={<ShopLayout />}>
-						<Route index element={<ProductGridPage />} />
+					<Route
+						path="shop"
+						element={<ShopLayout />}
+					>
+						<Route
+							index
+							element={<ProductGridPage />}
+						/>
 						<Route
 							path=":productId"
 							element={<ProductDetailPage />}
 							loader={productLoader}
 						/>
-						<Route path="search" element={<SearchProductsPage />} />
+						<Route
+							path="search"
+							element={<SearchProductsPage />}
+						/>
 					</Route>
-					<Route path="cart" element={<Cart />} />
+					<Route
+						path="cart"
+						element={<Cart />}
+					/>
 					<Route
 						path="checkout"
 						element={<Checkout />}
 						action={checkoutAction}
 					/>
-					<Route path="about" element={<About />} />
-					<Route path="contact" element={<Contact />} />
+					<Route
+						path="about"
+						element={<About />}
+					/>
+					<Route
+						path="contact"
+						element={<Contact />}
+					/>
 
-					<Route path="blog" element={<BlogLayout />}>
-						<Route index element={<BlogGridPage />} />
+					<Route
+						path="blog"
+						element={<BlogLayout />}
+					>
+						<Route
+							index
+							element={<BlogGridPage />}
+						/>
 						<Route
 							path=":blogId"
 							element={<BlogDetailPage />}
 							loader={blogLoader}
 						/>
-						<Route path="search" element={<SearchBlogsPage />} />
+						<Route
+							path="search"
+							// element={<div>Hdello</div>}
+							element={<SearchBlogsPage />}
+						/>
 					</Route>
-					<Route path="gallery" element={<Gallery />} />
+					<Route
+						path="gallery"
+						element={<Gallery />}
+					/>
 				</Route>
-				<Route path="coming-soon" element={<ComingSoon />} />
+				<Route
+					path="coming-soon"
+					element={<ComingSoon />}
+				/>
 			</>
 		)
 	);

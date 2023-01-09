@@ -2,7 +2,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 export function Quantity({ className, decreaseItem, incrementItem, quantity }) {
 	return (
-		<div className={`flex ${className}`}>
+		<div className={`flex  ${className}`}>
 			<button
 				className="inline-block w-12  rounded-md border-2  border-gray-300 outline-greenBtn bg-white hover:border-greenBtn"
 				onClick={decreaseItem}

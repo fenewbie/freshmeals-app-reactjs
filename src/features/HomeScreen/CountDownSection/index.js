@@ -6,7 +6,7 @@ const CountDownSection = () => {
 
 	return (
 		<div className="bg-[#F7F5EB] font-raj overflow-hidden py-28">
-			<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md">
+			<div className="container">
 				{countdown.map((item, index) => (
 					<div
 						className="grid lg:grid-cols-12 grid-cols-1 gap-10 "
@@ -31,7 +31,7 @@ const CountDownSection = () => {
 							<Timer day={2} />
 							<Link
 								to="/shop"
-								className="btn-animated rounded-md mt-10"
+								className="btn-animated rounded-md mt-10 max-md:w-full"
 							>
 								<span className="btn-animated-text">
 									Shop now

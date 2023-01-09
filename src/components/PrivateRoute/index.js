@@ -1,8 +1,8 @@
-import Button from '@components/UI/Button';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
 import * as cs from '@utils/constants';
+import Button from '@components/UI/Button';
 
 const PrivateRoute = ({ type, children }) => {
 	const navigate = useNavigate();
@@ -18,7 +18,7 @@ const PrivateRoute = ({ type, children }) => {
 				);
 			default:
 				return (
-					<section className="my-10">
+					<section className="container py-28">
 						<img
 							alt="permission_denied"
 							src={cs.denied}
@@ -31,7 +31,7 @@ const PrivateRoute = ({ type, children }) => {
 							You don't have permissions to access this page. <br />
 							Please sign in or sign up.
 						</p>
-						<div className="mx-9 mt-8 mb-28">
+						<div className="mt-8">
 							<Button
 								btn="card"
 								className="mx-auto bg-greenBtn p-2 rounded mt-3"

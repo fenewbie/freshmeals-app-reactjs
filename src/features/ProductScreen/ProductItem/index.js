@@ -128,7 +128,6 @@ const ProductItem = ({
 								: 'inline-block'
 						} capitalize font-bold my-2 hover:text-greenBtn transition-all duration-300`}
 						to={`/shop/${id}`}
-						reloadDocument
 					>
 						<span
 							className={`line-clamp-2 ${card && 'text-center'}`}

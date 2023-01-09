@@ -30,7 +30,7 @@ export default function CheckoutScreen() {
 	};
 
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+		<div className="container my-28">
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
 					<span className="">Returning customer ? </span>

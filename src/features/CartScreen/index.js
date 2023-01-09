@@ -8,7 +8,7 @@ function CartScreen() {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+		<div className="container my-28">
 			{cartItems.length === 0 ? (
 				<div className="flex flex-col items-center">
 					<p className="text-xl font-bold">No item in your cart!</p>

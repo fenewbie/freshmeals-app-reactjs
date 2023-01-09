@@ -14,6 +14,7 @@ import { CommentForm } from '@components/Form';
 import { Post, Tags } from '@components/Blog';
 import PrivateRoute from '@components/PrivateRoute';
 import Button from '@components/UI/Button';
+import { memo } from 'react';
 
 function BlogDetail() {
 	const { blog, id } = useLoaderData();
@@ -121,4 +122,4 @@ function BlogDetail() {
 	);
 }
 
-export default BlogDetail;
+export default memo(BlogDetail);

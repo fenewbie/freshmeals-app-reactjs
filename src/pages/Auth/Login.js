@@ -32,7 +32,7 @@ const Login = () => {
 		}
 	};
 	return (
-		<div className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+		<div className="container my-28">
 			<div className="grid grid-flow-row">
 				<div className="lg:grid-cols-12">
 					<div className="text-center">
