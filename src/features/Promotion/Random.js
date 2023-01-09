@@ -1,5 +1,5 @@
 import PromotionCard from '@components/Promotion/PromotionCard';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
 
 function Random() {
@@ -25,4 +25,4 @@ function Random() {
 	);
 }
 
-export default Random;
+export default memo(Random);

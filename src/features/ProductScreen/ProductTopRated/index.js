@@ -1,6 +1,7 @@
 import { FaThList } from 'react-icons/fa';
 import ProductItem from '../ProductItem';
 import { useRouteLoaderData } from 'react-router-dom';
+import { memo } from 'react';
 
 function ProductTopRated() {
 	const { products } = useRouteLoaderData('root');
@@ -10,7 +11,7 @@ function ProductTopRated() {
 				<FaThList className="text-xl text-greenBtn mr-3" /> Top Rated
 				Product
 			</h4>
-			{products
+			{[...products]
 				.sort((a, b) => b.rating - a.rating)
 				.splice(0, 4)
 				.map((product, index) => (
@@ -26,4 +27,4 @@ function ProductTopRated() {
 	);
 }
 
-export default ProductTopRated;
+export default memo(ProductTopRated);
