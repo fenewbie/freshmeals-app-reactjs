@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import SocialLink from '@components/UI/SocialLink';
+import Tooltip from '@components/UI/Tooltip';
+import { FaFacebookF, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 function MemberCard({ name, image, position }) {
 	return (
@@ -19,7 +20,19 @@ function MemberCard({ name, image, position }) {
 					{name}
 				</Link>
 				<div className="flex justify-center">
-					<SocialLink />
+					<Tooltip content="Feature under development">
+						<div className="flex gap-8 mt-4">
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaFacebookF />
+							</span>
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaTwitter />
+							</span>
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaLinkedin />
+							</span>
+						</div>
+					</Tooltip>
 				</div>
 			</div>
 		</div>

@@ -24,7 +24,7 @@ const Button = ({
 			break;
 		case 'tag2':
 			classType =
-				'text-sm rounded mr-2 mb-2 py-2 px-6  uppercase bg-sectionBg hover:bg-greenBtn hover:text-white ';
+				'text-sm rounded mb-2 py-2 px-6  uppercase bg-sectionBg hover:bg-greenBtn hover:text-white ';
 			break;
 		case 'cancel':
 			classType =
