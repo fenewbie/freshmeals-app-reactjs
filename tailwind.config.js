@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-	content: [
-		'./src/**/*.{js,jsx,ts,tsx}',
-		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
-	],
+	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		screens: {
 			sm: '480px',
@@ -114,6 +111,5 @@ module.exports = {
 					"linear-gradient(to right bottom, rgba(33,34,69,0.8), rgba(33,34,69,0.8)), url('https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')",
 			},
 		},
-		plugins: [require('flowbite/plugin')],
 	},
 };

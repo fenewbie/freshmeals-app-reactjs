@@ -67,11 +67,7 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img
-									src={cs.logo01}
-									alt="logo"
-									className="h-12"
-								/>
+								<img src={cs.logo01} alt="logo" className="h-12" />
 							</Link>
 						</div>
 					</nav>
@@ -88,24 +84,19 @@ const Header = () => {
 							>
 								GET A QUOTE
 							</Button>
-							<div
-								className="relative flex gap-3"
-								ref={dropdownRef}
-							>
+							<div className="relative flex gap-3">
 								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
-								<Button
+								<div
+									ref={dropdownRef}
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center"
-									onMouseOver={() => setShowDropdown(true)}
 								>
-									<BiUser />
-								</Button>
-								{showDropdown ? (
-									<Dropdown items={cs.userList} />
-								) : (
-									''
-								)}
+									<Button onMouseOver={() => setShowDropdown(true)}>
+										<BiUser />
+									</Button>
+									{showDropdown ? <Dropdown items={cs.userList} /> : ''}
+								</div>
 
 								<Button
 									onClick={handleCart}
@@ -118,10 +109,7 @@ const Header = () => {
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart
-											handleClose={handleCart}
-											item={cartItems}
-										/>
+										<ViewCart handleClose={handleCart} item={cartItems} />
 									) : null}
 								</AnimatePresence>
 								<Button
@@ -133,11 +121,7 @@ const Header = () => {
 
 								<AnimatePresence>
 									{showNavMobi ? (
-										<NavMobi
-											handleClose={() =>
-												handleNavMobi(false)
-											}
-										/>
+										<NavMobi handleClose={() => handleNavMobi(false)} />
 									) : null}
 								</AnimatePresence>
 							</div>

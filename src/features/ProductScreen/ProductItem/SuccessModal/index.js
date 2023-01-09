@@ -67,22 +67,21 @@ function SuccessModal({ type }) {
 										onClick={() => handleClick('cart')}
 										className="btn-animated  md:w-[120px] h-full py-2"
 									>
-										<span className="btn-animated-text text-sm">
-											View Cart
-										</span>
+										<span className="btn-animated-text text-sm">View Cart</span>
 									</Button>
 									<Button
 										onClick={() => handleClick('checkout')}
 										className="btn-animated btn-animated--revert  md:w-[120px] h-full py-2"
 									>
-										<span className="btn-animated-text text-sm">
-											Checkout
-										</span>
+										<span className="btn-animated-text text-sm">Checkout</span>
 									</Button>
 								</div>
 							) : (
 								<div className="mt-3">
-									<Button className="btn-animated md:w-[120px] w-full mt-3 h-full py-2">
+									<Button
+										className="btn-animated md:w-[120px] w-full mt-3 h-full py-2"
+										onClick={() => handleClick('coming-soon')}
+									>
 										<span className="btn-animated-text text-sm">
 											View WishList
 										</span>
@@ -94,9 +93,8 @@ function SuccessModal({ type }) {
 					{type === 'cart' && (
 						<div className="pt-5 border-t mt-10">
 							<p className="text-center mb-3 text-sm">
-								We give you <b>20% discount</b> for your first
-								order. Use(LoveFreshMeals) discount code at
-								checkout
+								We give you <b>20% discount</b> for your first order.
+								Use(LoveFreshMeals) discount code at checkout
 							</p>
 							<img
 								src={cs.paymentMethod}

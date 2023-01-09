@@ -20,7 +20,7 @@ export default function SocialLink() {
 					<FaTwitter />
 				</a>
 			</Tooltip>
-			<Tooltip content="Falinkedin">
+			<Tooltip content="Linkedin">
 				<a
 					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
 					href="https://www.linkedin.com"
