@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
@@ -40,14 +40,17 @@ const Header = () => {
 		dispatch(modalActions.toggleCart());
 	};
 
-	const handleNavMobi = (status) => {
-		dispatch(modalActions.navMobi({ status }));
-	};
+	const handleNavMobi = useCallback(
+		(status) => {
+			dispatch(modalActions.navMobi({ status }));
+		},
+		[dispatch]
+	);
 
 	const { pathname } = location;
 	useEffect(() => {
-		showNavMobi && handleNavMobi(false);
-	}, [pathname]);
+		handleNavMobi(false);
+	}, [pathname, handleNavMobi]);
 
 	return (
 		<header
