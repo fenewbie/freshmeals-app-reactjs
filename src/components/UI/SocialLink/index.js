@@ -1,52 +1,40 @@
 import { FaFacebookF, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import { Tooltip } from 'flowbite-react';
+import Tooltip from '../Tooltip';
 
 export default function SocialLink() {
 	return (
 		<div className="flex gap-4 py-7">
-			<Tooltip
-				content={'Facebook'}
-				arrow={false}
-				style={'light'}
-				placement={'bottom'}
-				animation={'duration-300'}
-			>
-				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
+			<Tooltip content="Facebook">
+				<a
+					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
+					href="https://vi-vn.facebook.com"
+				>
 					<FaFacebookF />
-				</button>
+				</a>
 			</Tooltip>
-			<Tooltip
-				content={'Twitter'}
-				arrow={false}
-				style={'light'}
-				placement={'bottom'}
-				animation={'duration-300'}
-			>
-				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
+			<Tooltip content="Twitter">
+				<a
+					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
+					href="https://twitter.com"
+				>
 					<FaTwitter />
-				</button>
+				</a>
 			</Tooltip>
-			<Tooltip
-				content={'Linkedin'}
-				arrow={false}
-				style="light"
-				placement={'bottom'}
-				animation={'duration-300'}
-			>
-				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
+			<Tooltip content="Falinkedin">
+				<a
+					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
+					href="https://www.linkedin.com"
+				>
 					<FaLinkedin />
-				</button>
+				</a>
 			</Tooltip>
-			<Tooltip
-				content={'Youtube'}
-				arrow={false}
-				style="light"
-				placement={'bottom'}
-				animation={'duration-300'}
-			>
-				<button className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn">
+			<Tooltip content="Youtube">
+				<a
+					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
+					href="https://www.youtube.com/"
+				>
 					<FaYoutube />
-				</button>
+				</a>
 			</Tooltip>
 		</div>
 	);

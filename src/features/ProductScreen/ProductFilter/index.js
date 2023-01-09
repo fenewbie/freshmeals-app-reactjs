@@ -12,6 +12,7 @@ import FormikControl from '@components/Form/FormikControl';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
 import FilterPriceRange from './FilterPriceRange';
+import Tooltip from '@components/UI/Tooltip';
 
 function ProductFilter() {
 	const { products } = useRouteLoaderData('root');
@@ -65,15 +66,17 @@ function ProductFilter() {
 						) : null}
 					</h3>
 					<div className="">
-						<select className="font-bold bg-gray-50 -2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
-							<option value="1">Sort By Popularity</option>
-							<option value="2">
-								Sort By Price: From Hight to Low
-							</option>
-							<option value="3">
-								Sort By Price: From Low to High
-							</option>
-						</select>
+						<Tooltip content="Feature under development">
+							<select className="font-bold bg-gray-50 -2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
+								<option value="1">Sort By Popularity</option>
+								<option value="2">
+									Sort By Price: From Hight to Low
+								</option>
+								<option value="3">
+									Sort By Price: From Low to High
+								</option>
+							</select>
+						</Tooltip>
 					</div>
 				</div>
 				<Grid

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs';
+import Tooltip from '@components/UI/Tooltip';
+import { FaFacebookF, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 function MemberCard({ name, image, position }) {
 	return (
@@ -13,31 +14,26 @@ function MemberCard({ name, image, position }) {
 					{position}
 				</span>
 				<Link
-					to="/team-Detail"
+					to="/about"
 					className="block text-xl font-bold transition-all hover:text-greenBtn mt-2 "
 				>
 					{name}
 				</Link>
-				<span className="flex justify-center mt-4">
-					<Link
-						to="/about"
-						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-					>
-						<BsFacebook />
-					</Link>
-					<Link
-						to="/about"
-						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-					>
-						<BsTwitter />
-					</Link>
-					<Link
-						to="/about"
-						className="px-2 hover:text-greenBtn transition-all cursor-pointer"
-					>
-						<BsLinkedin />
-					</Link>
-				</span>
+				<div className="flex justify-center">
+					<Tooltip content="Feature under development">
+						<div className="flex gap-8 mt-4">
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaFacebookF />
+							</span>
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaTwitter />
+							</span>
+							<span className="hover:text-greenBtn transition-all cursor-pointer">
+								<FaLinkedin />
+							</span>
+						</div>
+					</Tooltip>
+				</div>
 			</div>
 		</div>
 	);
