@@ -32,6 +32,7 @@ export const getData = async () => {
 	const portfolio = await getDocuments('portfolio');
 	const countdown = await getDocuments('countdown');
 	const slideHeader = await getDocuments('slide-header');
+	const features = await getDocuments('features');
 	return {
 		blogs,
 		products,
@@ -44,5 +45,6 @@ export const getData = async () => {
 		portfolio,
 		countdown,
 		slideHeader,
+		features
 	};
 };

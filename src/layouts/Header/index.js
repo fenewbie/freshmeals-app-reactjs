@@ -36,6 +36,10 @@ const Header = () => {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
+	const handleClose = () => {
+		setShowDropdown(!showDropdown);
+	};
+
 	const handleCart = () => {
 		dispatch(modalActions.toggleCart());
 	};
@@ -92,10 +96,14 @@ const Header = () => {
 									ref={dropdownRef}
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center"
 								>
-									<Button onMouseOver={() => setShowDropdown(true)}>
+									<Button onMouseOver={handleClose}>
 										<BiUser />
 									</Button>
-									{showDropdown ? <Dropdown items={cs.userList} /> : ''}
+									{showDropdown ? (
+										<Dropdown items={cs.userList} handleClose={handleClose} />
+									) : (
+										''
+									)}
 								</div>
 
 								<Button

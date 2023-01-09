@@ -11,6 +11,7 @@ const Gallery = () => {
 	const [visible, setVisible] = useState(6);
 
 	useEffect(() => {
+		setListToShow([]);
 		const list = [...galleries[0].images].splice(0, visible);
 		setListToShow(list);
 	}, [galleries, visible]);

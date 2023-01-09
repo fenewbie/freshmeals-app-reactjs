@@ -9,7 +9,7 @@ function Tags({ tags, relatedTag }) {
 				{!relatedTag && <FaTags className="text-greenBtn" />}
 				<div className="flex flex-wrap md:gap-6 gap-4">
 					{tags.map((tag, index) => (
-						<Tooltip content="Feature under development">
+						<Tooltip content="Feature under development" key={index}>
 							<Button
 								btn={relatedTag ? 'tag2' : 'tag'}
 								key={index}
