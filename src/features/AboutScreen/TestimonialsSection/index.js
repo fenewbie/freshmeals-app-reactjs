@@ -1,4 +1,4 @@
-import {  useRouteLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
 import Title from '@components/Title';
@@ -9,7 +9,7 @@ function TestimonialsSection() {
 	const { feedbacks } = useRouteLoaderData('root');
 	return (
 		<div className="py-28 bg-sectionBg">
-			<div className='container'>
+			<div className="container">
 				<Title title="Clients Feedbacks" />
 				<Slider
 					centeredSlides
@@ -21,6 +21,7 @@ function TestimonialsSection() {
 							slidesPerView: 2.5,
 						},
 					}}
+					loop={true}
 				>
 					{feedbacks.map((item, index) => (
 						<SwiperSlide key={index}>

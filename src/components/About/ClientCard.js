@@ -13,7 +13,7 @@ function ClientCard({ name, desc, job, image }) {
 				<p className="mb-4 max-md:mt-6 line-clamp-4 h-[100px]">
 					{desc}
 				</p>
-				<h4 className="block md:text-xl font-bold ">{name}</h4>
+				<h4 className="block md:text-xl font-bold whitespace-nowrap">{name}</h4>
 				<span className="font-light">{job}</span>
 			</div>
 			<span className="absolute text-9xl bottom-2 right-6 opacity-[0.03]">

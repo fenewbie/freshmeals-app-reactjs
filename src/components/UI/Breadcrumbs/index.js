@@ -9,7 +9,7 @@ function Breadcrumbs() {
 			{breadcrumbs.map(({ match, breadcrumb }) => {
 				return match.pathname === location.pathname ? (
 					<div
-						className=" text-[#80B500] px-5 lg:text-xl md:text-lg text-base"
+						className=" text-[#80B500] px-5 md:text-lg text-base"
 						key={match.pathname}
 					>
 						{breadcrumb}
@@ -18,7 +18,7 @@ function Breadcrumbs() {
 					<Link
 						key={match.pathname}
 						to={match.pathname}
-						className="text-[#8CB2B2] px-5  border-r-2 border-[#8CB2B2] lg:text-xl md:text-lg text-base"
+						className="text-[#8CB2B2] px-5  border-r-2 border-[#8CB2B2] md:text-lg text-base"
 					>
 						{breadcrumb}
 					</Link>
