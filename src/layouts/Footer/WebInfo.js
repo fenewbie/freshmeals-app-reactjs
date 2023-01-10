@@ -2,8 +2,8 @@ import { GrLocation } from 'react-icons/gr';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
 
-import SocialLink from '@components/UI/SocialLink';
 import * as cs from '@utils/constants';
+import SocialLink from '@components/UI/SocialLink';
 
 const WebInfo = () => {
 	return (

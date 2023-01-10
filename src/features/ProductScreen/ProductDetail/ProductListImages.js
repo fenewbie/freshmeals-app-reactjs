@@ -13,7 +13,7 @@ function ProductListImages({ images }) {
 	const [realIndex, setRealIndex] = useState();
 	return (
 		<div className="flex-col">
-			<div className="">
+			<div>
 				<Swiper
 					thumbs={{
 						swiper:
@@ -81,7 +81,7 @@ function ProductListImages({ images }) {
 						<SwiperSlide key={index}>
 							<div
 								className={`md:h-20 md:w-20 h-24 mx-auto bg-[#F9F9F9] py-2 border ${
-									index == realIndex && 'border-greenBtn'
+									index === realIndex && 'border-greenBtn'
 								} mt-5`}
 							>
 								<img

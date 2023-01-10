@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
+import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import NavMobi from './NavMobi';
 import Navigation from '@components/UI/Navbar';
@@ -11,10 +12,8 @@ import Dropdown from '@components/UI/Dropdown';
 import { modalActions } from '@store/modal/modalSlice';
 import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
-import * as cs from '@utils/constants';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
-
-import { AnimatePresence } from 'framer-motion';
+import * as cs from '@utils/constants';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -27,7 +26,7 @@ const Header = () => {
 	};
 	useOnHoverOutside(dropdownRef, closeHoverDropdown);
 
-	const showNavMobi = useSelector((state) => state.modal.isDisplay);
+	const showNavMobi = useSelector((state) => state.modal.navMobi.status);
 	const showCart = useSelector((state) => state.modal.isShowingCart);
 	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 	const cartItems = useSelector((state) => state.cart.items);
@@ -37,12 +36,25 @@ const Header = () => {
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
 
-	const handleNavMobi = () => {
-		dispatch(modalActions.toggleNavMobi());
+	const handleClose = () => {
+		setShowDropdown(!showDropdown);
 	};
+
 	const handleCart = () => {
 		dispatch(modalActions.toggleCart());
 	};
+
+	const handleNavMobi = useCallback(
+		(status) => {
+			dispatch(modalActions.navMobi({ status }));
+		},
+		[dispatch]
+	);
+
+	const { pathname } = location;
+	useEffect(() => {
+		handleNavMobi(false);
+	}, [pathname, handleNavMobi]);
 
 	return (
 		<header
@@ -51,19 +63,15 @@ const Header = () => {
 		>
 			{isHomePage && <Banner />}
 			<div
-				className={`z-10 container xl:max-w-xl lg:max-w-lg md:max-w-md ${
+				className={`z-10 container ${
 					isHomePage ? 'absolute' : ''
 				} mx-auto py-6 flex flex-wrap justify-center items-center md:justify-between  ease-in-out duration-200`}
 			>
-				<div className="container flex flex-col md:flex-row lg:flex-row justify-space md:justify-around items-center mx-auto">
+				<div className="w-full flex flex-col md:flex-row lg:flex-row justify-space md:justify-around items-center mx-auto">
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img
-									src={cs.logo01}
-									alt="logo"
-									className="h-12"
-								/>
+								<img src={cs.logo01} alt="logo" className="h-12" />
 							</Link>
 						</div>
 					</nav>
@@ -80,24 +88,23 @@ const Header = () => {
 							>
 								GET A QUOTE
 							</Button>
-							<div
-								className="relative flex gap-3"
-								ref={dropdownRef}
-							>
+							<div className="relative flex gap-3">
 								<div className="lg:block hidden">
 									<SearchProducts />
 								</div>
-								<Button
+								<div
+									ref={dropdownRef}
 									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center"
-									onMouseOver={() => setShowDropdown(true)}
 								>
-									<BiUser />
-								</Button>
-								{showDropdown ? (
-									<Dropdown items={cs.userList} />
-								) : (
-									''
-								)}
+									<Button onMouseOver={handleClose}>
+										<BiUser />
+									</Button>
+									{showDropdown ? (
+										<Dropdown items={cs.userList} handleClose={handleClose} />
+									) : (
+										''
+									)}
+								</div>
 
 								<Button
 									onClick={handleCart}
@@ -110,20 +117,20 @@ const Header = () => {
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems}/>
+										<ViewCart handleClose={handleCart} item={cartItems} />
 									) : null}
 								</AnimatePresence>
 								<Button
 									className="bg-white p-3 rounded-full lg:hidden"
-									onClick={handleNavMobi}
+									onClick={() => handleNavMobi(true)}
 								>
 									<BiMenu />
 								</Button>
 
 								<AnimatePresence>
-									{showNavMobi && (
-										<NavMobi handleClose={handleNavMobi} />
-									)}
+									{showNavMobi ? (
+										<NavMobi handleClose={() => handleNavMobi(false)} />
+									) : null}
 								</AnimatePresence>
 							</div>
 						</div>

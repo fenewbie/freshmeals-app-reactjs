@@ -8,7 +8,7 @@ function CartScreen() {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 
 	return (
-		<div>
+		<div className="container my-28">
 			{cartItems.length === 0 ? (
 				<div className="flex flex-col items-center">
 					<p className="text-xl font-bold">No item in your cart!</p>
@@ -32,8 +32,10 @@ function CartScreen() {
 						<Button
 							btn="card"
 							className="min-w-[150px] max-md:h-[42px] max-md:text-sm"
+							type="link"
+							link="/shop"
 						>
-							Update Cart
+							Continue Shopping
 						</Button>
 					</div>
 
@@ -48,9 +50,7 @@ function CartScreen() {
 									</td>
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
-									<td className="px-6">
-										Shipping and Handing
-									</td>
+									<td className="px-6">Shipping and Handing</td>
 									<td className=" px-6 text-right">$0.00</td>
 								</tr>
 								<tr className="border-t border-b bg-[#F7F8FA] h-14">
@@ -59,19 +59,18 @@ function CartScreen() {
 								</tr>
 								<tr className="border-t border-b bg-[#FAFAFA] h-14">
 									<td className="px-6">
-										<h3 className="font-bold">
-											Order Total
-										</h3>
+										<h3 className="font-bold">Order Total</h3>
 									</td>
 									<td className="px-6 text-right">
-										<h3 className="font-bold">
-											${totalAmount.toFixed(2)}
-										</h3>
+										<h3 className="font-bold">${totalAmount.toFixed(2)}</h3>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<Link className="btn-animated mt-10 w-full max-md:py-2" to='/checkout'>
+						<Link
+							className="btn-animated mt-10 w-full max-md:py-2"
+							to="/checkout"
+						>
 							<span className="btn-animated-text max-md:text-sm">
 								Proceed to checkout
 							</span>

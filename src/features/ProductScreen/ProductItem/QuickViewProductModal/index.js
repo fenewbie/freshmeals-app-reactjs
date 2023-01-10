@@ -35,7 +35,9 @@ const QuickViewProductModal = () => {
 			setQuantity(0);
 		}
 	};
-
+	const handleCloseModal = () => {
+		dispatch(modalActions.quickView({ status: false }));
+	};
 	const addItem = () => {
 		dispatch(
 			cartActions.addToCart({
@@ -56,12 +58,8 @@ const QuickViewProductModal = () => {
 					image,
 				},
 			})
-			
 		);
-	};
-
-	const handleCloseModal = () => {
-		dispatch(modalActions.quickView({ status: false, dataActive: null }));
+		handleCloseModal();
 	};
 
 	return (

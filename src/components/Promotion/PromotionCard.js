@@ -3,7 +3,7 @@ import { RiShoppingCart2Line } from 'react-icons/ri';
 import Button from '@components/UI/Button';
 import { Link } from 'react-router-dom';
 
-function PromotionCard({ id, type, title, subtitle, image }) {
+function PromotionCard({ id, type, title, subtitle, image, isRandom }) {
 	return (
 		<Link to="/shop">
 			<div className="xl:pt-[65%] lg:pt-[75%] md:pt-[60%]  pt-[55%] relative overflow-hidden rounded">
@@ -12,13 +12,27 @@ function PromotionCard({ id, type, title, subtitle, image }) {
 					${id === '2' ? 'bg-[#103001]' : 'bg-[orange]'}`}
 				>
 					<div className="text-[#fffffff7] shrink-0 grow ">
-						<span className="text-xs xsm:text-sm sm:text-lg md:text-[0.7rem]  uppercase">
+						<span
+							className={`text-xs xsm:text-sm lg:text-[0.7rem] sm:text-lg ${
+								isRandom ? 'md:text-3xl' : 'md:text-[0.7rem]'
+							}  uppercase`}
+						>
 							{type}
 						</span>
-						<h2 className="font-bold text-[1.4rem] xsm:text-[1.8rem] sm:text-[2.5rem] md:text-[1.8rem] capitalize">
+						<h2
+							className={`font-bold text-[1.4rem] xsm:text-[1.8rem] sm:text-[2.5rem] lg:text-[1.8rem] ${
+								isRandom
+									? 'md:text-6xl md:mt-3'
+									: 'md:text-[1.8rem]'
+							} capitalize`}
+						>
 							{title}
 						</h2>
-						<h4 className="font-semibold text-[1rem] xsm:text-[1.4rem]  sm:text-[2rem] md:text-[1.5rem] capitalize">
+						<h4
+							className={`font-semibold text-[1rem] xsm:text-[1.4rem] md:text-[1.5rem]  sm:text-[2rem] ${
+								isRandom && 'md:my-3'
+							} capitalize`}
+						>
 							{subtitle}
 						</h4>
 						<Button

@@ -8,6 +8,7 @@ import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
 import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
 import { getData } from '../services/api';
+import ScrollToTop from '@components/ScrollToTop';
 
 let isInitial = true;
 
@@ -43,6 +44,7 @@ function RootLayout() {
 			<main>
 				<Outlet />
 			</main>
+			<ScrollToTop />
 			<FeatureFooter />
 			<Footer />
 		</>

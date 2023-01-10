@@ -61,12 +61,12 @@ function ProductRelated({ types }) {
 							</SwiperSlide>
 						);
 					})}
-				{quickViewModal.status ? <QuickViewProductModal /> : null}
-
-				{successModal.status ? (
-					<SuccessModal type={successModal.type} />
-				) : null}
 			</Slider>
+			{quickViewModal.status ? <QuickViewProductModal /> : null}
+
+			{successModal.status ? (
+				<SuccessModal type={successModal.type} />
+			) : null}
 		</div>
 	);
 }

@@ -12,13 +12,15 @@ function RelatedList({ col, related, type }) {
 	const [docs, setDocs] = useState([]);
 	useEffect(() => {
 		const resultArr1 = dataRoot[col].filter((item) => {
-			const resultArr2 = item[type].filter((type) => related.includes(type));
+			const resultArr2 = item[type].filter((type) =>
+				related.includes(type)
+			);
 			return resultArr2.length > 0;
 		});
 		setDocs(resultArr1);
-	}, []);
+	}, [dataRoot, col, related, type]);
 	return (
-		<>
+		<div className="py-24">
 			<Title title="Related Product" center={false} />
 			{docs.length > 0 && (
 				<Slider
@@ -35,23 +37,21 @@ function RelatedList({ col, related, type }) {
 				>
 					{docs.map((el) => (
 						<SwiperSlide key={el.id}>
-							{
-								(type = 'blog' ? (
-									<BlogCard {...el} tags={false} />
-								) : (
-									<ProductItem
-										{...el}
-										label={el.label || 'free'}
-										discount={el.discount || 0}
-										card={true}
-									/>
-								))
-							}
+							{col === 'blogs' ? (
+								<BlogCard {...el} tags={false} />
+							) : (
+								<ProductItem
+									{...el}
+									label={el.label || 'free'}
+									discount={el.discount || 0}
+									card={true}
+								/>
+							)}
 						</SwiperSlide>
 					))}
 				</Slider>
 			)}
-		</>
+		</div>
 	);
 }
 

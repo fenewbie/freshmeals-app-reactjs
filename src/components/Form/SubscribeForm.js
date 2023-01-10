@@ -5,10 +5,8 @@ import { SubscribeSchema } from './ValidationSchema';
 import FormikControl from './FormikControl';
 
 function SubscribeForm({ isFooter }) {
-	const handleSubmit = (values, actions) => {
+	const handleSubmit = (values) => {
 		console.log(values.email);
-		alert('Thank you for your subscription!')
-		actions.resetForm({email:''})
 	};
 
 	return (

@@ -2,10 +2,8 @@ import SubscribeForm from '@components/Form/SubscribeForm';
 
 function SubscribeSection() {
 	return (
-		<div
-			className={`grid lg:grid-cols-12 max-lg:px-4 bg-hero-image bg-center bg-no-repeat  text-white text-center`}
-		>
-			<div className="md:py-[120px] pt-[120px] pb-44 md:px-4   col-span-8 col-start-3">
+		<div className="bg-hero-image bg-center bg-no-repeat  text-white text-center grid lg:grid-cols-12 grid-cols-1">
+			<div className="container py-28 lg:col-span-8 lg:col-start-3 ">
 				<h2 className="text-2xl md:text-4xl font-bold capitalize font-raj ">
 					we make your inbox better
 				</h2>

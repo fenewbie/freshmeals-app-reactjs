@@ -1,23 +1,22 @@
-import CountDownSection from '@features/HomeScreen/CountDownSection';
-import PortfolioSection from '@features/HomeScreen/PortfolioSection';
-import FeatureHomePage from '@features/HomeScreen/FeatureSection/FeatureHomePage';
-import ProductSection from '@features/HomeScreen/ProductSection';
-import PromotionSection from '@features/HomeScreen/PromotionSection/index';
-import BlogLeatest from '@features/BlogScreen/BlogLeatest';
-import Container from '@components/UI/Container';
 import { getDocuments } from '@services/api';
+
+import {
+	CountDownSection,
+	PortfolioSection,
+	FeatureHomePage,
+	ProductSection,
+	PromotionSection,
+} from '@features/HomeScreen';
+
+import BlogLeatest from '@features/BlogScreen/BlogLeatest';
 
 const Home = () => {
 	return (
 		<>
-			<Container>
-				<PromotionSection />
-				<ProductSection />
-			</Container>
+			<PromotionSection />
+			<ProductSection />
 			<CountDownSection />
-			<Container>
-				<FeatureHomePage />
-			</Container>
+			<FeatureHomePage />
 			<PortfolioSection />
 			<BlogLeatest />
 		</>

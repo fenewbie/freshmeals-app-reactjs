@@ -1,8 +1,7 @@
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
-import PaymentMethod from '@components/Form/PaymentMethod';
+import PaymentMethod from '@components/Form/PaymentForm';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
-import Container from '@components/UI/Container';
 import { Formik, Form } from 'formik';
 import { useSelector } from 'react-redux';
 
@@ -31,7 +30,7 @@ export default function CheckoutScreen() {
 	};
 
 	return (
-		<Container>
+		<div className="container my-28">
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
 					<span className="">Returning customer ? </span>
@@ -52,8 +51,12 @@ export default function CheckoutScreen() {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={CheckoutSchema}
-				onSubmit={(values) => {
+				onSubmit={(values, actions) => {
 					submit(values, { method: 'post', action: '/checkout' });
+					alert(
+						'Form submitted successfully! Thank you for your information!'
+					);
+					actions.resetForm();
 				}}
 			>
 				<Form>
@@ -82,7 +85,7 @@ export default function CheckoutScreen() {
 					</section>
 				</Form>
 			</Formik>
-		</Container>
+		</div>
 	);
 }
 
