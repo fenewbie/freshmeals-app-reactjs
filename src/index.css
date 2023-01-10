@@ -146,12 +146,13 @@
 		left: 50%;
 		transform: translateX(-50%);
 		padding: 6px;
-		color: white;
-		background: black;
-		font-size: 14px;
+		color: #000;
+		background: #fff;
+		font-size: 11px;
 		line-height: 1;
 		z-index: 100;
 		white-space: nowrap;
+		border: 1px solid #000;
 	}
 	.tooltip::before {
 		content: ' ';
@@ -170,34 +171,34 @@
 		top: calc(30px * -1);
 	}
 	/* CSS border triangles */
-	.tooltip.top::before {
+	/* .tooltip.top::before {
 		top: 100%;
 		border-top-color: black;
-	}
+	} */
 
 	/* Absolute positioning */
 	.tooltip.right {
-		left: calc(100% + 30px);
-		top: 50%;
-		transform: translateX(0) translateY(-50%);
+		left: calc(0% + 24px);
+		top: 150%;
+		transform: translateX(0) translateY(-75%);
 	}
 	/* CSS border triangles */
-	.tooltip.right::before {
+	/* .tooltip.right::before {
 		left: calc(6px * -1);
 		top: 50%;
 		transform: translateX(0) translateY(-50%);
 		border-right-color: black;
-	}
+	} */
 
 	/* Absolute positioning */
 	.tooltip.bottom {
 		bottom: calc(30px * -1);
 	}
 	/* CSS border triangles */
-	.tooltip.bottom::before {
+	/* .tooltip.bottom::before {
 		bottom: 100%;
 		border-bottom-color: black;
-	}
+	} */
 
 	/* Absolute positioning */
 	.tooltip.left {
@@ -207,11 +208,11 @@
 		transform: translateX(0) translateY(-50%);
 	}
 	/* CSS border triangles */
-	.tooltip.left::before {
+	/* .tooltip.left::before {
 		left: auto;
 		right: calc(6px * -2);
 		top: 50%;
 		transform: translateX(0) translateY(-50%);
 		border-left-color: black;
-	}
+	} */
 }

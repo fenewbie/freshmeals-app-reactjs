@@ -42,14 +42,17 @@ function SuccessModal({ type }) {
 
 				<div>
 					<div className="flex max-md:flex-wrap items-center max-md:justify-center">
-						<img
-							src={
-								image ||
-								'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/1.png'
-							}
-							alt="product"
-							className="h-32 w-48 object-contain mr-6 max-md:m-auto"
-						/>
+						<div className="h-32 w-48 mr-6 max-md:m-auto">
+							<img
+								src={
+									image ||
+									'https://tunatheme.com/tf/html/broccoli-preview/broccoli/img/product/1.png'
+								}
+								alt="product"
+								className="h-full w-full object-contain "
+							/>
+						</div>
+
 						<div className="max-md:text-center">
 							<h4 className="md:text-xl font-bold max-md:mt-5 text-ellipsis">
 								{title}

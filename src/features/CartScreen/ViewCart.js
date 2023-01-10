@@ -40,12 +40,12 @@ export default function ViewCart({ handleClose, item }) {
 				</header>
 				{item.length === 0 ? (
 					<div className="flex flex-col items-center">
-						<p className="text-xl font-bold">
+						<p className="md:text-xl font-bold mt-3">
 							No item in your cart!
 						</p>
 						<Button
 							onClick={() => handleClick('shop')}
-							className="flex text-xl m-3 px-6 py-3 shadow border hover:bg-greenBtn hover:text-white hover:underline "
+							className="flex md:text-xl m-3 px-6 md:py-3 py-2 shadow border hover:bg-greenBtn hover:text-white hover:underline "
 						>
 							<span>Back to Shop</span>
 						</Button>
