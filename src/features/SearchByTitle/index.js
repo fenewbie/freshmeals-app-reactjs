@@ -28,12 +28,12 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 	return (
 		<>
 			{navigation.state === 'loading' ? (
-				<Loader type='section' />
+				<Loader type="section" />
 			) : (
 				<div>
 					{resultSearch.length > 0 ? (
 						<>
-							<Title title={`Search result: ${resultSearch.length} posts`} />
+							<Title subtitle={`Search result: ${resultSearch.length} posts`} />
 							{isBlog && <BlogGrid blogs={resultSearch} />}
 							{isProduct && <ProductGrid products={resultSearch} />}
 						</>
@@ -49,7 +49,9 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 							</div>
 
 							<Title
-								title={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
+								subtitle={
+									(isBlog && 'All Blogs') || (isProduct && 'All Products')
+								}
 								center={false}
 							/>
 							{isBlog && <BlogGrid blogs={list} />}
