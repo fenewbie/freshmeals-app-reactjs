@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 
-import Navigation from '@components/UI/Navbar';
+import Navigation from '@components/UI/Navlink';
 import SocialLink from '@components/UI/SocialLink';
 import SearchProducts from 'layouts/Header/Search';
 import Modal from '@components/UI/Modal';

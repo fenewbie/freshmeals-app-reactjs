@@ -1,13 +1,12 @@
-import { NavLink } from 'react-router-dom';
 import { GrLocation } from 'react-icons/gr';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
-import { MdDoubleArrow } from 'react-icons/md';
 
 
 import { SubscribeForm } from '@components/Form';
 import SocialLink from '@components/UI/SocialLink';
 import * as cs from '@utils/constants';
+import Navlink from '@components/UI/Navlink';
 
 const Footer = () => {
 	return (
@@ -54,55 +53,19 @@ const Footer = () => {
 				<div className="lg:col-span-2 md:col-span-4 mb-3">
 					<div className="w-full p-2">
 						<h4 className="text-xl font-bold mb-6">Company</h4>
-						<ul className="space-y-4">
-							{cs.linkList.map((link) => (
-								<li key={link.id}>
-									<NavLink
-										to={link.url}
-										className="group inline-flex items-center capitalize hover:translate-x-4 hover:text-[#80B500] hover:font-semibold hover:ease-in-out hover:duration-300"
-									>
-										<MdDoubleArrow className="-translate-x-full invisible w-0 group-hover:visible group-hover:w-6 group-hover:-translate-x-1 group-hover:ease-in-out group-hover:duration-300" />
-										<span>{link.title}</span>
-									</NavLink>
-								</li>
-							))}
-						</ul>
+						<Navlink type="footer" items={cs.linkList} />
 					</div>
 				</div>
 				<div className="lg:col-span-2 md:col-span-4 mb-3">
 					<div className="w-full p-2">
 						<h4 className="text-xl font-bold mb-6">Services</h4>
-						<ul className="space-y-4 pb-7">
-							{cs.linkFooter.map((link) => (
-								<li key={link.id}>
-									<NavLink
-										to={link.url}
-										className="group inline-flex items-center capitalize hover:translate-x-4 hover:text-[#80B500] hover:font-semibold hover:ease-in-out hover:duration-300"
-									>
-										<MdDoubleArrow className="-translate-x-full invisible w-0 group-hover:visible group-hover:w-6 group-hover:-translate-x-1 group-hover:ease-in-out group-hover:duration-300" />
-										<span>{link.title}</span>
-									</NavLink>
-								</li>
-							))}
-						</ul>
+						<Navlink type="footer" items={cs.linkFooter} />
 					</div>
 				</div>
 				<div className="lg:col-span-2 md:col-span-4 mb-3">
 					<div className="w-full p-2">
 						<h4 className="text-xl font-bold mb-6">Customer Care</h4>
-						<ul className="space-y-4">
-							{cs.userList.map((link) => (
-								<li key={link.id}>
-									<NavLink
-										to={link.to}
-										className="group inline-flex items-center capitalize hover:translate-x-4 hover:text-[#80B500] hover:font-semibold hover:ease-in-out hover:duration-300"
-									>
-										<MdDoubleArrow className="-translate-x-full invisible w-0 group-hover:visible group-hover:w-6 group-hover:-translate-x-1 group-hover:ease-in-out group-hover:duration-300" />
-										<span>{link.title}</span>
-									</NavLink>
-								</li>
-							))}
-						</ul>
+						<Navlink type="footer" items={cs.userList} />
 					</div>
 				</div>
 				<div className="lg:col-span-3 md:col-span-4 mb-3">
