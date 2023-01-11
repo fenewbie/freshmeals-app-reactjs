@@ -10,7 +10,7 @@ const Title = ({ title, subtitle, center = true }) => {
 			)}
 			{title && (
 				<h1
-					className={`text-2xl lg:text-5xl min-[600px]:text-3xl md:text-4xl font-bold capitalize mb-12 font-raj`}
+					className={`lg:text-xl min-[600px]:text-xl md:text-xl font-bold capitalize mb-12 font-raj`}
 				>
 					{title}
 				</h1>
