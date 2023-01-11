@@ -1,8 +1,9 @@
+import { ErrorMessage, Field, useField } from 'formik';
+
 import Button from '@components/UI/Button';
 import Accordion from '@components/UI/Accordion';
-import { paymentmethods } from '@utils/constants';
-import { ErrorMessage, Field, useField } from 'formik';
 import TextError from './FormikControl/TextError';
+import { paymentmethods } from '@utils/constants';
 
 export default function PaymentMethod() {
 	const [field] = useField('paymentmethod');

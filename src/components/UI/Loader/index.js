@@ -24,8 +24,8 @@ export default function Loader({ type }) {
 						</span>
 						<div class="absolute top-0 left-0 animate-spin rounded-full h-full w-full border-t-4 border-b-4 border-greenBtn bg-[#2D3240]"></div>
 					</div>
-					<span className="text-greenBtn mt-5 md:text-xl">
-						It takes a bit long time but not long now!
+					<span className="mt-5 md:text-xl">
+						It takes a bit more time but not long now!
 					</span>
 				</div>
 			);

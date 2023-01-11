@@ -1,8 +1,9 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
-import * as cs from '@utils/constants';
+import { TbArrowBigLeftLines } from 'react-icons/tb';
+
 import Button from '@components/UI/Button';
+import * as cs from '@utils/constants';
 
 const PrivateRoute = ({ type, children }) => {
 	const navigate = useNavigate();

@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 
 import useQuery from '@hooks/useQuery';
-import { productFilter as filter } from '@utils/constants';
 import Button from '@components/UI/Button';
 import { default as Grid } from '@features/ProductScreen/ProductGrid';
 import { CommonSection } from '@components/Blog';
@@ -13,6 +12,7 @@ import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
 import FilterPriceRange from './FilterPriceRange';
 import Tooltip from '@components/UI/Tooltip';
+import { productFilter as filter } from '@utils/constants';
 
 function ProductFilter() {
 	const { products } = useRouteLoaderData('root');

@@ -4,10 +4,11 @@ import { useLocation } from 'react-router-dom';
 import Title from '@components/Title';
 import { BlogGrid } from '@components/Blog';
 import ProductGrid from '@features/ProductScreen/ProductGrid';
-import * as cs from '../../utils/constants';
+import * as cs from '@utils/constants';
 
 function SearchByTitle({ list, isBlog, isProduct }) {
 	const [resultSearch, setResultSearch] = useState([]);
+	
 	const location = useLocation();
 
 	useEffect(() => {

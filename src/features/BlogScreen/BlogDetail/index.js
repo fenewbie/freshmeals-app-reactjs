@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
 import {
@@ -14,7 +15,6 @@ import { CommentForm } from '@components/Form';
 import { Post, Tags } from '@components/Blog';
 import PrivateRoute from '@components/PrivateRoute';
 import Button from '@components/UI/Button';
-import { memo } from 'react';
 
 function BlogDetail() {
 	const { blog, id } = useLoaderData();
@@ -29,7 +29,6 @@ function BlogDetail() {
 				email: values.email,
 				saveinfo: values.saveinfo[0],
 				createdAt: Timestamp.now().toDate(),
-				// time: new Date(),
 			});
 			alert('Thank you for your comment! ');
 			actions.resetForm();
@@ -37,10 +36,6 @@ function BlogDetail() {
 			console.log(err);
 		}
 	};
-
-	// useEffect(() => {
-	// 	window.scrollTo({ top: 130, left: 0 });
-	// }, [blog]);
 
 	return (
 		<div className="border-2 rounded py-10 md:px-12 px-6 mb-28">
@@ -111,7 +106,6 @@ function BlogDetail() {
 				type="tags"
 			/>
 			<CommentSection />
-			{/* <CommentCard /> */}
 			<PrivateRoute
 				isLoggedIn={true}
 				type="admin"

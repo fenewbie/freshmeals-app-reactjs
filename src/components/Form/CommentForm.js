@@ -1,11 +1,11 @@
-import Button from '@components/UI/Button';
-
 import { TbEdit } from 'react-icons/tb';
 import { FiMessageCircle } from 'react-icons/fi';
 import { AiOutlineGlobal } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { Form, Formik } from 'formik';
+
+import Button from '@components/UI/Button';
 import FormikControl from './FormikControl';
 import { CommentSchema } from './ValidationSchema';
 import { saveinfocomment } from '@utils/constants';

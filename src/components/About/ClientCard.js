@@ -1,5 +1,5 @@
-import Card from '@components/UI/Card/index';
 import { TiMessages } from 'react-icons/ti';
+import Card from '@components/UI/Card/index';
 
 function ClientCard({ name, desc, job, image }) {
 	return (

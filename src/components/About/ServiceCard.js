@@ -10,7 +10,7 @@ function ServiceCard({ title, desc, iconImg }) {
 				/>
 				<Link
 					className="lg:text-2xl md:text-xl text-lg font-bold ml-6 hover:text-greenBtn transition-all"
-					to="/Our-Service"
+					wto="/Our-Service"
 				>
 					{title}
 				</Link>

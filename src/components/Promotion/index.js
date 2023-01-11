@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
 import Button from '@components/UI/Button';
-import { Link } from 'react-router-dom';
 
 function PromotionCard({ id, type, title, subtitle, image, isRandom }) {
 	return (

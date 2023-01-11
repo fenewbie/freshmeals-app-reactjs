@@ -1,7 +1,7 @@
-import BlogSlider from '@components/Blog/BlogSlider';
-import Title from '@components/Title';
 import { memo } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
+import BlogSlider from '@components/Blog/BlogSlider';
+import Title from '@components/Title';
 
 function BlogLeatest() {
 	const { blogs } = useRouteLoaderData('root');

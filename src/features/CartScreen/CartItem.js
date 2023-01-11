@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Quantity } from '@components/Cart/Quantity';
 import { cartActions } from '@store/cart/cartSlice';
-import { Link } from 'react-router-dom';
 
 export default function CartItem({ item, background }) {
 	const { id, title, image, quantity, discount, totalPrice } = item;

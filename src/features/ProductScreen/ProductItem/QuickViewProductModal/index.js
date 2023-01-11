@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,7 +14,6 @@ import SocialLink from '@components/UI/SocialLink';
 import Rating from '@components/Product/Rating';
 import Button from '@components/UI/Button/index';
 import { Quantity } from '@components/Cart/Quantity';
-import { useState } from 'react';
 
 const QuickViewProductModal = () => {
 	const product = useSelector((state) => state.modal.quickViewModal.dataActive);
@@ -129,7 +129,7 @@ const QuickViewProductModal = () => {
 								<WishList wishlist={title} />
 								<span className="ml-1 font-medium">Add to Wishlist</span>
 							</div>
-							<Link className="flex items-center  hover:text-greenBtn transition-all">
+							<Link className="flex items-center  hover:text-greenBtn transition-all" to='/shop'>
 								<BsArrowLeftRight />
 								<span className="ml-1 font-medium">Compare</span>
 							</Link>

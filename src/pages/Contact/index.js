@@ -1,7 +1,6 @@
-import * as cs from '@utils/constants';
-
 import ContactForm from '@components/Form/ContactForm';
 import Card from '@components/UI/Card';
+import * as cs from '@utils/constants';
 
 const Contact = () => {
 	return (

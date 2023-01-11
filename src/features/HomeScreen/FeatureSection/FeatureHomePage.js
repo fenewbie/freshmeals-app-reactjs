@@ -1,8 +1,8 @@
 import { useRouteLoaderData } from 'react-router-dom';
 
-import { shuffle } from '@utils/helpers';
 import Title from '@components/Title';
 import ProductItem from '@features/ProductScreen/ProductItem';
+import { shuffle } from '@utils/helpers';
 
 export default function FeatureHomePage() {
 	const { products } = useRouteLoaderData('root');

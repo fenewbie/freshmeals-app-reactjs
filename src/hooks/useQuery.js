@@ -1,5 +1,5 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useCallback, useState } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@services/firebase';
 
 function useQuery(col, init) {

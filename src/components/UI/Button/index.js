@@ -6,7 +6,6 @@ const Button = ({
 	type,
 	link = '/',
 	onClick,
-	reload = true,
 	btn,
 	onMouseOver,
 }) => {

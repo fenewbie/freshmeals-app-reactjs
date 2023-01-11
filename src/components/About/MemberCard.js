@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import Tooltip from '@components/UI/Tooltip';
-import { FaFacebookF, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 function MemberCard({ name, image, position }) {
 	return (

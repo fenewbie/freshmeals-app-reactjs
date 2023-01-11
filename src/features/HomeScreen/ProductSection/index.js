@@ -1,5 +1,5 @@
-import ProductList from '@features/ProductScreen/ProductList';
 import { useRouteLoaderData } from 'react-router-dom';
+import ProductList from '@features/ProductScreen/ProductList';
 
 
 export default function ProductSection() {

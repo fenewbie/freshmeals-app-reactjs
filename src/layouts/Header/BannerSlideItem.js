@@ -1,5 +1,5 @@
-import Button from '@components/UI/Button';
 import { memo } from 'react';
+import Button from '@components/UI/Button';
 
 const BannerSlideItem = ({ imgItem, isActive }) => {
 	return (

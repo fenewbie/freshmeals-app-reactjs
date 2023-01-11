@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, db } from '@services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
-import Button from '@components/UI/Button';
 import { Form, Formik } from 'formik';
+
+import { auth, db } from '@services/firebase';
+import Button from '@components/UI/Button';
 import { RegisterSchema } from '@components/Form/ValidationSchema';
 import FormikControl from '@components/Form/FormikControl';
 import { consent } from '@utils/constants';

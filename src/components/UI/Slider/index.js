@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/grid';
 import 'swiper/css/effect-fade';
-
 import { Keyboard, Grid, EffectFade, Pagination } from 'swiper';
 
 import SliderButton from './SliderButton';

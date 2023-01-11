@@ -7,6 +7,7 @@ import FormikControl from './FormikControl';
 function SubscribeForm({ isFooter }) {
 	const handleSubmit = (values) => {
 		console.log(values.email);
+		alert('Thank you for your subscription!')
 	};
 
 	return (

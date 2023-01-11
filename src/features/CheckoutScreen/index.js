@@ -1,11 +1,12 @@
+import { Link, useSubmit } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Formik, Form } from 'formik';
+
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
 import PaymentMethod from '@components/Form/PaymentForm';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
-import { Formik, Form } from 'formik';
-import { useSelector } from 'react-redux';
 
-import { Link, useSubmit } from 'react-router-dom';
 
 export default function CheckoutScreen() {
 	const submit = useSubmit();

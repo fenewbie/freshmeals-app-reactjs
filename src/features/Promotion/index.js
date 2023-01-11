@@ -1,5 +1,5 @@
-import PromotionCard from '@components/Promotion/PromotionCard';
 import { useRouteLoaderData } from 'react-router-dom';
+import PromotionCard from '@components/Promotion';
 
 export default function Promotion() {
 	const { promotions } = useRouteLoaderData('root');

@@ -1,6 +1,6 @@
 import CommentCard from "@components/Comment";
 
-function CommentSection({name,comment,date}) {
+function CommentSection() {
     return (
 			<div className="">
 				<h3 className="font-bold text-2xl mb-5 font-raj">02 Comments</h3>

@@ -1,6 +1,6 @@
+import { IoArrowUndoOutline } from 'react-icons/io5';
 import Button from '@components/UI/Button';
 import Card from '@components/UI/Card';
-import { IoArrowUndoOutline } from 'react-icons/io5';
 function CommentCard({ avatar, name, date, comment, separate }) {
 	return (
 		<Card

@@ -1,4 +1,4 @@
-import Promotion from '@features/Promotion/index';
+import Promotion from '@features/Promotion';
 
 function PromotionSection() {
 	return (

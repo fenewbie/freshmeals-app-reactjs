@@ -1,12 +1,13 @@
-import Button from '@components/UI/Button';
-import { saveinfocomment, servicetype } from '@utils/constants';
 import { Formik, Form } from 'formik';
-import FormikControl from './FormikControl';
-import { ContactSchema } from './ValidationSchema';
-
 import { FaUserAlt } from 'react-icons/fa';
 import { GrMail } from 'react-icons/gr';
 import { AiFillPhone } from 'react-icons/ai';
+
+import Button from '@components/UI/Button';
+import FormikControl from './FormikControl';
+import { ContactSchema } from './ValidationSchema';
+import { saveinfocomment, servicetype } from '@utils/constants';
+
 
 export default function ContactForm() {
 	const onSubmit = (values) => {

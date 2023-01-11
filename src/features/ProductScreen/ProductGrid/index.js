@@ -1,11 +1,12 @@
+import { useSelector } from 'react-redux';
+
 import Pagination from '@components/UI/Pagination';
 import ProductItem from '@features/ProductScreen/ProductItem';
 import QuickViewProductModal from '@features/ProductScreen/ProductItem/QuickViewProductModal';
 import SuccessModal from '@features/ProductScreen/ProductItem/SuccessModal';
 import usePagination from '@hooks/usePagination';
-import { useSelector } from 'react-redux';
 
-function ProductGrid({ products, cols = 4 }) {
+function ProductGrid({ products}) {
 	const { dataRender, currentPage, totalPages, handlePageChange } =
 		usePagination({ listData: products, limit: 6 });
 

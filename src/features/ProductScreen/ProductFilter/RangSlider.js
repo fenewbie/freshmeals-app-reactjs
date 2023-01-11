@@ -54,49 +54,47 @@ function RangSlider({
 	}, [maxValue, min, total]);
 
 	return (
-		<>
-			<div className="relative h-1 w-full bg-black rounded-full">
-				<div>
-					<input
-						type="range"
-						value={minValue}
-						min={min}
-						max={max}
-						step={step}
-						onChange={handleChangeMin}
-						className="appearance-none absolute bg-slate-500 top-0 left-0 h-full opacity-0 z-30 pointer-events-none range-slider"
-					/>
-					<input
-						type="range"
-						value={maxValue}
-						min={min}
-						max={max}
-						step={step}
-						className="appearance-none absolute bg-red-300 bottom-0 left-0 w-full h-full opacity-0 z-30 pointer-events-none range-slider"
-						onChange={handleChangeMax}
-					/>
-				</div>
-
-				<div>
-					<div
-						className={`absolute h-full bg-greenBtn z-10`}
-						style={{
-							left: `${minPos}%`,
-							right: `${100 - maxPos}%`,
-						}}
-					></div>
-					<span
-						className="h-3 w-3 absolute bg-greenBtn rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 z-20"
-						style={{ left: `${maxPos}%` }}
-					></span>
-
-					<span
-						className="h-3 w-3 absolute bg-greenBtn rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 z-20"
-						style={{ left: `${minPos}%` }}
-					></span>
-				</div>
+		<div className="relative h-1 w-full bg-black rounded-full">
+			<div>
+				<input
+					type="range"
+					value={minValue}
+					min={min}
+					max={max}
+					step={step}
+					onChange={handleChangeMin}
+					className="appearance-none absolute bg-slate-500 top-0 left-0 h-full opacity-0 z-30 pointer-events-none range-slider"
+				/>
+				<input
+					type="range"
+					value={maxValue}
+					min={min}
+					max={max}
+					step={step}
+					className="appearance-none absolute bg-red-300 bottom-0 left-0 w-full h-full opacity-0 z-30 pointer-events-none range-slider"
+					onChange={handleChangeMax}
+				/>
 			</div>
-		</>
+
+			<div>
+				<div
+					className={`absolute h-full bg-greenBtn z-10`}
+					style={{
+						left: `${minPos}%`,
+						right: `${100 - maxPos}%`,
+					}}
+				></div>
+				<span
+					className="h-3 w-3 absolute bg-greenBtn rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 z-20"
+					style={{ left: `${maxPos}%` }}
+				></span>
+
+				<span
+					className="h-3 w-3 absolute bg-greenBtn rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 z-20"
+					style={{ left: `${minPos}%` }}
+				></span>
+			</div>
+		</div>
 	);
 }
 

@@ -1,10 +1,10 @@
-import IntroSection from './IntroSection';
+import { memo } from 'react';
 
+import IntroSection from './IntroSection';
 import SocialLink from '@components/UI/SocialLink';
 import { CommonSection, BlogCategory, Tags } from '@components/Blog';
 import { default as PromotionRandom } from '@features/Promotion/Random';
 import SearchSection from './SearchSection';
-import { memo } from 'react';
 
 function BlogSideBar() {
 	return (

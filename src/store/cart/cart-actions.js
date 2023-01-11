@@ -1,5 +1,5 @@
-import { cartActions } from './cartSlice';
 import axios from 'axios';
+import { cartActions } from './cartSlice';
 
 export const fetchCartData = () => {
 	return async (dispatch) => {

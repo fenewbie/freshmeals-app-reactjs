@@ -1,6 +1,7 @@
-import PromotionCard from '@components/Promotion/PromotionCard';
 import { memo, useEffect, useState } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
+
+import PromotionCard from '@components/Promotion';
 
 function Random() {
 	const { promotions } = useRouteLoaderData('root');
