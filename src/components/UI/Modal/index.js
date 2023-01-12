@@ -20,7 +20,9 @@ function Modal({ children, className, handleClose }) {
 				className={`fixed inset-0 z-[999] flex justify-center items-center bg-[#0009] ${className}`}
 				onClick={handleClose}
 			>
-				<div onClick={(e) => e.stopPropagation()}>{children}</div>
+				<div onClick={(e) => e.stopPropagation()}>
+					{children}
+				</div>
 			</div>
 		</ReactPortal>
 	);

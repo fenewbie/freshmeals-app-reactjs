@@ -1,6 +1,8 @@
 import { BsFillSignpost2Fill } from 'react-icons/bs';
 import SocialLink from '@components/UI/SocialLink';
-import { CommonSection } from '@components/Blog';
+import {CommonSection} from '@components/Blog';
+
+
 
 function IntroSection() {
 	return (
