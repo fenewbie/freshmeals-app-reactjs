@@ -10,7 +10,7 @@ import { Keyboard, Grid, EffectFade, Pagination } from 'swiper';
 import SliderButton from './SliderButton';
 import SliderPagination from './SliderPagination';
 
-function Slider({ children, ...swiperProps }) {
+function Slider({ children, hasPagination = true, ...swiperProps }) {
 	const [showSliderBtn, setShowSliderBtn] = useState(false);
 	const [indexAct, setIndexAct] = useState(0);
 
@@ -25,7 +25,6 @@ function Slider({ children, ...swiperProps }) {
 	} else if (row !== 1) {
 		totalSlides = Math.round((totalSlides - slidesPerView) / row);
 	}
-
 
 	return (
 		<div
@@ -69,7 +68,7 @@ function Slider({ children, ...swiperProps }) {
 					} shadow-2xl transition-all ease-in-out duration-300 lg:block hidden  focus:outline focus:outline-2 focus:outline-greenBtn`}
 					iconClassName={`transition-all ease-in-out duration-300`}
 				/>
-				{totalSlides > 1 && (
+				{totalSlides > 1 && hasPagination && (
 					<SliderPagination
 						totalSlides={totalSlides}
 						indexAct={indexAct}

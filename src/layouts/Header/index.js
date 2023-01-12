@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
+import { modalActions } from '@store/modal/modalSlice';
+import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
+import * as cs from '@utils/constants';
+
 import NavMobi from './NavMobi';
 import Navlink from '@components/UI/Navlink';
 import Button from '@components/UI/Button';
 import Banner from './Banner';
 import Dropdown from '@components/UI/Dropdown';
-import { modalActions } from '@store/modal/modalSlice';
 import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
-import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
-import * as cs from '@utils/constants';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -71,7 +72,11 @@ const Header = () => {
 					<nav className="pb-6">
 						<div className="flex items-center justify-center">
 							<Link to="/">
-								<img src={cs.logo01} alt="logo" className="h-12" />
+								<img
+									src={cs.logo01}
+									alt="logo"
+									className="h-12"
+								/>
 							</Link>
 						</div>
 					</nav>
@@ -103,7 +108,10 @@ const Header = () => {
 										<BiUser />
 									</Button>
 									{showDropdown ? (
-										<Dropdown items={cs.userList} handleClose={handleClose} />
+										<Dropdown
+											items={cs.userList}
+											handleClose={handleClose}
+										/>
 									) : (
 										''
 									)}
@@ -114,13 +122,18 @@ const Header = () => {
 									className="p-3 bg-white rounded-full hover:bg-greenBtn relative"
 								>
 									<BiCartAlt />
-									<span className="absolute -top-3 -right-1 text-2xl text-red-600">
-										{totalQuantity}
-									</span>
+									{totalQuantity > 0 && (
+										<span className="absolute -top-3 -right-1 text-2xl text-red-600">
+											{totalQuantity}
+										</span>
+									)}
 								</Button>
 								<AnimatePresence>
 									{showCart ? (
-										<ViewCart handleClose={handleCart} item={cartItems} />
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
 									) : null}
 								</AnimatePresence>
 								<Button
@@ -132,7 +145,11 @@ const Header = () => {
 
 								<AnimatePresence>
 									{showNavMobi ? (
-										<NavMobi handleClose={() => handleNavMobi(false)} />
+										<NavMobi
+											handleClose={() =>
+												handleNavMobi(false)
+											}
+										/>
 									) : null}
 								</AnimatePresence>
 							</div>
