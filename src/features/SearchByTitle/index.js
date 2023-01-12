@@ -33,14 +33,23 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 				<div>
 					{resultSearch.length > 0 ? (
 						<>
-							<Title subtitle={`Search result: ${resultSearch.length} posts`} />
+							<Title
+								subtitle={`Search result: ${resultSearch.length} posts`}
+							/>
 							{isBlog && <BlogGrid blogs={resultSearch} />}
-							{isProduct && <ProductGrid products={resultSearch} />}
+							{isProduct && (
+								<ProductGrid
+									products={resultSearch}
+									fourCols={true}
+								/>
+							)}
 						</>
 					) : (
 						<>
 							<div className="flex justify-center items-center  mb-14">
-								<span className="text-center text-xl">No search result</span>
+								<span className="text-center text-xl">
+									No search result
+								</span>
 								<img
 									src={cs.noResult}
 									alt="no-result"
@@ -50,12 +59,18 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 
 							<Title
 								subtitle={
-									(isBlog && 'All Blogs') || (isProduct && 'All Products')
+									(isBlog && 'All Blogs') ||
+									(isProduct && 'All Products')
 								}
 								center={false}
 							/>
 							{isBlog && <BlogGrid blogs={list} />}
-							{isProduct && <ProductGrid products={list} />}
+							{isProduct && (
+								<ProductGrid
+									products={list}
+									fourCols={true}
+								/>
+							)}
 						</>
 					)}
 				</div>
