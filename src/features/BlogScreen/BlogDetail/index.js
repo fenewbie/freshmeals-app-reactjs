@@ -27,7 +27,7 @@ function BlogDetail() {
 				comment: values.comment,
 				name: values.name,
 				email: values.email,
-				saveinfo: values.saveinfo[0],
+				saveinfo: values.saveinfo,
 				createdAt: Timestamp.now().toDate(),
 			});
 			alert('Thank you for your comment! ');

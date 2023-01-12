@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigation } from 'react-router-dom';
 
 import Title from '@components/Title';
 import { BlogGrid } from '@components/Blog';
 import ProductGrid from '@features/ProductScreen/ProductGrid';
 import * as cs from '@utils/constants';
+import Loader from '@components/UI/Loader';
 
 function SearchByTitle({ list, isBlog, isProduct }) {
 	const [resultSearch, setResultSearch] = useState([]);
-	
+
+	const navigation = useNavigation();
 	const location = useLocation();
 
 	useEffect(() => {
@@ -24,33 +26,41 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 	}, [location, list]);
 
 	return (
-		<div>
-			{resultSearch.length > 0 ? (
-				<>
-					<Title title={`Search result: ${resultSearch.length} posts`} />
-					{isBlog && <BlogGrid blogs={resultSearch} />}
-					{isProduct && <ProductGrid products={resultSearch} />}
-				</>
+		<>
+			{navigation.state === 'loading' ? (
+				<Loader type="section" />
 			) : (
-				<>
-					<div className="flex justify-center items-center  mb-14">
-						<span className="text-center text-3xl">No search result</span>
-						<img
-							src={cs.noResult}
-							alt="no-result"
-							className="h-16 object-contain ml-2"
-						/>
-					</div>
+				<div>
+					{resultSearch.length > 0 ? (
+						<>
+							<Title subtitle={`Search result: ${resultSearch.length} posts`} />
+							{isBlog && <BlogGrid blogs={resultSearch} />}
+							{isProduct && <ProductGrid products={resultSearch} />}
+						</>
+					) : (
+						<>
+							<div className="flex justify-center items-center  mb-14">
+								<span className="text-center text-xl">No search result</span>
+								<img
+									src={cs.noResult}
+									alt="no-result"
+									className="h-16 object-contain ml-2"
+								/>
+							</div>
 
-					<Title
-						title={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
-						center={false}
-					/>
-					{isBlog && <BlogGrid blogs={list} />}
-					{isProduct && <ProductGrid products={list} />}
-				</>
+							<Title
+								subtitle={
+									(isBlog && 'All Blogs') || (isProduct && 'All Products')
+								}
+								center={false}
+							/>
+							{isBlog && <BlogGrid blogs={list} />}
+							{isProduct && <ProductGrid products={list} />}
+						</>
+					)}
+				</div>
 			)}
-		</div>
+		</>
 	);
 }
 

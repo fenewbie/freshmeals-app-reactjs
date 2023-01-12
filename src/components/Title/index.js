@@ -4,7 +4,7 @@ const Title = ({ title, subtitle, center = true }) => {
 	return (
 		<div className={`${center && 'text-center'}`}>
 			{subtitle && (
-				<h6 className="font-bold text-greenBtn capitalize mb-4 font-raj">
+				<h6 className="font-bold text-greenBtn uppercase mb-4 font-raj">
 					{subtitle}
 				</h6>
 			)}

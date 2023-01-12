@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import NavMobi from './NavMobi';
-import Navigation from '@components/UI/Navbar';
+import Navlink from '@components/UI/Navlink';
 import Button from '@components/UI/Button';
 import Banner from './Banner';
 import Dropdown from '@components/UI/Dropdown';
@@ -77,7 +77,10 @@ const Header = () => {
 					</nav>
 					<nav className="flex justify-end items-center gap-8 relative">
 						<div className="hidden lg:block lg:order-1">
-							<Navigation className="flex flex-row gap-6 text-white capitalize font-bold text-xl font-raj" />
+							<Navlink
+								className="flex flex-row gap-6 text-white capitalize font-bold text-xl font-raj"
+								items={cs.navbarList}
+							/>
 						</div>
 
 						<div className="flex flex-wrap gap-6 order-2">

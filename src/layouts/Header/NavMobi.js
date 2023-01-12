@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 
-import Navigation from '@components/UI/Navbar';
+import Navlink from '@components/UI/Navlink';
 import SocialLink from '@components/UI/SocialLink';
 import SearchProducts from 'layouts/Header/Search';
 import Modal from '@components/UI/Modal';
@@ -36,7 +36,10 @@ const NavMobi = ({ handleClose }) => {
 					<SearchProducts isMobi />
 				</div>
 				<div className="h-full pb-44 mt-5">
-					<Navigation className="flex flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%] " />
+					<Navlink
+						className="flex flex-col pb-8 border-b uppercase border-slate-100 w-[87.3%]"
+						items={cs.navbarList}
+					/>
 					<div className="flex flex-col gap-5 py-6 border-b border-slate-100 w-[87.3%]">
 						<Link
 							className="hover:text-greenBtn inline-flex items-center gap-3"

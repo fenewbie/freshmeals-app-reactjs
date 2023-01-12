@@ -7,12 +7,14 @@ import Button from '@components/UI/Button';
 import FormikControl from './FormikControl';
 import { ContactSchema } from './ValidationSchema';
 import { saveinfocomment, servicetype } from '@utils/constants';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function ContactForm() {
+	const navigate = useNavigate();
 	const onSubmit = (values) => {
 		console.log('Form data', values);
 		alert('Thank you for your contact! We will come back to you soon!');
+		navigate('/');
 	};
 	const initialValues = {
 		email: '',

@@ -22,7 +22,7 @@ function SearchForm({ setSearchKey }) {
 			let value = e.target.value.trim();
 			value = value.length > 0 ? value : null;
 			setSearchKey({ value: value });
-		}, 200);
+		}, 100);
 	};
 
 	return (
