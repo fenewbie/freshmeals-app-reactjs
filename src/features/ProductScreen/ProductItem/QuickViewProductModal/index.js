@@ -16,7 +16,9 @@ import Button from '@components/UI/Button/index';
 import { Quantity } from '@components/Cart/Quantity';
 
 const QuickViewProductModal = () => {
-	const product = useSelector((state) => state.modal.quickViewModal.dataActive);
+	const product = useSelector(
+		(state) => state.modal.quickViewModal.dataActive
+	);
 	const { id, title, image, price, rating, reviews, discount, category } =
 		product;
 
@@ -67,7 +69,7 @@ const QuickViewProductModal = () => {
 			handleClose={handleCloseModal}
 			className="overflow-y-auto overflow-x-hidden scroll-bar"
 		>
-			<div className="bg-white relative lg:p-8 p-7 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards] lg:w-4/5 w-[90%]">
+			<div className="bg-white relative lg:p-8 p-7 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards] lg:w-4/5 md:w-[650px] min-[600px]:w-[500px] w-[300px]">
 				<button
 					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
@@ -85,7 +87,11 @@ const QuickViewProductModal = () => {
 					</div>
 					<div className="">
 						<div className="flex max-lg:justify-center">
-							<Rating value={rating} text={reviews} size="16" />
+							<Rating
+								value={rating}
+								text={reviews}
+								size="16"
+							/>
 						</div>
 						<h4 className="text-lg md:text-2xl font-bold mt-2 max-lg:text-center capitalize">
 							{title}
@@ -102,7 +108,10 @@ const QuickViewProductModal = () => {
 							<span className="">Categories:</span>
 							<ul className="flex items-center ml-5">
 								{category?.map((item, index) => (
-									<li className="font-semibold capitalize" key={index}>
+									<li
+										className="font-semibold capitalize"
+										key={index}
+									>
 										{index === 0 ? item : `, ${item}`}
 									</li>
 								))}
@@ -127,11 +136,18 @@ const QuickViewProductModal = () => {
 						<div className="flex mt-5 max-md:text-sm max-lg:justify-center">
 							<div className="flex items-center mr-10 hover:text-greenBtn transition-all cursor-pointer">
 								<WishList wishlist={title} />
-								<span className="ml-1 font-medium">Add to Wishlist</span>
+								<span className="ml-1 font-medium">
+									Add to Wishlist
+								</span>
 							</div>
-							<Link className="flex items-center  hover:text-greenBtn transition-all" to='/shop'>
+							<Link
+								className="flex items-center  hover:text-greenBtn transition-all"
+								to="/shop"
+							>
 								<BsArrowLeftRight />
-								<span className="ml-1 font-medium">Compare</span>
+								<span className="ml-1 font-medium">
+									Compare
+								</span>
 							</Link>
 						</div>
 						<div className="flex items-center max-lg:justify-center border-t-[1px] md:mt-8 mt-5 text-sm ">

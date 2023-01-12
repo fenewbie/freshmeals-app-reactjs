@@ -17,7 +17,7 @@ function ProductGrid({ products, fourCols = false }) {
 			<div
 				className={`grid ${
 					fourCols ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
-				} md:gap-8 gap-4 mb-20`}
+				} grid-cols-2 md:gap-8 gap-4 mb-20`}
 			>
 				{dataRender.map((product) => (
 					<ProductItem

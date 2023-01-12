@@ -7,7 +7,7 @@ function BlogList({ blogs }) {
 		usePagination({ listData: blogs, limit: 3 });
 	return (
 		<>
-			<div className={`grid xl:grid-cols-2 grid-cols-1 md:gap-8 gap-4`}>
+			<div className={`grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4`}>
 				{dataRender.map((blog) => (
 					<BlogCard
 						key={blog.id}
