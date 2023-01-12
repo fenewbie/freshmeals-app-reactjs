@@ -1,10 +1,9 @@
 import { useRef, useState } from 'react';
 import { Form, Formik } from 'formik';
-
-import FormikControl from './FormikControl';
-
 import { BsSearch } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
+
+import FormikControl from './FormikControl';
 
 function SearchForm({ setSearchKey }) {
 	const timer = useRef();
@@ -16,7 +15,7 @@ function SearchForm({ setSearchKey }) {
 		setSearchKey({ value: value });
 	};
 
-	const handleChangeCustom = (e, resetForm) => {
+	const handleChangeCustom = (e) => {
 		setIsTyping(true);
 		if (timer.current) {
 			clearTimeout(timer.current);
@@ -27,32 +26,26 @@ function SearchForm({ setSearchKey }) {
 			value = value.length > 0 ? value : null;
 			setSearchKey({ value: value });
 			setIsTyping(false);
-			resetForm();
 		}, 800);
 	};
 
 	return (
-		<>
-			<Formik
-				initialValues={{ search: '' }}
-				onSubmit={handleSubmit}
-			>
-				{({ handleChange, resetForm }) => (
-					<Form>
-						<FormikControl
-							control="input"
-							name="search"
-							placeholder="Enter your search key..."
-							onChange={(e) => {
-								handleChangeCustom(e, resetForm);
-								handleChange(e);
-							}}
-							icon={isTyping ? <BiLoader /> : <BsSearch />}
-						/>
-					</Form>
-				)}
-			</Formik>
-		</>
+		<Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
+			{({ handleChange }) => (
+				<Form>
+					<FormikControl
+						control="input"
+						name="search"
+						placeholder="Enter your search key..."
+						onChange={(e) => {
+							handleChangeCustom(e);
+							handleChange(e);
+						}}
+						icon={isTyping ? <BiLoader /> : <BsSearch />}
+					/>
+				</Form>
+			)}
+		</Formik>
 	);
 }
 

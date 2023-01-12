@@ -12,6 +12,7 @@ const PortfolioSection = () => {
 	const [loopSlide, setLoopSlide] = useState();
 
 	const { portfolio } = useRouteLoaderData('root');
+	
 	const handleUnmount = useCallback((e) => {
 		const img = e.target.closest('img');
 		!img && setIndexAct();
@@ -94,7 +95,7 @@ const PortfolioSection = () => {
 										<img
 											alt="portfolio"
 											src={imgItem.img}
-											className="h-full w-full object-contain"
+											className="h-full w-full object-cover"
 										/>
 									</div>
 								</SwiperSlide>

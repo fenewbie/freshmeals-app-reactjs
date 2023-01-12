@@ -22,7 +22,7 @@ const Gallery = () => {
 	};
 	return (
 		<>
-			<div className="container py-28">
+			<div className="container pt-28">
 				<Title title="Our Activities" />
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
 					{listToShow.length > 0 ? (

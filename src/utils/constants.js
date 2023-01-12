@@ -74,23 +74,23 @@ export const userList = [
 	{
 		id: 1,
 		title: 'Sign in',
-		to: '/login',
+		url: '/login',
 	},
 	{
 		id: 2,
 		title: 'Register',
 
-		to: '/register',
+		url: '/register',
 	},
 	{
 		id: 3,
 		title: 'My Account',
-		to: '/user-profile',
+		url: '/user-profile',
 	},
 	{
 		id: 4,
 		title: 'Wishlist',
-		to: '/coming-soon',
+		url: '/coming-soon',
 	},
 ];
 

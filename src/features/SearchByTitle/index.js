@@ -26,56 +26,34 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 	}, [location, list]);
 
 	return (
-		<>
-			{navigation.state === 'loading' ? (
-				<Loader type="section" />
+		<div>
+			{navigation.state === 'loading' && <Loader type="section" className='mb-36' />}
+			{resultSearch.length > 0 ? (
+				<>
+					<Title subtitle={`Search result: ${resultSearch.length} posts`} />
+					{isBlog && <BlogGrid blogs={resultSearch} />}
+					{isProduct && <ProductGrid products={resultSearch} fourCols={true} />}
+				</>
 			) : (
-				<div>
-					{resultSearch.length > 0 ? (
-						<>
-							<Title
-								subtitle={`Search result: ${resultSearch.length} posts`}
-							/>
-							{isBlog && <BlogGrid blogs={resultSearch} />}
-							{isProduct && (
-								<ProductGrid
-									products={resultSearch}
-									fourCols={true}
-								/>
-							)}
-						</>
-					) : (
-						<>
-							<div className="flex justify-center items-center  mb-14">
-								<span className="text-center text-xl">
-									No search result
-								</span>
-								<img
-									src={cs.noResult}
-									alt="no-result"
-									className="h-16 object-contain ml-2"
-								/>
-							</div>
+				<>
+					<div className="flex justify-center items-center  mb-14">
+						<span className="text-center text-xl">No search result</span>
+						<img
+							src={cs.noResult}
+							alt="no-result"
+							className="h-16 object-contain ml-2"
+						/>
+					</div>
 
-							<Title
-								subtitle={
-									(isBlog && 'All Blogs') ||
-									(isProduct && 'All Products')
-								}
-								center={false}
-							/>
-							{isBlog && <BlogGrid blogs={list} />}
-							{isProduct && (
-								<ProductGrid
-									products={list}
-									fourCols={true}
-								/>
-							)}
-						</>
-					)}
-				</div>
+					<Title
+						subtitle={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
+						center={false}
+					/>
+					{isBlog && <BlogGrid blogs={list} />}
+					{isProduct && <ProductGrid products={list} fourCols={true} />}
+				</>
 			)}
-		</>
+		</div>
 	);
 }
 

@@ -12,7 +12,16 @@
 ### Screen shots
 
 <div align="center">
-  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/homepage.JPG?alt=media&token=7421c968-84a9-4b90-9725-e686a9684de4" width="720">
+Homepage
+  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/homepage.JPG?alt=media&token=7421c968-84a9-4b90-9725-e686a9684de4" width="100">
+  Shop page
+  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/shop.JPG?alt=media&token=207bf79c-9f49-4eaa-bdc8-533bf365975c" width="100">
+  Detailed product
+  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/shop%20detail.JPG?alt=media&token=0ef689b2-bd00-43bb-b7b5-7b271fec91a1" width="100">
+  Blog page 
+  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/blog.JPG?alt=media&token=b41dc03a-74c3-4bbb-8159-1256a7a77892" width="100">
+  Detailed blog page
+  <img src="https://firebasestorage.googleapis.com/v0/b/freshmeals-reactjs.appspot.com/o/blog%20detail.JPG?alt=media&token=4b5e3933-f62f-46cd-98c5-8cac69b52ca0" width="100">
 </div>
 
 ### Project Title

@@ -37,7 +37,7 @@ const Login = lazy(() => import('./pages/Auth/Login'));
 const Register = lazy(() => import('./pages/Auth/Register'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 
-const ComingSoon = lazy(() => import('./pages/comingSoon'));
+const ComingSoon = lazy(() => import('./pages/ComingSoon'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {

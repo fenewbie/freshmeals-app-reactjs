@@ -22,7 +22,7 @@ const Banner = () => {
 
 	return (
 		<div
-			className="relative h-[550px] w-full md:h-[500px] lg:h-[650px] flex justify-center"
+			className="relative h-[550px] w-full md:h-[550px] lg:h-[590px] flex justify-center"
 			onMouseOver={() => setShowArrowBtn(true)}
 			ref={arrowBtnRef}
 		>
