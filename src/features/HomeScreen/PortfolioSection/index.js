@@ -4,8 +4,8 @@ import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import Title from '@components/Title';
-import Backdrop from '@components/UI/Modal/BackDrop';
 import Slider from '@components/UI/Slider';
+import Modal from '@components/UI/Modal';
 
 const PortfolioSection = () => {
 	const [indexAct, setIndexAct] = useState();
@@ -19,7 +19,10 @@ const PortfolioSection = () => {
 
 	return (
 		<div className="bg-[#F7F5EB] pb-24 pt-20 text-center font-raj max-md:px-4">
-			<Title title="We Have Done" subtitle="Portfolio" />
+			<Title
+				title="We Have Done"
+				subtitle="Portfolio"
+			/>
 			{portfolio.length > 0 && (
 				<Slider
 					centeredSlides
@@ -54,44 +57,51 @@ const PortfolioSection = () => {
 				</Slider>
 			)}
 			{indexAct && (
-				<Backdrop handleUnmount={() => setIndexAct()}>
-					<Slider
-						slidesPerView={loopSlide}
-						centeredSlides={true}
-						effect="fade"
-						pagination={{
-							type: 'fraction',
-							renderFraction: function (currentClass, totalClass) {
-								return (
-									'<span class="' +
-									currentClass +
-									'"></span>' +
-									' of ' +
-									'<span class="' +
-									totalClass +
-									'"></span>'
-								);
-							},
-						}}
-						onInit={(e) => {
-							e.slideTo(indexAct);
-						}}
-					>
-						{portfolio.map((imgItem) => (
-							<SwiperSlide key={imgItem.id} onClick={handleUnmount}>
-								<div className="overflow-hidden rounded-md relative lg:pt-[30%] pt-[50%] w-full md:w-1/2 bg-transparent mx-auto">
-									<div className="absolute top-0 left-0 h-full w-full ">
+				<Modal handleClose={() => setIndexAct()}>
+					<div className="lg:w-[720px] md:w-[600px] w-[400px]">
+						<Slider
+							slidesPerView={loopSlide}
+							centeredSlides={true}
+							effect="fade"
+							pagination={{
+								type: 'fraction',
+								renderFraction: function (
+									currentClass,
+									totalClass
+								) {
+									return (
+										'<div class="text-white"><span class="' +
+										currentClass +
+										' "></span>' +
+										' of ' +
+										'<span class="' +
+										totalClass +
+										'"></span></div>'
+									);
+								},
+							}}
+							onInit={(e) => {
+								e.slideTo(indexAct);
+							}}
+							hasPagination={false}
+						>
+							{portfolio.map((imgItem) => (
+								<SwiperSlide
+									key={imgItem.id}
+									onClick={handleUnmount}
+								>
+									<div className="w-full md:h-[600px] h-[180px] bg-[#000000]">
 										<img
 											alt="portfolio"
 											src={imgItem.img}
 											className="h-full w-full object-contain"
 										/>
 									</div>
-								</div>
-							</SwiperSlide>
-						))}
-					</Slider>
-				</Backdrop>
+								</SwiperSlide>
+							))}
+						</Slider>
+					</div>
+				</Modal>
 			)}
 		</div>
 	);
