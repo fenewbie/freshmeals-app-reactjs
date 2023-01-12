@@ -16,7 +16,7 @@ function SearchForm({ setSearchKey }) {
 		setSearchKey({ value: value });
 	};
 
-	const handleChangeCustom = (e) => {
+	const handleChangeCustom = (e, resetForm) => {
 		setIsTyping(true);
 		if (timer.current) {
 			clearTimeout(timer.current);
@@ -27,6 +27,7 @@ function SearchForm({ setSearchKey }) {
 			value = value.length > 0 ? value : null;
 			setSearchKey({ value: value });
 			setIsTyping(false);
+			resetForm();
 		}, 800);
 	};
 
@@ -36,14 +37,14 @@ function SearchForm({ setSearchKey }) {
 				initialValues={{ search: '' }}
 				onSubmit={handleSubmit}
 			>
-				{({ handleChange }) => (
+				{({ handleChange, resetForm }) => (
 					<Form>
 						<FormikControl
 							control="input"
 							name="search"
 							placeholder="Enter your search key..."
 							onChange={(e) => {
-								handleChangeCustom(e);
+								handleChangeCustom(e, resetForm);
 								handleChange(e);
 							}}
 							icon={isTyping ? <BiLoader /> : <BsSearch />}
