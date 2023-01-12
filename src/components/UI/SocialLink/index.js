@@ -4,10 +4,7 @@ import Tooltip from '../Tooltip';
 export default function SocialLink() {
 	return (
 		<div className="flex gap-4 py-7">
-			<Tooltip
-				content="Facebook"
-				direction="right"
-			>
+			<Tooltip content="Facebook" direction="right">
 				<a
 					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
 					href="https://vi-vn.facebook.com"
@@ -15,10 +12,7 @@ export default function SocialLink() {
 					<FaFacebookF />
 				</a>
 			</Tooltip>
-			<Tooltip
-				content="Twitter"
-				direction="right"
-			>
+			<Tooltip content="Twitter" direction="right">
 				<a
 					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
 					href="https://twitter.com"
@@ -26,10 +20,7 @@ export default function SocialLink() {
 					<FaTwitter />
 				</a>
 			</Tooltip>
-			<Tooltip
-				content="Linkedin"
-				direction="right"
-			>
+			<Tooltip content="Linkedin" direction="right">
 				<a
 					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
 					href="https://www.linkedin.com"
@@ -37,10 +28,7 @@ export default function SocialLink() {
 					<FaLinkedin />
 				</a>
 			</Tooltip>
-			<Tooltip
-				content="Youtube"
-				direction="right"
-			>
+			<Tooltip content="Youtube" direction="right">
 				<a
 					className="p-3 rounded-full bg-slate-200 hover:bg-greenBtn block"
 					href="https://www.youtube.com/"

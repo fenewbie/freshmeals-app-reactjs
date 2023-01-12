@@ -13,10 +13,7 @@ const FeatureFooter = () => {
 						key={item.id}
 					>
 						<div>
-							<img
-								src={item.imgUrl}
-								alt={item.title}
-							/>
+							<img src={item.imgUrl} alt={item.title} />
 						</div>
 						<div className="space-y-3 pb-4">
 							<h4 className="font-bold">{item.title}</h4>

@@ -83,4 +83,3 @@ function Slider({ children, hasPagination = true, ...swiperProps }) {
 
 export default memo(Slider);
 
-export default Slider;
