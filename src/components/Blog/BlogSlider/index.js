@@ -1,6 +1,6 @@
 import { SwiperSlide } from 'swiper/react';
 import Slider from '@components/UI/Slider';
-import BlogCard from '../BlogCard';
+import BlogCard from '../../Comment/BlogCard';
 
 function BlogSlider({ blogs }) {
 	return (

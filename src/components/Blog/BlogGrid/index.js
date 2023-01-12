@@ -1,6 +1,6 @@
 import Pagination from '@components/UI/Pagination';
 import usePagination from '@hooks/usePagination';
-import BlogCard from '../BlogCard';
+import BlogCard from '../../Comment/BlogCard';
 
 function BlogList({ blogs }) {
 	const { dataRender, totalPages, currentPage, handlePageChange } =

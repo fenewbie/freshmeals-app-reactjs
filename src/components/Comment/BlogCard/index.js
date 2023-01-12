@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { BiCalendar } from 'react-icons/bi';
 import { FaUserEdit } from 'react-icons/fa';
 
-import Tags from '../Tags';
+import Tags from '../../Blog/Tags';
 import Card from '@components/UI/Card';
 
 const BlogCard = ({ id, title, description, image, tags = [] }) => (

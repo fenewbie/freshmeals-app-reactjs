@@ -1,4 +1,4 @@
-export { default as BlogCard } from './BlogCard';
+export { default as BlogCard } from '../Comment/BlogCard';
 export { default as BlogGrid } from './BlogGrid';
 export { default as BlogCategory } from './BlogCategory';
 export { default as Post } from './Post';
