@@ -1,10 +1,8 @@
-import CartScreen from "@features/CartScreen";
+import CartScreen from '@features/CartScreen';
 
 function Cart() {
-    return (
-		<div className="container mx-auto py-[120px]">
-			<CartScreen />
-		</div>
+	return (
+		<CartScreen />
 	);
 }
 

@@ -1,15 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import Footer from './Footer';
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
-import { getData } from '../services/api';
+import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
+import { getData } from '../services/api';
+import ScrollToTop from '@components/ScrollToTop';
 
 let isInitial = true;
+
 function RootLayout() {
 	const cart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
@@ -39,9 +41,10 @@ function RootLayout() {
 					<Header />
 				</CommonSection>
 			)}
-			<main className="container xl:max-w-xl lg:max-w-lg md:max-w-md py-28">
+			<main>
 				<Outlet />
 			</main>
+			<ScrollToTop />
 			<FeatureFooter />
 			<Footer />
 		</>

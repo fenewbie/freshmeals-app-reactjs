@@ -2,11 +2,7 @@ import BlogDetail from '@features/BlogScreen/BlogDetail';
 import { getDocumentById } from '@services/api';
 
 function BlogDetailPage() {
-	return (
-		<div>
-			<BlogDetail />
-		</div>
-	);
+	return <BlogDetail />;
 }
 
 export default BlogDetailPage;

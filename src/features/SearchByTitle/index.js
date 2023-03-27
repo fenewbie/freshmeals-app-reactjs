@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigation } from 'react-router-dom';
 
 import Title from '@components/Title';
 import { BlogGrid } from '@components/Blog';
 import ProductGrid from '@features/ProductScreen/ProductGrid';
-import * as cs from '../../utils/constants';
+import * as cs from '@utils/constants';
+import Loader from '@components/UI/Loader';
 
 function SearchByTitle({ list, isBlog, isProduct }) {
 	const [resultSearch, setResultSearch] = useState([]);
+
+	const navigation = useNavigation();
 	const location = useLocation();
 
 	useEffect(() => {
@@ -24,16 +27,17 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 
 	return (
 		<div>
+			{navigation.state === 'loading' && <Loader type="section" className='mb-36' />}
 			{resultSearch.length > 0 ? (
 				<>
-					<Title title={`Search result: ${resultSearch.length} posts`} />
+					<Title subtitle={`Search result: ${resultSearch.length} posts`} />
 					{isBlog && <BlogGrid blogs={resultSearch} />}
-					{isProduct && <ProductGrid products={resultSearch} />}
+					{isProduct && <ProductGrid products={resultSearch} fourCols={true} />}
 				</>
 			) : (
 				<>
 					<div className="flex justify-center items-center  mb-14">
-						<span className="text-center text-3xl">No search result</span>
+						<span className="text-center text-xl">No search result</span>
 						<img
 							src={cs.noResult}
 							alt="no-result"
@@ -42,11 +46,11 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 					</div>
 
 					<Title
-						title={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
+						subtitle={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
 						center={false}
 					/>
 					{isBlog && <BlogGrid blogs={list} />}
-					{isProduct && <ProductGrid products={list} />}
+					{isProduct && <ProductGrid products={list} fourCols={true} />}
 				</>
 			)}
 		</div>

@@ -1,16 +1,16 @@
-import PromotionCard from '@components/Promotion/PromotionCard';
 import { useRouteLoaderData } from 'react-router-dom';
+import PromotionCard from '@components/Promotion';
 
 export default function Promotion() {
 	const { promotions } = useRouteLoaderData('root');
 
 	return (
-		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 gap-7">
+		<div className="grid lg:grid-cols-3 md:grid-cols-4 grid-cols-1 md:gap-8 gap-4">
 			{promotions.map((item) => (
 				<div
 					key={item.id}
-					className={`lg:col-span-1 ${
-						item.id == 3 ? 'md:col-[2_/_span_2]' : 'md:col-span-2'
+					className={`lg:col-span-1 md:col-span-2 ${
+						item.id === '3' ? 'md:col-start-2' : ''
 					}`}
 				>
 					<PromotionCard

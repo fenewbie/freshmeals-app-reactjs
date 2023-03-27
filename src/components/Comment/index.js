@@ -1,6 +1,6 @@
+import { IoArrowUndoOutline } from 'react-icons/io5';
 import Button from '@components/UI/Button';
 import Card from '@components/UI/Card';
-import { IoArrowUndoOutline } from 'react-icons/io5';
 function CommentCard({ avatar, name, date, comment, separate }) {
 	return (
 		<Card
@@ -12,8 +12,8 @@ function CommentCard({ avatar, name, date, comment, separate }) {
 			<div className="md:ml-10 max-md:mt-5">
 				<div className="flex justify-between">
 					<div>
-						<h3 className="font-bold md:text-lg">{name}</h3>
-						<span className="block font-semibold md:text-sm text-[0.8rem] text-greenBtn mt-1">
+						<h3 className="font-bold md:text-lg font-raj">{name}</h3>
+						<span className="block font-semibold md:text-sm text-[0.8rem] text-greenBtn mt-1 font-raj">
 							{date}
 						</span>
 					</div>

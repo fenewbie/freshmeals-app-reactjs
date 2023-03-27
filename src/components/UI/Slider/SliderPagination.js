@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSwiper } from 'swiper/react';
 
 const SliderPagination = ({ totalSlides, indexAct, isBanner }) => {
@@ -23,11 +24,15 @@ const SliderPagination = ({ totalSlides, indexAct, isBanner }) => {
 	return (
 		<div
 			className={`flex justify-center cursor-pointer mt-10 
-                ${isBanner ? 'absolute bottom-6 z-[1] left-1/2 -translate-x-1/2' : 'lg:hidden'}`}
+                ${
+					isBanner
+						? 'absolute bottom-6 z-[1] left-1/2 -translate-x-1/2'
+						: 'lg:hidden'
+				}`}
 		>
 			{createDots(totalSlides)}
 		</div>
 	);
 };
 
-export default SliderPagination;
+export default memo(SliderPagination);

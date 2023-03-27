@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { useSwiper } from 'swiper/react';
 import { IconContext } from 'react-icons';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
-import { useSwiper } from 'swiper/react';
 
 export default function SliderButton({
 	className,

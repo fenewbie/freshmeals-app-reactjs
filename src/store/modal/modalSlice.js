@@ -1,23 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-/*
-isShowingSuccessModal: type wishlist/cart
-*/
 const modalSlice = createSlice({
 	name: 'modal',
 	initialState: {
-		isDisplay: false,
+		navMobi: { status: false },
 		isShowingCart: false,
 		quickViewModal: {
 			status: false,
 			dataActive: null,
 		},
-		successModal: { status: false, type: null, dataActive: null },
-		notification: null,
+		successModal: { status: false, type: null, dataActive: null }
 	},
 	reducers: {
-		toggleNavMobi(state) {
-			state.isDisplay = !state.isDisplay;
+		navMobi(state, action) {
+			state.navMobi = {
+				status: action.payload.status,
+			};
 		},
 		toggleCart(state) {
 			state.isShowingCart = !state.isShowingCart;

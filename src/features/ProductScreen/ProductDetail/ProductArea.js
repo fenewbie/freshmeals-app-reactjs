@@ -17,9 +17,9 @@ import { modalActions } from '@store/modal/modalSlice';
 function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);
 	const dispatch = useDispatch();
-	
+
 	const { title, discount, image, id } = product;
-	
+
 	const handleAddProductToCart = () => {
 		dispatch(
 			cartActions.addToCart({
@@ -61,20 +61,21 @@ function ProductArea({ product }) {
 						<Rating
 							value={product.rating}
 							text={product.numReviews}
+							size={16}
 						/>
-						<h4 className="text-2xl font-bold mt-4">
+						<h4 className="md:text-2xl text-xl font-bold mt-2 capitalize">
 							{product.title}
 						</h4>
-						<div className="flex items-center">
-							<span className="inline-block text-[40px] font-semibold text-greenBtn">
+						<div className="flex items-end mt-1">
+							<span className="block text-[40px] font-semibold text-greenBtn">
 								${product.discount}
 							</span>
-							<span className="inline-block text-[32px] font-bold text-greenBtn opacity-50 line-through ml-4">
+							<span className="block text-[32px] font-bold text-greenBtn opacity-50 line-through ml-4 mb-1">
 								${product.price}
 							</span>
 						</div>
 					</div>
-					<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey">
+					<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey md:text-base text-sm">
 						<span>Categories:</span>
 						<div className="ml-3">
 							{product.category?.map((item, index) => (
@@ -89,18 +90,20 @@ function ProductArea({ product }) {
 							))}
 						</div>
 					</div>
-					<div className="flex ">
+					<div className="flex xl:flex-row lg:flex-col">
 						<Quantity
 							decreaseItem={decreaseItem}
 							incrementItem={incrementItem}
 							quantity={quantity}
+							className="h-14"
 						/>
 						<Button
-							btn="cart"
-							className="mt-0 ml-5"
+							className="btn-animated xl:ml-5 lg:ml-0 ml-5 xl:mt-0 lg:mt-5  mt-0  py-3 w-full"
 							onClick={handleAddProductToCart}
 						>
-							Add to cart
+							<span className="btn-animated-text">
+								Add to cart
+							</span>
 						</Button>
 					</div>
 					<div className="flex mt-5">

@@ -2,7 +2,7 @@ import Title from '@components/Title';
 
 function IntroSection() {
 	return (
-		<div className="grid lg:grid-cols-2 grid-cols-1 gap-16 pb-[120px]">
+		<div className=" container py-28 grid lg:grid-cols-2 grid-cols-1 gap-16">
 			<div className="grid grid-cols-2 md:gap-10 gap-7">
 				<img
 					className="rounded-md"

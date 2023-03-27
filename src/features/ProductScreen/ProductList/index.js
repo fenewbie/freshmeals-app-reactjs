@@ -13,7 +13,7 @@ const ProductList = ({ products }) => {
 	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
 	const successModal = useSelector((state) => state.modal.successModal);
 	return (
-		<div className="mt-[120px]">
+		<>
 			<Title title="Our Products" />
 			<div className="mb-[15px]">
 				<Tabs>
@@ -42,7 +42,6 @@ const ProductList = ({ products }) => {
 							spaceBetween={15}
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
 									spaceBetween: 30,
 								},
 								1024: {
@@ -77,7 +76,7 @@ const ProductList = ({ products }) => {
 						<Slider
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
 									slidesPerView: 3,
@@ -86,6 +85,8 @@ const ProductList = ({ products }) => {
 									slidesPerView: 4,
 								},
 							}}
+							slidesPerView={2}
+							spaceBetween={15}
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
@@ -107,7 +108,7 @@ const ProductList = ({ products }) => {
 						<Slider
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
 									slidesPerView: 3,
@@ -117,6 +118,8 @@ const ProductList = ({ products }) => {
 								},
 							}}
 							grid={{ rows: 2, fill: 'row' }}
+							slidesPerView={2}
+							spaceBetween={15}
 							loop={false}
 						>
 							{products
@@ -137,7 +140,7 @@ const ProductList = ({ products }) => {
 						<Slider
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
 									slidesPerView: 3,
@@ -146,6 +149,8 @@ const ProductList = ({ products }) => {
 									slidesPerView: 4,
 								},
 							}}
+							slidesPerView={2}
+							spaceBetween={15}
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
@@ -169,7 +174,7 @@ const ProductList = ({ products }) => {
 						<Slider
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
 									slidesPerView: 3,
@@ -178,6 +183,8 @@ const ProductList = ({ products }) => {
 									slidesPerView: 4,
 								},
 							}}
+							slidesPerView={2}
+							spaceBetween={15}
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
@@ -201,7 +208,7 @@ const ProductList = ({ products }) => {
 						<Slider
 							breakpoints={{
 								768: {
-									slidesPerView: 2,
+									spaceBetween: 30,
 								},
 								1024: {
 									slidesPerView: 3,
@@ -210,6 +217,8 @@ const ProductList = ({ products }) => {
 									slidesPerView: 4,
 								},
 							}}
+							slidesPerView={2}
+							spaceBetween={15}
 							grid={{ rows: 2, fill: 'row' }}
 							loop={false}
 						>
@@ -235,7 +244,7 @@ const ProductList = ({ products }) => {
 			{successModal.status ? (
 				<SuccessModal type={successModal.type} />
 			) : null}
-		</div>
+		</>
 	);
 };
 

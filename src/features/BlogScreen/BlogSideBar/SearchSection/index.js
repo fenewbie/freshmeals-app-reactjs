@@ -1,5 +1,5 @@
-import { SearchForm } from '@components/Form';
 import { createSearchParams, useNavigate } from 'react-router-dom';
+import { SearchForm } from '@components/Form';
 
 function SearchSection() {
 	const navigate = useNavigate();

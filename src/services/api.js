@@ -23,5 +23,28 @@ export const getData = async () => {
 	const products = await getDocuments('products');
 	const promotions = await getDocuments('promotion');
 	const galleries = await getDocuments('blog/2/gallery');
-	return { blogs, products, promotions, galleries };
+
+	const questions = await getDocuments('blog/1/q&a');
+	const services = await getDocuments('features/1/feature-serivce');
+	const teams = await getDocuments('members');
+	const feedbacks = await getDocuments('members/1/client-feedback');
+
+	const portfolio = await getDocuments('portfolio');
+	const countdown = await getDocuments('countdown');
+	const slideHeader = await getDocuments('slide-header');
+	const features = await getDocuments('features');
+	return {
+		blogs,
+		products,
+		promotions,
+		galleries,
+		questions,
+		services,
+		teams,
+		feedbacks,
+		portfolio,
+		countdown,
+		slideHeader,
+		features
+	};
 };

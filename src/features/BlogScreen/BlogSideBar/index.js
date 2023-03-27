@@ -1,5 +1,6 @@
-import IntroSection from './IntroSection';
+import { memo } from 'react';
 
+import IntroSection from './IntroSection';
 import SocialLink from '@components/UI/SocialLink';
 import { CommonSection, BlogCategory, Tags } from '@components/Blog';
 import { default as PromotionRandom } from '@features/Promotion/Random';
@@ -66,4 +67,4 @@ function BlogSideBar() {
 	);
 }
 
-export default BlogSideBar;
+export default memo(BlogSideBar);

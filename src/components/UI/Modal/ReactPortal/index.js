@@ -1,10 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-
-
-const ReactPortal = ({ children, wrapperId="react-portal" }) => {
-
+const ReactPortal = ({ children, wrapperId = 'react-portal' }) => {
 	const [wrapper, setWrapper] = useState(null);
 
 	useLayoutEffect(() => {
@@ -21,7 +18,7 @@ const ReactPortal = ({ children, wrapperId="react-portal" }) => {
 		setWrapper(element);
 
 		return () => {
-			if (created && element?.parentNode) {
+			if (created && element.parentNode) {
 				element.parentNode.removeChild(element);
 			}
 		};

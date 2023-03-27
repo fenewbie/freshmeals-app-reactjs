@@ -1,11 +1,12 @@
+import { Link, useSubmit } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Formik, Form } from 'formik';
+
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
-import PaymentMethod from '@components/Form/PaymentMethod';
+import PaymentMethod from '@components/Form/PaymentForm';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
-import { Formik, Form } from 'formik';
-import { useSelector } from 'react-redux';
 
-import { Link, useSubmit } from 'react-router-dom';
 
 export default function CheckoutScreen() {
 	const submit = useSubmit();
@@ -30,10 +31,10 @@ export default function CheckoutScreen() {
 	};
 
 	return (
-		<div className="container mx-auto py-24 px-6">
+		<div className="container my-28">
 			<section>
 				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
-					<span className="">Returning customer ?</span>
+					<span className="">Returning customer ? </span>
 					<Link
 						to="/login"
 						className="text-greenBtn"
@@ -42,7 +43,7 @@ export default function CheckoutScreen() {
 					</Link>
 				</p>
 				<p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
-					<span className="">Have a coupon ?</span>
+					<span className="">Have a coupon ? </span>
 					<button className="text-greenBtn">
 						Click here to enter your code
 					</button>
@@ -51,8 +52,12 @@ export default function CheckoutScreen() {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={CheckoutSchema}
-				onSubmit={(values) => {
+				onSubmit={(values, actions) => {
 					submit(values, { method: 'post', action: '/checkout' });
+					alert(
+						'Form submitted successfully! Thank you for your information!'
+					);
+					actions.resetForm();
 				}}
 			>
 				<Form>

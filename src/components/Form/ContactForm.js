@@ -1,15 +1,21 @@
-import Button from '@components/UI/Button';
-import { saveinfocomment, servicetype } from '@utils/constants';
 import { Formik, Form } from 'formik';
-import FormikControl from './FormikControl';
-import { ContactSchema } from './ValidationSchema';
-
 import { FaUserAlt } from 'react-icons/fa';
 import { GrMail } from 'react-icons/gr';
 import { AiFillPhone } from 'react-icons/ai';
 
+import Button from '@components/UI/Button';
+import FormikControl from './FormikControl';
+import { ContactSchema } from './ValidationSchema';
+import { saveinfocomment, servicetype } from '@utils/constants';
+import { useNavigate } from 'react-router-dom';
+
 export default function ContactForm() {
-	const onSubmit = (values) => console.log('Form data', values);
+	const navigate = useNavigate();
+	const onSubmit = (values) => {
+		console.log('Form data', values);
+		alert('Thank you for your contact! We will come back to you soon!');
+		navigate('/');
+	};
 	const initialValues = {
 		email: '',
 		name: '',
@@ -75,9 +81,7 @@ export default function ContactForm() {
 					type="submit"
 					className="btn-animated md:min-w-[200px] max-md:w-full"
 				>
-					<span className="btn-animated-text">
-						GET AN FREE SERVICE
-					</span>
+					<span className="btn-animated-text">GET AN FREE SERVICE</span>
 				</Button>
 			</Form>
 		</Formik>

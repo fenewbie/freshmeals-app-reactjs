@@ -1,5 +1,5 @@
-import Slider from '@components/UI/Slider';
 import { SwiperSlide } from 'swiper/react';
+import Slider from '@components/UI/Slider';
 import BlogCard from '../BlogCard';
 
 function BlogSlider({ blogs }) {
@@ -7,9 +7,6 @@ function BlogSlider({ blogs }) {
 		<Slider
 			breakpoints={{
 				768: {
-					slidesPerView: 2,
-				},
-				1024: {
 					slidesPerView: 2,
 				},
 				1280: {
