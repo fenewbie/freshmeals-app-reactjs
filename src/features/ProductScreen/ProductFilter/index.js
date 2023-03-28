@@ -79,13 +79,13 @@ function ProductFilter() {
 						</Tooltip>
 					</div>
 				</div>
-				<Grid
-					products={isFiltering ? filterResult : products}
-					cols={3}
-				/>
+				<Grid products={isFiltering ? filterResult : products} />
 			</div>
-			<div className="lg:col-span-4 lg:-mt-8">
-				<CommonSection title="Filter By">
+			<div className="lg:col-span-4 lg:-mt-8 lg:sticky lg:top-0 h-[600px] lg:overflow-y-scroll lg:scroll-bar">
+				<CommonSection
+					title="Filter By"
+					className="!mt-0"
+				>
 					<Formik
 						initialValues={initialValues}
 						onSubmit={(values) => {
