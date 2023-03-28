@@ -84,7 +84,7 @@ function ProductFilter() {
 			<div className="lg:col-span-4 lg:-mt-8 lg:sticky lg:top-0 h-[600px] lg:overflow-y-scroll lg:scroll-bar">
 				<CommonSection
 					title="Filter By"
-					className="!mt-0"
+					className="!my-0"
 				>
 					<Formik
 						initialValues={initialValues}

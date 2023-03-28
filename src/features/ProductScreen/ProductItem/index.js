@@ -97,14 +97,16 @@ const ProductItem = ({
 						</span>
 					)}
 
-					<img
-						src={image}
-						title="product"
-						className={
-							'absolute top-0 left-0 w-full h-full object-contain'
-						}
-						alt={title}
-					/>
+					<Link to={`/shop/${id}`}>
+						<img
+							src={image}
+							title="product"
+							className={
+								'absolute top-0 left-0 w-full h-full object-contain'
+							}
+							alt={title}
+						/>
+					</Link>
 					{card && (
 						<BtnItemModal
 							handleOpenQuickView={handleOpenQuickView}
