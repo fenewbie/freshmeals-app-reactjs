@@ -9,5 +9,3 @@ function PromotionSection() {
 }
 
 export default PromotionSection;
-
-export default PromotionSection;

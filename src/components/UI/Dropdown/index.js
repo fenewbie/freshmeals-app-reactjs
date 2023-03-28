@@ -10,10 +10,7 @@ const Dropdown = ({ items, handleClose }) => {
 						className="block py-2 px-4 transition-all
 							hover:text-green-600 cursor-pointer"
 					>
-						<Link
-							to={item.url}
-							onClick={handleClose}
-						>
+						<Link to={item.url} onClick={handleClose}>
 							{item.title}
 						</Link>
 					</li>

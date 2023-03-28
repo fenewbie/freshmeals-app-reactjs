@@ -1,4 +1,4 @@
-import { Form, Formik } from 'formik';
+import { Form, Formik} from 'formik';
 import { FiSend } from 'react-icons/fi';
 import Button from '../UI/Button';
 import { SubscribeSchema } from './ValidationSchema';
@@ -7,7 +7,7 @@ import FormikControl from './FormikControl';
 function SubscribeForm({ isFooter }) {
 	const handleSubmit = (values) => {
 		console.log(values.email);
-		alert('Thank you for your subscription!');
+		alert('Thank you for your subscription!')
 	};
 
 	return (
