@@ -41,48 +41,125 @@ const ComingSoon = lazy(() => import('./pages/ComingSoon'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    apiAxios.get('/user').then(resp => {
-      setUsers(resp);
-    });
-  }, []);
-  return (
-    <div className='container p-3'>
-      <h1 className='text-center bg-black text-white text-[150px]'>Hello world</h1>
-      <ol className='space-y-3'>
-        {users &&
-          users.map(item => (
-            <li key={item.id} className='font-semibold'>
-              {item.username}
-              <button
-                className='border p-2 bg-red-700 text-white'
-                onClick={() => {
-                  apiAxios
-                    .delete(`/user/${item.id}`)
-                    .then(resp => {
-                      setUsers(users.filter(user => user.id !== item.id));
-                    })
-                    .catch(err => {
-                      console.log('Delete error: ' + err.message);
-                    });
-                }}>
-                Delete
-              </button>
-            </li>
-          ))}
-      </ol>
-      <button
-        className='border border-black p-2'
-        onClick={() => {
-          apiAxios.post('/user', { username: 'Johnathan Staney' }).then(resp => {
-            setUsers([...users, resp]);
-          });
-        }}>
-        Add new user
-      </button>
-    </div>
-  );
+	const dispatch = useDispatch();
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				dispatch(saveUser(user.refreshToken));
+			} else {
+				dispatch(saveUser(undefined));
+			}
+		});
+		return () => {
+			unsubscribe();
+		};
+	}, [dispatch]);
+
+	const router = createBrowserRouter(
+		createRoutesFromElements(
+			<Route
+				id="root"
+				loader={rootLoader}
+				errorElement={<NotFound />}
+			>
+				<Route
+					path="/"
+					element={<RootLayout />}
+				>
+					<Route
+						index
+						element={<Home />}
+					/>
+					<Route
+						path="login"
+						element={<Login />}
+					/>
+					<Route
+						path="register"
+						element={<Register />}
+					/>
+					<Route
+						path="user-profile"
+						element={
+							<PrivateRoute>
+								<UserProfile />
+							</PrivateRoute>
+						}
+					></Route>
+					<Route
+						path="shop"
+						element={<ShopLayout />}
+					>
+						<Route
+							index
+							element={<ProductGridPage />}
+						/>
+						<Route
+							path=":productId"
+							element={<ProductDetailPage />}
+							loader={productLoader}
+						/>
+						<Route
+							path="search"
+							element={<SearchProductsPage />}
+						/>
+					</Route>
+					<Route
+						path="cart"
+						element={<Cart />}
+					/>
+					<Route
+						path="checkout"
+						element={<Checkout />}
+						action={checkoutAction}
+					/>
+					<Route
+						path="about"
+						element={<About />}
+					/>
+					<Route
+						path="contact"
+						element={<Contact />}
+					/>
+
+					<Route
+						path="blog"
+						element={<BlogLayout />}
+					>
+						<Route
+							index
+							element={<BlogGridPage />}
+						/>
+						<Route
+							path=":blogId"
+							element={<BlogDetailPage />}
+							loader={blogLoader}
+						/>
+						<Route
+							path="search"
+							element={<SearchBlogsPage />}
+						/>
+					</Route>
+					<Route
+						path="gallery"
+						element={<Gallery />}
+					/>
+				</Route>
+				<Route
+					path="coming-soon"
+					element={<ComingSoon />}
+				/>
+			</Route>
+		)
+	);
+	return (
+		<Suspense fallback={<Loader />}>
+			<RouterProvider
+				router={router}
+				fallbackElement={<Loader type="enter-web" />}
+			/>
+		</Suspense>
+	);
 }
 
 export default App;
