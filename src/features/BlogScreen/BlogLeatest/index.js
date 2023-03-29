@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { useRouteLoaderData } from 'react-router-dom';
+import { memo, Suspense } from 'react';
+import { Await, useRouteLoaderData } from 'react-router-dom';
 import BlogSlider from '@components/Blog/BlogSlider';
 import Title from '@components/Title';
 
@@ -8,7 +8,12 @@ function BlogLeatest() {
 	return (
 		<div className="container py-28">
 			<Title title="Lastest Blog" />
-			<BlogSlider blogs={blogs} />
+			<Suspense>
+				<Await
+					resolve={blogs}
+					children={(blogs) => <BlogSlider blogs={blogs} />}
+				/>
+			</Suspense>
 		</div>
 	);
 }

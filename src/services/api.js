@@ -18,21 +18,32 @@ export const getDocumentById = async (id, col) => {
 	return obj ?? null;
 };
 
-export const getData = async () => {
-	const blogs = await getDocuments('blog');
-	const products = await getDocuments('products');
-	const promotions = await getDocuments('promotion');
-	const galleries = await getDocuments('blog/2/gallery');
+export const getData = () => {
+	const blogs = getDocuments('blog');
+	const products = getDocuments('products');
+	// const promotions = getDocuments('promotion');
+	// const galleries = getDocuments('blog/2/gallery');
 
-	const questions = await getDocuments('blog/1/q&a');
-	const services = await getDocuments('features/1/feature-serivce');
-	const teams = await getDocuments('members');
-	const feedbacks = await getDocuments('members/1/client-feedback');
+	// const questions = getDocuments('blog/1/q&a');
+	// const services = getDocuments('features/1/feature-serivce');
+	// const teams = getDocuments('members');
+	// const feedbacks = getDocuments('members/1/client-feedback');
 
-	const portfolio = await getDocuments('portfolio');
-	const countdown = await getDocuments('countdown');
-	const slideHeader = await getDocuments('slide-header');
-	const features = await getDocuments('features');
+	// const portfolio = getDocuments('portfolio');
+	// const countdown = getDocuments('countdown');
+	const slideHeader = getDocuments('slide-header');
+
+	const promotions = [];
+	const galleries = [];
+
+	const questions = [];
+	const services = [];
+	const teams = [];
+	const feedbacks = [];
+
+	const portfolio = [];
+	const countdown = [];
+	const features = getDocuments('features');
 	return {
 		blogs,
 		products,
@@ -45,6 +56,6 @@ export const getData = async () => {
 		portfolio,
 		countdown,
 		slideHeader,
-		features
+		features,
 	};
 };

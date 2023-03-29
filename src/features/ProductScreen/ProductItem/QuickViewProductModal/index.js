@@ -39,27 +39,28 @@ const QuickViewProductModal = () => {
 		dispatch(modalActions.quickView({ status: false }));
 	};
 	const addItem = () => {
-		dispatch(
-			cartActions.addToCart({
-				id,
-				title,
-				discount,
-				image,
-				quantity,
-			})
-		);
-		dispatch(
-			modalActions.successModal({
-				status: true,
-				type: 'cart',
-				dataActive: {
-					id,
-					title,
-					image,
-				},
-			})
-		);
+		// dispatch(
+		// 	cartActions.addToCart({
+		// 		id,
+		// 		title,
+		// 		discount,
+		// 		image,
+		// 		quantity,
+		// 	})
+		// );
+		// dispatch(
+		// 	modalActions.successModal({
+		// 		status: true,
+		// 		type: 'cart',
+		// 		dataActive: {
+		// 			id,
+		// 			title,
+		// 			image,
+		// 		},
+		// 	})
+		// );
 		handleCloseModal();
+		alert('added')
 	};
 
 	return (

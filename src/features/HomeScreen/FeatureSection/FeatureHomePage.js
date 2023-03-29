@@ -3,16 +3,24 @@ import { useRouteLoaderData } from 'react-router-dom';
 import Title from '@components/Title';
 import ProductItem from '@features/ProductScreen/ProductItem';
 import { shuffle } from '@utils/helpers';
+import { useEffect, useState } from 'react';
 
 export default function FeatureHomePage() {
 	const { products } = useRouteLoaderData('root');
-	const shuffleProducts = shuffle(products);
-	const featureProducts = shuffleProducts.slice(0, 8);
+	const [featureProducts, setFeatureProducts] = useState(null);
+
+	useEffect(() => {
+		products.then((products) => {
+			const shuffleProducts = shuffle(products);
+			const features = shuffleProducts.slice(0, 8);
+			setFeatureProducts(features);
+		});
+	}, [products]);
 	return (
-		<div className='container my-28'>
+		<div className="container my-28">
 			<Title title="Featured Products" />
 			<div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 md:gap-8 gap-4  mt-[15px]">
-				{featureProducts.map((el) => (
+				{featureProducts?.map((el) => (
 					<ProductItem
 						key={el.id}
 						{...el}

@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
+import { memo, Suspense } from 'react';
+import { Await, useLoaderData, useRouteLoaderData } from 'react-router-dom';
 import { doc, setDoc, Timestamp } from 'firebase/firestore';
 import {
 	FaRegArrowAltCircleLeft,

@@ -39,26 +39,27 @@ const ProductItem = ({
 		);
 	};
 	const handleAddProductToCart = (e) => {
-		dispatch(
-			cartActions.addToCart({
-				id,
-				title,
-				discount,
-				image,
-				quantity: 1,
-			})
-		);
-		dispatch(
-			modalActions.successModal({
-				status: true,
-				type: 'cart',
-				dataActive: {
-					id,
-					title,
-					image,
-				},
-			})
-		);
+		// dispatch(
+		// 	cartActions.addToCart({
+		// 		id,
+		// 		title,
+		// 		discount,
+		// 		image,
+		// 		quantity: 1,
+		// 	})
+		// );
+		// dispatch(
+		// 	modalActions.successModal({
+		// 		status: true,
+		// 		type: 'cart',
+		// 		dataActive: {
+		// 			id,
+		// 			title,
+		// 			image,
+		// 		},
+		// 	})
+		// );
+		alert('add')
 	};
 	const handleOpenWishListModal = () => {
 		dispatch(
