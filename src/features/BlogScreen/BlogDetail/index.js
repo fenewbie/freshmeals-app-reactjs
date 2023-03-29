@@ -39,7 +39,9 @@ function BlogDetail() {
 
 	return (
 		<div className="border-2 rounded py-10 md:px-12 px-6 mb-28">
-			<Post blog={blog} />
+			<Suspense>
+				<Await resolve={blogs}>{(data) => <Post blog={data[0]} />}</Await>
+			</Suspense>
 
 			<div className="flex justify-between mt-16 max-lg:flex-wrap">
 				<div>

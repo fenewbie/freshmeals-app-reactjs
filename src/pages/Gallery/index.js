@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useRouteLoaderData } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Await, useRouteLoaderData } from 'react-router-dom';
 
 import Title from '@components/Title';
 import Button from '@components/UI/Button';
@@ -12,9 +12,11 @@ const Gallery = () => {
 	const [visible, setVisible] = useState(6);
 
 	useEffect(() => {
-		setListToShow([]);
-		const list = [...galleries[0].images].splice(0, visible);
-		setListToShow(list);
+		galleries.then((data) => {
+			setListToShow([]);
+			const list = [...data[0].images].splice(0, visible);
+			setListToShow(list);
+		});
 	}, [galleries, visible]);
 
 	const handleClick = () => {
@@ -44,16 +46,24 @@ const Gallery = () => {
 						<Loader />
 					)}
 				</div>
-				<div className="text-center">
-					{galleries[0].images.length > listToShow.length && (
-						<Button
-							className="btn-animated mt-16 max-md:w-full"
-							onClick={handleClick}
-						>
-							<span className="btn-animated-text">Load More</span>
-						</Button>
-					)}
-				</div>
+				<Suspense>
+					<Await resolve={galleries}>
+						{(data) => (
+							<div className="text-center">
+								{data[0].images.length > listToShow.length && (
+									<Button
+										className="btn-animated mt-16 max-md:w-full"
+										onClick={handleClick}
+									>
+										<span className="btn-animated-text">
+											Load More
+										</span>
+									</Button>
+								)}
+							</div>
+						)}
+					</Await>
+				</Suspense>
 			</div>
 			<BlogLeatest />
 		</>

@@ -21,28 +21,18 @@ export const getDocumentById = async (id, col) => {
 export const getData = () => {
 	const blogs = getDocuments('blog');
 	const products = getDocuments('products');
-	// const promotions = getDocuments('promotion');
-	// const galleries = getDocuments('blog/2/gallery');
+	const promotions = getDocuments('promotion');
+	const galleries = getDocuments('blog/2/gallery');
 
-	// const questions = getDocuments('blog/1/q&a');
-	// const services = getDocuments('features/1/feature-serivce');
-	// const teams = getDocuments('members');
-	// const feedbacks = getDocuments('members/1/client-feedback');
+	const questions = getDocuments('blog/1/q&a');
+	const services = getDocuments('features/1/feature-serivce');
+	const teams = getDocuments('members');
+	const feedbacks = getDocuments('members/1/client-feedback');
 
-	// const portfolio = getDocuments('portfolio');
-	// const countdown = getDocuments('countdown');
+	const portfolio = getDocuments('portfolio');
+	const countdown = getDocuments('countdown');
 	const slideHeader = getDocuments('slide-header');
 
-	const promotions = [];
-	const galleries = [];
-
-	const questions = [];
-	const services = [];
-	const teams = [];
-	const feedbacks = [];
-
-	const portfolio = [];
-	const countdown = [];
 	const features = getDocuments('features');
 	return {
 		blogs,

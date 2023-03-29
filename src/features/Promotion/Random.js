@@ -8,8 +8,10 @@ function Random() {
 	const [promotion, setPromotion] = useState();
 
 	useEffect(() => {
-		const indexRandom = Math.floor(Math.random() * promotions.length);
-		setPromotion(promotions[indexRandom]);
+		promotions.then((pro) => {
+			const indexRandom = Math.floor(Math.random() * pro.length);
+			setPromotion(pro[indexRandom]);
+		});
 	}, [promotions]);
 
 	return (

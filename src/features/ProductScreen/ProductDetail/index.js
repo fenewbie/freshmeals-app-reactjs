@@ -4,6 +4,7 @@ import ProductRelated from '../ProductRelated';
 import { default as Promotion } from '@features/Promotion/Random';
 
 function ProductDetail({ product }) {
+	console.log(product);
 	return (
 		<div>
 			<div className="grid lg:grid-cols-12 md:grid-cols-1 gap-8">

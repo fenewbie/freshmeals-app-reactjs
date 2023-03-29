@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useRouteLoaderData } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Await, useRouteLoaderData } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 
@@ -79,7 +79,16 @@ function ProductFilter() {
 						</Tooltip>
 					</div>
 				</div>
-				<Grid products={isFiltering ? filterResult : products} />
+				<Suspense>
+					<Await
+						resolve={products}
+						children={(data) => (
+							<Grid
+								products={isFiltering ? filterResult : data}
+							/>
+						)}
+					/>
+				</Suspense>
 			</div>
 			<div className="lg:col-span-4 lg:-mt-8 lg:sticky lg:top-0 h-[600px] lg:overflow-y-scroll lg:scroll-bar">
 				<CommonSection

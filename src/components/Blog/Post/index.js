@@ -4,7 +4,9 @@ function Post({ blog }) {
 	return (
 		<div>
 			<Tags tags={blog.tags} />
-			<h2 className="md:text-3xl text-xl font-bold mb-10">{blog.title}</h2>
+			<h2 className="md:text-3xl text-xl font-bold mb-10">
+				{blog.title}
+			</h2>
 			<img
 				src={blog.image}
 				alt={blog.title}

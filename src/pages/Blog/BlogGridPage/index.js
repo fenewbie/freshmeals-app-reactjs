@@ -1,13 +1,20 @@
-import { useRouteLoaderData } from 'react-router-dom';
+import { Await, useRouteLoaderData } from 'react-router-dom';
+import { Suspense } from 'react';
 import { BlogGrid } from '@components/Blog';
 
 const BlogGridPage = () => {
 	const { blogs } = useRouteLoaderData('root');
 
 	return (
-		<div title="Blog">
-			<BlogGrid blogs={blogs} />
-		</div>
+		<Suspense fallback={<></>}>
+			<Await resolve={blogs}>
+				{(data) => (
+					<div title="Blog">
+						<BlogGrid blogs={data} />
+					</div>
+				)}
+			</Await>
+		</Suspense>
 	);
 };
 
