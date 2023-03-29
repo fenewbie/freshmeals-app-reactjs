@@ -5,6 +5,7 @@ import Rating from '@components/Product/Rating';
 import Card from '@components/UI/Card';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import { toastMessage } from '@utils/toastMessage';
 import { cartActions } from '@store/cart/cartSlice';
 
 const ProductItem = ({
@@ -39,27 +40,16 @@ const ProductItem = ({
 		);
 	};
 	const handleAddProductToCart = (e) => {
-		// dispatch(
-		// 	cartActions.addToCart({
-		// 		id,
-		// 		title,
-		// 		discount,
-		// 		image,
-		// 		quantity: 1,
-		// 	})
-		// );
-		// dispatch(
-		// 	modalActions.successModal({
-		// 		status: true,
-		// 		type: 'cart',
-		// 		dataActive: {
-		// 			id,
-		// 			title,
-		// 			image,
-		// 		},
-		// 	})
-		// );
-		alert('add')
+		dispatch(
+			cartActions.addToCart({
+				id,
+				title,
+				discount,
+				image,
+				quantity: 1,
+			})
+		);
+		toastMessage('Product successfully added');
 	};
 	const handleOpenWishListModal = () => {
 		dispatch(

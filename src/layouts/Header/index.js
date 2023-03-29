@@ -15,6 +15,7 @@ import Banner from './Banner';
 import Dropdown from '@components/UI/Dropdown';
 import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
+import CartBtn from '@components/Cart/CartBtn';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -128,6 +129,7 @@ const Header = () => {
 										</span>
 									)}
 								</Button>
+								<CartBtn onClick={handleCart} totalQuantity={totalQuantity}/>
 								<AnimatePresence>
 									{showCart ? (
 										<ViewCart

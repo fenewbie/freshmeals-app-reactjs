@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
@@ -9,6 +10,7 @@ import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
 import { getData } from '../services/api';
 import ScrollToTop from '@components/ScrollToTop';
+import CartBtn from '@components/Cart/CartBtn';
 
 let isInitial = true;
 
@@ -45,6 +47,14 @@ function RootLayout() {
 				<Outlet />
 			</main>
 			<ScrollToTop />
+			
+			<Toaster
+				position="top-right"
+				reverseOrder={false}
+				toastOptions={{
+					duration: 1500,
+				}}
+			/>
 			<FeatureFooter />
 			<Footer />
 		</>

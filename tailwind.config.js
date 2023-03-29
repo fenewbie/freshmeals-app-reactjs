@@ -94,11 +94,32 @@ module.exports = {
 						transform: 'translate(-120px, 0)',
 					},
 				},
+				toastEnter: {
+					'0%': {
+						opacity: 0,
+						transform: 'translateX(110%)',
+					},
+					'100%': {
+						opacity: 1,
+						transform: 'translateX(0%)',
+					},
+				},
+				toastLeave: {
+					'0%': {
+						opacity: 1,
+						transform: 'translateX(0%)',
+					},
+					'100%': {
+						opacity: 0,
+						transform: 'translateX(110%)',
+					},
+				},
 			},
 			animation: {
 				animate: 'animate 0.8s linear infinite',
 				jump: ' jump 0.8s ease-in-out infinite',
-				overlay: 'overlayApper 0.2s linear forwards',
+				toastEnter: 'toastEnter 0.5s linear forwards',
+				toastLeave: 'toastLeave 0.5s linear forwards',
 			},
 
 			fontFamily: {

@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
 
 import Title from '@components/Title';
 import ProductItem from '@features/ProductScreen/ProductItem';
 import { shuffle } from '@utils/helpers';
-import { useEffect, useState } from 'react';
 
 export default function FeatureHomePage() {
 	const { products } = useRouteLoaderData('root');
