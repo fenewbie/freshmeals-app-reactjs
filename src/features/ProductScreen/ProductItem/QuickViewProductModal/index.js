@@ -6,6 +6,8 @@ import { IoClose } from 'react-icons/io5';
 import { BsArrowLeftRight } from 'react-icons/bs';
 
 import { modalActions } from '@store/modal/modalSlice';
+import { toastMessage } from '@utils/toastMessage';
+import { cartActions } from '@store/cart/cartSlice';
 
 import WishList from './Wishlist';
 import Modal from '@components/UI/Modal';
@@ -13,8 +15,6 @@ import SocialLink from '@components/UI/SocialLink';
 import Rating from '@components/Product/Rating';
 import Button from '@components/UI/Button/index';
 import { Quantity } from '@components/Cart/Quantity';
-import { toastMessage } from '@utils/toastMessage';
-import { cartActions } from '@store/cart/cartSlice';
 
 const QuickViewProductModal = () => {
 	const product = useSelector(
@@ -51,6 +51,15 @@ const QuickViewProductModal = () => {
 		dispatch(modalActions.quickView({ status: false }));
 	};
 	const addItem = () => {
+		dispatch(
+			cartActions.addToCart({
+				id,
+				title,
+				discount,
+				image,
+				quantity: 1,
+			})
+		);
 		toastMessage('Product successfully added');
 		handleCloseModal();
 	};
