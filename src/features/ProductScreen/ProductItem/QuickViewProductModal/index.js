@@ -72,7 +72,7 @@ const QuickViewProductModal = () => {
 					<div className="lg:basis-1/2  mx-auto bg-[rgba(0,0,0,0.05)]">
 						<img
 							src={image}
-							className="w-full lg:h-full lg:max-h-[430px]  md:h-[200px] h-[150px] object-contain mx-auto"
+							className="w-[400px] lg:h-full lg:max-h-[430px]  md:h-[200px] h-[150px] object-contain mx-auto"
 							alt={title}
 						/>
 					</div>
