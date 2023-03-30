@@ -69,7 +69,7 @@ const ProductItem = ({
 		<Card
 			className={`${
 				card &&
-				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group '
+				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group mb-5'
 			} ${className}`}
 			key={id}
 		>

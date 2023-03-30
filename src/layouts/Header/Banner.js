@@ -19,7 +19,6 @@ const Banner = () => {
 		setShowArrowBtn(false);
 	};
 	useOnHoverOutside(arrowBtnRef, closeHoverArrowBtn);
-
 	return (
 		<div
 			className="relative h-[550px] w-full md:h-[550px] lg:h-[590px] flex justify-center"
@@ -34,7 +33,9 @@ const Banner = () => {
 					{(data) => (
 						<Swiper
 							loop={true}
-							onSlideChange={(e) => setRealIndex(e.realIndex)}
+							onSlideChange={(e) => {
+								setRealIndex(e.realIndex);
+							}}
 						>
 							<SliderButton
 								isNext={false}
@@ -62,7 +63,7 @@ const Banner = () => {
 								<SwiperSlide key={imgItem.id}>
 									<BannerSlideItem
 										imgItem={imgItem}
-										isActive={realIndex === index}
+										// isActive={realIndex === index}
 									/>
 								</SwiperSlide>
 							))}
