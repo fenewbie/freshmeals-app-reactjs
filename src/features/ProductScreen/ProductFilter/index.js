@@ -54,8 +54,7 @@ function ProductFilter() {
 							? `Showing ${filterResult.length} ${
 									filterResult.length < 2
 										? 'result'
-										: 'results'
-							  }`
+										: 'results'}`
 							: 'All products'}
 						{quickViewModal.status ? (
 							<QuickViewProductModal />

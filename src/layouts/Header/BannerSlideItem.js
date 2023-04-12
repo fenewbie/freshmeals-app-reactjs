@@ -1,7 +1,6 @@
-import { memo } from 'react';
 import Button from '@components/UI/Button';
 
-const BannerSlideItem = ({ imgItem, isActive }) => {
+const BannerSlideItem = ({ imgItem, isActive = true }) => {
 	return (
 		<>
 			<img
@@ -37,7 +36,9 @@ const BannerSlideItem = ({ imgItem, isActive }) => {
 					</h1>
 					<div
 						className={`opacity-0 ${
-							imgItem.id % 2 === 0 ? 'border-l-2 pl-8' : 'border-r-2 pr-8'
+							imgItem.id % 2 === 0
+								? 'border-l-2 pl-8'
+								: 'border-r-2 pr-8'
 						} border-opacity-30 
 								${
 									isActive
@@ -56,7 +57,9 @@ const BannerSlideItem = ({ imgItem, isActive }) => {
 						type="link"
 						link="/shop"
 					>
-						<span className="btn-animated-text px-8">EXPLORE PRODUCTS</span>
+						<span className="btn-animated-text px-8">
+							EXPLORE PRODUCTS
+						</span>
 					</Button>
 				</div>
 			</div>
@@ -64,4 +67,4 @@ const BannerSlideItem = ({ imgItem, isActive }) => {
 	);
 };
 
-export default memo(BannerSlideItem);
+export default BannerSlideItem;

@@ -8,8 +8,17 @@ function Random() {
 	const [promotion, setPromotion] = useState();
 
 	useEffect(() => {
-		const indexRandom = Math.floor(Math.random() * promotions.length);
-		setPromotion(promotions[indexRandom]);
+		const fetchPromotion = async () => {
+			try {
+				const pro = await promotions;
+				const indexRandom = Math.floor(Math.random() * pro.length);
+				setPromotion(pro[indexRandom]);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchPromotion();
 	}, [promotions]);
 
 	return (

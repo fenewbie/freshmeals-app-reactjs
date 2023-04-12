@@ -8,6 +8,7 @@ import locateImg from '../assets/contact/locate.png';
 import userImg from '../assets/user/user.png';
 import deniedImg from '../assets/permission_denied.png';
 import spinnerImg from '../assets/spinner.jpg';
+import add_cart from '../assets/add_cart.png';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
@@ -19,6 +20,7 @@ export const locate = locateImg;
 export const user = userImg;
 export const denied = deniedImg;
 export const spinner = spinnerImg;
+export const addCart = add_cart;
 
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },

@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { modalActions } from '@store/modal/modalSlice';
-import { cartActions } from '@store/cart/cartSlice';
-
 import { IoClose } from 'react-icons/io5';
 import { BsArrowLeftRight } from 'react-icons/bs';
+
+import { modalActions } from '@store/modal/modalSlice';
+import { toastMessage } from '@utils/toastMessage';
+import { cartActions } from '@store/cart/cartSlice';
 
 import WishList from './Wishlist';
 import Modal from '@components/UI/Modal';
@@ -27,6 +28,15 @@ const QuickViewProductModal = () => {
 	const dispatch = useDispatch();
 
 	const incrementItem = () => {
+		dispatch(
+			cartActions.addToCart({
+				id,
+				title,
+				discount,
+				image,
+				quantity: 1,
+			})
+		);
 		setQuantity(++quantity);
 	};
 
@@ -47,20 +57,10 @@ const QuickViewProductModal = () => {
 				title,
 				discount,
 				image,
-				quantity,
+				quantity: 1,
 			})
 		);
-		dispatch(
-			modalActions.successModal({
-				status: true,
-				type: 'cart',
-				dataActive: {
-					id,
-					title,
-					image,
-				},
-			})
-		);
+		toastMessage('Product successfully added');
 		handleCloseModal();
 	};
 
@@ -69,7 +69,7 @@ const QuickViewProductModal = () => {
 			handleClose={handleCloseModal}
 			className="overflow-y-auto overflow-x-hidden scroll-bar"
 		>
-			<div className="bg-white relative lg:p-8 p-7 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards] lg:w-4/5 md:w-[650px] min-[600px]:w-[500px] w-[300px]">
+			<div className="bg-white relative lg:p-8 p-7 rounded  border border-[#e8e8e8] m-auto animate-[modalAppear_300ms_ease-in-out_forwards] lg:w-4/5 w-[90%]">
 				<button
 					onClick={handleCloseModal}
 					className="absolute top-2 right-2 bg-white"
@@ -81,7 +81,7 @@ const QuickViewProductModal = () => {
 					<div className="lg:basis-1/2  mx-auto bg-[rgba(0,0,0,0.05)]">
 						<img
 							src={image}
-							className="w-full lg:h-full lg:max-h-[430px]  md:h-[200px] h-[150px] object-contain mx-auto"
+							className="w-[400px] lg:h-full lg:max-h-[430px]  md:h-[200px] h-[150px] object-contain mx-auto"
 							alt={title}
 						/>
 					</div>

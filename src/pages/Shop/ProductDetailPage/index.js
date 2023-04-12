@@ -4,7 +4,6 @@ import { getDocumentById } from '@services/api';
 
 export default function ProductDetailPage() {
 	const productById = useLoaderData();
-
 	return <ProductDetail product={productById} />;
 }
 

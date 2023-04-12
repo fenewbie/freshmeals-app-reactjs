@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
@@ -45,6 +46,14 @@ function RootLayout() {
 				<Outlet />
 			</main>
 			<ScrollToTop />
+			
+			<Toaster
+				position="top-right"
+				reverseOrder={false}
+				toastOptions={{
+					duration: 1500,
+				}}
+			/>
 			<FeatureFooter />
 			<Footer />
 		</>

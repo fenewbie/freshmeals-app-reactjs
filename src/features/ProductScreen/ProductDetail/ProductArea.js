@@ -12,7 +12,7 @@ import ProductDescTabs from './ProductDescTabs';
 import Rating from '@components/Product/Rating';
 import WishList from '../ProductItem/QuickViewProductModal/Wishlist';
 import { Quantity } from '@components/Cart/Quantity';
-import { modalActions } from '@store/modal/modalSlice';
+import { toastMessage } from '@utils/toastMessage';
 
 function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);
@@ -30,17 +30,7 @@ function ProductArea({ product }) {
 				quantity,
 			})
 		);
-		dispatch(
-			modalActions.successModal({
-				status: true,
-				type: 'cart',
-				dataActive: {
-					id,
-					title,
-					image,
-				},
-			})
-		);
+		toastMessage('Product successfully added');
 	};
 	const incrementItem = () => {
 		setQuantity(++quantity);

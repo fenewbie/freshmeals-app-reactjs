@@ -5,6 +5,7 @@ import Rating from '@components/Product/Rating';
 import Card from '@components/UI/Card';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
+import { toastMessage } from '@utils/toastMessage';
 import { cartActions } from '@store/cart/cartSlice';
 
 const ProductItem = ({
@@ -48,17 +49,7 @@ const ProductItem = ({
 				quantity: 1,
 			})
 		);
-		dispatch(
-			modalActions.successModal({
-				status: true,
-				type: 'cart',
-				dataActive: {
-					id,
-					title,
-					image,
-				},
-			})
-		);
+		toastMessage('Product successfully added');
 	};
 	const handleOpenWishListModal = () => {
 		dispatch(
@@ -78,7 +69,7 @@ const ProductItem = ({
 		<Card
 			className={`${
 				card &&
-				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group '
+				'border-2 border-zinc-100 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-300 group mb-5'
 			} ${className}`}
 			key={id}
 		>
@@ -97,14 +88,16 @@ const ProductItem = ({
 						</span>
 					)}
 
-					<img
-						src={image}
-						title="product"
-						className={
-							'absolute top-0 left-0 w-full h-full object-contain'
-						}
-						alt={title}
-					/>
+					<Link to={`/shop/${id}`}>
+						<img
+							src={image}
+							title="product"
+							className={
+								'absolute top-0 left-0 w-full h-full object-contain'
+							}
+							alt={title}
+						/>
+					</Link>
 					{card && (
 						<BtnItemModal
 							handleOpenQuickView={handleOpenQuickView}

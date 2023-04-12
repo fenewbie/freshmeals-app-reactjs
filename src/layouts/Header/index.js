@@ -15,6 +15,7 @@ import Banner from './Banner';
 import Dropdown from '@components/UI/Dropdown';
 import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
+import CartBtn from '@components/Cart/CartBtn';
 
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -102,9 +103,10 @@ const Header = () => {
 								</div>
 								<div
 									ref={dropdownRef}
-									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center"
+									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center cursor-pointer"
+									onMouseEnter={handleClose}
 								>
-									<Button onMouseOver={handleClose}>
+									<Button>
 										<BiUser />
 									</Button>
 									{showDropdown ? (
@@ -112,9 +114,7 @@ const Header = () => {
 											items={cs.userList}
 											handleClose={handleClose}
 										/>
-									) : (
-										''
-									)}
+									) : null}
 								</div>
 
 								<Button
@@ -128,6 +128,10 @@ const Header = () => {
 										</span>
 									)}
 								</Button>
+								<CartBtn
+									onClick={handleCart}
+									totalQuantity={totalQuantity}
+								/>
 								<AnimatePresence>
 									{showCart ? (
 										<ViewCart

@@ -1,11 +1,11 @@
-import { SwiperSlide, Swiper } from 'swiper/react';
+import { useRef, useState } from 'react';
 import { useRouteLoaderData } from 'react-router-dom';
+import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import BannerSlideItem from './BannerSlideItem';
 import SliderButton from '@components/UI/Slider/SliderButton';
-import { useRef, useState } from 'react';
 import SliderPagination from '@components/UI/Slider/SliderPagination';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
 
@@ -19,7 +19,6 @@ const Banner = () => {
 		setShowArrowBtn(false);
 	};
 	useOnHoverOutside(arrowBtnRef, closeHoverArrowBtn);
-
 	return (
 		<div
 			className="relative h-[550px] w-full md:h-[550px] lg:h-[590px] flex justify-center"
