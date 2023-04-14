@@ -2,9 +2,9 @@ import { useNavigate, useRouteError } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 
 import Button from '@components/UI/Button';
-import Footer from 'layouts/Footer';
+import Footer from '@layouts/Footer';
 import CommonSection from '@components/CommonSection';
-import Header from 'layouts/Header';
+import Header from '@layouts/Header';
 
 function NotFound() {
 	const error = useRouteError();
@@ -19,7 +19,7 @@ function NotFound() {
 			<div className="px-4 sm:px-8 md:px-8 lg:px-8 xl:px-8 mx-auto">
 				<div className="text-center my-20">
 					<h1 className="lg:text-[18rem] md:text-8xl text-7xl font-extrabold text-greenBtn">
-						404
+						404 
 					</h1>
 					<h2 className="lg:text-5xl md:text-2xl font-bold uppercase lg:my-10 my-6">
 						OOPS! page not found!

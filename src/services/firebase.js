@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyAfyYtxwSDryXZMEIZ8nAzCRQPNDmPH1Lw',
+	apiKey: process.env.REACT_APP_FIREBASE_KEY,
 	authDomain: 'freshmeals-reactjs.firebaseapp.com',
 	projectId: 'freshmeals-reactjs',
 	storageBucket: 'freshmeals-reactjs.appspot.com',

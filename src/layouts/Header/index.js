@@ -6,7 +6,6 @@ import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 
 import { modalActions } from '@store/modal/modalSlice';
 import { useOnHoverOutside } from '@hooks/useOnHoverOutside';
-import * as cs from '@utils/constants';
 
 import NavMobi from './NavMobi';
 import Navlink from '@components/UI/Navlink';
@@ -17,6 +16,7 @@ import SearchProducts from './Search';
 import ViewCart from '@features/CartScreen/ViewCart';
 import CartBtn from '@components/Cart/CartBtn';
 
+import * as cs from '@utils/constants';
 const Header = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
 

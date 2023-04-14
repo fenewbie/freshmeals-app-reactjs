@@ -11,34 +11,34 @@ import { auth } from '@services/firebase';
 import { saveUser } from '@store/auth/authSlice';
 
 import Loader from '@components/UI/Loader';
-import RootLayout, { loader as rootLoader } from './layouts/RootLayout';
-import ShopLayout from './layouts/ShopLayout';
-import BlogLayout from './layouts/BlogLayout';
+import RootLayout, { loader as rootLoader } from '@layouts/RootLayout';
+import ShopLayout from '@layouts/ShopLayout';
+import BlogLayout from '@layouts/BlogLayout';
 import PrivateRoute from '@components/PrivateRoute';
+import Home from '@pages/Home'
 
-import { loader as productLoader } from './pages/Shop/ProductDetailPage';
-import { loader as blogLoader } from './pages/Blog/BlogDetailPage';
+import { loader as productLoader } from '@pages/Shop/ProductDetailPage';
+import { loader as blogLoader } from '@pages/Blog/BlogDetailPage';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 
-const Home = lazy(() => import('./pages/Home'));
-const SearchProductsPage = lazy(() => import('./pages/Shop/ProductSearch'));
-const About = lazy(() => import('./pages/About'));
-const ProductDetailPage = lazy(() => import('./pages/Shop/ProductDetailPage'));
-const ProductGridPage = lazy(() => import('./pages/Shop/ProductGridPage'));
-const Contact = lazy(() => import('./pages/Contact'));
-const SearchBlogsPage = lazy(() => import('./pages/Blog/BlogSearch'));
-const BlogGridPage = lazy(() => import('./pages/Blog/BlogGridPage'));
-const BlogDetailPage = lazy(() => import('./pages/Blog/BlogDetailPage'));
-const Gallery = lazy(() => import('./pages/Gallery'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Checkout = lazy(() => import('./pages/Checkout'));
+const SearchProductsPage = lazy(() => import('@pages/Shop/ProductSearch'));
+const About = lazy(() => import('@pages/About'));
+const ProductDetailPage = lazy(() => import('@pages/Shop/ProductDetailPage'));
+const ProductGridPage = lazy(() => import('@pages/Shop/ProductGridPage'));
+const Contact = lazy(() => import('@pages/Contact'));
+const SearchBlogsPage = lazy(() => import('@pages/Blog/BlogSearch'));
+const BlogGridPage = lazy(() => import('@pages/Blog/BlogGridPage'));
+const BlogDetailPage = lazy(() => import('@pages/Blog/BlogDetailPage'));
+const Gallery = lazy(() => import('@pages/Gallery'));
+const Cart = lazy(() => import('@pages/Cart'));
+const Checkout = lazy(() => import('@pages/Checkout'));
 
-const Login = lazy(() => import('./pages/Auth/Login'));
-const Register = lazy(() => import('./pages/Auth/Register'));
-const UserProfile = lazy(() => import('./pages/UserProfile'));
+const Login = lazy(() => import('@pages/Auth/Login'));
+const Register = lazy(() => import('@pages/Auth/Register'));
+const UserProfile = lazy(() => import('@pages/UserProfile'));
 
-const ComingSoon = lazy(() => import('./pages/ComingSoon'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+const ComingSoon = lazy(() => import('@pages/ComingSoon'));
+const NotFound = lazy(() => import('@pages/NotFound'));
 
 function App() {
 	const dispatch = useDispatch();

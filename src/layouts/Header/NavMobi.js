@@ -5,7 +5,7 @@ import { MdClose } from 'react-icons/md';
 
 import Navlink from '@components/UI/Navlink';
 import SocialLink from '@components/UI/SocialLink';
-import SearchProducts from 'layouts/Header/Search';
+import SearchProducts from '@layouts/Header/Search';
 import Modal from '@components/UI/Modal';
 import * as cs from '@utils/constants';
 
