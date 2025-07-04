@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { BsSearch } from 'react-icons/bs';
 import { BiLoader } from 'react-icons/bi';
@@ -8,6 +8,15 @@ import FormikControl from './FormikControl';
 function SearchForm({ setSearchKey }) {
 	const timer = useRef();
 	const [isTyping, setIsTyping] = useState(false);
+
+	// Cleanup timer on unmount to prevent memory leaks
+	useEffect(() => {
+		return () => {
+			if (timer.current) {
+				clearTimeout(timer.current);
+			}
+		};
+	}, []);
 
 	const handleSubmit = (values) => {
 		let value = values.search.trim();

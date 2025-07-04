@@ -1,17 +1,19 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Tooltip(props) {
-	let timeout;
+	const timeout = useRef();
 	const [active, setActive] = useState(false);
 
 	const showTip = () => {
-		timeout = setTimeout(() => {
+		timeout.current = setTimeout(() => {
 			setActive(true);
 		}, props.delay || 100);
 	};
 
 	const hideTip = () => {
-		clearInterval(timeout);
+		if (timeout.current) {
+			clearTimeout(timeout.current);
+		}
 		setActive(false);
 	};
 

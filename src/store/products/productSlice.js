@@ -48,7 +48,7 @@ const productSlice = createSlice({
 			switch (action.payload) {
 				case 'food & drink':
 					state.filterProduct = state.products.filter(
-						(item) => item.category === 'food' || 'drink'
+						(item) => item.category === 'food' || item.category === 'drink'
 					);
 					break;
 				case 'vegetables':
@@ -63,12 +63,12 @@ const productSlice = createSlice({
 					break;
 				case 'bread & cake':
 					state.filterProduct = state.products.filter(
-						(item) => item.category === 'bread' || 'cake'
+						(item) => item.category === 'bread' || item.category === 'cake'
 					);
 					break;
 				case 'fish & meat':
 					state.filterProduct = state.products.filter(
-						(item) => item.category === 'fish' || 'meat'
+						(item) => item.category === 'fish' || item.category === 'meat'
 					);
 					break;
 				case 'fruits':
